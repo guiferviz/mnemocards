@@ -36,7 +36,7 @@ Run the automated tests with:
 Contributing
 ------------
 
-Please read [CONTRIBUTING.md](https://github.com/guiferviz/python_module/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](https://github.com/guiferviz/python_module/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 
 Versioning
@@ -52,13 +52,13 @@ List of main contributors:
 
 * **Guille** - [guiferviz](https://github.com/guiferviz)
 
-For a full list of contributors see [AUTHORS](https://github.com/guiferviz/python_module/AUTHORS.md).
+For a full list of contributors see [AUTHORS](https://github.com/guiferviz/python_module/blob/master/AUTHORS.md).
 
 
 License
 -------
 
-This project is licensed under the **MIT License**, see the [LICENSE](https://github.com/guiferviz/python_module/LICENSE) file for details.
+This project is licensed under the **MIT License**, see the [LICENSE](https://github.com/guiferviz/python_module/blob/master/LICENSE) file for details.
 
 
 Acknowledgments
