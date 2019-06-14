@@ -14,6 +14,7 @@ DESCRIPTION = "My module description"
 KEYWORDS = "python library code"
 AUTHOR = "guiferviz"
 LICENSE = "Copyright " + AUTHOR
+URL = "https://github.com/guiferviz/python_module"
 
 
 # Creates a __version__ variable.
@@ -30,6 +31,7 @@ setup(name=PACKAGE_NAME,
       description=DESCRIPTION,
       long_description=open("README.md").read(),
       long_description_content_type="text/markdown",
+      url=URL,
       keywords=KEYWORDS,
       author=AUTHOR,
       license=LICENSE,
