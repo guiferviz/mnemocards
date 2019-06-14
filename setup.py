@@ -13,6 +13,7 @@ PACKAGE_NAME = "mymodule"
 DESCRIPTION = "My module description"
 KEYWORDS = "python library code"
 AUTHOR = "guiferviz"
+AUTHOR_EMAIL = "guiferviz@gmail.com"
 LICENSE = "Copyright " + AUTHOR
 URL = "https://github.com/guiferviz/python_module"
 
@@ -34,6 +35,7 @@ setup(name=PACKAGE_NAME,
       url=URL,
       keywords=KEYWORDS,
       author=AUTHOR,
+      author_email=AUTHOR_EMAIL,
       license=LICENSE,
       packages=[PACKAGE_NAME],
       install_requires=REQUIREMENTS,
