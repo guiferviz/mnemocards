@@ -3,7 +3,7 @@ MyModule
 ========
 
 Sample Python module.
-Just clone this repository and change all `mymodule` to your module name.
+Just clone this repository and change all `mymodule` to your module name. Also search for `python_module` because it's used in some URLs that point to the repository.
 
 
 Getting started
@@ -24,6 +24,17 @@ Install the package in a dev environment with:
     python setup.py develop
 
 This line will automatically install all the dependencies.
+
+
+## Upload module to PyPi
+
+Generate dist files:
+
+    python setup.py sdist bdist_wheel
+
+Upload the generated files with Twine using your PyPi account:
+
+    python -m twine upload dist/*
 
 
 ## Running the tests
