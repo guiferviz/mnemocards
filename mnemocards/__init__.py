@@ -11,4 +11,7 @@ __author__ = "guiferviz"
 
 def greet():
     """Print a silly sentence. """
-    print("An algorithm implemented is worth two in pseudocode.")
+
+    print("In addition to helping you memorize, this code helps you do other "
+          "things that I don't remember")
+
