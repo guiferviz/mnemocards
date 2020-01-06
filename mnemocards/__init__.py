@@ -3,7 +3,7 @@
 MyModule sort description.
 """
 
-from mymodule._version import __version__
+from mnemocards._version import __version__
 
 
 __author__ = "guiferviz"

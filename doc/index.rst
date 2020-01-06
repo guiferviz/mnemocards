@@ -12,10 +12,10 @@ Welcome to MyModule's documentation!
 Modules
 =======
 
-mymodule
+mnemocards
 --------
 
-.. automodule:: mymodule
+.. automodule:: mnemocards
     :members:
     :undoc-members:
 

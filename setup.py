@@ -9,13 +9,13 @@ except ImportError: # for pip <= 9.0.3
     from pip.req import parse_requirements
 
 
-PACKAGE_NAME = "mymodule"
+PACKAGE_NAME = "mnemocards"
 DESCRIPTION = "My module description"
 KEYWORDS = "python library code"
 AUTHOR = "guiferviz"
 AUTHOR_EMAIL = "guiferviz@gmail.com"
 LICENSE = "Copyright " + AUTHOR
-URL = "https://github.com/guiferviz/python_module"
+URL = "https://github.com/guiferviz/mnemocards"
 
 
 # Creates a __version__ variable.

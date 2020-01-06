@@ -1,8 +1,8 @@
 
 import logging as l
 
-from mymodule._argument_parser import parse_args
-from mymodule import greet
+from mnemocards._argument_parser import parse_args
+from mnemocards import greet
 
 
 def set_logging(args):
@@ -17,7 +17,7 @@ def main():
     """Main entry point.
 
     This function is called when you execute the module
-    (for example using `mymodule` or `python -m mymodule`).
+    (for example using `mnemocards` or `python -m mnemocards`).
     """
     args = parse_args()
     set_logging(args)

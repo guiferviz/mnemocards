@@ -1,5 +1,5 @@
 
-from .context import mymodule
+from .context import mnemocards
 
 
 def test_testing_ok():

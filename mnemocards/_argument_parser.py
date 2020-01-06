@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description=r"""
 = MYMODULE =
 ============
 
-This is mymodule!
+This is mnemocards!
 
 """, formatter_class=argparse.RawTextHelpFormatter)
 

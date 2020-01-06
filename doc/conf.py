@@ -24,8 +24,8 @@ copyright = '2019, guiferviz'
 author = 'guiferviz'
 
 # Creates a __version__ variable.
-# Similar to "from mymodule import __version__" but without importing the module.
-with open("../mymodule/_version.py") as file:
+# Similar to "from mnemocards import __version__" but without importing the module.
+with open("../mnemocards/_version.py") as file:
     exec(file.read())
 # The short X.Y version
 version = ".".join(__version__.split(".")[:2])
@@ -89,7 +89,7 @@ html_theme = 'sphinx_rtd_theme'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-# html_logo = '_static/mymodule_logo.png'
+# html_logo = '_static/mnemocards_logo.png'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -153,7 +153,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'mymodule', 'MyModule Documentation',
+    (master_doc, 'mnemocards', 'MyModule Documentation',
      [author], 1)
 ]
 
