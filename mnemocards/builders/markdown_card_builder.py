@@ -2,6 +2,9 @@
 import os
 import re
 
+import genanki
+import markdown2
+
 from ..utils import get_hash_id
 
 
@@ -44,7 +47,7 @@ css = open("css/markdown_github.css").read()
 css += open("css/highlight/github.css").read()
 CARD_CSS = css
 CARD_MODEL = genanki.Model(
-    "b35641cc-0e2b-4d6d-9f3d-6da338096984",
+    get_hash_id("b35641cc-0e2b-4d6d-9f3d-6da338096984"),
     "Markdown-cards model",
     fields=[
         {"name": "Title"},
@@ -106,5 +109,6 @@ class MarkdownCardBuilder(object):
                     fields=[header, body],
                     tags=""
                 )
+                cards.append(my_note)
         return cards
 
