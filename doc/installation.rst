@@ -2,7 +2,7 @@
 Installation
 ============
 
-MyModule is very easy to install::
+Mnemocards is very easy to install::
 
     python setup.py install
 

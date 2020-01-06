@@ -1,6 +1,6 @@
-"""MyModule.
+"""Mnemocards.
 
-MyModule sort description.
+Mnemocards sort description.
 """
 
 from mnemocards._version import __version__

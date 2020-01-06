@@ -1,5 +1,5 @@
 
-Welcome to MyModule's documentation!
+Welcome to Mnemocards's documentation!
 ====================================
 
 .. toctree::
