@@ -1,80 +1,24 @@
 
-MyModule
-========
+# My Anki card generator
 
-Sample Python module.
-Just clone this repository and change all `mnemocards` to your module name. Also search for `mnemocards` because it's used in some URLs that point to the repository.
-
-
-Getting started
----------------
-
-These instructions will get you a copy of the project up and running on your local machine.
+Here you have the Python scripts I use for generating my Anki cards.
+With this scripts you can easily generate cards from TSV and Markdown files.
 
 
-### Prerequisites
+# Requirements
 
-The minimum Python version supported is version 3.
-
-
-### Install
-
-Install the package in a dev environment with:
-
-    python setup.py develop
-
-This line will automatically install all the dependencies.
+* Python 3 and all the libraries listed in `requirements.txt`.
+Install them with `pip install -r requirements.txt`.
+* If you want to generate cards from your gists you should have Git installed.
+Install it with `apt-get install git`.
+Also, in order to use the GitHub API you should have a `~/.gist` file with and API key with Gists permissions.
+* Python libraries listed in `requirements.txt`.
 
 
-## Upload module to PyPi
+# TODO
 
-Generate dist files:
+* archivo de configuración global con los repos a clonar
+    * opción de clonar todos los gist
+* escanear recursivamente todos los directorios y buscar un cards.config que contenga los packages que queremos crear, de qué ficheros salen, que templates se utilizan...
+* generar assets y paquetes en el directorio donde se encuentre el cards.config o donde lo indique la configuración global.
 
-    python setup.py sdist bdist_wheel
-
-Upload the generated files with Twine using your PyPi account:
-
-    python -m twine upload dist/*
-
-
-## Running the tests
-
-Run the automated tests with:
-
-    python -m pytest
-
-
-Contributing
-------------
-
-Please read [CONTRIBUTING.md](https://github.com/guiferviz/mnemocards/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
-
-
-Versioning
-----------
-
-We use [SemVer](http://semver.org/) for versioning.
-
-
-Authors
--------
-
-List of main contributors:
-
-* **Guille** - [guiferviz](https://github.com/guiferviz)
-
-For a full list of contributors see [AUTHORS](https://github.com/guiferviz/mnemocards/blob/master/AUTHORS.md).
-
-
-License
--------
-
-This project is licensed under the **MIT License**, see the [LICENSE](https://github.com/guiferviz/mnemocards/blob/master/LICENSE) file for details.
-
-
-Acknowledgments
----------------
-
- * Attribution to anyone whose code was used.
- * You've been inpired by...
- * Say thanks to someone.

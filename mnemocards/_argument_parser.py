@@ -1,43 +1,40 @@
 
 import argparse
+import os
 
 
-parser = argparse.ArgumentParser(description=r"""
+PROGRAM_DESCRIPTION = """
+################
+#  Mnemocards  #
+################
 
-============
-= MYMODULE =
-============
+I will help you to generate flashcards!
+Use this scripts to easily generate Anki Decks from text files.
+"""[1:]  # Remove fist \n so it looks better when used in the argsparser.
 
-This is mnemocards!
-
-""", formatter_class=argparse.RawTextHelpFormatter)
-
-#####################
-# Common arguments. #
-#####################
-parser.add_argument("-l", "--logging-level", dest="log_level", default="DEBUG",
-                    choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
-                    help="Logging level.")
-parser.add_argument("-f", "--logging-file", dest="log_file", default=None,
-                    help="Logging file. By default std out is use.")
-parser.add_argument("-m", "--logging-message", dest="log_format", default="%(message)s",
-                    help="Logging messages format. By default '%%(message)s' (only"
-                         " prints the message). Use '%%(asctime)s %%(levelname)s: %%(message)s'"
-                         " to get the time of each message. It uses the default logging module, for"
-                         " more info: https://docs.python.org/3/library/logging.html#logrecord-attributes")
-
-###############
-# Subparsers. #
-###############
-subparsers = parser.add_subparsers(dest="command")
-subparsers.required = True
-# Tabular subparser.
-tabular_parser = subparsers.add_parser("hello",
-                                       help="Execute greet function.")
-tabular_parser.add_argument("mandatory_arg",
-                            metavar="MANDATORY_ARG",
-                            help="Mandatory argument.")
+PARSER = argparse.ArgumentParser(description=PROGRAM_DESCRIPTION)
+PARSER.add_argument("data_dir", metavar="DATA_DIR",
+                    type=str,
+                    help="Directory with the configuration and text "
+                         "data to use for generating the Anki cards.")
+PARSER.add_argument("--config-file", "-f",
+                    type=str,
+                    default="cards_config.json",
+                    help="Configuration file to search in the DATA_DIR.")
+PARSER.add_argument("--recursive", "-r",
+                    help="Search recursively for configuration files "
+                         "in the given DATA_DIR.",
+                    action="store_true")
+PARSER.add_argument("--output-dir", "-o",
+                    type=str,
+                    default=".",
+                    help="Output directory where the packages are going "
+                         "to be saved")
 
 
 def parse_args():
-    return parser.parse_args()
+    args = PARSER.parse_args()
+    if not os.path.exists(args.data_dir):
+        raise Exception("Data dir does not exist")
+    return args
+

@@ -1,4 +1,7 @@
 
+# Anki card packages.
+*.apkg
+
 ##########################################
 # Generic .gitignore for Python projects #
 ##########################################

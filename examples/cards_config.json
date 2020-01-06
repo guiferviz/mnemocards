@@ -1,0 +1,22 @@
+{
+    "packages": [
+        {
+            "name": "regex",
+            "decks": [
+                {
+                    "name": "Regular Expressions",
+                    "init_time": 10,
+                    "src": [
+                        {
+                            "type": "markdown_card",
+                            "file": "regex.cards",
+                            "card_fields": {
+                                "tags": "regex"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

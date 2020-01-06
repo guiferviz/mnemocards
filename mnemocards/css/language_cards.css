@@ -1,0 +1,39 @@
+
+html {
+    padding: 20px;
+    background-color: black;
+}
+
+hr {
+    border: 2px solid white;
+}
+
+.card {
+    font-size: 1.7em;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+    background: #73AD21;
+    padding: 15px;
+    border: 5px solid white;
+    font-family: Times;
+}
+
+.origin.word {
+}
+
+.destination.word {
+    font-size: 1.2em;
+}
+
+.fonetic {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+.comment {
+    padding-top: 10px;
+    font-size: 0.6em;
+}
+
