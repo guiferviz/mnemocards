@@ -4,7 +4,8 @@ from .vocabulary_builder import VocabularyBuilder
 
 
 _BUILDERS = {
-    "markdown_card": MarkdownCardBuilder()
+    "markdown_card": MarkdownCardBuilder(),
+    "language_card": VocabularyBuilder()
 }
 
 

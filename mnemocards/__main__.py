@@ -20,8 +20,10 @@ def build_deck(data_dir, deck_config):
     cards = build_cards(data_dir, deck_config)
     # Create deck.
     deck_name = deck_config["name"]
+    deck_id = get_hash_id(deck_name)
+    print("DECK ID:", deck_id)
     deck = genanki.Deck(
-        get_hash_id(deck_name),
+        deck_id,
         deck_name)
     for c in cards:
         deck.add_note(c)
