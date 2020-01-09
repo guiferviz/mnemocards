@@ -13,7 +13,7 @@
                             "pronunciation_in_reverse": true,
                             "card_color": "#AA3333",
                             "furigana": false,
-                            "card_fields": {
+                            "card_properties": {
                                 "tags": ["japanese", "hiragana"]
                             }
                         }

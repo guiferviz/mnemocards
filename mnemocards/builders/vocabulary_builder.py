@@ -182,7 +182,7 @@ class VocabularyBuilder(object):
             show_p = "true" if src["pronunciation_in_reverse"] else ""
             for i, row in enumerate(iterator):
                 ylw, yle, lylw, lylp, lyle, card_tags = row
-                tags = src["card_fields"]["tags"]
+                tags = src["card_properties"]["tags"]
                 assert type(tags) == list
                 tags.extend(card_tags.split(","))
                 note_id = str(uuid.uuid4())
