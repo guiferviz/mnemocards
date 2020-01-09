@@ -1,0 +1,6 @@
+<<<
+# How can you match empty lines?
+---
+    ^$
+`^` match the beginning of the line and `$` match the end (but not the new line `\n` character).
+>>>

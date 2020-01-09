@@ -1,0 +1,25 @@
+{
+    "packages": [
+        {
+            "name": "japanese",
+            "decks": [
+                {
+                    "name": "Japanese",
+                    "src": [
+                        {
+                            "type": "language_card",
+                            "file": "vocabulary.tsv",
+                            "header": true,
+                            "pronunciation_in_reverse": true,
+                            "card_color": "#AA3333",
+                            "furigana": false,
+                            "card_fields": {
+                                "tags": ["japanese", "hiragana"]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
