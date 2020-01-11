@@ -4,17 +4,28 @@
             "name": "japanese",
             "decks": [
                 {
-                    "name": "Japanese",
+                    "name": "Japanese Scripts",
                     "src": [
                         {
                             "type": "language_card",
-                            "file": "vocabulary.tsv",
+                            "file": "hiragana.tsv",
                             "header": true,
-                            "pronunciation_in_reverse": true,
-                            "card_color": "#AA3333",
+                            "pronunciation_in_reverse": false,
+                            "card_color": "#33AA33",
                             "furigana": false,
                             "card_properties": {
                                 "tags": ["japanese", "hiragana"]
+                            }
+                        },
+                        {
+                            "type": "language_card",
+                            "file": "katakana.tsv",
+                            "header": true,
+                            "pronunciation_in_reverse": false,
+                            "card_color": "#33AA33",
+                            "furigana": false,
+                            "card_properties": {
+                                "tags": ["japanese", "katakana"]
                             }
                         }
                     ]
