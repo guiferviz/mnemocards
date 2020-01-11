@@ -5,10 +5,11 @@ import uuid
 
 import genanki
 
+from mnemocards import ASSETS_DIR
 from mnemocards.utils import get_hash_id
 
 
-css = open("css/vocabulary.css").read()
+css = open(f"{ASSETS_DIR}/css/vocabulary.css").read()
 CARD_MODEL = genanki.Model(
     get_hash_id("404aed54-6cdd-4397-b0d1-6af8c197f593"),
     "Vocabulary model",
@@ -181,14 +182,14 @@ class VocabularyBuilder(object):
             color = src["card_color"]
             show_p = "true" if src["pronunciation_in_reverse"] else ""
             for i, row in enumerate(iterator):
-                ylw, yle, lylw, lylp, lyle, card_tags = row
+                note_id, ylw, yle, lylw, lylp, lyle, card_tags = row
                 tags = src["card_properties"]["tags"]
+                furigana = src.get("furigana", False)
                 assert type(tags) == list
                 tags.extend(card_tags.split(","))
-                note_id = str(uuid.uuid4())
                 my_note = MyNote(
                     note_id,
-                    model=CARD_MODEL_JAPANESE if src["furigana"] else CARD_MODEL,
+                    model=CARD_MODEL_JAPANESE if furigana else CARD_MODEL,
                     fields=[
                         ylw, yle, lylw, lylp, lyle, color, show_p
                     ],

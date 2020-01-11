@@ -5,7 +5,8 @@ import re
 import genanki
 import markdown2
 
-from ..utils import get_hash_id
+from mnemocards import ASSETS_DIR
+from mnemocards.utils import get_hash_id
 
 
 ######################
@@ -43,8 +44,8 @@ CARD_REGEX_FLAGS = re.S
 #  Anki model definition  #
 ###########################
 
-css = open("css/markdown_github.css").read()
-css += open("css/highlight/github.css").read()
+css = open(f"{ASSETS_DIR}/css/markdown_github.css").read()
+css += open(f"{ASSETS_DIR}/css/highlight/github.css").read()
 CARD_CSS = css
 CARD_MODEL = genanki.Model(
     get_hash_id("b35641cc-0e2b-4d6d-9f3d-6da338096984"),
