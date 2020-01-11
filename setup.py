@@ -1,4 +1,5 @@
 
+import os
 from os import listdir
 from os.path import join
 
@@ -31,6 +32,13 @@ print("Requirements:", REQUIREMENTS)
 PACKAGES = find_packages(exclude=["tests", "tests.*"])
 print("Packages:", PACKAGES) 
 
+DATA_FOLDER = "assets"
+DATA_FILES = []
+for root, dirs, files in os.walk(DATA_FOLDER):
+    if len(files) > 0:
+        DATA_FILES.append((root, [os.path.join(root, f) for f in files]))
+print("Data:", DATA_FILES)
+
 setup(name=PACKAGE_NAME,
       version=__version__,
       description=DESCRIPTION,
@@ -48,5 +56,7 @@ setup(name=PACKAGE_NAME,
               "{} = {}.__main__:main".format(PACKAGE_NAME, PACKAGE_NAME)
           ]
       },
+      include_package_data=True,
+      data_files=DATA_FILES,
       zip_safe=False)
 
