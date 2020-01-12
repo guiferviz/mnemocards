@@ -212,7 +212,7 @@ class VocabularyBuilder(object):
                         lang = generate_audio["lang"]
                         tts = gTTS(clean_text, lang=lang)
                         tts.save(sound_file)
-                    lylp += " [sound:{hash_text}.mp3]"
+                    lylp += f" [sound:{hash_text}.mp3]"
                     media.append(sound_file)
                 # Create note.
                 note = NoteID(
