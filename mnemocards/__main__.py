@@ -10,38 +10,39 @@ from mnemocards.builders import get_builder
 
 
 def build_cards(data_dir, deck_config):
-    cards = []
+    cards, media = [], []
     for src in deck_config["src"]:
         builder = get_builder(src["type"])
-        cards += builder.build_cards(data_dir, src, deck_config)
-    return cards
+        c, m = builder.build_cards(data_dir, src, deck_config)
+        cards += c
+        media += m
+    return cards, media
 
 def build_deck(data_dir, deck_config):
-    cards = build_cards(data_dir, deck_config)
+    cards, media = build_cards(data_dir, deck_config)
     # Create deck.
     deck_name = deck_config["name"]
     deck_id = get_hash_id(deck_name)
-    print("DECK ID:", deck_id)
     deck = genanki.Deck(
         deck_id,
         deck_name)
     for c in cards:
         deck.add_note(c)
-    return deck
+    return deck, media
 
 def build_decks(data_dir, package_config):
-    decks = []
+    decks, media = [], []
     for d in package_config["decks"]:
-        deck = build_deck(data_dir, d)
+        deck, m = build_deck(data_dir, d)
         decks.append(deck)
-    return decks
+        media += m
+    return decks, media
 
 def build_package(data_dir, package_config):
-    decks = build_decks(data_dir, package_config)
+    decks, media = build_decks(data_dir, package_config)
     # Create package.
     package = genanki.Package(decks)
-    # TODO: manage assets.
-    #package.media_files = audio_files
+    package.media_files = media
     return package
 
 def build_packages(data_dir, config):
