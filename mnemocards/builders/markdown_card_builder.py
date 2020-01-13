@@ -83,13 +83,19 @@ def find_all(text):
     return re.findall(CARD_REGEX, text, CARD_REGEX_FLAGS)
 
 
+def process_math_match(match):
+    eq = match.group(1)
+    eq = re.sub("\\\\", "\\\\\\\\", eq)
+    return f"\\\\\[{eq}\\\\\\]"
+
+
 def change_mathjax_delimiters(text):
     # Inline math.
     text = re.sub("(?<![$\\\])\$([^$\\n]+?)\$", "\\\\\\(\\1\\\\\\)", text)
     # Block math.
-    text = re.sub("\$\$([^$\\n]+?)\$\$", "\\\\\\[\\1\\\\\\]", text)
+    text = re.sub("\$\$\\s*([^\$]+?)\\s*\$\$", process_math_match, text)
     # Scaped dollar$.
-    text = re.sub("\\\$", "$", text)
+    text = re.sub("\\\\\$", "$", text)
     return text
 
 
