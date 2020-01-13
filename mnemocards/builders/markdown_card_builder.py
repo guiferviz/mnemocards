@@ -93,6 +93,9 @@ def change_mathjax_delimiters(text):
     # Inline math.
     text = re.sub("(?<![$\\\])\$([^$\\n]+?)\$", "\\\\\\(\\1\\\\\\)", text)
     # Block math.
+    # FIXME: For some reason I cannot use (.+?) with re.S, it does not match
+    # multiline math blocks. The current code does not allow the use of dollars
+    # inside the math formulas.
     text = re.sub("\$\$\\s*([^\$]+?)\\s*\$\$", process_math_match, text)
     # Scaped dollar$.
     text = re.sub("\\\\\$", "$", text)
