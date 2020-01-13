@@ -1,0 +1,30 @@
+<<<
+id: 293e79da-b223-470d-bd75-18de22d1faa7
+===
+# What's the name of this fractal?
+
+<img src="media/mandelbrot.png" width="300">
+---
+Mandelbrot
+>>>
+<<<
+id: e32a8df0-a0ee-4500-a823-6f942248fd20
+tags: python
+===
+# How can you check if a file exists in Python?
+---
+```python
+import os
+
+os.path.exists(filename)
+```
+>>>
+<<<
+id: 354ec3f9-b040-4273-adc0-4ed253939429
+tags: algorithms
+===
+# What's the time complexity of binary search?
+---
+$$\mathcal{O}(n\log{}n)$$
+Where $n$ is the number of elements in the array.
+>>>

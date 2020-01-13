@@ -1,17 +1,16 @@
 {
     "packages": [
         {
-            "name": "regex",
+            "name": "cs",
             "decks": [
                 {
-                    "name": "Regular Expressions",
-                    "init_time": 10,
+                    "name": "Computer Science",
                     "src": [
                         {
                             "type": "markdown_card",
-                            "file": "regex.cards",
-                            "card_fields": {
-                                "tags": "regex"
+                            "file": "cs.cards",
+                            "card_properties": {
+                                "tags": ["computer_science"]
                             }
                         }
                     ]

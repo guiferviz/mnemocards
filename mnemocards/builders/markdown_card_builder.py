@@ -1,12 +1,14 @@
 
 import os
 import re
+import yaml
 
 import genanki
 import markdown2
 
 from mnemocards import ASSETS_DIR
 from mnemocards.utils import get_hash_id
+from mnemocards.utils import NoteID
 
 
 ######################
@@ -70,21 +72,57 @@ CARD_MODEL = genanki.Model(
     css=css,
 )
 
+#############################
+#  Markdown2 configuration  #
+#############################
+
+MARKDOWN_EXTRAS = ["cuddled-lists", "fenced-code-blocks", "code-friendly"]
+
 
 def find_all(text):
-    print(CARD_REGEX)
     return re.findall(CARD_REGEX, text, CARD_REGEX_FLAGS)
 
 
-class MyNote(genanki.Note):
+def change_mathjax_delimiters(text):
+    # Inline math.
+    text = re.sub("(?<![$\\\])\$([^$\\n]+?)\$", "\\\\\\(\\1\\\\\\)", text)
+    # Block math.
+    text = re.sub("\$\$([^$\\n]+?)\$\$", "\\\\\\[\\1\\\\\\]", text)
+    # Scaped dollar$.
+    text = re.sub("\\\$", "$", text)
+    return text
 
-    def __init__(self, note_id, **kwargs):
-        super().__init__(**kwargs)
-        self.note_id = note_id
 
-    @property
-    def guid(self):
-        return genanki.guid_for(self.note_id)
+def process_img_match(match, data_dir, media):
+    img = match.group(0)
+    url = match.group(1)
+    filename = os.path.join(data_dir, url)
+    if not os.path.exists(filename):
+        print(f"Image not found '{url}'")
+        return img
+    else:
+        media.append(filename)
+        start = match.start(1) - match.start(0)
+        end = match.end(1) - match.end(0)
+        basename = os.path.basename(filename)
+        return img[:start] + basename + img[end:]
+
+
+def search_media(text, data_dir, src):
+    media = []
+    #imgs = re.findall("<img +src *= *[\"'](.+?)[\"'].*?>", text)
+    IMG_PATTERN = "<img +src *= *[\"'](.+?)[\"'].*?>"
+    text = re.sub(IMG_PATTERN,
+                  lambda match: process_img_match(match, data_dir, media),
+                  text)
+    return text, media
+
+
+def generate_html(text, data_dir, src):
+    text = change_mathjax_delimiters(text)
+    text, media = search_media(text, data_dir, src)
+    text = markdown2.markdown(text, extras=MARKDOWN_EXTRAS)
+    return text, media
 
 
 class MarkdownCardBuilder(object):
@@ -93,23 +131,36 @@ class MarkdownCardBuilder(object):
         pass
 
     def build_cards(self, data_dir, src, deck_config):
-        cards = []
+        cards, media = [], []
+        # Read config.
+        card_properties = src.get("card_properties", None)
+        tags = []
+        if card_properties is not None:
+            tags = card_properties.get("tags", [])
+        # Read markdown file.
         filename = os.path.join(data_dir, src["file"])
         with open(filename) as file:
             text = file.read()
             cards_txt = find_all(text)
+            # For each card find in the text...
             for metadata, header, body in cards_txt:
-                header = markdown2.markdown(header,
-                                            extras=["fenced-code-blocks"])
-                body = markdown2.markdown(body,
-                                          extras=["fenced-code-blocks"])
-                note_id = get_hash_id(header)
-                my_note = MyNote(
+                metadata = yaml.safe_load(metadata)
+                # If metadata is empty we use a default value.
+                if metadata is None:
+                    metadata = {}
+                note_tags = tags.copy()
+                note_tags.extend(metadata.get("tags", "").split(","))
+                header, m = generate_html(header, data_dir, src)
+                media.extend(m)
+                body, m = generate_html(body, data_dir, src)
+                media.extend(m)
+                note_id = metadata.get("id", get_hash_id(header))
+                my_note = NoteID(
                     note_id,
                     model=CARD_MODEL,
                     fields=[header, body],
-                    tags=""
+                    tags=note_tags
                 )
                 cards.append(my_note)
-        return cards
+        return cards, media
 
