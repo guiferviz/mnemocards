@@ -227,11 +227,12 @@ class VocabularyBuilder(object):
         # Remove unused audio files.
         # FIXME: if you reuse the same media folder for another vocabulary
         # builder you are going to delete media files from the other cards...
-        all_audio_files = glob.glob(f"{media_dir}/*.mp3")
-        unused_audio_files = set(all_audio_files) - set(media)
-        for i in unused_audio_files:
-            print(f"Removing unused audio file {i}")
-            os.remove(i)
+        if generate_audio is not None:
+            all_audio_files = glob.glob(f"{media_dir}/*.mp3")
+            unused_audio_files = set(all_audio_files) - set(media)
+            for i in unused_audio_files:
+                print(f"Removing unused audio file {i}")
+                os.remove(i)
 
         return notes, media
 
