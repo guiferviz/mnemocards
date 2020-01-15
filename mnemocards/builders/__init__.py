@@ -1,11 +1,13 @@
 
-from .markdown_card_builder import MarkdownCardBuilder
-from .vocabulary_builder import VocabularyBuilder
+from mnemocards.builders.markdown_card_builder import MarkdownCardBuilder
+from mnemocards.builders.vocabulary_builder import VocabularyBuilder
+from mnemocards.builders.expression_builder import ExpressionBuilder
 
 
 _BUILDERS = {
     "markdown_card": MarkdownCardBuilder(),
-    "language_card": VocabularyBuilder()
+    "language_card": VocabularyBuilder(),
+    "expressions_card": ExpressionBuilder(),
 }
 
 
