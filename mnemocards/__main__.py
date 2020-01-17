@@ -4,6 +4,7 @@ import os
 
 import genanki
 
+from mnemocards import greet
 from mnemocards._argument_parser import parse_args
 from mnemocards.utils import get_hash_id
 from mnemocards.builders import get_builder
@@ -78,10 +79,30 @@ def save_packages(packages, output_dir):
         filename = os.path.join(output_dir, f"{name}.apkg")
         p.write_to_file(filename)
 
-def main():
-    args = parse_args()
+def generate(args):
+    if not os.path.exists(args.data_dir):
+        raise Exception("Data dir does not exist")
     packages = build(args)
     save_packages(packages, args.output_dir)
+
+
+def main():
+    args = parse_args()
+
+    if args.command == "generate":
+        generate(args)
+    elif args.command == "import":
+        print("Import!!")
+    elif args.command == "push":
+        print("Push!!")
+    elif args.command == "clone":
+        print("Clone!!")
+    elif args.command == "gists":
+        print("Gists!!")
+    elif args.command == "clean":
+        print("Clean!!")
+    elif args.command == "hi":
+        greet()
 
 
 if __name__ == "__main__":
