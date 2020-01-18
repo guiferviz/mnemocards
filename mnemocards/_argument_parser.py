@@ -34,13 +34,41 @@ SUBPARSERS.required = True
 # Gist command.
 help_txt = """
 Use the GitHub API to get your list of gists.
-The list of gists (using the `ssh` protocol) is stored in the global configuration file.
+The list of gists (using the `ssh` protocol) is stored in the global configuration file (~/.mnemocards).
 Once this command is executed successfully, you can run the `clone` command to truly clone them.
 
 This is very useful if you want to store all your cards in your gists.
 If you do not like this approach, you can always write manually the list of repositories to clone.
 """
 GIS_PARSER = SUBPARSERS.add_parser("gists", help=help_txt)
+help_txt = """
+File with the GitHub API key to use in order to get the list of gists.
+The default API key file is `~/.gh_gist_key`.
+We recommend you to get an API key only with the *read gist* permission.
+"""
+GIS_PARSER.add_argument("--api-key", "-k",
+                        type=str,
+                        default="~/.gh_gist_key",
+                        help=help_txt)
+help_txt = """
+If the name of the gist match this pattern, the gist is going to be added to the list.
+If not, the gist is going to be ignored.
+Write any regular expression you want.
+
+The include pattern is checked first, the exclude patter is applied later.
+"""
+GIS_PARSER.add_argument("--include", "-i",
+                        type=str,
+                        help=help_txt)
+help_txt = """
+If the name of the gist match this pattern, the gist is going to be ignored.
+Write any regular expression you want.
+
+The include pattern is checked first, the exclude patter is applied later.
+"""
+GIS_PARSER.add_argument("--exclude", "-e",
+                        type=str,
+                        help=help_txt)
 # Clone command.
 help_txt = """
 Reads the global configuration file and search for a list of repositories to clone.

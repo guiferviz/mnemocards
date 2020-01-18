@@ -1,6 +1,7 @@
 
 from mnemocards import greet
 from mnemocards._argument_parser import parse_args
+from mnemocards.gists import gists
 
 
 def main():
@@ -15,7 +16,7 @@ def main():
     elif args.command == "clone":
         print("Clone!!")
     elif args.command == "gists":
-        print("Gists!!")
+        gists(args.api_key, args.include, args.exclude)
     elif args.command == "clean":
         print("Clean!!")
     elif args.command == "hi":
