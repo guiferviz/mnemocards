@@ -16,7 +16,7 @@ def main():
     elif args.command == "clone":
         print("Clone!!")
     elif args.command == "gists":
-        gists(args.api_key, args.include, args.exclude)
+        gists(args.api_key, args.dir, args.include, args.exclude)
     elif args.command == "clean":
         print("Clean!!")
     elif args.command == "hi":

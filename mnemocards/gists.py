@@ -29,7 +29,7 @@ def clone_pull_all(github):
         else:
             clone(url, gist_path)
 
-def list_gists(github, i_patter, e_patter):
+def list_gists(github, gists_dir, i_patter, e_patter):
     repos = []
     re_include = re.compile(i_patter) if i_patter is not None else None
     re_exclude = re.compile(e_patter) if e_patter is not None else None
@@ -49,9 +49,11 @@ def list_gists(github, i_patter, e_patter):
             print("+ Including:", gist.description)
             # Generate ssh url.
             url = f"git@gist.github.com:{gist.id}.git"
+            # Create path.
+            path = os.path.expanduser(os.path.join(gists_dir, name))
             # Add the url and the name.
             # We will use that name later to clone on a folder of that name.
-            repos.append([url, name])
+            repos.append([url, path])
         else:
             print("- Excluding:", gist.description)
     return repos
@@ -61,10 +63,10 @@ def read_key(filename):
     with open(filename) as file:
         return file.read().strip()
 
-def gists(api_key_file, include_patter, exclude_patter):
+def gists(api_key_file, gists_dir, include_patter, exclude_patter):
     key = read_key(api_key_file)
     g = Github(key)
     conf = read_config()
-    conf["repos"] = list_gists(g, include_patter, exclude_patter)
+    conf["repos"] = list_gists(g, gists_dir, include_patter, exclude_patter)
     write_config(conf)
 

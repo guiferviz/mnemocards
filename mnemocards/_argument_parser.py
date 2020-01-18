@@ -51,6 +51,13 @@ GIS_PARSER.add_argument("--api-key", "-k",
                         default="~/.gh_gist_key",
                         help=help_txt)
 help_txt = """
+Parent directory where your gists will be cloned.
+"""
+GIS_PARSER.add_argument("--dir", "-d",
+                        type=str,
+                        default=".",
+                        help=help_txt)
+help_txt = """
 If the name of the gist match this pattern, the gist is going to be added to the list.
 If not, the gist is going to be ignored.
 Write any regular expression you want.
