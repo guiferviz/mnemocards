@@ -33,17 +33,22 @@ SUBPARSERS = PARSER.add_subparsers(dest="command")
 SUBPARSERS.required = True
 # Gist command.
 help_txt = """
-Use the GitHub API to get your list of gists.
-The list of gists (using the `ssh` protocol) is stored in the global configuration file (~/.mnemocards).
-Be aware that this command will overwrite your repos list in the configuration file.
-Once this command is executed successfully, you can run the `pull` command to truly clone them.
+Use the GitHub API to get your list of repositories or gists.
+The list of repos or gists (using the `ssh` protocol) is stored in the global
+configuration file (~/.mnemocards).
+Be aware that this command will overwrite your repos list in the configuration
+file.
+Once this command is executed successfully, you can run the `pull` command to
+truly clone them.
 
-This is very useful if you want to store all your cards in your gists.
-If you do not like this approach, you can always write manually the list of repositories to clone.
+This is very useful if you want to store all your cards in a series of gists
+or normal GitHub repositories.
+If you do not want to get your list automatically, you can always write
+manually the list of repositories to clone in the configuration file.
 """
-GIS_PARSER = SUBPARSERS.add_parser("gists", help=help_txt)
+GIS_PARSER = SUBPARSERS.add_parser("github", help=help_txt)
 help_txt = """
-File with the GitHub API key to use in order to get the list of gists.
+File with the GitHub API key to use in order to get the list of repos/gists.
 The default API key file is `~/.gh_gist_key`.
 We recommend you to get an API key only with the *read gist* permission.
 """
@@ -52,16 +57,26 @@ GIS_PARSER.add_argument("--api-key", "-k",
                         default="~/.gh_gist_key",
                         help=help_txt)
 help_txt = """
-Parent directory where your gists will be cloned.
+Parent directory where your repos will be cloned.
 """
 GIS_PARSER.add_argument("--dir", "-d",
                         type=str,
                         default=".",
                         help=help_txt)
 help_txt = """
-If the name of the gist match this pattern, the gist is going to be added to the list.
-If not, the gist is going to be ignored.
+If the name of the repo match this pattern, the repo is going to be added to
+the list.
+If not, the repo is going to be ignored.
 Write any regular expression you want.
+You can also use one capturing group `()` inside of the regex to extract that
+part of the name and use it as a clone directory.
+Ex: use `mnemocards github -i "guiferviz/cards_([^ _]*)"` to match only
+repositories from your user `guiferviz` that start with `cards_`.
+The letters following that prefix will be used to clone the repository into a
+folder with that name.
+If you have a repo called `guiferviz/cards_programming`, that repo is going to
+be cloned in `./programming`.
+Instead of `.` you can use any other directory with the option: `-d`.
 
 The include pattern is checked first, the exclude patter is applied later.
 """
@@ -69,13 +84,21 @@ GIS_PARSER.add_argument("--include", "-i",
                         type=str,
                         help=help_txt)
 help_txt = """
-If the name of the gist match this pattern, the gist is going to be ignored.
+If the name of the repo match this pattern, the repo is going to be ignored.
 Write any regular expression you want.
 
 The include pattern is checked first, the exclude patter is applied later.
 """
 GIS_PARSER.add_argument("--exclude", "-e",
                         type=str,
+                        help=help_txt)
+help_txt = """
+Instead of getting the list of all your repos, get the list of all your gists.
+Note that now the include and exclude patters are applied to the gist
+description.
+"""
+GIS_PARSER.add_argument("--gists", "-g",
+                        action="store_true",
                         help=help_txt)
 # Clone command.
 help_txt = """
