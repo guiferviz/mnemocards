@@ -50,7 +50,8 @@ GIS_PARSER = SUBPARSERS.add_parser("github", help=help_txt)
 help_txt = """
 File with the GitHub API key to use in order to get the list of repos/gists.
 The default API key file is `~/.gh_gist_key`.
-We recommend you to get an API key only with the *read gist* permission.
+We recommend you to get an API key with the minimum permissions (gist or
+repo permission, depends on what do you want to use).
 """
 GIS_PARSER.add_argument("--api-key", "-k",
                         type=str,
