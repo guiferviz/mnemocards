@@ -1,5 +1,5 @@
 
-# My Anki card generator
+<img src="logo.png" width="200">
 
 Here you have the Python scripts I use for generating my Anki cards.
 With this scripts you can easily generate cards from TSV and Markdown files.
