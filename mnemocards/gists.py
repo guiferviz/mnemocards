@@ -8,27 +8,6 @@ from github import Github
 from mnemocards.utils import read_config, write_config
 
 
-def clone(git_url, gist_path):
-    os.system(f"git clone {git_url} {gist_path}")
-
-def pull(gist_path):
-    os.system(f"cd {gist_path} && git pull")
-
-def clone_pull_all(github):
-    no_letters = re.compile("[^a-z]")
-    tags = re.compile("#.*")
-    for gist in github.get_user().get_gists():
-        name = gist.description.lower()
-        name = tags.sub("", name)
-        name = no_letters.sub("_", name.strip())
-        print("-----", name, "-----")
-        gist_path = os.path.expanduser(f"{GISTS_DIR}/{name}")
-        url = f"git@gist.github.com:{gist.id}.git"
-        if os.path.exists(gist_path):
-            pull(gist_path)
-        else:
-            clone(url, gist_path)
-
 def list_gists(github, gists_dir, i_patter, e_patter):
     repos = []
     re_include = re.compile(i_patter) if i_patter is not None else None
@@ -50,7 +29,7 @@ def list_gists(github, gists_dir, i_patter, e_patter):
             # Generate ssh url.
             url = f"git@gist.github.com:{gist.id}.git"
             # Create path.
-            path = os.path.expanduser(os.path.join(gists_dir, name))
+            path = os.path.abspath(os.path.join(gists_dir, name))
             # Add the url and the name.
             # We will use that name later to clone on a folder of that name.
             repos.append([url, path])

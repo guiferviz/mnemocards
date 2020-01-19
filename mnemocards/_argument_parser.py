@@ -35,7 +35,8 @@ SUBPARSERS.required = True
 help_txt = """
 Use the GitHub API to get your list of gists.
 The list of gists (using the `ssh` protocol) is stored in the global configuration file (~/.mnemocards).
-Once this command is executed successfully, you can run the `clone` command to truly clone them.
+Be aware that this command will overwrite your repos list in the configuration file.
+Once this command is executed successfully, you can run the `pull` command to truly clone them.
 
 This is very useful if you want to store all your cards in your gists.
 If you do not like this approach, you can always write manually the list of repositories to clone.
@@ -78,11 +79,11 @@ GIS_PARSER.add_argument("--exclude", "-e",
                         help=help_txt)
 # Clone command.
 help_txt = """
-Reads the global configuration file and search for a list of repositories to clone.
+Reads the global configuration file and search for a list of repositories to clone or pull.
 
 This method launch git commands to the shell, so use `ssh` protocol in the URLs in order to avoid using passwords.
 """
-CLO_PARSER = SUBPARSERS.add_parser("clone", help=help_txt)
+CLO_PARSER = SUBPARSERS.add_parser("pull", help=help_txt)
 # Push command.
 help_txt = """
 Add, commit and upload all the local changes in all the repositories in your global configuration.

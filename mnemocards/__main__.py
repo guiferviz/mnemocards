@@ -3,6 +3,7 @@ from mnemocards import greet
 from mnemocards._argument_parser import parse_args
 from mnemocards.gists import gists
 from mnemocards.generate import generate
+from mnemocards.pull import pull
 
 
 def main():
@@ -14,8 +15,8 @@ def main():
         print("Import!!")
     elif args.command == "push":
         print("Push!!")
-    elif args.command == "clone":
-        print("Clone!!")
+    elif args.command == "pull":
+        pull()
     elif args.command == "gists":
         gists(args.api_key, args.dir, args.include, args.exclude)
     elif args.command == "clean":
