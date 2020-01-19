@@ -2,6 +2,7 @@
 from mnemocards import greet
 from mnemocards._argument_parser import parse_args
 from mnemocards.gists import gists
+from mnemocards.generate import generate
 
 
 def main():
