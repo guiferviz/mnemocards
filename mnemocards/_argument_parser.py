@@ -148,16 +148,17 @@ You can import any apkg, they don't necessarily have to be generated with mnemoc
 IMP_PARSER = SUBPARSERS.add_parser("import", help=help_txt)
 help_txt = """
 If your collection is in the default location (`~/.local/share/Anki2/`) you can specify only the profile name.
-You cannot use this option as the same time as `-p`.
+You cannot use this option as the same time as `-c`.
 """
-IMP_PARSER.add_argument("--profile-name", "-n",
+IMP_PARSER.add_argument("--profile-name", "-p",
                         type=str,
                         help=help_txt)
 help_txt = """
 Specify the full path of the collection file.
-You cannot use this option as the same time as `-n`.
+If you use this option with `-n` (profile name), the profile name has
+preference over the full collection path.
 """
-IMP_PARSER.add_argument("--collection-path", "-p",
+IMP_PARSER.add_argument("--collection-path", "-c",
                         type=str,
                         help=help_txt)
 help_txt = """
@@ -180,8 +181,23 @@ If there is any card with a lower timestamp it means that that it was not import
 So this command deletes all those cards that are in the collection but were not imported.
 """
 CLE_PARSER = SUBPARSERS.add_parser("clean", help=help_txt)
+help_txt = """
+If your collection is in the default location (`~/.local/share/Anki2/`) you can specify only the profile name.
+You cannot use this option as the same time as `-c`.
+"""
+CLE_PARSER.add_argument("--profile-name", "-p",
+                        type=str,
+                        help=help_txt)
+help_txt = """
+Specify the full path of the collection file.
+If you use this option with `-n` (profile name), the profile name has
+preference over the full collection path.
+"""
+CLE_PARSER.add_argument("--collection-path", "-c",
+                        type=str,
+                        help=help_txt)
 # Hi command. Easter egg :)
-PUS_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
+EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 
 
 def parse_args():

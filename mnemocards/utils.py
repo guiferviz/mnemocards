@@ -44,3 +44,12 @@ def write_config(data):
     with open(filename, "w") as file:
         json.dump(data, file, indent=4)
 
+def create_check_collection_path(collection_path, profile):
+    if profile is not None:
+        collection_path = f"~/.local/share/Anki2/{profile}/collection.anki2"
+        collection_path = os.path.expanduser(collection_path)
+    # collection_path must have value here.
+    if not os.path.exists(collection_path):
+        raise Exception(f"Collection '{collection_path}' does not exist")
+    return collection_path
+
