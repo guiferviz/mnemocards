@@ -5,6 +5,11 @@
             "decks": [
                 {
                     "name": "Japanese Scripts",
+                    "config": {
+                        "new": {
+                            "perDay": 5
+                        }
+                    },
                     "src": [
                         {
                             "type": "language_card",
