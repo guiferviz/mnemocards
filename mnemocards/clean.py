@@ -20,7 +20,7 @@ QUERY = """
         group by did
     ) d
     on d.did = c.did
-    where n.mod < d.mod + 5
+    where n.mod < d.mod - 5
 """  # I use a 5 seconds margin here.
 
 
