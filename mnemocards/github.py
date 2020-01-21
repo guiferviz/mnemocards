@@ -29,8 +29,7 @@ def prepare_list(gh_repos, clone_dir, i_patter, e_patter, gists):
         if add:
             # Choose a local folder in which the repos are going to be cloned
             # and add the repo to the final list.
-            # Get the first word in lowercase.
-            name_processed = name_processed.lower().split()[0]
+            name_processed = name_processed.lower()
             # Remove any non-alphanumeric character.
             name_processed = no_alphanum.sub("_", name_processed)
             # Create path.
