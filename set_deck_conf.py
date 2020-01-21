@@ -12,7 +12,8 @@ from anki.decks import DeckManager
 
 print(json.dumps(DEFAULT_CONF))
 conf = DEFAULT_CONF.copy()
-conf["new"]["initialFactor"] = 3500
+conf["id"] = "75aef335-c5f9-4156-91ff-d1d2782c0c19"
+conf["new"]["initialFactor"] = 4500
 conf_name = "MyConf"
 conf["name"] = conf_name
 deck_name = "English"
@@ -25,23 +26,21 @@ col = Collection(collection_path)
 # Create or update config.
 dm = col.decks
 all_conf = dm.allConf()
-conf_id = None
+update = False
 for c in all_conf:
-    if conf["name"] == c["name"]:
-        conf_id = c["id"]
-if conf_id is not None:
-    conf["id"] = conf_id
-    dm.updateConf(conf)
-    print("Updating existing conf:", conf_id)
+    if conf["id"] == c["id"]:
+        update = True
+if update:
+    print("Updating existing conf:", conf["id"])
 else:
-    conf_id = dm.confId(conf_name, conf)
-    print("New conf added:", conf_id)
+    print("New conf added:", conf["id"])
+dm.updateConf(conf)
 
 # Set conf_id as conf of the given deck.
 all_decks = dm.all()
 for d in all_decks:
     if d["name"] == deck_name:
-        dm.setConf(d, conf_id)
+        dm.setConf(d, conf["id"])
         print("Updating deck to use conf")
 
 col.close()
