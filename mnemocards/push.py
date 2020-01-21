@@ -13,8 +13,8 @@ def commit_and_push_repo(gist_path):
 
 
 def commit_and_push_all(repos):
-    for repo in repos:
-        clone_or_pull(repo)
+    for repo, path in repos:
+        commit_and_push_repo(path)
 
 
 def push():
