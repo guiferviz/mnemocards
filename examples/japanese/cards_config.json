@@ -6,6 +6,8 @@
                 {
                     "name": "Japanese Scripts",
                     "config": {
+                        "id": "0a554eb8-0796-461a-8a21-dd90dea399f3",
+                        "name": "Japanese Scripts Conf",
                         "new": {
                             "perDay": 5
                         }

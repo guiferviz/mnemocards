@@ -5,6 +5,7 @@ import os
 import genanki
 
 from mnemocards.utils import get_hash_id
+from mnemocards.utils import updater
 from mnemocards.builders import get_builder
 
 
@@ -18,14 +19,24 @@ def build_cards(data_dir, deck_config):
     return cards, media
 
 
+def build_deck_conf(deck_config):
+    conf_dict = deck_config.get("config")
+    if conf_dict is not None:
+        conf = genanki.DeckConf(conf_dict["id"], conf_dict["name"])
+        conf.conf = updater(conf.conf, conf_dict)
+        return conf
+
+
 def build_deck(data_dir, deck_config):
     cards, media = build_cards(data_dir, deck_config)
     # Create deck.
     deck_name = deck_config["name"]
-    deck_id = get_hash_id(deck_name)
+    deck_id = deck_config.get("id", get_hash_id(deck_name))
+    conf = build_deck_conf(deck_config)
     deck = genanki.Deck(
         deck_id,
-        deck_name)
+        deck_name,
+        conf=conf)
     for c in cards:
         deck.add_note(c)
     return deck, media
