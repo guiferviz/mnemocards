@@ -5,13 +5,13 @@
 #    pip-compile
 #
 beautifulsoup4==4.8.2     # via gtts
-cached-property==1.5.1    # via genanki
+cached-property==1.5.1
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via requests
 click==7.0                # via gtts
 deprecated==1.2.7         # via pygithub
-frozendict==1.2           # via genanki
-genanki==0.8.0
+frozendict==1.2
+git+git://github.com/guiferviz/genanki@feature-deck-conf
 gtts-token==1.1.3         # via gtts
 gtts==2.1.0
 idna==2.8                 # via requests
@@ -20,8 +20,8 @@ markdown2==2.3.8
 pygithub==1.45
 pygments==2.5.2
 pyjwt==1.7.1              # via pygithub
-pystache==0.5.4           # via genanki
-pyyaml==5.3               # via genanki
+pystache==0.5.4
+pyyaml==5.3
 requests==2.22.0          # via gtts, gtts-token, pygithub
 six==1.13.0               # via gtts, pygithub
 soupsieve==1.9.5          # via beautifulsoup4

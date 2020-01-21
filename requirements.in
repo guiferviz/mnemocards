@@ -1,4 +1,4 @@
-genanki
+git+git://github.com/guiferviz/genanki@feature-deck-conf
 gTTS
 iso-639
 pygithub
