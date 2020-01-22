@@ -1,0 +1,23 @@
+{
+    "packages": [
+        {
+            "name": "english",
+            "decks": [
+                {
+                    "name": "English",
+                    "src": [
+                        {
+                            "type": "expressions_card",
+                            "file": "expressions.tsv",
+                            "header": true,
+                            "card_color": "#AA3333",
+                            "card_properties": {
+                                "tags": ["english", "expressions"]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
