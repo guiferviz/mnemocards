@@ -1,7 +1,7 @@
 
 <img src="doc/_static/images/logo.png" width="200">
 
-<a href="https://mnemocards.readthedocs.io/en/latest/" target="_blank">
+<a href="https://mnemocards.readthedocs.io/en/latest/">
     <img src="https://readthedocs.org/projects/mnemocards/badge">
 </a>
 
