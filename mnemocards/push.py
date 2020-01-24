@@ -9,7 +9,7 @@ COMMIT_MESSAGE = "Updating repository with mnemocards."
 
 def commit_and_push_repo(gist_path):
     os.system(f'cd {gist_path} && git add . && '
-               'git commit -m "{COMMIT_MESSAGE}" && git push origin master')
+              f'git commit -m "{COMMIT_MESSAGE}" && git push origin master')
 
 
 def commit_and_push_all(repos):
