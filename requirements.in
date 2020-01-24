@@ -1,9 +1,19 @@
 # My own version of genanki with support to deck configurations.
 git+git://github.com/guiferviz/genanki@feature-deck-conf
+
 gTTS
 iso-639
 pygithub
 markdown2
 Pygments
-# Anki dependency, it's not included by default in all the Python versions.
+
+# Anki dependencies.
 decorator
+beautifulsoup4
+requests
+protobuf
+psutil; sys_platform == "win32"
+distro; sys_platform != "darwin" and sys_platform != "win32"
+# Anki dependency not included in their setup.py...
+# Of course asking for a requirements.txt is too much......
+pyaudio

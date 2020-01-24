@@ -4,13 +4,14 @@
 #
 #    pip-compile
 #
-beautifulsoup4==4.8.2     # via gtts
+beautifulsoup4==4.8.2
 cached-property==1.5.1
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via requests
 click==7.0                # via gtts
 decorator==4.4.1
 deprecated==1.2.7         # via pygithub
+distro==1.4.0 ; sys_platform != "darwin" and sys_platform != "win32"
 frozendict==1.2
 git+git://github.com/guiferviz/genanki@feature-deck-conf
 gtts-token==1.1.3         # via gtts
@@ -18,13 +19,18 @@ gtts==2.1.0
 idna==2.8                 # via requests
 iso-639==0.4.5
 markdown2==2.3.8
+protobuf==3.11.2
+pyaudio==0.2.11
 pygithub==1.45
 pygments==2.5.2
 pyjwt==1.7.1              # via pygithub
 pystache==0.5.4
 pyyaml==5.3
-requests==2.22.0          # via gtts, gtts-token, pygithub
-six==1.14.0               # via gtts, pygithub
+requests==2.22.0
+six==1.14.0               # via gtts, protobuf, pygithub
 soupsieve==1.9.5          # via beautifulsoup4
 urllib3==1.25.8           # via requests
 wrapt==1.11.2             # via deprecated
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

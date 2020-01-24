@@ -1,7 +1,6 @@
 
 import os
 from os import listdir
-from os.path import join
 
 from setuptools import setup, find_packages
 try: # for pip >= 10
@@ -20,13 +19,20 @@ URL = "https://github.com/guiferviz/mnemocards"
 
 
 # Creates a __version__ variable.
-with open(PACKAGE_NAME + "/_version.py") as file:
+with open(os.path.join(PACKAGE_NAME, "_version.py")) as file:
     exec(file.read())
 
 # Read requirements.
 req = parse_requirements("requirements.txt", session="hack")
-REQUIREMENTS = [str(ir.req) for ir in req]
+REQUIREMENTS = []#[str(ir.req) for ir in req]
+DEPENDENCY_LINKS = []
+for i in req:
+    if i.req is not None:
+        REQUIREMENTS.append(str(i.req))
+    else:
+        DEPENDENCY_LINKS.append(str(i.link))
 print("Requirements:", REQUIREMENTS)
+print("Dependency links:", DEPENDENCY_LINKS)
 
 # Install all packages in the current dir except tests.
 PACKAGES = find_packages(exclude=["tests", "tests.*"])
@@ -51,6 +57,7 @@ setup(name=PACKAGE_NAME,
       license=LICENSE,
       packages=PACKAGES,
       install_requires=REQUIREMENTS,
+      dependency_links=DEPENDENCY_LINKS,
       entry_points={
           "console_scripts": [
               "{} = {}.__main__:main".format(PACKAGE_NAME, PACKAGE_NAME)
