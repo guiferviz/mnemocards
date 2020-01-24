@@ -1,7 +1,9 @@
 
 <img src="doc/_static/images/logo.png" width="200">
 
-[![Read the Docs](https://readthedocs.org/projects/mnemocards/badge)](https://mnemocards.readthedocs.io/en/latest/)
+<a href="https://mnemocards.readthedocs.io/en/latest/" target="_blank">
+    <img src="https://readthedocs.org/projects/mnemocards/badge">
+</a>
 
 Generate Anki cards from text files (TSV and Markdown).
 
