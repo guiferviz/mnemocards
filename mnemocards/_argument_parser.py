@@ -49,13 +49,13 @@ manually the list of repositories to clone in the configuration file.
 GIS_PARSER = SUBPARSERS.add_parser("github", help=help_txt)
 help_txt = """
 File with the GitHub API key to use in order to get the list of repos/gists.
-The default API key file is `~/.gh_gist_key`.
+The default API key file is `~/.gh_key`.
 We recommend you to get an API key with the minimum permissions (gist or
 repo permission, depends on what do you want to use).
 """
 GIS_PARSER.add_argument("--api-key", "-k",
                         type=str,
-                        default="~/.gh_gist_key",
+                        default="~/.gh_key",
                         help=help_txt)
 help_txt = """
 Parent directory where your repos will be cloned.
