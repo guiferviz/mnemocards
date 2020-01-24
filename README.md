@@ -1,6 +1,8 @@
 
 <img src="doc/_static/images/logo.png" width="200">
 
+<img src="https://readthedocs.org/projects/mnemocards/badge/?version=latest&style=flat">
+
 Generate Anki cards from text files (TSV and Markdown).
 
 Text files are easily maintainable, `apkg` files are not.

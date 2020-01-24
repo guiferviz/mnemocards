@@ -1,0 +1,2 @@
+# This file is here to avoid ReadTheDocs to install the requirements.
+# ReadTheDocs cannot compile pyaudio and gives a build error.
