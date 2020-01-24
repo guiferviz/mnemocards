@@ -1,6 +1,9 @@
+# My own version of genanki with support to deck configurations.
 git+git://github.com/guiferviz/genanki@feature-deck-conf
 gTTS
 iso-639
 pygithub
 markdown2
 Pygments
+# Anki dependency, it's not included by default in all the Python versions.
+decorator

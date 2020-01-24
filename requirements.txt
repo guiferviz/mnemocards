@@ -9,6 +9,7 @@ cached-property==1.5.1
 certifi==2019.11.28       # via requests
 chardet==3.0.4            # via requests
 click==7.0                # via gtts
+decorator==4.4.1
 deprecated==1.2.7         # via pygithub
 frozendict==1.2
 git+git://github.com/guiferviz/genanki@feature-deck-conf
@@ -23,7 +24,7 @@ pyjwt==1.7.1              # via pygithub
 pystache==0.5.4
 pyyaml==5.3
 requests==2.22.0          # via gtts, gtts-token, pygithub
-six==1.13.0               # via gtts, pygithub
+six==1.14.0               # via gtts, pygithub
 soupsieve==1.9.5          # via beautifulsoup4
-urllib3==1.25.7           # via requests
+urllib3==1.25.8           # via requests
 wrapt==1.11.2             # via deprecated
