@@ -1,5 +1,5 @@
 
-<img src="doc/logo.png" width="200">
+<img src="doc/_static/images/logo.png" width="200">
 
 Generate Anki cards from text files (TSV and Markdown).
 
@@ -12,7 +12,7 @@ You can generate different kind of cards:
  Specially designed to learn a language.
  There are two types of language cards:
    * **Vocabulary cards**:
-   Letters displayed in 2 languages, your native language and the language you
+   Cards displayed in 2 languages, your native language and the language you
    are learning.
    * **Expression cards**:
    When you already know a language and want to master it, sometimes it is no
@@ -29,15 +29,15 @@ You can generate different kind of cards:
 
 ## Language cards
 
-<img src="doc/vocabulary_card.png" width="200">
-<img src="doc/expression_card.png" width="200">
+<img src="doc/_static/images/vocabulary_card.png" width="200">
+<img src="doc/_static/images/expression_card.png" width="200">
 
 
 ## Markdown cards
 
-<img src="doc/markdown_img_card.png" width="200">
-<img src="doc/markdown_code_card.png" width="255">
-<img src="doc/markdown_math_card.png" width="255">
+<img src="doc/_static/images/markdown_img_card.png" width="200">
+<img src="doc/_static/images/markdown_code_card.png" width="255">
+<img src="doc/_static/images/markdown_math_card.png" width="255">
 
 
 # Requirements
@@ -65,15 +65,15 @@ python setup.py install
 ```
 
 
-# VIM syntax file for *.cards
+# VIM syntax file for '*.cards'
 
 I'm a die-hard VIM user, for that reason I've created a `cards.vim` syntax
 file.
 It's not too fancy (I would like to add syntax color to the header of the
 cards in the future) but it looks better than using the Markdown syntax.
 
-<img src="doc/vim_markdown_syntax.png" width="800">
-<img src="doc/vim_cards_syntax.png" width="800">
+<img src="doc/_static/images/vim_markdown_syntax.png" width="800">
+<img src="doc/_static/images/vim_cards_syntax.png" width="800">
 
 I also use the plugin [Markdown Preview][1] so I can see how my cards look like
 without generating the package.
