@@ -45,5 +45,5 @@ WORKDIR $WORKDIR
 
 ENTRYPOINT ["python", "-m", "mnemocards"]
 # Default command, generate cards recursively in $WORKDIR.
-CMD ["-r", "."]
+CMD ["generate", "-r", "."]
 
