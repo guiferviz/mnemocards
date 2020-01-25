@@ -22,7 +22,14 @@ def build_cards(data_dir, deck_config):
 def build_deck_conf(deck_config):
     conf_dict = deck_config.get("config")
     if conf_dict is not None:
-        conf = genanki.DeckConf(conf_dict["id"], conf_dict["name"])
+        deckconf_default_name = deck_config["name"] + " (Configuration)"
+        deckconf_name = conf_dict.get("name", deckconf_default_name)
+        deckconf_id = conf_dict.get("id", deckconf_name)
+        if type(deckconf_id) == str:
+            deckconf_id = get_hash_id(deckconf_id)
+        conf_dict["id"] = deckconf_id
+        conf_dict["name"] = deckconf_name
+        conf = genanki.DeckConf(deckconf_id, deckconf_name)
         conf.conf = updater(conf.conf, conf_dict)
         return conf
 
