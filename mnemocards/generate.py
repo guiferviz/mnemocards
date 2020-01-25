@@ -31,7 +31,9 @@ def build_deck(data_dir, deck_config):
     cards, media = build_cards(data_dir, deck_config)
     # Create deck.
     deck_name = deck_config["name"]
-    deck_id = deck_config.get("id", get_hash_id(deck_name))
+    deck_id = deck_config.get("id", deck_name)
+    if type(deck_id) == str:
+        deck_id = get_hash_id(deck_id)
     conf = build_deck_conf(deck_config)
     deck = genanki.Deck(
         deck_id,
