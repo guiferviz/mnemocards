@@ -7,15 +7,13 @@
 
 Generate Anki cards from text files (TSV and Markdown).
 
-Text files are easily maintainable, `apkg` files are not.
-You can easily store text files in a version control system like *git*, so you
-can easily keep track of changes and collaborate with others.
-
-You can generate different kind of cards:
-
 <center>
 <img src="doc/_static/images/all_cards.png">
 </center>
+
+Text files are easily maintainable, `apkg` files are not.
+You can easily store text files in a version control system like *git*, so you
+can easily keep track of changes and collaborate with others.
 
  * **Language cards** (first row):
  Specially designed to learn a language.
@@ -47,7 +45,7 @@ You can generate different kind of cards:
  Anki installed.
  * If you want to generate cards from your repositories or gists you should
  have Git installed.
- Install it with in Ubuntu-like systems with `apt-get install git`.
+ Install it (in Ubuntu-like systems) with `apt-get install git`.
  Also, in order to use the GitHub API you should have a file with and API key
  with gists/repository permissions.
  The repository permission is only needed for private repositories.
