@@ -87,7 +87,7 @@ CARD_MODEL = genanki.Model(
     css=css,
 )
 CARD_MODEL_JAPANESE = genanki.Model(
-    get_hash_id("434aed54-6cdd-4397-b0d1-6af8c197f593"),
+    get_hash_id("2d5e52ea-c9de-4d0f-bdf5-ee06ad815e61"),
     "Vocabulary model (Japanese)",
     fields=[
         # Visible fields.
@@ -111,6 +111,7 @@ CARD_MODEL_JAPANESE = genanki.Model(
                 </style>
                 <div class="origin word">{{YourLanguageWord}}</div>
                 <div class="origin comment">{{YourLanguageExplanation}}</div>
+                <div>{{type:LanguageYouLearnWord}}</div>
             ''',
             "afmt": '''
                 <style>
@@ -120,6 +121,7 @@ CARD_MODEL_JAPANESE = genanki.Model(
                 </style>
                 <div class="origin word">{{YourLanguageWord}}</div>
                 <div class="origin comment">{{YourLanguageExplanation}}</div>
+                <div>{{type:LanguageYouLearnWord}}</div>
                 <hr>
                 <div class="destination word">{{furigana:LanguageYouLearnWord}}</div>
                 <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
