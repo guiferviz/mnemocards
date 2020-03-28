@@ -14,7 +14,13 @@ can easily keep track of changes and collaborate with others.
 You can generate different kind of cards:
 
 <center>
-<img src="doc/_static/images/all_cards.png">
+<img src="doc/_static/images/vocabulary_japanese_card.png" width="250">
+<img src="doc/_static/images/expression_card.png" width="250">
+</center>
+<center>
+<img src="doc/_static/images/markdown_img_card.png" width="250">
+<img src="doc/_static/images/markdown_math_card.png" width="250">
+<img src="doc/_static/images/markdown_code_card.png" width="250">
 </center>
 
  * **Language cards** (first row):
@@ -47,7 +53,7 @@ You can generate different kind of cards:
  Anki installed.
  * If you want to generate cards from your repositories or gists you should
  have Git installed.
- Install it with in Ubuntu-like systems with `apt-get install git`.
+ Install it (in Ubuntu-like systems) with `apt-get install git`.
  Also, in order to use the GitHub API you should have a file with and API key
  with gists/repository permissions.
  The repository permission is only needed for private repositories.
