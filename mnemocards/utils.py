@@ -50,6 +50,15 @@ def write_config(data):
 
 
 def create_check_collection_path(collection_path, profile):
+    """Create from profile and check the collection path.
+
+    If you only provide the profile, the collection path is expected to be
+    in '~/.local/share/Anki2/{profile}/collection.anki2'.
+    If the collection_path is given only a checking that it exists is done.
+    """
+
+    if collection_path is None and profile is None:
+        raise Exception("Specify at least the collection or the profile")
     if profile is not None:
         collection_path = f"~/.local/share/Anki2/{profile}/collection.anki2"
         collection_path = os.path.expanduser(collection_path)

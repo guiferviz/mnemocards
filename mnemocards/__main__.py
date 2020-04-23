@@ -10,17 +10,14 @@ from mnemocards.import_command import import_command
 
 
 def main():
+    """Check arguments and execute the indicated task. """
+
     args = parse_args()
 
     if args.command == "generate":
         generate(args)
     elif args.command == "import":
-        # TODO: refactor this.
-        c = args.collection_path
-        p = args.profile_name
-        if c is None and p is None:
-            raise Exception("Specify at least the collection or the profile")
-        import_command(args.apkgs, c, p)
+        import_command(args.apkgs, args.collection_path, args.profile_name)
     elif args.command == "push":
         push()
     elif args.command == "pull":
@@ -28,12 +25,7 @@ def main():
     elif args.command == "github":
         github(args.api_key, args.dir, args.include, args.exclude, args.gists)
     elif args.command == "clean":
-        # TODO: refactor this.
-        c = args.collection_path
-        p = args.profile_name
-        if c is None and p is None:
-            raise Exception("Specify at least the collection or the profile")
-        clean(c, p)
+        clean(args.collection_path, args.profile_name)
     elif args.command == "hi":
         greet()
 

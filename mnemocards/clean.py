@@ -25,6 +25,7 @@ QUERY = """
 
 
 def clean(collection_path=None, profile=None):
+    # Get an existing collection path. Error if not exists.
     collection_path = create_check_collection_path(collection_path, profile)
     # Create collection.
     col = Collection(collection_path)
