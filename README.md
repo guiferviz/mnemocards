@@ -64,6 +64,9 @@ python setup.py install
 The process of generating Anki's `*.apkg` files is based on the use of
 configuration files.
 
+Deck config info:
+https://github.com/ankidroid/Anki-Android/wiki/Database-Structure#dconf-jsonobjects
+
 
 # *Git* utilities
 
@@ -105,7 +108,7 @@ cards in the future) but it looks better than using the Markdown syntax.
 <img src="doc/_static/images/vim_markdown_syntax.png" width="800">
 <img src="doc/_static/images/vim_cards_syntax.png" width="800">
 
-I also use the plugin [Markdown Preview][1] so I can see how my cards look like
+I also use the [Markdown Preview][1] plugin so I can see how my cards look like
 without generating the package.
 It's not perfect for the `*.cards` format, but it's better than nothing :)
 
