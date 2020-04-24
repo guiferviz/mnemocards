@@ -100,6 +100,7 @@ def build(args):
 
 
 def save_packages(packages, output_dir):
+    print("Writing packages to a file...")
     for name, p in packages:
         filename = os.path.join(output_dir, f"{name}.apkg")
         p.write_to_file(filename)
