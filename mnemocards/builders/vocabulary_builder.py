@@ -167,6 +167,10 @@ def remove_parentheses(text):
     return re.sub(RE_REMOVE_PAREN, "", text)
 
 
+def remove_spaces(text):
+    return text.replace(" ", "")
+
+
 class VocabularyBuilder(object):
 
     def __init__(self):
@@ -207,6 +211,13 @@ class VocabularyBuilder(object):
                 # Generate audio.
                 if generate_audio is not None:
                     clean_text = remove_parentheses(lylw)
+                    if furigana:
+                        # If you leave those spaces you get wrong
+                        # pronunciations, like in `スペイン 人`.
+                        # Instead of `supein jin` it pronounces it as
+                        # `supein hito` because the kanji `人` alone is
+                        # pronounced as `hito`.
+                        clean_text = remove_spaces(clean_text)
                     hash_text = get_hash_id(clean_text, bytes=8)
                     sound_file = f"{media_dir}/{hash_text}.mp3"
                     if not os.path.exists(sound_file):
