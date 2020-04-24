@@ -25,6 +25,7 @@ tags: algorithms
 ===
 # What's the time complexity of binary search?
 ---
-$$\mathcal{O}(\log{}n)$$
+$$\mathcal{O}(\log n)$$
+
 Where $n$ is the number of elements in the array.
 >>>

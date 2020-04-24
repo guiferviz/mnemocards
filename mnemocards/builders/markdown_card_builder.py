@@ -85,20 +85,24 @@ def find_all(text):
 
 def process_math_match(match):
     eq = match.group(1)
+    # We need this to allow break lines with \\.
+    # To avoid this workaround maybe we can extract the equations and not
+    # plug them back to the card until the markdown is processed.
     eq = re.sub("\\\\", "\\\\\\\\", eq)
     return f"\\\\\[{eq}\\\\\\]"
 
 
 def change_mathjax_delimiters(text):
-    # Inline math.
-    text = re.sub("(?<![$\\\])\$([^$\\n]+?)\$", "\\\\\\(\\1\\\\\\)", text)
     # Block math.
-    # FIXME: For some reason I cannot use (.+?) with re.S, it does not match
-    # multiline math blocks. The current code does not allow the use of dollars
-    # inside the math formulas.
-    text = re.sub("\$\$\\s*([^\$]+?)\\s*\$\$", process_math_match, text)
-    # Scaped dollar$.
-    text = re.sub("\\\\\$", "$", text)
+    # Any text between two dollars $$. Supports escaped dollars.
+    # Using (?<!\\) two backslashes because if not the regex things you are
+    # escaping the parenthesis.
+    text = re.sub(r"\$\$\s*(.+?)(?<!\\)\s*\$\$", process_math_match, text,
+            flags=re.S)
+    # Inline math.
+    text = re.sub(r"(?<![$\\])\$([^\n]+?)(?<!\\)\$", r"\\\\(\1\\\\)", text)
+    # Escaped dollar$.
+    text = re.sub(r"\\\$", "$", text)
     return text
 
 
