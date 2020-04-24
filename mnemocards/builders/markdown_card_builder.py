@@ -158,7 +158,11 @@ class MarkdownCardBuilder(object):
                 if metadata is None:
                     metadata = {}
                 note_tags = tags.copy()
-                note_tags.extend(metadata.get("tags", "").split(","))
+                if "tags" in metadata:
+                    note_tags.extend(metadata.get("tags").split(","))
+                # Add tag list to the header.
+                if len(note_tags) > 0:
+                    header = "*Tags: " + ", ".join(note_tags) + "*\n" + header
                 header, m = generate_html(header, data_dir, src)
                 media.extend(m)
                 body, m = generate_html(body, data_dir, src)
