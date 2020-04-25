@@ -139,7 +139,7 @@ optional arguments:
                         saved. Current directory by default.
 ```
 
-The process of generating Anki's `*.apkg` files is based on the use of
+The process of generating Anki `*.apkg` files is based on the use of
 configuration files.
 By default, the configuration file is called `cards_config.json`.
 There are three different `cards_config.json` in the examples, one in each
@@ -151,6 +151,9 @@ for those configuration files recursively.
 If you want to generate only the `japanese.apkg` use
 `mnemocards generage japanese` or move into `examples/japanese` and execute
 there `mnemocards generate .`.
+
+
+## Configuration files `cards_config.json`
 
 Configuration files contain how many packages to build, the number of decks,
 deck configurations and the input source of the data (TSV files and Markdown
@@ -230,10 +233,145 @@ Notice that the image names should be unique over all the images in your Anki
 decks, so avoid names like `1.png` or `example.png`.
 
 
+## TSV Vocabulary files
+
+TSV vocabulary files should contain the next columns.
+At the moment, the columns **should be in the given order**.
+
+* `ID`.
+Characters that uniquely identify a note.
+This number must be unique not only in the file but in the whole collection,
+that is why we recommend using a UUID (a sequence of alphanumeric characters
+such as: 64012c71-9aea-4622-aac7-2595d6798737).
+Having a UUID is necessary to be able to update the cards (make spelling
+corrections or improve them with extra information) and not lose the progress.
+* `YourLanguageWord`.
+The word you want to learn but in your mother tongue or in a known language.
+* `YourLanguageExplanation`.
+Any extra detail to help you get the word you're looking for.
+A clear example of use is when you have to explain a word that does not have a
+direct translation in your language or when the translation in your language
+is a word that has more than one meaning.
+For example: in Japanese flat and thin objects use different numbers, so the
+translation of 一枚 is obviously "one" but to make the reverse translation we
+need a clarification like "one, when counting flat and thin objects".
+* `LanguageYouLearnWord`.
+The word written in the language you are trying to learn.
+* `LanguageYouLearnPronunciation`.
+Write here how you can pronounce the word of the language you are learning.
+If you choose to generate an audio with the pronunciation, the audio is going
+to be placed here.
+* `LanguageYouLearnExplanation`.
+This explanation will always accompany the word in the language you want to
+learn.
+It explains in what alternative forms the word can appear as synonyms or
+variations in writing.
+Do not give any extra information that reveals the meaning of the word, as it
+will appear on the front of some cards where your goal will be to make the
+translation into your language.
+For example: English "hit, to punch someone" to Spanish "pegar, you can also
+use 'golpear'".
+* `Tags`.
+The tags you write here are added to the tags specified in the
+`cards_config.json`.
+
+
+This is how the fields are shown in the cards.
+Front card format:
+
+    YourLanguageWord
+    YourLanguageExplanation
+    ---                            # After showing answer
+    LanguageYouLearnWord           # After showing answer
+    LanguageYouLearnPronunciation  # After showing answer
+    LanguageYouLearnExplanation    # After showing answer
+
+Reverse card format:
+
+    LanguageYouLearnWord
+    LanguageYouLearnPronunciation  # After showing answer
+    LanguageYouLearnExplanation
+    ---                            # After showing answer
+    YourLanguageWord               # After showing answer
+    YourLanguageExplanation        # After showing answer
+
+For Japanese language there is an special flag in `cards_config.json` named
+`furigana`.
+If you mark this flag to true the Kanjis in the front side are going to be
+shown alone and in the back side are going to be shown with furigana.
+This makes the field `LanguageYouLearnPronunciation` not really required when
+creating Japanese cards (you can always use romaji here, of course).
+
+
+## Expressions TSV files
+
+Similarly to vocabulary TSV files, the expression TSV files contain:
+At the moment, the columns **should be in the given order**.
+
+* `ID`
+Characters that uniquely identify a note.
+This number must be unique not only in the file but in the whole collection,
+that is why we recommend using a UUID (a sequence of alphanumeric characters
+such as: 64012c71-9aea-4622-aac7-2595d6798737).
+Having a UUID is necessary to be able to update the cards (make spelling
+corrections or improve them with extra information) and not lose the progress.
+* `Expression`.
+Expression that you want to learn.
+* `Explanation`.
+Extra explanation of the expression if needed.
+* `Meaning`.
+Meaning of the expression.
+* `Example`.
+Example sentence of use of the expression.
+* `Tags`.
+The tags you write here are added to the tags specified in the
+`cards_config.json`.
+
+This type of notes only have one front card.
+Front card:
+
+    Expression
+    Explanation
+    ---          # After showing answer
+    Meaning      # After showing answer
+    Example      # After showing answer
+
+Of course, these types of cards are created for the purpose of learning a new
+language, but they can be used for any other purpose as long as the fields
+described here fit your purpose.
+
+
 # Import cards to Anki
 
 Use the command `mnemocards import --help` to get the instructions about
 importing `*.apkg` files.
+
+```
+$ mnemocards import --help
+usage: mnemocards import [-h] [--profile-name PROFILE_NAME]
+                         [--collection-path COLLECTION_PATH]
+                         apkgs [apkgs ...]
+
+positional arguments:
+  apkgs                 List of packages to import.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --profile-name PROFILE_NAME, -p PROFILE_NAME
+                        If your collection is in the default location
+                        (`~/.local/share/Anki2/`) you can specify only the
+                        profile name. You cannot use this option as the same
+                        time as `-c`.
+  --collection-path COLLECTION_PATH, -c COLLECTION_PATH
+                        Specify the full path of the collection file. If you
+                        use this option with `-p` (profile name), the profile
+                        name has preference over the full collection path.
+```
+
+To import an `*.apkg` file you need to close Anki, otherwise the collection
+file cannot be written.
+Remember that you need to open Anki and synchronize the collection with
+Web Anki to see the updated collection in all your devices.
 
 
 # *Git* utilities
@@ -279,15 +417,23 @@ $ cat ~/.mnemocards
 
 To execute that command you need a file with your GitHub API key with enough
 permissions to read your repositories.
+Go to [GitHub Tokens][githubTokens] and generate a new one with permissions
+for reading your repositories.
+If you want to read private repositories select the next permissions:
+
 ![](doc/_static/images/github_api_permissions_01.png)
 
 If you want to use the `mnemocards github --gists` option, that is, cloning
 gists instead of repositories, your GitHub API key should have different
 permissions.
-![](doc/_static/images/github_api_permissions_02.png)
-I do not use gists because they do not allow to commit folders.
+I do not use gists because they do not allow to commit directories and I want
+to have my images good organized.
 
-You can also create the `~/.mnemocards` file by hand.
+![](doc/_static/images/github_api_permissions_02.png)
+
+You can also create the `~/.mnemocards` file by hand taking the given example
+and substituting the URLs and the local paths.
+
 Once you have your file manually create or automatically created, you can
 clone all your repos with the next command.
 If your repo is already cloned, this command also pulls the last changes from
@@ -367,3 +513,5 @@ It's not perfect for the `*.cards` format, but it's better than nothing :)
 [markdownPreview]: https://github.com/iamcco/markdown-preview.nvim
 [ultiSnips]: https://github.com/SirVer/ultisnips
 [dockerMnemocards]: https://hub.docker.com/repository/docker/guiferviz/mnemocards 
+[githubTokens]: https://github.com/settings/tokens/new
+
