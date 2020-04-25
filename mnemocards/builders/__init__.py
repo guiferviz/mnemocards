@@ -5,9 +5,9 @@ from mnemocards.builders.expression_builder import ExpressionBuilder
 
 
 _BUILDERS = {
-    "markdown_card": MarkdownCardBuilder(),
-    "language_card": VocabularyBuilder(),
-    "expressions_card": ExpressionBuilder(),
+    "markdown": MarkdownCardBuilder(),
+    "vocabulary": VocabularyBuilder(),
+    "expression": ExpressionBuilder(),
 }
 
 

@@ -4,10 +4,11 @@
             "name": "cs",
             "decks": [
                 {
+                    "id": "ad054cdc-160b-4b77-a8a5-4da79fe5d8a5",
                     "name": "Computer Science",
                     "src": [
                         {
-                            "type": "markdown_card",
+                            "type": "markdown",
                             "file": "cs.cards",
                             "card_properties": {
                                 "tags": ["computer_science"]

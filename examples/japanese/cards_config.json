@@ -4,17 +4,18 @@
             "name": "japanese",
             "decks": [
                 {
+                    "id": "df542ecc-d12b-41eb-8ab8-a5af53409df3",
                     "name": "Japanese Scripts",
                     "config": {
                         "id": "0a554eb8-0796-461a-8a21-dd90dea399f3",
-                        "name": "Japanese Scripts Conf",
+                        "name": "Japanese Scripts (Configuration)",
                         "new": {
                             "perDay": 5
                         }
                     },
                     "src": [
                         {
-                            "type": "language_card",
+                            "type": "vocabulary",
                             "file": "hiragana.tsv",
                             "header": true,
                             "pronunciation_in_reverse": false,
@@ -29,7 +30,7 @@
                             }
                         },
                         {
-                            "type": "language_card",
+                            "type": "vocabulary",
                             "file": "katakana.tsv",
                             "header": true,
                             "pronunciation_in_reverse": false,

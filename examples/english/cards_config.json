@@ -4,10 +4,11 @@
             "name": "english",
             "decks": [
                 {
+                    "id": "b698a07e-70eb-474b-82cb-f244a608b21e",
                     "name": "English",
                     "src": [
                         {
-                            "type": "expressions_card",
+                            "type": "expression",
                             "file": "expressions.tsv",
                             "header": true,
                             "card_color": "#AA3333",
