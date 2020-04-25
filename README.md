@@ -275,6 +275,8 @@ By default, when the vocabulary card is shown in reverse the pronunciation
 is not showed.
 Set this option to true if you want want the pronunciation.
 It will be shown once you press the *Show answer* button.
+* `card_color`.
+Card background color in hexadecimal.
 * `furigana`.
 If you are learning Japanese, maybe you want to use furigana (small hiragana
 characters over Kanji) in your cards.
