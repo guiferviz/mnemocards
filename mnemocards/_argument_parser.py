@@ -139,7 +139,7 @@ GEN_PARSER.add_argument("--output-dir", "-o",
                         type=str,
                         default=".",
                         help="Output directory where the packages are going "
-                             "to be saved")
+                             "to be saved. Current directory by default.")
 # Import command.
 help_txt = """
 Import a list of already generated apkg files.
