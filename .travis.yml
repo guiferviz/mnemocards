@@ -1,0 +1,9 @@
+
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: YBnxqSdr3YloTM8IOCj3IxgXYvij3hGjeId9hVE6FROq0NXx+1TSjmVNhgodFxxbm5WXGi5cjZVKSMI4wW9VAwU43UqWQO8Y7kGXy2bhzbf4TxVcy/Rgh+5om7gbiQcCZYnHckDr3Ya2uQsqiizapUR2mw2vKjSbcU259LlrWbGHybfY8+H4CgCEaUv6KcojVHGkKrw83YSRnBgDP4VoBKL1GgrRJsQc/tJ2JSzvu0Fnxx4frmlPnZa80JDc2qBAaO5jC+r8MJzI56U3ezzu8UQqp8n+Of6RGORzQ/kSSSz57/a42Fg/0dJ37rN2KRiElfCbMA4GXBkzh4USKeEZbxWhWGV/dn81rp+ZAY36YDceYSNxqYNuh0g7XUjPoH9ju1QKAV8ouoVAnGSQfshZqDazmJuyb3AK/BfzW6svm8Y4LTkq8HY5tLtqMPMaHMP4GObG4ZaUb7DcXSREH9it5iLxxalVRwMDytW3a2H5TkvrPFdE0ioJfT8GD84dI58Qc6QZM+4h9HOtlGx0ywUkTvUT/bk1PLytiYWPREyFxBNQY93I5OTEY/0RWuJQtkR+/Or/QR8j/8LmS8feuPRbhvP+neC6bex4AsMLayvxHqb6v/dI6D4MkaeBm3iVx0gdL5UfLGKoWUO6haaPe6g/F5w2XN44Knx1U0Y7YF/DSmU=
+  on:
+    tags: true
+
