@@ -155,7 +155,7 @@ IMP_PARSER.add_argument("--profile-name", "-p",
                         help=help_txt)
 help_txt = """
 Specify the full path of the collection file.
-If you use this option with `-n` (profile name), the profile name has
+If you use this option with `-p` (profile name), the profile name has
 preference over the full collection path.
 """
 IMP_PARSER.add_argument("--collection-path", "-c",
