@@ -21,9 +21,9 @@
                             "pronunciation_in_reverse": false,
                             "card_color": "#33AA33",
                             "furigana": false,
-                            "media_dir": "media/hiragana",
                             "audio": {
-                                "lang": "ja"
+                                "lang": "ja",
+                                "media_dir": "media/hiragana"
                             },
                             "card_properties": {
                                 "tags": ["japanese", "hiragana"]
@@ -36,9 +36,9 @@
                             "pronunciation_in_reverse": false,
                             "card_color": "#33AA33",
                             "furigana": false,
-                            "media_dir": "media/katakana",
                             "audio": {
-                                "lang": "ja"
+                                "lang": "ja",
+                                "media_dir": "media/katakana"
                             },
                             "card_properties": {
                                 "tags": ["japanese", "katakana"]

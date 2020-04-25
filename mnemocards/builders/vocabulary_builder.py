@@ -176,20 +176,23 @@ class VocabularyBuilder(object):
     def __init__(self):
         pass
 
-    def prepare_media_dir(self, data_dir, src):
-        media_dir = os.path.join(data_dir, src.get("media_dir", ".media"))
+    def prepare_media_dir(self, data_dir, audio_dict):
+        media_dir = os.path.join(data_dir,
+                audio_dict.get("media_dir", ".media"))
         if not os.path.exists(media_dir):
             os.makedirs(media_dir)
         return media_dir
 
-    def build_cards(self, data_dir, src, deck_config):
+    def build_cards(self, data_dir, src, deck_config, clean_audio=True):
         notes, media = [], []
         # Get data from config.
-        media_dir = self.prepare_media_dir(data_dir, src)
         header = src["header"]
-        color = src["card_color"]
+        color = src.get("card_color", "#33AA33")
         show_p = "true" if src.get("pronunciation_in_reverse", False) else ""
-        generate_audio = src.get("audio", None)
+        generate_audio = src.get("audio", {})
+        media_dir = None
+        if generate_audio is not None:
+            media_dir = self.prepare_media_dir(data_dir, generate_audio)
         furigana = src.get("furigana", False)
         card_properties = src.get("card_properties", None)
         tags = []
@@ -209,7 +212,7 @@ class VocabularyBuilder(object):
                 note_tags = tags.copy()
                 note_tags.extend(row_tags.split(","))
                 # Generate audio.
-                if generate_audio is not None:
+                if generate_audio:
                     clean_text = remove_parentheses(lylw)
                     if furigana:
                         # If you leave those spaces you get wrong
@@ -238,9 +241,10 @@ class VocabularyBuilder(object):
                 )
                 notes.append(note)
         # Remove unused audio files.
+        # TODO: this should be optional. Add an argument to force clean.
         # FIXME: if you reuse the same media folder for another vocabulary
         # builder you are going to delete media files from the other cards...
-        if generate_audio is not None:
+        if generate_audio and clean_audio:
             all_audio_files = glob.glob(f"{media_dir}/*.mp3")
             unused_audio_files = set(all_audio_files) - set(media)
             for i in unused_audio_files:
