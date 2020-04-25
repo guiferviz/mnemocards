@@ -159,8 +159,160 @@ Configuration files contain how many packages to build, the number of decks,
 deck configurations and the input source of the data (TSV files and Markdown
 files).
 
-Deck config info:
-https://github.com/ankidroid/Anki-Android/wiki/Database-Structure#dconf-jsonobjects
+The most basic configuration file is:
+```json
+{
+    "packages": [
+        {
+            "name": "APKG_filename",
+            "decks": [
+                {
+                    "id": "ad054cdc-160b-4b77-a8a5-4da79fe5d8a5",
+                    "name": "Deck name",
+                    "src": [
+                        {
+                            "type": "markdown",
+                            "file": "my_file.cards",
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+Each configuration file can generate one or more `*.apkg` packages.
+Each package can contain one or more decks.
+Each deck can consist of one or more source text files.
+
+It is recommended to specify a deck ID, otherwise a hash of the deck name will
+be used, which implies that if the name is changed the deck will be considered
+as a new deck by Anki, loosing any learning progress.
+
+Apart from the deck ID, name and source files, you can specify a deck config.
+Look to this example:
+```
+{
+    "id": "e9a0b7ba-641a-4af6-8631-be9854a4e9d8",
+    "name", "My deck name",
+    "config": {
+        "id": "65bcc65b-b4de-4ce4-b5c1-a73a2f64b82d",
+        "name": "My deck name (Configuration)",
+        "timer": 1,  # Active timer
+        "maxTaken": 30,  # Max seconds taken by the timer
+        "new": {
+            "bury": true,
+            "initialFactor": 1500,
+            "perDay": 5,  # Number of new cards per day
+            "delays": [1, 10, 1440, 4320, 10080],
+            "ints": [7, 14]
+        },
+        "lapse": {
+            "leechAction": 1  # Mark leech cards. Set to 0 to suspend.
+        }
+    },
+```
+
+Note that the comments added to the right of some properties are not a valid
+JSON syntax, they are added here only for this tutorial.
+You can read about [all the deck config options][ankidroidDeckConfig] you can
+use in the Ankidroid documentation.
+
+The `src` property should have at least one file in order to generate
+some cards for that deck.
+`type` and `file` are the two required properties.
+Depend on the type you can add more properties.
+
+
+### `markdown` type
+
+```json
+{
+    "type": "markdown",
+    "file": "math.cards",
+    "card_properties": {
+        "tags": ["math"]
+    }
+}
+```
+
+Apart from `type` and `file` you can add:
+* `card_properties`.
+Properties that are applied to all the cards in this file.
+For exampe: using this property you avoid setting tags in all the cards inside
+of that file.
+    * `tags`. The tag property is the only one available at the moment.
+    It is an array of tags.
+    Even if you only what to specify one tag you should use an array with one
+    element.
+
+
+### `vocabulary` type
+
+```json
+{
+    "type": "vocabulary",
+    "file": "hiragana.tsv",
+    "header": true,
+    "pronunciation_in_reverse": false,
+    "card_color": "#33AA33",
+    "furigana": false,
+    "audio": {
+        "lang": "ja",
+        "media_dir": "media/hiragana"
+    },
+    "card_properties": {
+        "tags": ["japanese", "hiragana"]
+    }
+},
+```
+
+* `header`. The first line of the TSV file is a header line, so it will be
+skipped.
+* `pronunciation_in_reverse`.
+By default, when the vocabulary card is shown in reverse the pronunciation
+is not showed.
+Set this option to true if you want want the pronunciation.
+It will be shown once you press the *Show answer* button.
+* `furigana`.
+If you are learning Japanese, maybe you want to use furigana (small hiragana
+characters over Kanji) in your cards.
+Set this flag to true if you want to use them, by default false.
+In your TSV files your furigana must be written between brackets and with a
+space before the Kanji.
+For example, `日[に] 本[ほん] 語[ご]`.
+* `audio`. If you want to generate and audio file of the language you are
+learning, you should specify here the language.
+    * `lang`. The language used to generate those file using ISO 639-2.
+    You can find a [table with the ISO 639-2][wikipediaIso2] for all the
+    languages in Wikipedia.
+    If the pronunciation is not available in Google Translator this is not
+    going to work.
+    * `media_dir`. Directory where the audio files are stored.
+    After generating the package for the first time, this folder will be
+    created and filled with all the audio files.
+    If you don't delete this folder, the next time Mnemocards will be much
+    faster because it already has all the audio files generated.
+* `card_properties` has the same meaning as in Markdown cards.
+
+
+### `expression` type
+
+```json
+{
+    "type": "expression",
+    "file": "expressions.tsv",
+    "header": true,
+    "card_color": "#AA3333",
+    "card_properties": {
+        "tags": ["english", "expressions"]
+    }
+}
+```
+
+`header`, `card_color` and `card_properties` have the same meaning as in
+vocabulary cards.
 
 
 ## `*.cards` file format
@@ -514,4 +666,6 @@ It's not perfect for the `*.cards` format, but it's better than nothing :)
 [ultiSnips]: https://github.com/SirVer/ultisnips
 [dockerMnemocards]: https://hub.docker.com/repository/docker/guiferviz/mnemocards 
 [githubTokens]: https://github.com/settings/tokens/new
+[ankidroidDeckConfig]: https://github.com/ankidroid/Anki-Android/wiki/Database-Structure#dconf-jsonobjects
+[wikipediaIso2]: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
 
