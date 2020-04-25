@@ -107,7 +107,7 @@ computer_science  cs.apkg  english  english.apkg  japanese  japanese.apkg
 ```
 
 Now you have 3 `*.apkg` files in this directory that you can import to Anki
-manually or using Mnemocards.
+manually or using Mnemocards (see the [import section](#import-cards-to-anki)).
 During the generation process 10 audio files has been created for the Japanese
 decks.
 These audio files come from Google Translator.
@@ -151,6 +151,10 @@ for those configuration files recursively.
 If you want to generate only the `japanese.apkg` use
 `mnemocards generage japanese` or move into `examples/japanese` and execute
 there `mnemocards generate .`.
+
+Configuration files contain how many packages to build, the number of decks,
+deck configurations and the input source of the data (TSV files and Markdown
+files).
 
 Deck config info:
 https://github.com/ankidroid/Anki-Android/wiki/Database-Structure#dconf-jsonobjects
@@ -226,20 +230,78 @@ Notice that the image names should be unique over all the images in your Anki
 decks, so avoid names like `1.png` or `example.png`.
 
 
+# Import cards to Anki
+
+Use the command `mnemocards import --help` to get the instructions about
+importing `*.apkg` files.
+
+
 # *Git* utilities
 
 In order to keep my cards safe and centralize my knowledge database, I added a
 few utilities to `mnemocards` to clone and push many *Git* repositories at
 the same time.
 
+The first step is to know which repositories you want to clone.
+I like to create a new private repository for every subject I'm learning.
+For example:
+
+ * Japanese: under my profile I have a repository called `learning_japanese`.
+ * Programming: I have a repository called `learning_programming`.
+ * And so on...
+
+My aim is to clone all these repositories in an easy way and make them very
+accessible so that any time I think of something I want to remember I don't
+postpone it because of laziness.
+As I'm always learning I have a lot of repositories.
+To automate this task I've created the `mnemocards github` command.
+
+The result of executing the next command is a `~/.mnemocards` file with a list
+of all the repositories with Anki cards and the local path in my PC where I
+want them to be cloned.
 ```
-mnemocards github
+$ mnemocards github -i "guiferviz/learning_([^ _]*)" -d ~/learning
+... some output ...
+$ cat ~/.mnemocards
+{
+    "repos": [
+        [
+            "git@github.com:guiferviz/learning_japanese.git",
+            "~/learning/japanese"
+        ],
+        [
+            "git@github.com:guiferviz/learning_programming.git",
+            "~/learning/programming"
+        ]
+    ]
+}
 ```
 
+To execute that command you need a file with your GitHub API key with enough
+permissions to read your repositories.
+![](doc/_static/images/github_api_permissions_01.png)
+
+If you want to use the `mnemocards github --gists` option, that is, cloning
+gists instead of repositories, your GitHub API key should have different
+permissions.
+![](doc/_static/images/github_api_permissions_02.png)
+I do not use gists because they do not allow to commit folders.
+
+You can also create the `~/.mnemocards` file by hand.
+Once you have your file manually create or automatically created, you can
+clone all your repos with the next command.
+If your repo is already cloned, this command also pulls the last changes from
+the server.
 ```
 mnemocards pull
 ```
 
+To commit and push all the changes in a repository use the next command.
+Everything in your repositories is going to be added and committed, so if you
+do not want to include all the files add exclude patters in your `.gitignore`
+or push all your repositories manually.
+Commits are made using a default commit message similar to
+"Updating repository with mnemocards.".
 ```
 mnemocards push
 ```
