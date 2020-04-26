@@ -1,4 +1,8 @@
 
+language: python
+python:
+  - "3.6"
+
 deploy:
   provider: pypi
   user: __token__
