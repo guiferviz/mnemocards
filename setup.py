@@ -11,7 +11,7 @@ except ImportError: # for pip <= 9.0.3
 
 PACKAGE_NAME = "mnemocards"
 DESCRIPTION = "My module description"
-KEYWORDS = "python library code"
+KEYWORDS = "python anki cards generator"
 AUTHOR = "guiferviz"
 AUTHOR_EMAIL = "guiferviz@gmail.com"
 LICENSE = "Copyright " + AUTHOR
@@ -29,9 +29,9 @@ print("Requirements:", REQUIREMENTS)
 
 # Install all packages in the current dir except tests.
 PACKAGES = find_packages(exclude=["tests", "tests.*"])
-print("Packages:", PACKAGES) 
+print("Packages:", PACKAGES)
 
-DATA_FOLDER = "assets"
+DATA_FOLDER = os.path.join(PACKAGE_NAME, "assets")
 DATA_FILES = []
 for root, dirs, files in os.walk(DATA_FOLDER):
     if len(files) > 0:
