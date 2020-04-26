@@ -45,20 +45,22 @@ Mnemocards comes with some pre-design formats:
 
  * PyAudio, one of the Python dependencies requires the installation of
  **PortAudio-dev**.
- Install the package in Ubuntu-like systems with
+ Install the package in Ubuntu-like systems (bionic) with
  `apt install portaudio19-dev=19.6.0-1`.
  Maybe any other version of the package is working but that one is the one
  I'm using without problems.
+ Remove the version if you have any problem and try with the last one.
  * **Python 3** and all the libraries listed in `requirements.txt`.
  All these requirements are automatically installed when you install the
  package with `python setup.py install`.
  If you want to install the requirements manually just use:
  `pip install -r requirements.txt`.
- * If you want to **import automatically the generated packages**, you should
+ You need at least `pip>=10`.
+ * If you want to **import automatically the generated apkgs**, you should
  have **Anki** installed.
  * If you want to **generate cards from your repositories or gists** you should
  have **Git** installed.
- Install it (in Ubuntu-like systems) with `apt-get install git`.
+ Install it in Ubuntu-like systems with `apt install git`.
  Also, in order to use the GitHub API you should have a file with and API key
  with gists/repository permissions.
  The repository permission is only needed for private repositories.
@@ -68,14 +70,28 @@ Mnemocards comes with some pre-design formats:
 
 Using `pip`:
 ```bash
+pip install --no-deps mnemocards
 pip install mnemocards
 ```
+This fancy way of installing the package is because PyPi does not allow the
+installation of packages that have dependencies hosted outside PyPi.
+Mnemocards has one dependency that should be cloned from GitHub, my own
+fork from the [Genanki Python library][genanki].
+Installing the package first and the dependencies later seems to be a good
+workaround.
 
-Installing from source code.
+Installing from source code is even simpler.
 Clone this repository, move to the root of the project and run:
 ```bash
 python setup.py install
 ```
+
+If you want to contribute or develop use:
+```bash
+python setup.py develop
+```
+
+Remember to have at least the version 10 of `pip`.
 
 Consider the option of using Docker if you do not want to install
 the package and to set up all the needed environment.
@@ -670,4 +686,5 @@ It's not perfect for the `*.cards` format, but it's better than nothing :)
 [githubTokens]: https://github.com/settings/tokens/new
 [ankidroidDeckConfig]: https://github.com/ankidroid/Anki-Android/wiki/Database-Structure#dconf-jsonobjects
 [wikipediaIso2]: https://en.wikipedia.org/wiki/List_of_ISO_639-2_codes
+[genanki]: https://github.com/kerrickstaley/genanki
 
