@@ -192,7 +192,7 @@ as a new deck by Anki, loosing any learning progress.
 
 Apart from the deck ID, name and source files, you can specify a deck config.
 Look to this example:
-```
+```json
 {
     "id": "e9a0b7ba-641a-4af6-8631-be9854a4e9d8",
     "name", "My deck name",
@@ -211,7 +211,8 @@ Look to this example:
         "lapse": {
             "leechAction": 1  # Mark leech cards. Set to 0 to suspend.
         }
-    },
+    }
+}
 ```
 
 Note that the comments added to the right of some properties are not a valid
