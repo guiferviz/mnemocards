@@ -2,6 +2,7 @@
 language: python
 python:
   - "3.6"
+dist: bionic
 
 before_install:
   - sudo apt-get update
