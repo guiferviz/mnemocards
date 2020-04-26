@@ -1,24 +1,24 @@
 
 language: python
 python:
-  - "3.6"
+- '3.6'
 dist: bionic
 
 before_install:
-  - sudo apt-get update
-  - sudo apt-get install -y portaudio19-dev=19.6.0-1
+- sudo apt-get update
+- sudo apt-get install -y portaudio19-dev=19.6.0-1
 
 install:
-  - pip install -r requirements.txt
+- pip install -r requirements.txt
 
 script:
-  - pytest
+- pytest
 
 deploy:
   provider: pypi
   user: __token__
   password:
-    secure: YBnxqSdr3YloTM8IOCj3IxgXYvij3hGjeId9hVE6FROq0NXx+1TSjmVNhgodFxxbm5WXGi5cjZVKSMI4wW9VAwU43UqWQO8Y7kGXy2bhzbf4TxVcy/Rgh+5om7gbiQcCZYnHckDr3Ya2uQsqiizapUR2mw2vKjSbcU259LlrWbGHybfY8+H4CgCEaUv6KcojVHGkKrw83YSRnBgDP4VoBKL1GgrRJsQc/tJ2JSzvu0Fnxx4frmlPnZa80JDc2qBAaO5jC+r8MJzI56U3ezzu8UQqp8n+Of6RGORzQ/kSSSz57/a42Fg/0dJ37rN2KRiElfCbMA4GXBkzh4USKeEZbxWhWGV/dn81rp+ZAY36YDceYSNxqYNuh0g7XUjPoH9ju1QKAV8ouoVAnGSQfshZqDazmJuyb3AK/BfzW6svm8Y4LTkq8HY5tLtqMPMaHMP4GObG4ZaUb7DcXSREH9it5iLxxalVRwMDytW3a2H5TkvrPFdE0ioJfT8GD84dI58Qc6QZM+4h9HOtlGx0ywUkTvUT/bk1PLytiYWPREyFxBNQY93I5OTEY/0RWuJQtkR+/Or/QR8j/8LmS8feuPRbhvP+neC6bex4AsMLayvxHqb6v/dI6D4MkaeBm3iVx0gdL5UfLGKoWUO6haaPe6g/F5w2XN44Knx1U0Y7YF/DSmU=
+    secure: KG5J//NE6CkmHu/gR6+glPsUztIrG8+qe3zLAKdn3yPmqS/ekZDwMynlMOI/gYi3reCOy274NNrhShkfUb/mx0suIMS1jqZB0LY0eWrLkZKekqXHV/3MYJIdCO8AxXzVZPoN8RGZjoa7JqrIbeaVCw9ggoukLbKYs1VQWij10HCOnYH90yg4DMM6YM7xcsosP38QdXR3c+V8ZsMKAgVTB8grslj3xRxwkiwGmsDfsGEqFJAuxKZN8fRDkS8HbdLh+ER8XjhXAy941cc4WzG/uXBpOQpmsdclkT7NQ92qAxiVRTsOt6QftYDo0ZiW8CaLC8HV++l+UF7NBkyVPeQxU0G+vdLG9GpPjG2lKjI5JAfXWoJVDXx7kDzfFnfdXJY1ec94lbqV/XfU8LPEKd3C84NLGi6jme1/cgGI818zbCBcldZycJLS6VLi2k9Ncfb9D8TaUF2e7/srhSntCwFWsEVQQ844FmJwXhzFCva3DykaDM9GW+F8rCGR/QScEAfkRfugGFMk9mNjh+pgpeM6Yg0MS089PdMVU9Zl/OTCCOJM+EhfVtAeMhlMUIwBg4VjVVCsmEf95nxkmoESeE5Dzua3mHiP5XvZGUrqAaKSUjN0u7oCeTeHnR6GN441c2XihyrVffff6dmGc5NYOsTpRVxtByQ9/rcc6VaM3bGxTf0=
   on:
     tags: true
 
