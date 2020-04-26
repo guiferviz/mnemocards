@@ -192,21 +192,20 @@ as a new deck by Anki, loosing any learning progress.
 
 Apart from the deck ID, name and source files, you can specify a deck config.
 Look to this example:
-```json
+```
 {
     "id": "e9a0b7ba-641a-4af6-8631-be9854a4e9d8",
-    "name", "My deck name",
+    "name": "My deck name",
     "config": {
         "id": "65bcc65b-b4de-4ce4-b5c1-a73a2f64b82d",
         "name": "My deck name (Configuration)",
         "timer": 1,  # Active timer
         "maxTaken": 30,  # Max seconds taken by the timer
         "new": {
-            "bury": true,
-            "initialFactor": 1500,
+            "bury": true,  # Bury related new cards
+            "initialFactor": 1500,  # Initial ease factor
             "perDay": 5,  # Number of new cards per day
-            "delays": [1, 10, 1440, 4320, 10080],
-            "ints": [7, 14]
+            "delays": [1, 10, 1440, 4320, 10080],  # Learning steps in minutes
         },
         "lapse": {
             "leechAction": 1  # Mark leech cards. Set to 0 to suspend.
