@@ -1,8 +1,13 @@
 
 <img src="doc/_static/images/logo.png" width="200">
-
+<br />
 <a href="https://mnemocards.readthedocs.io/en/latest/">
-    <img src="https://readthedocs.org/projects/mnemocards/badge">
+    <img src="https://readthedocs.org/projects/mnemocards/badge"
+         alt="Read The Docs documentation">
+</a>
+<a href="https://travis-ci.com/guiferviz/mnemocards">
+    <img src="https://travis-ci.com/guiferviz/mnemocards.svg?branch=master"
+         alt="Travis build status">
 </a>
 
 Generate Anki cards from text files (TSV and Markdown).
