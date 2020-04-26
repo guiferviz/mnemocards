@@ -1,5 +1,5 @@
 # My own version of genanki with support to deck configurations.
--e git+git://github.com/guiferviz/genanki.git@feature-deck-conf#egg=genanki
+genanki @ git+https://github.com/guiferviz/genanki.git@feature-deck-conf
 
 gTTS
 iso-639
