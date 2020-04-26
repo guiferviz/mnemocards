@@ -24,15 +24,8 @@ with open(os.path.join(PACKAGE_NAME, "_version.py")) as file:
 
 # Read requirements.
 req = parse_requirements("requirements.txt", session="hack")
-REQUIREMENTS = []#[str(ir.req) for ir in req]
-DEPENDENCY_LINKS = []
-for i in req:
-    if i.req is not None:
-        REQUIREMENTS.append(str(i.req))
-    else:
-        DEPENDENCY_LINKS.append(str(i.link))
+REQUIREMENTS = [str(ir.req) for ir in req]
 print("Requirements:", REQUIREMENTS)
-print("Dependency links:", DEPENDENCY_LINKS)
 
 # Install all packages in the current dir except tests.
 PACKAGES = find_packages(exclude=["tests", "tests.*"])
@@ -57,7 +50,6 @@ setup(name=PACKAGE_NAME,
       license=LICENSE,
       packages=PACKAGES,
       install_requires=REQUIREMENTS,
-      dependency_links=DEPENDENCY_LINKS,
       entry_points={
           "console_scripts": [
               "{} = {}.__main__:main".format(PACKAGE_NAME, PACKAGE_NAME)
