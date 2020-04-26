@@ -2,8 +2,8 @@
 from .context import mnemocards
 
 
-def test_testing_ok():
-    assert 2 == 2
+def test_import():
+    """Test that import mnemocards does not give any errors. """
 
-def test_testing_fail():
-    assert 2 == 12
+    assert True
+
