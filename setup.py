@@ -1,6 +1,5 @@
 
 import os
-from os import listdir
 
 from setuptools import setup, find_packages
 try: # for pip >= 10
@@ -23,8 +22,15 @@ with open(os.path.join(PACKAGE_NAME, "_version.py")) as file:
     exec(file.read())
 
 # Read requirements.
-req = parse_requirements("requirements.txt", session="hack")
-REQUIREMENTS = [str(ir.req) for ir in req]
+req = parse_requirements("requirements.in", session="hack")
+REQUIREMENTS = []
+for i in req:
+    if getattr(i, "req") is not None:
+        REQUIREMENTS.append(str(i.req))
+    elif getattr(i, "requirement") is not None:  # pip >= 20.1
+        REQUIREMENTS.append(str(i.requirement))
+    else:
+        print("I don't understand this requirement...")
 print("Requirements:", REQUIREMENTS)
 
 # Install all packages in the current dir except tests.
