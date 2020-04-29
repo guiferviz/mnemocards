@@ -73,7 +73,7 @@ Mnemocards comes with some pre-design formats:
 
 # Installation
 
-Using `pip`:
+Using PyPi package with `pip`:
 ```bash
 pip install --no-deps mnemocards
 pip install mnemocards
@@ -88,15 +88,20 @@ workaround.
 Installing from source code is even simpler.
 Clone this repository, move to the root of the project and run:
 ```bash
-python setup.py install
+pip install .
 ```
 
 If you want to contribute or develop use:
 ```bash
-python setup.py develop
+pip install -e .
 ```
 
 Remember to have at least the version 10 of `pip`.
+
+Avoid using `python setup.py install` or `python setup.py develop` because it
+does not understand direct references in the requirements and installs a
+different version of Genanki (installs the PyPi package instead of my GitHub
+fork).
 
 Consider the option of using Docker if you do not want to install
 the package and to set up all the needed environment.
