@@ -25,9 +25,9 @@ with open(os.path.join(PACKAGE_NAME, "_version.py")) as file:
 req = parse_requirements("requirements.in", session="hack")
 REQUIREMENTS = []
 for i in req:
-    if getattr(i, "req") is not None:
+    if getattr(i, "req", None) is not None:
         REQUIREMENTS.append(str(i.req))
-    elif getattr(i, "requirement") is not None:  # pip >= 20.1
+    elif getattr(i, "requirement", None) is not None:  # pip >= 20.1
         REQUIREMENTS.append(str(i.requirement))
     else:
         print("I don't understand this requirement...")
