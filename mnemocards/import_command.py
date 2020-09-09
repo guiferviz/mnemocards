@@ -2,7 +2,6 @@
 import os
 import sys
 
-sys.path.append("/usr/share/anki")
 from anki import Collection
 from anki.importing.apkg import AnkiPackageImporter
 
