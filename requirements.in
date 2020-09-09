@@ -8,12 +8,4 @@ markdown2
 Pygments
 
 # Anki dependencies.
-decorator
-beautifulsoup4
-requests
-protobuf
-psutil; sys_platform == "win32"
-distro; sys_platform != "darwin" and sys_platform != "win32"
-# Anki dependency not included in their setup.py...
-# Of course asking for a requirements.txt is too much......
-pyaudio
+anki
