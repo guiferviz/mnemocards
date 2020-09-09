@@ -41,6 +41,7 @@ def build_deck(data_dir, deck_config):
     deck_id = deck_config.get("id", deck_name)
     if type(deck_id) == str:
         deck_id = get_hash_id(deck_id)
+    print("\tBuilding deck: ", deck_name, " ID:", deck_id)
     conf = build_deck_conf(deck_config)
     deck = genanki.Deck(
         deck_id,
