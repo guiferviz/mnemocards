@@ -22,7 +22,7 @@ idna==2.8                 # via requests
 iso-639==0.4.5            # via -r requirements.in
 markdown2==2.3.8          # via -r requirements.in
 orjson==3.3.1             # via anki
-protobuf==3.11.2          # via anki
+protobuf==3.13.0          # via -r requirements.in, anki
 pygithub==1.45            # via -r requirements.in
 pygments==2.5.2           # via -r requirements.in
 pyjwt==1.7.1              # via pygithub
