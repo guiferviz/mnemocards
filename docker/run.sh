@@ -11,7 +11,6 @@ if [ ! -f ~/.mnemocards ]; then
 fi
 
 sudo docker run \
-    -v /usr/share/anki:/usr/share/anki:ro \
     -v ~/.ssh:/root/.ssh:ro \
     -v ~/.gitconfig:/root/.gitconfig:ro \
     -v ~/.gh_key:/root/.gh_key:ro \
@@ -23,7 +22,7 @@ sudo docker run \
     guiferviz/mnemocards \
     "$@"
 
-# Change ownership of the generated files (assuming that the defaul group of
+# Change ownership of the generated files (assuming that the default group of
 # the user is the same as the username)
 sudo chown -R $USER:$USER $CARDS_DIR
 
