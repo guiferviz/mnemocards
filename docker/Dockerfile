@@ -26,8 +26,10 @@ COPY requirements.txt /root/mnemocards/requirements.txt
 RUN cd /root/mnemocards && pip install -r requirements.txt
 
 # Install mnemocards module.
-# TODO: do not use a dot, it is importing everything!
-COPY . /root/mnemocards
+COPY README.md /root/mnemocards/README.md
+COPY setup.py /root/mnemocards/setup.py
+COPY mnemocards/ /root/mnemocards/mnemocards/
+COPY requirements.in /root/mnemocards/requirements.in
 RUN cd /root/mnemocards && python setup.py install
 
 
