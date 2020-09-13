@@ -1,5 +1,5 @@
 
-from .context import mnemocards
+import mnemocards
 
 
 def test_import():
