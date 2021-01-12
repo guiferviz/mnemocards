@@ -47,7 +47,7 @@ Mnemocards comes with some pre-design formats:
  * PyAudio, one of the Python dependencies requires the installation of
  **PortAudio-dev**.
  Install the package in Ubuntu-like systems (bionic) with
- `apt install portaudio19-dev=19.6.0-1`.
+ `apt install portaudio19-dev=19.6.0-1build1`.
  Maybe any other version of the package is working but that one is the one
  I'm using without problems.
  Remove the version if you have any problem and try with the last one.
