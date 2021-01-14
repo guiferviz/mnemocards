@@ -1,0 +1,36 @@
+{
+    "packages": [
+        {
+            "name": "english",
+            "decks": [
+                {
+                    "id": "df542edd-d12a-41ea-77b8-a5af53409df3",
+                    "name": "English auto-generated vocab",
+                    "src": [
+                        {
+                            "type": "vocabulary",
+                            "file": "auto_generated.tsv",
+                            "header": true,
+                            "pronunciation_in_reverse": true,
+                            "translation": {
+                                "source_language": "en",
+                                "dest_language": "ru"
+                            },
+                            "audio": {
+                                "lang": "en",
+                                "media_dir": "media"
+                            },
+                            "card_properties": {
+                                "tags": [
+                                    "english",
+                                    "russiam",
+                                    "google translate"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
