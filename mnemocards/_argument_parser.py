@@ -196,6 +196,58 @@ preference over the full collection path.
 CLE_PARSER.add_argument("--collection-path", "-c",
                         type=str,
                         help=help_txt)
+# Maketsv command.
+help_txt = """
+This command generates vocabulary-type TSV-files based on a txt file with words.
+Text file should contain one words or phrase per line.
+The command will take each line, translate it to your language and tranform it to one TSV line according to vocabulary type.
+"""
+MAKETSV_PARSER = SUBPARSERS.add_parser("maketsv", help=help_txt)
+
+MAKETSV_PARSER.add_argument(
+    "data_dir",
+    metavar="DATA_DIR",
+    type=str,
+    help="Directory with the text file for translation "
+    "and generation of TSV file.",
+)
+help_txt = """
+Language pair you want generated in the following format: 
+"language-from_language-to"
+Default pair is from english to russian. In the command line it will look "en_ru"
+
+Language codes for all supporte languages can be found here:
+https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
+"""
+MAKETSV_PARSER.add_argument(
+    "--language-pair",
+    "-l",
+    type=str,
+    default="en_ru",
+    help=help_txt,
+)
+MAKETSV_PARSER.add_argument(
+    "--word-file",
+    "-w",
+    type=str,
+    default="words.txt",
+    help="Text file with words to search in the DATA_DIR.",
+)
+MAKETSV_PARSER.add_argument(
+    "--recursive",
+    "-r",
+    help="Search recursively for configuration files "
+    "in the given DATA_DIR.",
+    action="store_true",
+)
+MAKETSV_PARSER.add_argument(
+    "--output-dir",
+    "-o",
+    type=str,
+    default=".",
+    help="Output directory where the generated TSV files "
+    "are going to be saved. Current directory by default.",
+)
 # Hi command. Easter egg :)
 EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 
