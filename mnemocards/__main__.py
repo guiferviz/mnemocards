@@ -1,4 +1,3 @@
-
 from mnemocards import greet
 from mnemocards._argument_parser import parse_args
 from mnemocards.github import github
@@ -7,6 +6,7 @@ from mnemocards.pull import pull
 from mnemocards.push import push
 from mnemocards.clean import clean
 from mnemocards.import_command import import_command
+from mnemocards.auto_generate_tsv import make_tsv
 
 
 def main():
@@ -28,8 +28,10 @@ def main():
         clean(args.collection_path, args.profile_name)
     elif args.command == "hi":
         greet()
+    elif args.command == "maketsv":
+        make_tsv(args)
 
 
 if __name__ == "__main__":
     main()
-
+    
