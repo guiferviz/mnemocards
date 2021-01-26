@@ -1,11 +1,9 @@
 """Module for automatic generation of TSV-files for vocabulary cards."""
 
-import os
 from itertools import count
 from googletrans import Translator
 from itertools import count
 from time import sleep
-from mnemocards.utils import get_hash_id
 
 
 def get_translation(words, src="auto", dest="en"):
@@ -13,19 +11,34 @@ def get_translation(words, src="auto", dest="en"):
     if isinstance(words, str):
         words = [words]
 
-    words = list(set(words))
+    words = set(words)
+    words = list(words)
 
     translator = Translator()
     try:
         translations = translator.translate(words, src=src, dest=dest)
         return translations
-    except AttributeError:
-        print("Translation time-out, retrying in 3 seconds")
+    except AttributeError as er:
+        print(f"{er}, retrying in 3 seconds")
         sleep(3)
         return False
 
 
-def create_tsv_line(translation):
+def check_double_translations(all_trans, main_trans):
+    """
+    Determines if main translation is unique or has doubles in all-translations.
+    """
+    if (main_trans in all_trans) or (main_trans.lower() in all_trans):
+        return True
+    else:
+        return any(
+            check_double_translations(sublist, main_trans)
+            for sublist in all_trans
+            if isinstance(sublist, list)
+        )
+
+
+def make_cards(translation):
     main_trans = translation.extra_data["translation"]
     full_trans = translation.extra_data["all-translations"]
     main_trans = main_trans[0][0]
@@ -42,6 +55,10 @@ def create_tsv_line(translation):
     )
 
     if full_trans is not None:
+
+        if not check_double_translations(full_trans, main_trans):
+            forward_card += single_trans
+            backward_card += single_trans.replace("text-align: left; ", "")
 
         for block in full_trans:
 
@@ -66,7 +83,7 @@ def create_tsv_line(translation):
     return [forward_card, backward_card]
 
 
-def generate_tsv_configs(words, full_deck_name, new_deck_name, src="auto", dest="en"):
+def build_deck(words, full_deck_name, new_deck_name, src="auto", dest="en"):
 
     with open(new_deck_name + ".csv", "w") as new_deck_file, open(
         full_deck_name + ".csv", "a+"
@@ -95,43 +112,14 @@ def generate_tsv_configs(words, full_deck_name, new_deck_name, src="auto", dest=
                 full_deck_file.write("\n")
 
 
-def scrape_words_from_file(data_dir, word_file):
-    filename = os.path.join(data_dir, word_file)
-    with open(filename, "r+") as file:
-        words_list = []
-        for word in file:
-            words_list.append(word.strip())
-    return words_list
+def list_from_file(filename):
+    with open(filename, "r+") as f:
+        words = []
+        for word in f:
+            words.append(word.strip())
+        f.truncate(0)
+    return words
 
-
-def collect_tsv_configs(args):
-    all_words = []
-    all_words += scrape_words_from_file(args.data_dir, args.word_file)
-    if args.recursive:
-        for root, dirs, files in os.walk(args.data_dir):
-            # Ignore hidden folders.
-            dirs[:] = [d for d in dirs if not d[0] == "."]
-            for d in dirs:
-                d = os.path.join(root, d)
-                all_words += scrape_words_from_file(d, args.word_file)
-    tsv_configs = generate_tsv_configs(all_words)
-    return tsv_configs
-
-
-def save_tsv_files(tsv_configs, output_dir, language_pair):
-    print("Writing packages to a file...")
-    for one_config in tsv_configs:
-        filename = os.path.join(output_dir, f"{language_pair}.tsv")
-        with open(filename, 'w') as file:
-            file.write(one_config)
-
-
-def make_tsv(args):
-    if not os.path.exists(args.data_dir):
-
-        raise Exception("Data dir does not exist")
-    tsv_configs = collect_tsv_configs(args)
-    save_tsv_files(tsv_configs, args.output_dir, args.language_pair)
 
 # words = list_from_file("new_words.txt")
 # build_deck(
