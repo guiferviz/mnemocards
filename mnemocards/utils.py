@@ -2,6 +2,7 @@
 import json
 import os
 import hashlib
+import uuid
 import collections.abc
 
 import genanki
@@ -27,6 +28,12 @@ def get_hash_id(unicode_str, bytes=4):
     byte_str = str.encode(unicode_str)
     encoded = hashlib.md5(byte_str).digest()
     return int.from_bytes(encoded[:bytes], byteorder="big")
+
+
+def generate_card_uuid(string):
+    seed = hashlib.md5(string.encode('utf-8'))
+    # seed.update(str.encode(unicode_str))
+    return uuid.UUID(seed.hexdigest())
 
 
 def read_asset(relative_path):
@@ -77,4 +84,3 @@ def updater(old, new):
         else:
             old[k] = v
     return old
-
