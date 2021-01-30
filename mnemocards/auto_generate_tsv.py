@@ -68,7 +68,7 @@ def format_explanations(list_obj, explanation_name):
     return formatted_explanation
 
 
-def create_tsv_line(translation):
+def prepare_card_fields(translation):
     main_translation = translation.extra_data["translation"]
     full_trans = translation.extra_data["all-translations"]
     definitions_trans = translation.extra_data["definitions"]
@@ -79,7 +79,7 @@ def create_tsv_line(translation):
     if ylw.lower() == lylw.lower() and full_trans is None:
         return None
 
-    card_id = generate_card_uuid(ylw + lylw)
+    card_id = str(generate_card_uuid(ylw + lylw))
 
     lylp = ''
 
@@ -99,37 +99,44 @@ def create_tsv_line(translation):
     return [card_id, ylw, yle, lylw, lylp, lyle]
 
 
-def generate_tsv_configs(words, full_deck_name, new_deck_name, src="auto", dest="en"):
+def generate_tsv_lines(words, lang_pair):
 
-    with open(new_deck_name + ".csv", "w") as new_deck_file, open(
-        full_deck_name + ".csv", "a+"
-    ) as full_deck_file:
+    lang_pair = lang_pair.split('_')
+    header = "ID\tYourLanguageWord\tYourLanguageExplanation\tLanguageYouLearnWord\tLanguageYouLearnPronunciation\tLanguageYouLearnExplanation\tTags\n"
+    all_tsv_lines = []
 
-        translations = False
-        while translations == False:
-            translations = get_translation(words, src, dest)
+    translations = False
+    while translations == False:
+        translations = get_translation(
+            words, src=lang_pair[0], dest=lang_pair[1])
 
-        # counter = count(1)
-        card_pairs = []
-        for translation in translations:
+    for translation in translations:
 
-            pair = make_cards(translation)
+        tsv_line = ''
+        tsv_fields = prepare_card_fields(translation)
 
-            if pair is None:
-                continue
+        if tsv_fields is None:
+            continue
 
-            card_pairs.append(pair)
+        for field in tsv_fields:
+            tsv_line += field + '\t'
 
-        for card_pair in sorted(card_pairs):
-            for card in card_pair:
-                new_deck_file.write(card)
-                full_deck_file.write(card)
-                new_deck_file.write("\n")
-                full_deck_file.write("\n")
+        tsv_line += '\n'
+        all_tsv_lines += [tsv_line]
+
+    all_tsv_lines = sorted(all_tsv_lines)
+    all_tsv_lines.insert(0, header)
+    return all_tsv_lines
 
 
 def scrape_words_from_file(data_dir, word_file):
     filename = os.path.join(data_dir, word_file)
+    if not os.path.exists(filename):
+
+        raise Exception("""File with words for TSV generator doesn't exist.
+Default file name for words "words.txt".
+To get words from file with differen name use key [--word-file WORD_FILE]""")
+
     with open(filename, "r+") as file:
         words_list = []
         for word in file:
@@ -137,7 +144,7 @@ def scrape_words_from_file(data_dir, word_file):
     return words_list
 
 
-def collect_tsv_configs(args):
+def collect_tsv_lines(args):
     all_words = []
     all_words += scrape_words_from_file(args.data_dir, args.word_file)
     if args.recursive:
@@ -147,47 +154,24 @@ def collect_tsv_configs(args):
             for d in dirs:
                 d = os.path.join(root, d)
                 all_words += scrape_words_from_file(d, args.word_file)
-    tsv_configs = generate_tsv_configs(all_words)
-    return tsv_configs
+    tsv_lines = generate_tsv_lines(all_words, args.language_pair)
+    return tsv_lines
 
 
-def save_tsv_files(tsv_configs, output_dir, language_pair):
+def save_tsv_files(tsv_lines, output_dir, language_pair):
     print("Writing packages to a file...")
-    for one_config in tsv_configs:
-        filename = os.path.join(output_dir, f"{language_pair}.tsv")
-        with open(filename, 'w') as file:
-            file.write(one_config)
+
+    filename = os.path.join(output_dir, f"{language_pair}.tsv")
+
+    with open(filename, 'w') as file:
+        for one_line in tsv_lines:
+            file.write(one_line)
 
 
 def make_tsv(args):
     if not os.path.exists(args.data_dir):
 
         raise Exception("Data dir does not exist")
-    tsv_configs = collect_tsv_configs(args)
-    save_tsv_files(tsv_configs, args.output_dir, args.language_pair)
 
-# words = list_from_file("new_words.txt")
-# build_deck(
-#     words, "english_words_full_deck", "english_words_new_cards", "en", "ru"
-# )
-
-# from shutil import copyfile
-
-# copyfile(
-#     "./english_words_new_cards.csv",
-#     "/mnt/c/Projects/english_words_new_cards.csv",
-# )
-
-# print("finished")
-
-
-# translation = get_translation("shit happens", "en", "ru")
-# for item in translation:
-#     # print(item.src)
-#     # print(item.dest)
-#     # print(item.origin)
-#     # print(item.text)
-#     # print(item.pronunciation)
-#     # print(item.extra_data)
-#     for line in item.extra_data:
-#         print(line, item.extra_data.get(line))
+    tsv_lines = collect_tsv_lines(args)
+    save_tsv_files(tsv_lines, args.output_dir, args.language_pair)
