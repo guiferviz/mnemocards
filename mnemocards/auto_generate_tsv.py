@@ -69,12 +69,12 @@ def format_explanations(list_obj, explanation_name):
 
 
 def create_tsv_line(translation):
-    main_translation = translation['extra_data']["translation"]
-    full_trans = translation['extra_data']["all-translations"]
-    definitions_trans = translation['extra_data']["definitions"]
+    main_translation = translation.extra_data["translation"]
+    full_trans = translation.extra_data["all-translations"]
+    definitions_trans = translation.extra_data["definitions"]
 
     ylw = main_translation[0][0]
-    lylw = translation['origin']
+    lylw = translation.origin
 
     if ylw.lower() == lylw.lower() and full_trans is None:
         return None
