@@ -3,9 +3,8 @@
 import os
 from itertools import count
 from googletrans import Translator
-from itertools import count
 from time import sleep
-from mnemocards.utils import get_hash_id
+from mnemocards.utils import generate_card_uuid
 
 
 def get_translation(words, src="auto", dest="en"):
@@ -25,45 +24,79 @@ def get_translation(words, src="auto", dest="en"):
         return False
 
 
-def create_tsv_line(translation):
-    main_trans = translation.extra_data["translation"]
-    full_trans = translation.extra_data["all-translations"]
-    main_trans = main_trans[0][0]
-    orig = translation.origin
+def format_explanations(list_obj, explanation_name):
+    """Formats either translation synonyms or definitions in original language.
 
-    if main_trans.lower() == orig.lower() and full_trans is None:
+    Args:
+        list_obj (list): takes list from googletranslate object.
+        explanation_name (str): either 'synonyms' or 'definitions' for
+            naming a div class.
+
+    Returns:
+        [str]: formated explanation for TSV-file.
+    """
+    formatted_explanation = ''
+
+    for block in list_obj:
+
+        # todo написать тестовую строку с css как должно выглядеть в
+        # карте. обязательно добавить класс.
+
+        part_of_speech = f'<div class="{explanation_name} speech_part">{block[0].title()}</div>'
+        formatted_explanation += part_of_speech
+
+        explanation_block = 1
+
+        if explanation_name == 'synonyms':
+            explanation_block = 2
+
+        counter = count(1)
+        for line in block[explanation_block]:
+            if next(counter) > 3:
+                continue
+            synonym_dest_lang = f'<div class="{explanation_name} line_1">{line[0]}</div>'
+
+            if len(line) > 3:
+                synonyms_orig_lang = f'<div class="{explanation_name} line_2">{line[1]}</div>'
+            elif len(line) == 3:
+                synonyms_orig_lang = f'<div class="{explanation_name} line_2">{line[-1]}</div>'
+            else:
+                synonyms_orig_lang = ''
+
+            formatted_explanation += synonym_dest_lang + synonyms_orig_lang
+
+    return formatted_explanation
+
+
+def create_tsv_line(translation):
+    main_translation = translation['extra_data']["translation"]
+    full_trans = translation['extra_data']["all-translations"]
+    definitions_trans = translation['extra_data']["definitions"]
+
+    ylw = main_translation[0][0]
+    lylw = translation['origin']
+
+    if ylw.lower() == lylw.lower() and full_trans is None:
         return None
 
-    forward_card = f"<h1>{orig}</h1>\t"
-    backward_card = ""
+    card_id = generate_card_uuid(ylw + lylw)
 
-    single_trans = (
-        f'<div style="text-align: left; line-height: 110%">{main_trans}</div>'
-    )
+    lylp = ''
+
+    if len(main_translation[-1]) == 4:
+        lylp = main_translation[-1][-1]
+
+    yle = ''
 
     if full_trans is not None:
+        yle += format_explanations(full_trans, 'synonyms')
 
-        for block in full_trans:
+    lyle = ''
 
-            part_of_speech = f'<div style="text-align: left; font-size: 70%; color: #4285f4; line-height: 120%">{block[0].title()}</div>'
-            forward_card += part_of_speech
+    if definitions_trans is not None:
+        lyle += format_explanations(definitions_trans, 'definitions')
 
-            counter = count(1)
-            for word in block[2]:
-                if next(counter) > 3:
-                    continue
-                variant = f'<div style="text-align: left; line-height: 110%">{word[0]}</div>'
-                similar = f'<div style="text-align: left; color: #959392; font-size: 80%;">{word[1]}</div>'
-                forward_card += variant + similar
-                backward_card += variant.replace("text-align: left; ", "")
-
-    else:
-        forward_card += single_trans
-        backward_card += single_trans.replace("text-align: left; ", "")
-
-    backward_card += f'\t<div align="left">{orig}</div>'
-
-    return [forward_card, backward_card]
+    return [card_id, ylw, yle, lylw, lylp, lyle]
 
 
 def generate_tsv_configs(words, full_deck_name, new_deck_name, src="auto", dest="en"):
