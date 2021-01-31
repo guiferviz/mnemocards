@@ -159,7 +159,7 @@ def collect_tsv_lines(args):
 
 
 def save_tsv_files(tsv_lines, output_dir, language_pair):
-    print("Writing packages to a file...")
+    print(f"Writing tsv-config to {language_pair}.tsv...")
 
     filename = os.path.join(output_dir, f"{language_pair}.tsv")
 
