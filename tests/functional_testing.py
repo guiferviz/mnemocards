@@ -16,7 +16,7 @@ class CardGeneratorTest(unittest.TestCase):
 
         # he taps command into the terminal and checks that there is no
         # error.
-        s = subprocess.getstatusoutput("mnemocards auto_generate_tsv .")
+        s = subprocess.getstatusoutput("mnemocards maketsv .")
         self.assertNotIn("error", s[1])
 
         # checks that there the test opened file "card_config.json" and
