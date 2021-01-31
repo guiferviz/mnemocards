@@ -1,3 +1,5 @@
+"""Unit-tests module. Tests should be run from mnemocards/tests folder."""
+
 import unittest
 import os
 import pickle
