@@ -20,7 +20,7 @@ PARSER = argparse.ArgumentParser(description=PROGRAM_DESCRIPTION,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
 # Global arguments.
 # TODO: add logging.
-#PARSER.add_argument("-l", "--logging-level", dest="log_level", default="DEBUG",
+# PARSER.add_argument("-l", "--logging-level", dest="log_level", default="DEBUG",
 #                    choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
 #                    help="Logging level.")
 PARSER.add_argument("-v", "--version",
@@ -236,7 +236,7 @@ MAKETSV_PARSER.add_argument(
 MAKETSV_PARSER.add_argument(
     "--recursive",
     "-r",
-    help="Search recursively for configuration files "
+    help="Search recursively for words files "
     "in the given DATA_DIR.",
     action="store_true",
 )
@@ -248,6 +248,37 @@ MAKETSV_PARSER.add_argument(
     help="Output directory where the generated TSV files "
     "are going to be saved. Current directory by default.",
 )
+
+# Autogenerate command.
+help_txt = """
+This command generates deck based on a txt file with words.
+Text file should contain one words or phrase per line.
+The command will take each line and create a card with data from google traslate for it.
+"""
+AUTO_PARSER = SUBPARSERS.add_parser("autogenerate", help=help_txt)
+
+AUTO_PARSER.add_argument("data_dir", metavar="DATA_DIR",
+                         type=str,
+                         help="Directory with the configuration and text "
+                         "data to use for generating the Anki cards.")
+
+AUTO_PARSER.add_argument("--config-file", "-f",
+                         type=str,
+                         default="cards_config.json",
+                         help="Configuration file to search in the DATA_DIR.")
+
+AUTO_PARSER.add_argument("--recursive", "-r",
+                         help="Search recursively for configuration files "
+                         "in the given DATA_DIR.",
+                         action="store_true")
+
+AUTO_PARSER.add_argument("--output-dir", "-o",
+                         type=str,
+                         default=".",
+                         help="Output directory where the packages are going "
+                         "to be saved. Current directory by default.")
+
+
 # Hi command. Easter egg :)
 EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 
@@ -255,4 +286,3 @@ EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 def parse_args():
     args = PARSER.parse_args()
     return args
-
