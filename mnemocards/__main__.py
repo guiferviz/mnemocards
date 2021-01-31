@@ -6,7 +6,8 @@ from mnemocards.pull import pull
 from mnemocards.push import push
 from mnemocards.clean import clean
 from mnemocards.import_command import import_command
-from mnemocards.auto_generate_tsv import make_tsv
+from mnemocards.autogenerate_tsv import make_tsv
+from mnemocards.autogenerate_deck import autogenerate
 
 
 def main():
@@ -30,8 +31,9 @@ def main():
         greet()
     elif args.command == "maketsv":
         make_tsv(args)
+    elif args.command == "autogenerate":
+        autogenerate(args)
 
 
 if __name__ == "__main__":
     main()
-    
