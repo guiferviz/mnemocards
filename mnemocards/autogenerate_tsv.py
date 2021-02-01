@@ -144,7 +144,11 @@ To get words from file with differen name use key [--word-file WORD_FILE]""")
     return words_list
 
 
-def collect_tsv_lines(args):
+def collect_tsv_lines(args, lang_pair=None):
+
+    if lang_pair is None:
+        lang_pair = args.language_pair
+
     all_words = []
     all_words += scrape_words_from_file(args.data_dir, args.word_file)
     if args.recursive:
@@ -154,7 +158,7 @@ def collect_tsv_lines(args):
             for d in dirs:
                 d = os.path.join(root, d)
                 all_words += scrape_words_from_file(d, args.word_file)
-    tsv_lines = generate_tsv_lines(all_words, args.language_pair)
+    tsv_lines = generate_tsv_lines(all_words, lang_pair)
     return tsv_lines
 
 

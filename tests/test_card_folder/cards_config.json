@@ -4,20 +4,21 @@
             "name": "google_trans_deck",
             "decks": [
                 {
-                    "id": "ee82e603-fd35-6042-57a9-b6d8c399061b",
+                    "id": "9b2fcb11-704d-46ba-88bb-947688bd2301",
                     "name": "English-Russian googletranslated",
                     "src": [
                         {
                             "type": "autogenerate",
-                            "file": "words.txt",
+                            "word_file": "words.txt",
+                            "use_tsv_for_generation": false,
                             "header": true,
+                            "tsv_file": null,
+                            "save_tsv": true,
                             "pronunciation_in_reverse": true,
                             "card_color": "#f5f5f5",
                             "lang_original": "en",
                             "lang_translation": "ru",
-                            "use_tsv_for_generation": false,
-                            "tsv_file": "en_ru.tsv",
-                            "save_tsv": true,
+                            "furigana": false,
                             "audio": {
                                 "lang": "en",
                                 "media_dir": "media"

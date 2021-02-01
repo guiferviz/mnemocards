@@ -30,7 +30,11 @@ def get_hash_id(unicode_str, bytes=4):
     return int.from_bytes(encoded[:bytes], byteorder="big")
 
 
-def generate_card_uuid(string):
+def generate_card_uuid(string=None):
+    if string == None:
+        print(uuid.uuid4())
+        return
+
     seed = hashlib.md5(string.encode('utf-8'))
     # seed.update(str.encode(unicode_str))
     return uuid.UUID(seed.hexdigest())
