@@ -278,6 +278,15 @@ AUTO_PARSER.add_argument("--output-dir", "-o",
                          help="Output directory where the packages are going "
                          "to be saved. Current directory by default.")
 
+# ID generator command.
+help_txt = """
+This command generates unique ID that you can use if for creating Unique ID
+for your cards or decks. It prints id in your terminal and you'll need to copy
+it to config.json or cards.tsv
+"""
+
+IDGEN_PARSER = SUBPARSERS.add_parser("id", help=help_txt)
+
 
 # Hi command. Easter egg :)
 EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
