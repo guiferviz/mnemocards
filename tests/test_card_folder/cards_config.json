@@ -12,17 +12,16 @@
                             "word_file": "words.txt",
                             "use_tsv_for_generation": false,
                             "header": true,
-                            "tsv_file": null,
+                            "tsv_file": "en_ru.tsv",
                             "save_tsv": true,
                             "pronunciation_in_reverse": true,
                             "card_color": "#f5f5f5",
-                            "lang_original": "en",
-                            "lang_translation": "ru",
-                            "furigana": false,
-                            "audio": {
-                                "lang": "en",
-                                "media_dir": "media"
+                            "lang": {
+                                "original": "en",
+                                "translation": "ru"
                             },
+                            "furigana": false,
+                            "audio": true,
                             "card_properties": {
                                 "tags": [
                                     "english",
