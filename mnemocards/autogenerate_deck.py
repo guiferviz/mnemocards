@@ -2,6 +2,8 @@
 import os
 import json
 
+from shutil import rmtree
+
 from mnemocards.generate import build, save_packages
 
 
@@ -10,4 +12,6 @@ def autogenerate(args):
         raise Exception("Data dir does not exist")
     packages = build(args)
     save_packages(packages, args.output_dir)
-    print("Writing packages to a file...")
+    media_path = os.path.join(args.data_dir, ".media")
+    if os.path.exists(media_path):
+        rmtree(media_path)

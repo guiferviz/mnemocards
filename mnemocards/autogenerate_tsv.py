@@ -96,7 +96,10 @@ def prepare_card_fields(translation):
     if definitions_trans is not None:
         lyle += format_explanations(definitions_trans, 'definitions')
 
-    return [card_id, ylw, yle, lylw, lylp, lyle]
+    card = {"card_id": card_id, "ylw": ylw, "yle": yle,
+            "lylw": lylw, "lylp": lylp, "lyle": lyle}
+
+    return card
 
 
 def generate_tsv_lines(words, lang_pair):
@@ -118,7 +121,7 @@ def generate_tsv_lines(words, lang_pair):
         if tsv_fields is None:
             continue
 
-        for field in tsv_fields:
+        for field in [*tsv_fields.values()]:
             tsv_line += field + '\t'
 
         tsv_line += '\n'
@@ -129,7 +132,7 @@ def generate_tsv_lines(words, lang_pair):
     return all_tsv_lines
 
 
-def scrape_words_from_file(data_dir, word_file):
+def scrape_words_from_file(word_file, data_dir=""):
     filename = os.path.join(data_dir, word_file)
     if not os.path.exists(filename):
 
@@ -150,14 +153,14 @@ def collect_tsv_lines(args, lang_pair=None):
         lang_pair = args.language_pair
 
     all_words = []
-    all_words += scrape_words_from_file(args.data_dir, args.word_file)
+    all_words += scrape_words_from_file(args.word_file, args.data_dir)
     if args.recursive:
         for root, dirs, files in os.walk(args.data_dir):
             # Ignore hidden folders.
             dirs[:] = [d for d in dirs if not d[0] == "."]
             for d in dirs:
                 d = os.path.join(root, d)
-                all_words += scrape_words_from_file(d, args.word_file)
+                all_words += scrape_words_from_file(args.word_file, d)
     tsv_lines = generate_tsv_lines(all_words, lang_pair)
     return tsv_lines
 
