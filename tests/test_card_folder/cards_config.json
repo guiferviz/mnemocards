@@ -5,19 +5,17 @@
             "decks": [
                 {
                     "id": "9b2fcb11-704d-46ba-88bb-947688bd2301",
-                    "name": "English-Russian googletranslated",
+                    "name": "English-Spanish googletranslated",
                     "src": [
                         {
                             "type": "autogenerate",
-                            "word_file": "words.txt",
-                            "use_tsv_for_generation": false,
+                            "file": "words.txt",
                             "pronunciation_in_reverse": true,
                             "card_color": "#f5f5f5",
                             "lang": {
                                 "original": "en",
-                                "translation": "ru"
+                                "translation": "es"
                             },
-                            "furigana": false,
                             "audio": true,
                             "card_properties": {
                                 "tags": [
@@ -31,20 +29,20 @@
                 },
                 {
                     "id": "80b5705f-a9e2-45b5-9846-3df49b8fdbf0",
-                    "name": "Japanese-Russian googletranslated",
+                    "name": "Japanese-English googletranslated",
                     "src": [
                         {
                             "type": "autogenerate",
-                            "word_file": "words_japanese.txt",
-                            "use_tsv_for_generation": true,
-                            "tsv_file": "ja_en.tsv",
-                            "pronunciation_in_reverse": true,
+                            "file": "ja_en.tsv",
+                            "pronunciation_in_reverse": false,
                             "card_color": "#f5f5f5",
                             "lang": {
-                                "original": "ja",
-                                "translation": "en"
+                                "original": "ja"
                             },
-                            "furigana": true,
+                            "furigana": {
+                                "create": true,
+                                "type": "hepburn"
+                            },
                             "audio": true,
                             "card_properties": {
                                 "tags": [
