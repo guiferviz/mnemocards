@@ -1,10 +1,12 @@
 """Unit-tests module. Tests should be run from mnemocards/tests folder."""
-
 import unittest
 import os
 import pytest
-from mnemocards import autogenerate_tsv as tsv
+import json
+from shutil import rmtree
+from mnemocards.builders.autogenerate_builder import AutogenerateBuilder as ab
 from mnemocards import autogenerate_deck as gendeck
+from mnemocards import autogenerate_tsv as tsv
 
 
 class CustomModulesTest(unittest.TestCase):
@@ -35,9 +37,6 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
     word_list = ['concert', 'shit happens', 'brook no nonsense', 'ridge']
     word_list_tranlated = ['концерт', 'дерьмо случается',
                            'не терпеть глупостей', 'гребень']
-
-    example_translation = {'translation': [['насмехаться', 'scoff', None, None, 3, None, None, [[]], [[['cce7c67b3f2439089dd6b428e0b83b88', 'en_ru_2020q2.md']]]], [None, None, "nasmekhat'sya", 'skôf']], 'all-translations': [['глагол', ['издеваться', 'насмехаться', 'глумиться', 'зубоскалить', 'жрать', 'засмеять', 'есть с жадностью'], [['издеваться', ['scoff', 'mock', 'flout', 'ride', 'guy', 'roast'], None, 0.24126123], ['насмехаться', ['mock', 'taunt', 'scoff', 'razz', 'sneer', 'deride'], None, 0.15822297], ['глумиться', ['mock', 'scoff', 'sneer', 'jeer', 'flout'], None, 0.017752126], ['зубоскалить', ['scoff'], None, 0.00995804], ['жрать', ['fress', 'scoff', 'knock back'], None, 0.0012080474], ['засмеять', ['laugh down', 'scoff'], None, 0.0009706933], ['есть с жадностью', ['gorge', 'raven', 'tuck into', 'guzzle', 'devour', 'scoff'], None, 0.00048052802]], 'scoff', 2], ['имя существительное', ['насмешка', 'жратва', 'посмешище', 'еда'], [['насмешка', ['mockery', 'ridicule', 'sneer', 'taunt', 'jibe', 'scoff'], None, 0.0028979548, None, 2], ['жратва', ['scoff'], None, 0.0019304542, None, 2], ['посмешище', ['mockery', 'laughing-stock', 'joke', 'derision', 'mock', 'scoff'], None, 0.0009706933, None, 3], ['еда', ['food', 'meal', 'eating', 'fare', 'meat', 'scoff'], None, 0.000721358, None, 2]], 'scoff', 1]], 'original-language': 'en', 'possible-translations': [['scoff', None, [['насмехаться', 0, True, False], ['Scoff', 0, True, False]], [[0, 5]], 'scoff', 0, 0]], 'confidence': 1.0, 'possible-mistakes': None, 'language': [['en'], None, [1.0], ['en']], 'synonyms': [['глагол', [[['make sport of'], 'm_en_gbus0909000.007'], [['fleer at', "bite one's thumb at", 'scout at'], 'm_en_gbus0909000.007'], [
-        ['mock', 'deride', 'ridicule', 'sneer at', 'be scornful about', 'treat contemptuously', 'jeer at', 'jibe at', 'make fun of', 'poke fun at', 'laugh at', 'scorn', 'laugh to scorn', 'dismiss', 'pooh-pooh', 'make light of', 'belittle', 'taunt', 'tease', 'make a fool of', 'rag'], 'm_en_gbus0909000.007'], [["thumb one's nose at", 'take the mickey out of', 'poke mullock at'], 'm_en_gbus0909000.007'], [['eat', 'devour', 'consume', 'guzzle', 'gobble', 'wolf down', 'polish off', 'finish off', 'gulp down', 'bolt', 'put away', 'nosh', 'get outside of', 'pack away', 'demolish', 'shovel down', 'stuff(down)', "stuff one's face with", 'stuff oneself with', 'pig oneself on', 'pig out on', 'sink', 'gollop', 'shift', "get one's laughing gear round", 'gorb', 'scarf(down/up)', 'snarf(down/up)', 'inhale'], 'm_en_gbus0909010.007'], [['ingurgitate'], 'm_en_gbus0909010.007']], 'scoff'], ['имя существительное', [[['food', 'fare', 'eatables', 'refreshments', 'grub', 'nosh', 'chow', 'eats', 'feed', 'tuck', 'chuck'], 'm_en_gbus0909010.014'], [['victuals', 'vittles', 'meat'], 'm_en_gbus0909010.014']], 'scoff']], 'definitions': [['глагол', [['speak to someone or about something in a scornfully derisive or mocking way.', 'm_en_gbus0909000.007', '“You, a scientist?” he scoffed'], ['eat(something) quickly and greedily.', 'm_en_gbus0909010.007', 'she scoffed down several chops']], 'scoff'], ['имя существительное', [['an expression of scornful derision.', 'm_en_gbus0909000.014', 'scoffs of disbelief'], ['food.', 'm_en_gbus0909010.014']], 'scoff']], 'examples': [[['his army was the < b > scoff < /b > of all Europe', None, None, None, 3, 'm_en_gbus0909000.017']]], 'see-also': None}
 
     example_tsv_line = """c507ebf1-4f30-5423-9b61-14de4e116c03	концерт	<div class="synonyms speech_part">Имя Существительное</div><div class="synonyms line_1">концерт</div><div class="synonyms line_2">['concert', 'concerto']</div><div class="synonyms line_1">согласие</div><div class="synonyms line_2">['agreement', 'consent', 'harmony', 'accordance', 'accord', 'concert']</div><div class="synonyms line_1">соглашение</div><div class="synonyms line_2">['agreement', 'convention', 'deal', 'arrangement', 'contract', 'concert']</div><div class="synonyms speech_part">Имя Прилагательное</div><div class="synonyms line_1">концертный</div><div class="synonyms line_2">['concert', 'odeum']</div><div class="synonyms speech_part">Глагол</div><div class="synonyms line_1">сговариваться</div><div class="synonyms line_2">['conspire', 'arrange', 'agree', 'concert', 'come to an agreement', 'arrange things']</div><div class="synonyms line_1">договариваться</div><div class="synonyms line_2">['agree', 'negotiate', 'arrange', 'make arrangements', 'parley', 'concert']</div><div class="synonyms line_1">сообща принимать меры</div><div class="synonyms line_2">['concert']</div>	concert		<div class="definitions speech_part">Имя Существительное</div><div class="definitions line_1">a musical performance given in public, typically by several performers or of several separate compositions.</div><div class="definitions line_2">a concert pianist</div><div class="definitions line_1">agreement, accordance, or harmony.</div><div class="definitions line_2">critics' inability to describe with any precision and concert the characteristics of literature</div><div class="definitions speech_part">Глагол</div><div class="definitions line_1">arrange (something) by mutual agreement or coordination.</div><div class="definitions line_2">they started meeting regularly to concert their tactics</div>	"""
 
@@ -98,7 +97,7 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
 
 
 @pytest.mark.autogenerate
-class AutoGenerateDeckUnitTestSuit(unittest.TestCase):
+class AutoGenerateDeckUnitTestSuit(unittest.TestCase, ab):
 
     class TestArgs():
         def __init__(self):
@@ -110,15 +109,50 @@ class AutoGenerateDeckUnitTestSuit(unittest.TestCase):
             self.output_dir = self.data_dir
     args = TestArgs()
 
+    @classmethod
+    def tearDown(self):
+        media_dir = os.path.join(self.args.data_dir, ".media")
+        if os.path.exists(media_dir):
+            rmtree(media_dir)
+
     @pytest.mark.slow
     def test_autogenerate_builds_package(self):
+        print("testing main autogenerate function")
         apkg_path = os.path.join(self.args.output_dir,
                                  "google_trans_deck.apkg")
         gendeck.autogenerate(self.args)
         self.assertTrue(os.path.exists(apkg_path))
 
-    @pytest.mark.slow
-    def test_
+    def test_building_cards_from_tsv(self):
+        print("testing card building from TSV")
+        args = self.args
+        configpath = os.path.join(args.data_dir, self.args.config_file)
+        with open(configpath, 'r') as file:
+            config = json.load(file)
+        src = config["packages"][0]["decks"][1]["src"][0]
+        self.assertTrue(src["use_tsv_for_generation"])
+        settings = self.parse_src_to_settings(args.data_dir, src)
+        cards = self.build_cards_from_tsv(settings)
+        keys = ["card_id", "ylw", "yle", "lylw", "lylp", "lyle", "tags"]
+
+        for card in cards:
+            for field in card.keys():
+                self.assertIn(field, keys)
+
+    def test_build_notes_and_media(self):
+        print("testing notes object and media path generates")
+        args = self.args
+        configpath = os.path.join(args.data_dir, self.args.config_file)
+        with open(configpath, 'r') as file:
+            config = json.load(file)
+        src = config["packages"][0]["decks"][1]["src"][0]
+        self.assertTrue(src["use_tsv_for_generation"])
+        settings = self.parse_src_to_settings(args.data_dir, src)
+        cards = self.build_cards_from_tsv(settings)
+        notes, media = self.build_notes_and_media(settings, cards)
+        for note in notes:
+            self.assertIn("mnemocards.utils.NoteID object", str(note))
+        self.assertEqual(len(notes), len(media))
 
 
 if __name__ == "__main__":
