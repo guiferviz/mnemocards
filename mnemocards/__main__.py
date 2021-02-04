@@ -7,7 +7,6 @@ from mnemocards.push import push
 from mnemocards.clean import clean
 from mnemocards.import_command import import_command
 from mnemocards.maketsv import make_tsv
-from mnemocards.autogenerate_deck import autogenerate
 from mnemocards.utils import generate_card_uuid
 
 
