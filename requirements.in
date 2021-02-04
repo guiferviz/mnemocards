@@ -8,7 +8,7 @@ markdown2
 Pygments
 pykakasi
 googletrans==3.1.0a0
-
+chardet==3.0.4
 # Anki dependencies.
 anki
 protobuf>=3.13.0  # needed because version pinned by mypy-protobuf gives error.
