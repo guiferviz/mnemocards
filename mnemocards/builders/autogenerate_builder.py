@@ -3,8 +3,7 @@ import csv
 
 from gtts import gTTS
 
-from mnemocards.utils import get_hash_id
-from mnemocards.utils import NoteID
+from mnemocards.utils import get_hash_id, NoteID, generate_furigana
 
 from mnemocards.builders.vocabulary_builder import VocabularyBuilder, CARD_MODEL, CARD_MODEL_JAPANESE
 from mnemocards.builders.vocabulary_builder import remove_parentheses, remove_spaces
@@ -75,6 +74,10 @@ class AutogenerateBuilder(VocabularyBuilder, object):
     def build_notes_and_media(self, settings, cards):
         notes, media = [], []
         for card in cards:
+
+            if settings["furigana"] and (settings["lang"]["original"] == "ja"):
+                card["lylw"] = generate_furigana(card["lylw"])
+
             if settings["generate_audio"]:
                 clean_text = remove_parentheses(card["lylw"])
                 if settings["furigana"]:

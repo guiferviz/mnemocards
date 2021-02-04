@@ -5,6 +5,7 @@ import hashlib
 import uuid
 import collections.abc
 
+import pykakasi
 import genanki
 
 from mnemocards import ASSETS_DIR
@@ -88,3 +89,18 @@ def updater(old, new):
         else:
             old[k] = v
     return old
+
+
+def generate_furigana(jp_text, frgn_type="hira"):
+
+    kks = pykakasi.kakasi()
+    result = kks.convert(jp_text)
+    jp_frgn_text = ""
+
+    for item in result:
+        if item['orig'] == item['kana'] or item['orig'] == item['hira']:
+            jp_frgn_text += item['orig']
+        else:
+            jp_frgn_text += f" {item['orig']}[{item[frgn_type]}]"
+
+    return jp_frgn_text.strip()
