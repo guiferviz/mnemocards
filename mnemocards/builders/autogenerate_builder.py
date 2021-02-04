@@ -1,13 +1,184 @@
 import os
 import csv
 
+import genanki
+
 from gtts import gTTS
 
+from mnemocards import ASSETS_DIR
 from mnemocards.utils import get_hash_id, NoteID, generate_furigana
 
-from mnemocards.builders.vocabulary_builder import VocabularyBuilder, CARD_MODEL, CARD_MODEL_JAPANESE
+from mnemocards.builders.vocabulary_builder import VocabularyBuilder
 from mnemocards.builders.vocabulary_builder import remove_parentheses, remove_spaces
 from mnemocards import autogenerate_tsv as tsv
+
+
+css = open(f"{ASSETS_DIR}/css/autogenerate.css").read()
+CARD_MODEL = genanki.Model(
+    get_hash_id("404aed54-6cdd-4397-b0d1-6af8c197f593"),
+    "Vocabulary model",
+    fields=[
+        # Visible fields.
+        {"name": "YourLanguageWord"},
+        {"name": "YourLanguageExplanation"},
+        {"name": "LanguageYouLearnWord"},
+        {"name": "LanguageYouLearnPronunciation"},
+        {"name": "LanguageYouLearnExplanation"},
+        # Configuration fields.
+        {"name": "CardColor"},
+        {"name": "ShowPronunciationInReverse"},
+    ],
+    templates=[
+        {
+            "name": "Vocabulary card",
+            "qfmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                    .origin {
+                        color: black;
+                    }
+                    .synonyms .line_2 {
+                        color: #0000;
+                    }
+                </style>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+            ''',
+            "afmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                    .origin {
+                        color: black;
+                    }
+                    .destination {
+                        color: black;
+                    }
+                </style>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+                <hr>
+                <div class="destination word">{{LanguageYouLearnWord}}</div>
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+            ''',
+        },
+        {
+            "name": "Vocabulary card (reversed)",
+            "qfmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                    .destination {
+                        color: black;
+                    }
+                </style>
+                <div class="destination word">{{LanguageYouLearnWord}}</div>
+                {{#ShowPronunciationInReverse}}
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                {{/ShowPronunciationInReverse}}
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+            ''',
+            "afmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                    .origin {
+                        color: black;
+                    }
+                    .destination {
+                        color: black;
+                    }
+                </style>
+                <div class="destination word">{{LanguageYouLearnWord}}</div>
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+                <hr>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+            ''',
+        },
+    ],
+    css=css,
+)
+CARD_MODEL_JAPANESE = genanki.Model(
+    get_hash_id("2d5e52ea-c9de-4d0f-bdf5-ee06ad815e61"),
+    "Vocabulary model (Japanese)",
+    fields=[
+        # Visible fields.
+        {"name": "YourLanguageWord"},
+        {"name": "YourLanguageExplanation"},
+        {"name": "LanguageYouLearnWord"},
+        {"name": "LanguageYouLearnPronunciation"},
+        {"name": "LanguageYouLearnExplanation"},
+        # Configuration fields.
+        {"name": "CardColor"},
+        {"name": "ShowPronunciationInReverse"},
+    ],
+    templates=[
+        {
+            "name": "Vocabulary card",
+            "qfmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                </style>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+                <div>{{type:LanguageYouLearnWord}}</div>
+            ''',
+            "afmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                </style>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+                <div>{{type:LanguageYouLearnWord}}</div>
+                <hr>
+                <div class="destination word">{{furigana:LanguageYouLearnWord}}</div>
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+            ''',
+        },
+        {
+            "name": "Vocabulary card (reversed)",
+            "qfmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                </style>
+                <div class="destination word">{{kanji:LanguageYouLearnWord}}</div>
+                {{#ShowPronunciationInReverse}}
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                {{/ShowPronunciationInReverse}}
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+            ''',
+            "afmt": '''
+                <style>
+                    .card {
+                        background: {{CardColor}};
+                    }
+                </style>
+                <div class="destination word">{{furigana:LanguageYouLearnWord}}</div>
+                <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
+                <div class="destination comment">{{LanguageYouLearnExplanation}}</div>
+                <hr>
+                <div class="origin word">{{YourLanguageWord}}</div>
+                <div class="origin comment">{{YourLanguageExplanation}}</div>
+            ''',
+        },
+    ],
+    css=css,
+)
 
 
 class AutogenerateBuilder(VocabularyBuilder, object):

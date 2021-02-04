@@ -46,7 +46,7 @@ def format_explanations(list_obj, explanation_name):
         # todo написать тестовую строку с css как должно выглядеть в
         # карте. обязательно добавить класс.
 
-        part_of_speech = f'<div class="{explanation_name} speech_part">{block[0].title()}</div>'
+        part_of_speech = f'<div class="speechpart">{block[0].title()}</div>'
         formatted_explanation += part_of_speech
 
         explanation_block = 1
@@ -58,17 +58,18 @@ def format_explanations(list_obj, explanation_name):
         for line in block[explanation_block]:
             if next(counter) > 3:
                 continue
-            synonym_dest_lang = f'<div class="{explanation_name} line_1">{line[0]}</div>'
+            synonym_dest_lang = f'<div class="line_1">{line[0]}</div>'
 
             if len(line) > 3:
-                synonyms_orig_lang = f'<div class="{explanation_name} line_2">{line[1]}</div>'
+                synonyms_orig_lang = f'<div class="line_2">{line[1]}</div>'
             elif len(line) == 3:
-                synonyms_orig_lang = f'<div class="{explanation_name} line_2">{line[-1]}</div>'
+                synonyms_orig_lang = f'<div class="line_2">{line[-1]}</div>'
             else:
                 synonyms_orig_lang = ''
 
             formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
+    formatted_explanation = f'<div class="{explanation_name}">{formatted_explanation}</div>'
     return formatted_explanation
 
 
