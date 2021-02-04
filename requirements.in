@@ -6,6 +6,8 @@ iso-639
 pygithub
 markdown2
 Pygments
+pykakasi
+googletrans==3.1.0a0
 
 # Anki dependencies.
 anki

@@ -214,7 +214,7 @@ MAKETSV_PARSER.add_argument(
 help_txt = """
 Language pair you want generated in the following format: 
 "language-from_language-to"
-Default pair is from english to russian. In the command line it will look "en_ru"
+Default pair is from english to spanish. In the command line it will look "en_es"
 
 Language codes for all supporte languages can be found here:
 https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
@@ -223,7 +223,7 @@ MAKETSV_PARSER.add_argument(
     "--language-pair",
     "-l",
     type=str,
-    default="en_ru",
+    default="en_es",
     help=help_txt,
 )
 MAKETSV_PARSER.add_argument(
