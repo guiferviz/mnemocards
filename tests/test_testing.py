@@ -40,16 +40,17 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
 
     example_tsv_line = """c507ebf1-4f30-5423-9b61-14de4e116c03	концерт	<div class="synonyms speech_part">Имя Существительное</div><div class="synonyms line_1">концерт</div><div class="synonyms line_2">['concert', 'concerto']</div><div class="synonyms line_1">согласие</div><div class="synonyms line_2">['agreement', 'consent', 'harmony', 'accordance', 'accord', 'concert']</div><div class="synonyms line_1">соглашение</div><div class="synonyms line_2">['agreement', 'convention', 'deal', 'arrangement', 'contract', 'concert']</div><div class="synonyms speech_part">Имя Прилагательное</div><div class="synonyms line_1">концертный</div><div class="synonyms line_2">['concert', 'odeum']</div><div class="synonyms speech_part">Глагол</div><div class="synonyms line_1">сговариваться</div><div class="synonyms line_2">['conspire', 'arrange', 'agree', 'concert', 'come to an agreement', 'arrange things']</div><div class="synonyms line_1">договариваться</div><div class="synonyms line_2">['agree', 'negotiate', 'arrange', 'make arrangements', 'parley', 'concert']</div><div class="synonyms line_1">сообща принимать меры</div><div class="synonyms line_2">['concert']</div>	concert		<div class="definitions speech_part">Имя Существительное</div><div class="definitions line_1">a musical performance given in public, typically by several performers or of several separate compositions.</div><div class="definitions line_2">a concert pianist</div><div class="definitions line_1">agreement, accordance, or harmony.</div><div class="definitions line_2">critics' inability to describe with any precision and concert the characteristics of literature</div><div class="definitions speech_part">Глагол</div><div class="definitions line_1">arrange (something) by mutual agreement or coordination.</div><div class="definitions line_2">they started meeting regularly to concert their tactics</div>	"""
 
-    example_tsv_filename = os.path.join(data_dir, "test_tsv_config.tsv")
+    example_tsv_filename = os.path.join(
+        data_dir, "test_card_folder/correct_tsv_file.tsv")
 
     def test_words_file_scraped(self):
-
+        print("testing that files with words scraped correctly")
         scraped_words = tsv.scrape_words_from_file(
             *self.word_file_path)
         self.assertEqual(scraped_words, self.word_list)
 
     def test_tsv_are_saved(self):
-
+        print("testing that tsv-file saves on disk")
         test_tsv_config = open(self.example_tsv_filename, 'r')
         output_dir = self.data_dir
         language_pair = "en_ru"
@@ -69,6 +70,7 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
 
     @pytest.mark.slow
     def test_tsv_lines_generated(self):
+        print("testing that tsv-lines generate correctly")
         expected_tsv_line = []
         with open(self.example_tsv_filename, 'r') as tsv_file:
 
@@ -80,6 +82,7 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
 
     @pytest.mark.slow
     def test_words_are_translated(self):
+        print("testing that words are translated")
         translations = tsv.get_translation(self.word_list, 'en', 'ru')
         expected_type = "<class 'googletrans.models.Translated'>"
         self.assertEqual(str(type(translations[0])), expected_type)
@@ -87,6 +90,8 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
 
     @pytest.mark.slow
     def test_translation_converts_to_tsv_line(self):
+        # TODO: create plug object for translation
+        print("testing tranlsation objects convert to tsv-lines")
         translation = tsv.get_translation('concert', 'en', 'ru')
         expected_line = self.example_tsv_line
         created_line = """"""

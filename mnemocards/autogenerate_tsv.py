@@ -118,9 +118,10 @@ def generate_tsv_lines(words, lang_pair):
 
     for translation in translations:
 
-        if str(translation._response) != '<Response [200 OK]>':
+        if str(translation._response) == '<Response [429 Too Many Requests]>':
             raise TranslatorError(f"""Error-code {translation._response}.
-Retry in a couple of minutes.""")
+Google temporarily blocked your IP because you made too many requests.
+Try again in a couple of hours.""")
 
         tsv_line = ''
         tsv_fields = prepare_card_fields(translation)
