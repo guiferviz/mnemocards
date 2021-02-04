@@ -7,6 +7,10 @@ from time import sleep
 from mnemocards.utils import generate_card_uuid
 
 
+class TranslatorError(Exception):
+    pass
+
+
 def get_translation(words, src="auto", dest="en"):
 
     if isinstance(words, str):
@@ -98,7 +102,6 @@ def prepare_card_fields(translation):
 
     card = {"card_id": card_id, "ylw": ylw, "yle": yle,
             "lylw": lylw, "lylp": lylp, "lyle": lyle}
-
     return card
 
 
@@ -115,6 +118,10 @@ def generate_tsv_lines(words, lang_pair):
 
     for translation in translations:
 
+        if str(translation._response) != '<Response [200 OK]>':
+            raise TranslatorError(f"""Error-code {translation._response}.
+Retry in a couple of minutes.""")
+
         tsv_line = ''
         tsv_fields = prepare_card_fields(translation)
 
@@ -122,7 +129,7 @@ def generate_tsv_lines(words, lang_pair):
             continue
 
         for field in [*tsv_fields.values()]:
-            tsv_line += field + '\t'
+            tsv_line += str(field) + '\t'
 
         tsv_line += '\n'
         all_tsv_lines += [tsv_line]
