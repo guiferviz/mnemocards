@@ -10,7 +10,7 @@ from mnemocards.utils import get_hash_id, NoteID, generate_furigana
 
 from mnemocards.builders.vocabulary_builder import VocabularyBuilder
 from mnemocards.builders.vocabulary_builder import remove_parentheses, remove_spaces
-from mnemocards import autogenerate_tsv as tsv
+from mnemocards import maketsv as tsv
 
 
 css = open(f"{ASSETS_DIR}/css/autogenerate.css").read()

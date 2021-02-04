@@ -6,7 +6,7 @@ from mnemocards.pull import pull
 from mnemocards.push import push
 from mnemocards.clean import clean
 from mnemocards.import_command import import_command
-from mnemocards.autogenerate_tsv import make_tsv
+from mnemocards.maketsv import make_tsv
 from mnemocards.autogenerate_deck import autogenerate
 from mnemocards.utils import generate_card_uuid
 
@@ -32,8 +32,6 @@ def main():
         greet()
     elif args.command == "maketsv":
         make_tsv(args)
-    elif args.command == "autogenerate":
-        autogenerate(args)
     elif args.command == "id":
         generate_card_uuid()
 

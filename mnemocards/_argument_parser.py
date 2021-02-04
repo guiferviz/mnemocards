@@ -249,35 +249,6 @@ MAKETSV_PARSER.add_argument(
     "are going to be saved. Current directory by default.",
 )
 
-# Autogenerate command.
-help_txt = """
-This command generates deck based on a txt file with words.
-Text file should contain one words or phrase per line.
-The command will take each line and create a card with data from google traslate for it.
-"""
-AUTO_PARSER = SUBPARSERS.add_parser("autogenerate", help=help_txt)
-
-AUTO_PARSER.add_argument("data_dir", metavar="DATA_DIR",
-                         type=str,
-                         help="Directory with the configuration and text "
-                         "data to use for generating the Anki cards.")
-
-AUTO_PARSER.add_argument("--config-file", "-f",
-                         type=str,
-                         default="cards_config.json",
-                         help="Configuration file to search in the DATA_DIR.")
-
-AUTO_PARSER.add_argument("--recursive", "-r",
-                         help="Search recursively for configuration files "
-                         "in the given DATA_DIR.",
-                         action="store_true")
-
-AUTO_PARSER.add_argument("--output-dir", "-o",
-                         type=str,
-                         default=".",
-                         help="Output directory where the packages are going "
-                         "to be saved. Current directory by default.")
-
 # ID generator command.
 help_txt = """
 This command generates unique ID that you can use if for creating Unique ID
