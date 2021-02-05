@@ -217,18 +217,18 @@ class AutogenerateBuilder(VocabularyBuilder, object):
         settings["filename"] = os.path.join(data_dir, src["file"])
 
         settings["generate_audio"] = src.get("audio", False)
-        settings["lang"] = src.get("lang", None)
+        settings["lang"] = src.get("lang", {})
+        if not settings["lang"]:
+            settings["lang"]["original"] = "en"
+            settings["lang"]["translation"] = "es"
 
         if settings["generate_audio"]:
 
             settings["media_dir"] = self.prepare_media_dir(data_dir, {})
 
-        settings["furigana"] = src.get("furigana", {})
+        settings["furigana"] = src.get("furigana", False)
 
-        settings["furigana_type"] = settings["furigana"].get("type", "hira")
-
-        if settings["furigana"]:
-            settings["furigana"] = settings["furigana"].get("create", True)
+        settings["furigana_type"] = src.get("furigana_type", "hira")
 
         settings["card_properties"] = src.get("card_properties", None)
 
