@@ -507,10 +507,8 @@ that is why we recommend using a UUID (a sequence of alphanumeric characters
 such as: 64012c71-9aea-4622-aac7-2595d6798737).
 Having a UUID is necessary to be able to update the cards (make spelling
 corrections or improve them with extra information) and not lose the progress.
-If you need to generate UUID for your card when you first compose it, execute
-```bash
-$ mnemocards id
-```
+If you need to generate UUID for your card when you first compose it, use 
+command `mnemocards id`
 
 * `YourLanguageWord`.
 The word you want to learn but in your mother tongue or in a known language.
@@ -604,10 +602,7 @@ which is used to make cards look like Google Translate site.
 After TSV-file generated you can manually adjust values of the columns and then
 use it for generating the deck.
 
-You can access full help for `maketsv` command by executing
-```bash
-mnemocards maketsv -h
-```
+You can access full help for `maketsv` command by using `mnemocards maketsv -h`
 
 ## Expressions TSV files
 
@@ -621,10 +616,9 @@ that is why we recommend using a UUID (a sequence of alphanumeric characters
 such as: 64012c71-9aea-4622-aac7-2595d6798737).
 Having a UUID is necessary to be able to update the cards (make spelling
 corrections or improve them with extra information) and not lose the progress.
-If you need to generate UUID for your card when you first compose it, execute
-```bash
-$ mnemocards id
-```
+If you need to generate UUID for your card when you first compose it, use 
+command `mnemocards id`
+
 * `Expression`.
 Expression that you want to learn.
 * `Explanation`.
