@@ -15,10 +15,8 @@
                             "lang": {
                                 "original": "ja"
                             },
-                            "furigana": {
-                                "create": true,
-                                "type": "hepburn"
-                            },
+                            "furigana": true,
+                            "furigana_type": "hepburn",
                             "audio": true,
                             "card_properties": {
                                 "tags": [
