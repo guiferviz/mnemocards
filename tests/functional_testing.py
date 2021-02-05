@@ -2,13 +2,21 @@ import unittest
 import subprocess
 import os
 import json
+from shutil import rmtree
 
 
 class CardGeneratorTest(unittest.TestCase):
+    """This test checks automatic generation of TSV files and cards"""
+
     def test_can_generate_tsv_file_from_command_line(self):
+        """This test checks if maketsv command generates proper TSV file
+        from list of words"""
+
         # Dan navigates his terminal to the folder for testing
         # and checks that current folder is the right one.
-        card_folder = os.path.join(os.getcwd(), "test_card_folder")
+        mnemocards_folder = os.getcwd().split('/mnemocards')[0]
+        card_folder = os.path.join(
+            mnemocards_folder, "mnemocards/tests/test_card_folder")
         os.chdir(card_folder)
 
         current_folder = subprocess.getstatusoutput("echo $PWD")[1]
@@ -47,12 +55,17 @@ class CardGeneratorTest(unittest.TestCase):
         # He now knows that command maketsv works as intended.
 
     def test_can_generate_apkg_from_config(self):
+        """This test checks that generate command works with configs file
+        written for autogenerate type, for both generation from TSV made
+        using maketsv and from list of words."""
+
         # Today Dan test new command, autogenerate.
         # Dan navigates his terminal to the folder for testing
         # and checks that current folder is the right one.
-        card_folder = os.path.join(os.getcwd(), "test_card_folder")
+        mnemocards_folder = os.getcwd().split('/mnemocards')[0]
+        card_folder = os.path.join(
+            mnemocards_folder, "mnemocards/tests/test_card_folder")
         os.chdir(card_folder)
-
         current_folder = subprocess.getstatusoutput("echo $PWD")[1]
         right_folder = card_folder
         self.assertEqual(current_folder, right_folder)
@@ -66,7 +79,7 @@ class CardGeneratorTest(unittest.TestCase):
 
         # he taps command into the terminal and checks that there is no
         # error and that corret message is displayed.
-        s = subprocess.getstatusoutput("mnemocards autogenerate .")
+        s = subprocess.getstatusoutput("mnemocards generate .")
         self.assertNotIn("Traceback", s[1])
         self.assertIn("Writing", s[1])
 
@@ -77,9 +90,13 @@ class CardGeneratorTest(unittest.TestCase):
 
         apkg_name = f'{config["packages"][0]["name"]}.apkg'
         apkg_path = os.path.join(card_folder, apkg_name)
-        print(apkg_path)
+        media_folder = os.path.join(card_folder, ".media")
+        rmtree(media_folder)
+
         self.assertTrue(os.path.exists(apkg_path))
-        self.fail("finish the test")
+        # he then removes apkg file and finishes test.
+        os.remove(apkg_path)
+        self.assertFalse(os.path.exists(apkg_path))
 
 
 if __name__ == "__main__":
