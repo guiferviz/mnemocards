@@ -1,7 +1,7 @@
 {
     "packages": [
         {
-            "name": "gtrans_from_tsv",
+            "name": "gtrans_generated_from_tsv",
             "decks": [
                 {
                     "id": "c3e07696-a0df-409b-b7ae-888950c786e1",

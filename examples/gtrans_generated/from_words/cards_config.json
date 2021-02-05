@@ -1,7 +1,7 @@
 {
     "packages": [
         {
-            "name": "gtrans_from_words",
+            "name": "gtrans_generated_from_words",
             "decks": [
                 {
                     "id": "581e137a-58f1-4317-bae9-0a99d41f381d",
