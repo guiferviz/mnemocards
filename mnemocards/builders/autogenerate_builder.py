@@ -137,7 +137,6 @@ CARD_MODEL_JAPANESE = genanki.Model(
                 </style>
                 <div class="origin word">{{YourLanguageWord}}</div>
                 <div class="origin comment">{{YourLanguageExplanation}}</div>
-                <div>{{type:LanguageYouLearnWord}}</div>
             ''',
             "afmt": '''
                 <style>
@@ -153,7 +152,6 @@ CARD_MODEL_JAPANESE = genanki.Model(
                 </style>
                 <div class="origin word">{{YourLanguageWord}}</div>
                 <div class="origin comment">{{YourLanguageExplanation}}</div>
-                <div>{{type:LanguageYouLearnWord}}</div>
                 <hr>
                 <div class="destination word">{{furigana:LanguageYouLearnWord}}</div>
                 <div class="destination fonetic">{{LanguageYouLearnPronunciation}}</div>
