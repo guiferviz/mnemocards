@@ -268,6 +268,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
         for card in cards:
 
             if settings["furigana"] and (settings["lang"]["original"] == "ja"):
+                card["lylp"] = ""
                 card["lylw"] = generate_furigana(
                     card["lylw"], settings["furigana_type"])
 
