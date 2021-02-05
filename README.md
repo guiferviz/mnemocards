@@ -509,7 +509,7 @@ Having a UUID is necessary to be able to update the cards (make spelling
 corrections or improve them with extra information) and not lose the progress.
 If you need to generate UUID for your card when you first compose it, execute
 ```bash
-mnemocards id
+$ mnemocards id
 ```
 
 * `YourLanguageWord`.
@@ -623,7 +623,7 @@ Having a UUID is necessary to be able to update the cards (make spelling
 corrections or improve them with extra information) and not lose the progress.
 If you need to generate UUID for your card when you first compose it, execute
 ```bash
-mnemocards id
+$ mnemocards id
 ```
 * `Expression`.
 Expression that you want to learn.
