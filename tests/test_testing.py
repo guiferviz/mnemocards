@@ -6,7 +6,7 @@ import json
 from shutil import rmtree
 from mnemocards.builders.autogenerate_builder import AutogenerateBuilder as ab
 from mnemocards import generate as gendeck
-from mnemocards import autogenerate_tsv as tsv
+from mnemocards import maketsv as tsv
 
 
 class CustomModulesTest(unittest.TestCase):
