@@ -2,9 +2,11 @@
 
 import os
 from itertools import count
-from googletrans import Translator
 from time import sleep
-from mnemocards.utils import generate_card_uuid
+
+from googletrans import Translator
+
+from mnemocards.utils import chunks, generate_card_uuid
 
 
 class TranslatorError(Exception):
@@ -17,15 +19,43 @@ def get_translation(words, src="auto", dest="en"):
         words = [words]
 
     words = list(set(words))
+    words = list(chunks(words, 25))
 
-    translator = Translator()
-    try:
-        translations = translator.translate(words, src=src, dest=dest)
-        return translations
-    except AttributeError:
-        print("Translation time-out, retrying in 3 seconds")
-        sleep(3)
-        return False
+    translations = []
+    ip_block = False
+    for word_block in words:
+        # This for loop is made to compensate for possible blocks from
+        # GoogleTranslateAPI. I tested how many requests you can make
+        # without getting blocked and it's 25 translations per 3 minutes.
+        # If you translate more it's 50\50 chance to get temporary block,
+        # hence sleep offset.
+        # If the you get blocked from API it will stop translation and
+        # continue building the deck/tsv file from already translated
+        # words.
+
+        if ip_block:
+            continue
+
+        partial_translation = Translator().translate(
+            word_block, src=src, dest=dest)
+
+        for one_translation in partial_translation:
+            if str(one_translation._response) == '<Response [429 Too Many Requests]>':
+                ip_block = True
+            else:
+                translations.append(one_translation)
+        if ip_block:
+            print('''Too many requests to GoogleAPI, your IP is blocked for 1 hour.
+Proceeding generation of cards from already translated words.
+Please run generation for remainding words again in an hour. ''')
+            continue
+
+        if words.index(word_block) != len(words) - 1:
+            print(
+                f"{len(translations)} words translated. Waiting 180 seconds for next translation")
+            sleep(180)
+
+    return translations
 
 
 def format_explanations(list_obj, explanation_name):

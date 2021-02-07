@@ -377,6 +377,7 @@ vocabulary cards.
 
 
 ### `autogenerate` type
+
 ```json
 {
     "type": "autogenerate",
@@ -424,6 +425,12 @@ This flag works a little different then in `vocabulary` type and
 has to be set true to work. By default false.
 * `pronunciation_in_reverse`, `card_color`, `card_properties` has the same 
 meaning as in vocabulary cards.
+
+:warning: Due to limitations of Google Translate API, the program can download
+translations only for 25 words per 3 minute. If you use `autogenerate` type on 
+list of more then 25 words, the program will make 3 minute delays for every 25 
+words and generation can take a large amount of time dependent of total number 
+of words.
 
 ## `*.cards` file format
 

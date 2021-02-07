@@ -104,3 +104,9 @@ def generate_furigana(jp_text, frgn_type="hira"):
             jp_frgn_text += f" {item['orig']}[{item[frgn_type]}]"
 
     return jp_frgn_text.strip()
+
+
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
