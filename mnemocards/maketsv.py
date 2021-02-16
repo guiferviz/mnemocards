@@ -58,7 +58,7 @@ Please run generation for remainding words again in an hour. ''')
     return translations
 
 
-def format_explanations(list_obj, explanation_name):
+def format_explanations(list_obj, explanation_name, main_translation=None):
     """Formats either translation synonyms or definitions in original language.
 
     Args:
@@ -73,8 +73,11 @@ def format_explanations(list_obj, explanation_name):
 
     for block in list_obj:
 
-        # todo написать тестовую строку с css как должно выглядеть в
-        # карте. обязательно добавить класс.
+        # This is check to see if the word have one synonym and if yes to check
+        # if this synonym is the same as main translation.
+
+        if len(block[1]) == 1 and block[1][0] == main_translation:
+            continue
 
         part_of_speech = f'<div class="speechpart">{block[0].title()}</div>'
         formatted_explanation += part_of_speech
@@ -88,16 +91,18 @@ def format_explanations(list_obj, explanation_name):
         for line in block[explanation_block]:
             if next(counter) > 3:
                 continue
-            synonym_dest_lang = f'<div class="line_1">{line[0]}</div>'
 
-            if len(line) > 3:
-                synonyms_orig_lang = f'<div class="line_2">{line[1]}</div>'
-            elif len(line) == 3:
-                synonyms_orig_lang = f'<div class="line_2">{line[-1]}</div>'
-            else:
-                synonyms_orig_lang = ''
+            if line[0] != main_translation:
+                synonym_dest_lang = f'<div class="line_1">{line[0]}</div>'
 
-            formatted_explanation += synonym_dest_lang + synonyms_orig_lang
+                if len(line) > 3:
+                    synonyms_orig_lang = f'<div class="line_2">{line[1]}</div>'
+                elif len(line) == 3:
+                    synonyms_orig_lang = f'<div class="line_2">{line[-1]}</div>'
+                else:
+                    synonyms_orig_lang = ''
+
+                formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
     formatted_explanation = f'<div class="{explanation_name}">{formatted_explanation}</div>'
     return formatted_explanation
@@ -124,7 +129,7 @@ def prepare_card_fields(translation):
     yle = ''
 
     if full_trans is not None:
-        yle += format_explanations(full_trans, 'synonyms')
+        yle += format_explanations(full_trans, 'synonyms', ylw)
 
     lyle = ''
 
