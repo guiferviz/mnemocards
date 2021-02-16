@@ -76,6 +76,12 @@ CARD_MODEL = genanki.Model(
                     .destination {
                         color: black;
                     }
+                    .definitions .line_1{
+						color: #0000
+					}
+					.definitions .line_2{
+						color: #0000
+					}
                 </style>
                 <div class="destination word">{{LanguageYouLearnWord}}</div>
                 {{#ShowPronunciationInReverse}}
@@ -168,6 +174,12 @@ CARD_MODEL_JAPANESE = genanki.Model(
                     .destination {
                         color: black;
                     }
+                    .definitions .line_1{
+						color: #0000
+					}
+					.definitions .line_2{
+						color: #0000
+					}
                 </style>
                 <div class="destination word">{{kanji:LanguageYouLearnWord}}</div>
                 {{#ShowPronunciationInReverse}}
