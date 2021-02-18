@@ -75,7 +75,6 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
 
         # This is check to see if the word have one synonym and if yes to check
         # if this synonym is the same as main translation.
-
         if len(block[1]) == 1 and block[1][0] == main_translation:
             continue
 
@@ -92,7 +91,7 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
             if next(counter) > 3:
                 continue
 
-            if line[0] != main_translation:
+            if (main_translation is None) or (line[0] != main_translation):
                 synonym_dest_lang = f'<div class="line_1">{line[0]}</div>'
 
                 if len(line) > 3:
@@ -104,7 +103,9 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
 
                 formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
-    formatted_explanation = f'<div class="{explanation_name}">{formatted_explanation}</div>'
+    if formatted_explanation != "":
+        formatted_explanation = f'<div class="{explanation_name}">{formatted_explanation}</div>'
+
     return formatted_explanation
 
 
