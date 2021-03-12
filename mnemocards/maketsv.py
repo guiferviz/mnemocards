@@ -94,12 +94,10 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
             if (main_translation is None) or (line[0] != main_translation):
                 synonym_dest_lang = f'<div class="line_1">{line[0]}</div>'
 
-                if len(line) > 3:
+                if explanation_name == 'synonyms':
                     synonyms_orig_lang = f'<div class="line_2">{line[1]}</div>'
-                elif len(line) == 3:
-                    synonyms_orig_lang = f'<div class="line_2">{line[-1]}</div>'
-                else:
-                    synonyms_orig_lang = ''
+                elif explanation_name == 'definitions':
+                    synonyms_orig_lang = f'<div class="line_2">{line[2]}</div>'
 
                 formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
