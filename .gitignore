@@ -8,6 +8,7 @@
 
 # Visual studio code files
 .vscode/
+*.code-workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -120,3 +121,4 @@ venv*/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+mnemocards/test_utils.py

@@ -2,8 +2,10 @@
 import json
 import os
 import hashlib
+import uuid
 import collections.abc
 
+import pykakasi
 import genanki
 
 from mnemocards import ASSETS_DIR
@@ -27,6 +29,16 @@ def get_hash_id(unicode_str, bytes=4):
     byte_str = str.encode(unicode_str)
     encoded = hashlib.md5(byte_str).digest()
     return int.from_bytes(encoded[:bytes], byteorder="big")
+
+
+def generate_card_uuid(string=None):
+    if string == None:
+        print(uuid.uuid4())
+        return
+
+    seed = hashlib.md5(string.encode('utf-8'))
+    # seed.update(str.encode(unicode_str))
+    return uuid.UUID(seed.hexdigest())
 
 
 def read_asset(relative_path):
@@ -78,3 +90,23 @@ def updater(old, new):
             old[k] = v
     return old
 
+
+def generate_furigana(jp_text, frgn_type="hira"):
+
+    kks = pykakasi.kakasi()
+    result = kks.convert(jp_text)
+    jp_frgn_text = ""
+
+    for item in result:
+        if item['orig'] == item['kana'] or item['orig'] == item['hira']:
+            jp_frgn_text += item['orig']
+        else:
+            jp_frgn_text += f" {item['orig']}[{item[frgn_type]}]"
+
+    return jp_frgn_text.strip()
+
+
+def chunks(lst, n):
+    """Yield successive n-sized chunks from lst."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]

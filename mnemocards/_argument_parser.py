@@ -20,7 +20,7 @@ PARSER = argparse.ArgumentParser(description=PROGRAM_DESCRIPTION,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
 # Global arguments.
 # TODO: add logging.
-#PARSER.add_argument("-l", "--logging-level", dest="log_level", default="DEBUG",
+# PARSER.add_argument("-l", "--logging-level", dest="log_level", default="DEBUG",
 #                    choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
 #                    help="Logging level.")
 PARSER.add_argument("-v", "--version",
@@ -196,6 +196,69 @@ preference over the full collection path.
 CLE_PARSER.add_argument("--collection-path", "-c",
                         type=str,
                         help=help_txt)
+# Maketsv command.
+help_txt = """
+This command generates vocabulary-type TSV-files based on a txt file with words.
+Text file should contain one words or phrase per line.
+The command will take each line, translate it to your language and tranform it to one TSV line according to vocabulary type.
+"""
+MAKETSV_PARSER = SUBPARSERS.add_parser("maketsv", help=help_txt)
+
+MAKETSV_PARSER.add_argument(
+    "data_dir",
+    metavar="DATA_DIR",
+    type=str,
+    help="Directory with the text file for translation "
+    "and generation of TSV file.",
+)
+help_txt = """
+Language pair you want generated in the following format: 
+"language-from_language-to"
+Default pair is from english to spanish. In the command line it will look "en_es"
+
+Language codes for all supporte languages can be found here:
+https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
+"""
+MAKETSV_PARSER.add_argument(
+    "--language-pair",
+    "-l",
+    type=str,
+    default="en_es",
+    help=help_txt,
+)
+MAKETSV_PARSER.add_argument(
+    "--word-file",
+    "-w",
+    type=str,
+    default="words.txt",
+    help="Text file with words to search in the DATA_DIR.",
+)
+MAKETSV_PARSER.add_argument(
+    "--recursive",
+    "-r",
+    help="Search recursively for words files "
+    "in the given DATA_DIR.",
+    action="store_true",
+)
+MAKETSV_PARSER.add_argument(
+    "--output-dir",
+    "-o",
+    type=str,
+    default=".",
+    help="Output directory where the generated TSV files "
+    "are going to be saved. Current directory by default.",
+)
+
+# ID generator command.
+help_txt = """
+This command generates unique ID that you can use if for creating Unique ID
+for your cards or decks. It prints id in your terminal and you'll need to copy
+it to config.json or cards.tsv
+"""
+
+IDGEN_PARSER = SUBPARSERS.add_parser("id", help=help_txt)
+
+
 # Hi command. Easter egg :)
 EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 
@@ -203,4 +266,3 @@ EGG_PARSER = SUBPARSERS.add_parser("hi", add_help=False)
 def parse_args():
     args = PARSER.parse_args()
     return args
-
