@@ -97,7 +97,10 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
                 if explanation_name == 'synonyms':
                     synonyms_orig_lang = f'<div class="line_2">{line[1]}</div>'
                 elif explanation_name == 'definitions':
-                    synonyms_orig_lang = f'<div class="line_2">{line[2]}</div>'
+                    try:
+                        synonyms_orig_lang = f'<div class="line_2">{line[2]}</div>'
+                    except IndexError:
+                        synonyms_orig_lang = ''
 
                 formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
