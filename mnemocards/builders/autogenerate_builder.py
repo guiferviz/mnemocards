@@ -253,7 +253,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
         words = tsv.scrape_words_from_file(settings["filename"])
         translations = tsv.get_translation(
             words, settings["lang"]["original"], settings["lang"]["translation"])
-        cards = [tsv.prepare_card_fields(trans) for trans in translations]
+        cards = [tsv.prepare_card_fields(trans) for trans in translations if tsv.prepare_card_fields(trans)]
         for card in cards:
             card["tags"] = settings["tags"]
 

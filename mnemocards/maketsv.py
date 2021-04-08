@@ -111,36 +111,40 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
 
 
 def prepare_card_fields(translation):
-    main_translation = translation.extra_data["translation"]
-    full_trans = translation.extra_data["all-translations"]
-    definitions_trans = translation.extra_data["definitions"]
+    try:
+        main_translation = translation.extra_data["translation"]
+        full_trans = translation.extra_data["all-translations"]
+        definitions_trans = translation.extra_data["definitions"]
 
-    ylw = main_translation[0][0]
-    lylw = translation.origin
+        ylw = main_translation[0][0]
+        lylw = translation.origin
 
-    if ylw.lower() == lylw.lower() and full_trans is None:
+        if ylw.lower() == lylw.lower() and full_trans is None:
+            return None
+
+        card_id = str(generate_card_uuid(ylw + lylw))
+
+        lylp = ''
+
+        if len(main_translation[-1]) == 4:
+            lylp = main_translation[-1][-1]
+
+        yle = ''
+
+        if full_trans is not None:
+            yle += format_explanations(full_trans, 'synonyms', ylw)
+
+        lyle = ''
+
+        if definitions_trans is not None:
+            lyle += format_explanations(definitions_trans, 'definitions')
+
+        card = {"card_id": card_id, "ylw": ylw, "yle": yle,
+                "lylw": lylw, "lylp": lylp, "lyle": lyle}
+        return card
+    except Exception as e:
+        print(e)
         return None
-
-    card_id = str(generate_card_uuid(ylw + lylw))
-
-    lylp = ''
-
-    if len(main_translation[-1]) == 4:
-        lylp = main_translation[-1][-1]
-
-    yle = ''
-
-    if full_trans is not None:
-        yle += format_explanations(full_trans, 'synonyms', ylw)
-
-    lyle = ''
-
-    if definitions_trans is not None:
-        lyle += format_explanations(definitions_trans, 'definitions')
-
-    card = {"card_id": card_id, "ylw": ylw, "yle": yle,
-            "lylw": lylw, "lylp": lylp, "lyle": lyle}
-    return card
 
 
 def generate_tsv_lines(words, lang_pair):
