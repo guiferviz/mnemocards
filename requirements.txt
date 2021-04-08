@@ -39,9 +39,9 @@ git+https://github.com/guiferviz/genanki.git@feature-deck-conf
     # via -r requirements.in
 googletrans==3.1.0a0
     # via -r requirements.in
-gtts-token==1.1.3
+gtts-token==1.1.4
     # via gtts
-gtts==2.1.0
+gtts==2.2.2
     # via -r requirements.in
 h11==0.9.0
     # via httpcore
