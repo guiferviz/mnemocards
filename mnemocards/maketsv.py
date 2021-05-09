@@ -100,7 +100,10 @@ def format_explanations(list_obj, explanation_name, main_translation=None):
                     try:
                         synonyms_orig_lang = f'<div class="line_2">{line[2]}</div>'
                     except IndexError:
-                        synonyms_orig_lang = ''
+                        synonyms_orig_lang = '</br>'
+
+                if synonyms_orig_lang == '<div class="line_2">None</div>':
+                    synonyms_orig_lang = '</br>'
 
                 formatted_explanation += synonym_dest_lang + synonyms_orig_lang
 
