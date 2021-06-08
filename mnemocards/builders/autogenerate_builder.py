@@ -236,6 +236,8 @@ class AutogenerateBuilder(VocabularyBuilder, object):
 
             settings["media_dir"] = self.prepare_media_dir(data_dir, {})
 
+        settings["one_translation"] = src.get("one_translation", False)
+
         settings["furigana"] = src.get("furigana", False)
 
         settings["furigana_type"] = src.get("furigana_type", "hira")
@@ -284,6 +286,9 @@ class AutogenerateBuilder(VocabularyBuilder, object):
                 card["lylp"] = ""
                 card["lylw"] = generate_furigana(
                     card["lylw"], settings["furigana_type"])
+
+            if settings["one_translation"]:
+                card["yle"] = ""
 
             if settings["generate_audio"]:
                 clean_text = remove_parentheses(card["lylw"])
