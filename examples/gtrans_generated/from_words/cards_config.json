@@ -11,6 +11,7 @@
                             "type": "autogenerate",
                             "file": "words.txt",
                             "pronunciation_in_reverse": true,
+                            "one_translation": true,
                             "card_color": "#f5f5f5",
                             "lang": {
                                 "original": "en",
