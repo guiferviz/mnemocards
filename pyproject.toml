@@ -47,7 +47,7 @@ protobuf = ">=3.13.0"  # needed because version pinned by mypy-protobuf gives er
 
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.2.4"
 pylint = "^2.6.0"
 sphinx = "^3.2.1"
 sphinx_rtd_theme = "^0.5.0"
