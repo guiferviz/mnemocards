@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "mnemocards"
+version = "0.1.4"
+description = "Flashcards generator. You won't forget anything..."
+license = "MIT"
+authors = [
+  "guiferviz <guiferviz@gmail.com>"
+]
+readme = "README.md"
+repository = "https://github.com/guiferviz/mnemocards"
+keywords = [
+  "anki",
+  "cards",
+  "flashcards",
+  "memorization",
+  "generator"
+]
+classifiers = [
+  "Programming Language :: Python :: 3.8",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Education"
+]
+
+
+[tool.poetry.scripts]
+mnemocards = 'mnemocards.__main__:main'
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+# My own version of genanki with support to deck configurations.
+genanki-mnemocards = "^0.11.0"
+
+gtts = "^2.2.2"
+iso-639 = "^0.4.5"
+pygithub = "^1.45"
+markdown2 = "^2.3.8"
+Pygments = "^2.5.2"
+pykakasi = "^2.0.4"
+googletrans = "3.1.0a0"
+chardet = "3.0.4"
+
+# Anki dependencies.
+anki = "^2.1.33"
+protobuf = ">=3.13.0"  # needed because version pinned by mypy-protobuf gives error.
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.6.0"
+sphinx = "^3.2.1"
+sphinx_rtd_theme = "^0.5.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
