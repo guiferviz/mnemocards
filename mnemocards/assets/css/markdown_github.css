@@ -729,8 +729,7 @@ pre {
   padding: 16px;
 }
 
-.nightMode .highlight pre,
-pre {
+.nightMode pre {
   background-color: #000000;
 }
 
