@@ -98,7 +98,7 @@ def change_mathjax_delimiters(text):
     # Using (?<!\\) two backslashes because if not the regex things you are
     # escaping the parenthesis.
     text = re.sub(r"\$\$\s*(.+?)(?<!\\)\s*\$\$", process_math_match, text,
-            flags=re.S)
+                  flags=re.S)
     # Inline math.
     text = re.sub(r"(?<![$\\])\$([^\n]+?)(?<!\\)\$", r"\\\\(\1\\\\)", text)
     # Escaped dollar$.
@@ -150,6 +150,8 @@ class MarkdownCardBuilder(object):
         tags = []
         if card_properties is not None:
             tags = card_properties.get("tags", [])
+        show_tags = src.get("show_tags", False)
+
         # Read markdown file.
         filename = os.path.join(data_dir, src["file"])
         with open(filename) as file:
@@ -165,7 +167,7 @@ class MarkdownCardBuilder(object):
                 if "tags" in metadata:
                     note_tags.extend(metadata.get("tags").split(","))
                 # Add tag list to the header.
-                if len(note_tags) > 0:
+                if len(note_tags) > 0 and show_tags:
                     header = "*Tags: " + ", ".join(note_tags) + "*\n" + header
                 header, m = generate_html(header, data_dir, src)
                 media.extend(m)
@@ -180,4 +182,3 @@ class MarkdownCardBuilder(object):
                 )
                 cards.append(my_note)
         return cards, media
-
