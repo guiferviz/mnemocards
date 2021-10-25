@@ -2,7 +2,7 @@
 import os
 import sys
 
-from anki import Collection
+from anki import collection
 from anki.importing.apkg import AnkiPackageImporter
 
 from mnemocards.utils import create_check_collection_path
@@ -15,7 +15,7 @@ def import_command(apkgs, collection_path=None, profile=None):
     # Anki should fix that I think...
     apkgs = [os.path.abspath(i) for i in apkgs]
     # Create collection.
-    col = Collection(collection_path)
+    col = collection(collection_path)
     # Import collection.
     for a in apkgs:
         AnkiPackageImporter(col, a).run()

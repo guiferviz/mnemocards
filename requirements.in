@@ -9,6 +9,7 @@ Pygments
 pykakasi
 googletrans==3.1.0a0
 chardet==3.0.4
+idna==2.10 #both httpx and requests require idna<3 https://github.com/psf/requests/issues/5710
 # Anki dependencies.
 anki
 protobuf>=3.13.0  # needed because version pinned by mypy-protobuf gives error.
