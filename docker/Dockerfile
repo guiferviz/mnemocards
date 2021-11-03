@@ -1,4 +1,3 @@
-
 ################
 #  Base image  #
 ################
@@ -21,16 +20,9 @@ ENV WORKDIR /workspace
 # Install programs. #
 #####################
 
-# Install requirements.
-COPY requirements.txt /root/mnemocards/requirements.txt
-RUN cd /root/mnemocards && pip install -r requirements.txt
-
 # Install mnemocards module.
-COPY README.md /root/mnemocards/README.md
-COPY setup.py /root/mnemocards/setup.py
-COPY mnemocards/ /root/mnemocards/mnemocards/
-COPY requirements.in /root/mnemocards/requirements.in
-RUN cd /root/mnemocards && python setup.py install
+COPY dist/mnemocards-*.whl /root/mnemocards/
+RUN pip install /root/mnemocards/mnemocards-*.whl
 
 
 #########
@@ -43,4 +35,3 @@ WORKDIR $WORKDIR
 ENTRYPOINT ["python", "-m", "mnemocards"]
 # Default command, generate cards recursively in $WORKDIR.
 CMD ["generate", "-r", "."]
-
