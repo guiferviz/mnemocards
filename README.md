@@ -79,6 +79,7 @@ Mnemocards comes with some pre-design formats:
 * [<em>Git</em> utilities](#git-utilities)
 * [Docker](#docker)
 * [VIM users](#vim-users)
+
 # Requirements
 
  * PyAudio, one of the Python dependencies requires the installation of
@@ -88,12 +89,8 @@ Mnemocards comes with some pre-design formats:
  Maybe any other version of the package is working but that one is the one
  I'm using without problems.
  Remove the version if you have any problem and try with the last one.
- * **Python 3** and all the libraries listed in `requirements.txt`.
- All these requirements are automatically installed when you install the
- package with `pip install .`.
- If you want to install the requirements manually just use:
- `pip install -r requirements.txt`.
- You need at least `pip>=10`.
+ * **Python 3** and the dependencies specified in `pyproject.toml`.
+ You need at least `pip>=19`.
  * If you want to **import automatically the generated apkgs**, you should
  have **Anki** installed.
  * If you want to **generate cards from your repositories or gists** you should
@@ -108,7 +105,7 @@ Mnemocards comes with some pre-design formats:
 
 Using PyPi package with `pip`:
 ```bash
-pip install -U pip  # pip >= 21 is needed
+pip install -U pip  # pip >= 19 is needed
 pip install mnemocards
 ```
 
@@ -120,14 +117,14 @@ poetry build
 ```
 
 Then you should be able to install the wheel file in any Python env with
-`pip>=21`:
+`pip>=19`:
 ```bash
-pip install dist/mnemocards-*.whl
+pip install dist/*.whl
 ```
 
 If you want to contribute or develop use Poetry as in any other Python project.
 
-:warning: Remember to have at least version 21 of `pip`.
+:warning: Remember to have at least version 19 of `pip`.
 
 Consider the option of using Docker if you do not want to install
 the package and to set up all the needed environment.
@@ -242,7 +239,7 @@ The most basic configuration file is:
                     "src": [
                         {
                             "type": "markdown",
-                            "file": "my_file.cards",
+                            "file": "my_file.cards"
                         }
                     ]
                 }
