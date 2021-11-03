@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mnemocards"
-version = "0.1.4"
+version = "0.1.5"
 description = "Flashcards generator. You won't forget anything..."
 license = "MIT"
 authors = [
