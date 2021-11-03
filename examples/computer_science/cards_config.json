@@ -10,6 +10,7 @@
                         {
                             "type": "markdown",
                             "file": "cs.cards",
+                            "show_tags": true,
                             "card_properties": {
                                 "tags": ["computer_science"]
                             }

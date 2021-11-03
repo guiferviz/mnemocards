@@ -4,6 +4,7 @@
  */
 .codehilite .hll { background-color: #ffffcc }
 .codehilite  { background: #f8f8f8; }
+.nightMode .codehilite { background: #000000;}
 .codehilite .c { color: #6a737d } /* Comment */
 .codehilite .err {  } /* Error */
 .codehilite .k { color: #d73a49 } /* Keyword */

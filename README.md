@@ -308,6 +308,7 @@ Depend on the type you can add more properties.
 {
     "type": "markdown",
     "file": "math.cards",
+    "show_tags": true,
     "card_properties": {
         "tags": ["math"]
     }
@@ -315,6 +316,9 @@ Depend on the type you can add more properties.
 ```
 
 Apart from `type` and `file` you can add:
+* `show_tags`.
+This flag set to true will display at the top of the cards tags for it both from `cards_config.json` and from `tags` property in the markdown card header ([as described in *.cards format section](#cards-file-format)).  
+By default false.
 * `card_properties`.
 Properties that are applied to all the cards in this file.
 For exampe: using this property you avoid setting tags in all the cards inside
