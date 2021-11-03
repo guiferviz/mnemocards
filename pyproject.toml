@@ -38,7 +38,7 @@ PyGithub = "^1.55"
 markdown2 = "^2.4.1"
 Pygments = "^2.10.0"
 pykakasi = "^2.0.4"
-googletrans = "^3.0.0"
+googletrans = "3.1.0a0"
 anki = "^2.1.33"
 
 

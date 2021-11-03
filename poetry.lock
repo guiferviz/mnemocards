@@ -216,11 +216,11 @@ pyyaml = "*"
 
 [[package]]
 name = "googletrans"
-version = "3.0.0"
+version = "3.1.0a0"
 description = "Free Google Translate API for Python. Translates totally free of charge."
 category = "main"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6"
 
 [package.dependencies]
 httpx = "0.13.3"
@@ -882,7 +882,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "f39888e26a800750b41747e5e6807469da8b17bbfe2c7dc142e96aae5bd5219b"
+content-hash = "d9e9a46d093b7583b5c7385d2ecb415256d30d78b59d5bcd10f3d0bb6150aeb4"
 
 [metadata.files]
 alabaster = [
@@ -1015,7 +1015,7 @@ genanki-mnemocards = [
     {file = "genanki_mnemocards-0.11.0.tar.gz", hash = "sha256:44189e98277d5998e8c68255feec81eb236a8a8c7dd53cbe77aaae1038bde085"},
 ]
 googletrans = [
-    {file = "googletrans-3.0.0.tar.gz", hash = "sha256:44caeea42d91ff6ead5c2d49db2b88de66c45c2fe874c8ec03eb9b4ceb3a533d"},
+    {file = "googletrans-3.1.0a0.tar.gz", hash = "sha256:d20373a7975791318a7e5d6c6e3205012d7a990b8fabbfc6b0c16017a6dfae04"},
 ]
 gtts = [
     {file = "gTTS-2.2.3-py3-none-any.whl", hash = "sha256:8376d9bde85ac8cda95ea92dcd12bf31a3efe9e810edcb04437a4151cbec30d6"},
