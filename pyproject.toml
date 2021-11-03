@@ -29,21 +29,17 @@ mnemocards = 'mnemocards.__main__:main'
 [tool.poetry.dependencies]
 python = "^3.8"
 
-# My own version of genanki with support to deck configurations.
+# Guiferviz's genanki with support to deck configurations.
 genanki-mnemocards = "^0.11.0"
 
-gtts = "^2.2.2"
+gTTS = "^2.2.3"
 iso-639 = "^0.4.5"
-pygithub = "^1.45"
-markdown2 = "^2.3.8"
-Pygments = "^2.5.2"
+PyGithub = "^1.55"
+markdown2 = "^2.4.1"
+Pygments = "^2.10.0"
 pykakasi = "^2.0.4"
-googletrans = "3.1.0a0"
-chardet = "3.0.4"
-
-# Anki dependencies.
+googletrans = "^3.0.0"
 anki = "^2.1.33"
-protobuf = ">=3.13.0"  # needed because version pinned by mypy-protobuf gives error.
 
 
 [tool.poetry.dev-dependencies]
