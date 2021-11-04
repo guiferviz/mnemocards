@@ -33,7 +33,7 @@ graph TD
     GEN --> APKG[Anki APKG File]
 ....
 
-Por un lado tenemos el fichero con la información sobre las tarjetas. Lo que
+Por un lado tenemos los ficheros con la información sobre las tarjetas. Lo que
 llamamos Builders leen esos ficheros, general el audio y componen las tarjetas
 que posteriormente son agrupadas en ficheros APKG. Los Builders hacen muchas
 cosas. Demasiadas. El descomponer los Builders en unidades más pequeñas nos
