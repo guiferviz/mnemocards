@@ -1,0 +1,144 @@
+:source-highlighter: rouge
+
+
+== Mnemocards Enhancement Proposals (MEP) 01
+
+In version 0.1 there are several pitfalls. The most important one is how the
+library is structured. The initial design simply works, but it makes it very
+difficult to extend the existing code. It is not easy to:
+
+* Use a YAML file instead of a `*.cards` file.
+* Create a completely new file format similar to `*.cards`.
+* Specify a different order in the TSV columns of the vocabulary files.
+* Reuse audio generation code from another class that is not the
+`VocabularyBuilder`.
+* Use a different CSS style in the generated cards.
+* Create a new card generator that downloads images from an URL.
+
+Those are just some examples of things the community may be interested in. This
+first Mnemocards Enhancement Proposals (MEP01) describes a new design that
+will help Mnemocards to be more flexible and easily extended by other users.
+
+
+=== Components
+
+Debemos empezar por identificar cada uno de los componentes que hacen que
+Mnemocards pueda generar ficheros APKG de Anki.
+Actualmente tenemos algo así:
+
+[mermaid]
+....
+graph TD
+    FILE[Files] --> GEN[VocabularyBuilder/ExpressionBuilder/MarkdownBuilder]
+    GEN --> APKG[Anki APKG File]
+....
+
+Por un lado tenemos los ficheros con la información sobre las tarjetas. Lo que
+llamamos Builders leen esos ficheros, general el audio y componen las tarjetas
+que posteriormente son agrupadas en ficheros APKG. Los Builders hacen muchas
+cosas. Demasiadas. El descomponer los Builders en unidades más pequeñas nos
+facilitará mucho las cosas.
+
+Por otro lado tenemos el código que lee esos ficheros.
+También tenemos la lógica de creación de tarjetas, donde se define qué
+información debe haber en los ficheros previamnete mencionados.
+Esa estructura de las tarjetas viene a su vez acompañada de un estilo, la forma
+en la que se muestra al usuario (color, tipo de fuentes, disposición en pantalla...).
+Parte del código de generación de tarjeta será solo útil para un tipo de tarjetas,
+pero otra parte del código puede ser reutilizada en varios tipos de tarjetas distintos. Por ejemplo, la generación de audio a partir de un texto es algo común y muy útil.
+
+[mermaid]
+....
+graph TD
+    FILE[Files] --> READ[Readers/Pasers]
+    READ --> GEN[Generator Logic]
+    STYLE[Style] --> GEN
+    UTIL[Utility code] --> GEN
+    GEN --> APKG[Anki APKG File]
+....
+
+Llamemos a los primeros ficheros los ficheros fuente. A el código con la lógica
+les llamaremos generadores. A los documentos relacionados con el estilo les
+llamaremos ficheros de estilo. Y por último, podemos llamar a las funciones comunes entre los generadores utilidades.
+
+Las utilidades se trata de algo fijo, común para todos los generadores, puesto
+que esa es su idea principal. Esas utilidades deben ser parte de mnemocards.
+Sin embargo, mnemocards no debe ser quien tenga el estilo de las tarjetas, o
+al menos no debe ser el único sitio que tenga el estilo, debería poder
+especificarse un estilo personalizado en la configuración que apunte quizás a
+ficheros externos a mnemocards.
+
+Lo mismo pasa con la lógica, mnemocards proporciona unos generadores, pero los
+usuarios deben ser capaces de añadir nuevos generadores de una forma fácil
+usando algo así como un sistema de plugins.
+
+Los ficheros de datos son obviamente ficheros externos a mnemocards, puesto que
+contienen la información concreta que le usuario quiere usar para generar sus tarjetas. Sin embargo hay algo que mnemocards contiene: parte del código de mnemocards es
+usado para leer esos ficheros. Eso da lugar a líneas horribles como:
+
+.vocabulary_builder.py
+[source,python]
+----
+note_id, ylw, yle, lylw, lylp, lyle, row_tags = row
+----
+
+En el código de mnemocards no solo está especificado que TSV tiene que ser el
+formato de entrada, sino que también te fuerza a usar el mismo orden en las
+columnas que le especificado en esta horripilante línea.
+
+La lectura de los ficheros debe ser algo que se pueda extender, de forma que
+cualquiera pueda especificar un nuevo formato. Un generador puede especificar
+que quiere tener un campo de texto como parte frontal de la targeta y otro
+campo de texto como parte trasera, llamemos a esos campos front y back respectivamente.
+Mnemocards debe ser capaz de leer targetas desde este CSV:
+
+.cards.csv
+[source,csv]
+----
+front,back
+front1,back1
+front2,back2
+----
+
+as well as from a YAML:
+
+.cards.yaml
+[source,yaml]
+----
+- front: front1
+  back: back1
+- front: front2
+  back: back2
+----
+
+Mnemocards debe de confiar la tarea de lectura de esos ficheros a unos
+readers/parsers y esperar de ellos una lista de diccionarios. Cada diccionario
+representará una tarjeta con unos valores concretos. En el caso de ejemplo
+esa estructura de Python esperada por mnemocards sería:
+
+[source,python]
+----
+[{"front": "front1", "back": "back1"},{"front": "front2", "back": "back2"}]
+----
+
+Aunque pueda parecer un JSON, se trata también de código Python válido. Usa
+listas y diccionarios, estructuras de datos válidas en Python.
+
+
+[mermaid]
+....
+graph TD
+    JSON[cards.json] --> Python[Python List of Dicts]
+    YAML[cards.yaml] --> Python
+    TSV[cards.tsv] --> Python
+    ANY[...] --> Python
+    Python --> VOC[VocabularyGenerator]
+    Python --> EXP[ExpressionGenerator]
+    Python --> MKD[MarkdownGenerator]
+    Python --> MORE[...]
+    VOC --> OUT[Notes + Files]
+    EXP --> OUT
+    MKD --> OUT
+    MORE --> OUT
+    OUT --> APKG[Anki APKG File]
+....
