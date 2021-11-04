@@ -29,7 +29,7 @@ Actualmente tenemos algo así:
 [mermaid]
 ....
 graph TD
-    FILE[Files] --> GEN[VocabularyBuilder/ExpressionBuilder/MarkdownBuilder]
+    FILE[Source Files] --> GEN[VocabularyBuilder/ExpressionBuilder/MarkdownBuilder]
     GEN --> APKG[Anki APKG File]
 ....
 
@@ -37,25 +37,27 @@ Por un lado tenemos los ficheros con la información sobre las tarjetas. Lo que
 llamamos Builders leen esos ficheros, general el audio y componen las tarjetas
 que posteriormente son agrupadas en ficheros APKG. Los Builders hacen muchas
 cosas. Demasiadas. El descomponer los Builders en unidades más pequeñas nos
-facilitará mucho las cosas.
+facilitará mucho las cosas. El enfoque propuesto cuenta con estos componentes
+fácilmente diferenciados.
 
-Por otro lado tenemos el código que lee esos ficheros.
+[mermaid]
+....
+graph TD
+    FILE[Source Files] --> READ[Readers/Pasers]
+    READ --> GEN[Generator Logic]
+    STYLE[Style] --> GEN
+    UTIL[Utility code] --> GEN
+    GEN --> APKG[Anki APKG File]
+....
+
+De nuevo todo parte de los ficheros con la información que deben contener las
+tarjetas. Por otro lado tenemos el código que lee esos ficheros.
 También tenemos la lógica de creación de tarjetas, donde se define qué
 información debe haber en los ficheros previamnete mencionados.
 Esa estructura de las tarjetas viene a su vez acompañada de un estilo, la forma
 en la que se muestra al usuario (color, tipo de fuentes, disposición en pantalla...).
 Parte del código de generación de tarjeta será solo útil para un tipo de tarjetas,
 pero otra parte del código puede ser reutilizada en varios tipos de tarjetas distintos. Por ejemplo, la generación de audio a partir de un texto es algo común y muy útil.
-
-[mermaid]
-....
-graph TD
-    FILE[Files] --> READ[Readers/Pasers]
-    READ --> GEN[Generator Logic]
-    STYLE[Style] --> GEN
-    UTIL[Utility code] --> GEN
-    GEN --> APKG[Anki APKG File]
-....
 
 Llamemos a los primeros ficheros los ficheros fuente. A el código con la lógica
 les llamaremos generadores. A los documentos relacionados con el estilo les
