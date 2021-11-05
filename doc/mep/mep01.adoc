@@ -3,9 +3,9 @@
 
 == Mnemocards Enhancement Proposals (MEP) 01
 
-In version 0.1 there are several pitfalls. The most important one is how the
-library is structured. The initial design simply works, but it makes it very
-difficult to extend the existing code. It is not easy to:
+In version 0.1 there are several pitfalls.  The most important one is how the
+library is structured.  The initial design simply works, but it makes it very
+difficult to extend the existing code.  It is not easy to:
 
 * Use a YAML file instead of a `*.cards` file.
 * Create a completely new file format similar to `*.cards`.
@@ -15,30 +15,30 @@ difficult to extend the existing code. It is not easy to:
 * Use a different CSS style in the generated cards.
 * Create a new card generator that downloads images from an URL.
 
-Those are just some examples of things the community may be interested in. This
-first Mnemocards Enhancement Proposals (MEP01) describes a new design that
+Those are just some examples of things the community may be interested in.
+This first Mnemocards Enhancement Proposals (MEP01) describes a new design that
 will help Mnemocards to be more flexible and easily extended by other users.
 
 
 === Components
 
-Debemos empezar por identificar cada uno de los componentes que hacen que
-Mnemocards pueda generar ficheros APKG de Anki.
-Actualmente tenemos algo así:
+We should start by identifying each of the components that make it possible for
+Mnemocards to generate Anki APKG files.  Currently we have something like this:
 
 [mermaid]
 ....
 graph TD
-    FILE[Source Files] --> GEN[VocabularyBuilder/ExpressionBuilder/MarkdownBuilder]
+    FILE[Source Files] --> GEN[Builder]
     GEN --> APKG[Anki APKG File]
 ....
 
-Por un lado tenemos los ficheros con la información sobre las tarjetas. Lo que
-llamamos Builders leen esos ficheros, general el audio y componen las tarjetas
-que posteriormente son agrupadas en ficheros APKG. Los Builders hacen muchas
-cosas. Demasiadas. El descomponer los Builders en unidades más pequeñas nos
-facilitará mucho las cosas. El enfoque propuesto cuenta con estos componentes
-fácilmente diferenciados.
+On the one hand we have the files with the content of the cards.  What we call
+*builders* are classes that read those files and generate the cards which are
+then grouped into APKG files.  In 0.1.5 we have 4 builder classes:
+`VocabularyBuilder`, `ExpressionBuilder`, `MarkdownBuilder` and
+`AutogenerateBuilder`.  Builders do a lot of things.  Too many things.
+Breaking down the builders into smaller units will make things much easier.
+The proposed approach has these components easily differentiated:
 
 [mermaid]
 ....
@@ -50,33 +50,36 @@ graph TD
     GEN --> APKG[Anki APKG File]
 ....
 
-De nuevo todo parte de los ficheros con la información que deben contener las
-tarjetas. Por otro lado tenemos el código que lee esos ficheros.
-También tenemos la lógica de creación de tarjetas, donde se define qué
-información debe haber en los ficheros previamnete mencionados.
-Esa estructura de las tarjetas viene a su vez acompañada de un estilo, la forma
-en la que se muestra al usuario (color, tipo de fuentes, disposición en pantalla...).
-Parte del código de generación de tarjeta será solo útil para un tipo de tarjetas,
-pero otra parte del código puede ser reutilizada en varios tipos de tarjetas distintos. Por ejemplo, la generación de audio a partir de un texto es algo común y muy útil.
+Again, everything starts from the source files, with the content of the cards.
+On the other hand, we have the code that reads these files.  We also have the
+card creation logic, which defines what information should be in the
+aforementioned files.  Note that the generator does not know anything about the
+file format, it just receive the content of the cards in the form of Python
+data structures.
 
-Llamemos a los primeros ficheros los ficheros fuente. A el código con la lógica
-les llamaremos generadores. A los documentos relacionados con el estilo les
-llamaremos ficheros de estilo. Y por último, podemos llamar a las funciones comunes entre los generadores utilidades.
+Every card comes with a style (the way in which cards are displayed to the
+user: colour, font type, screen layout...) and should be defined in separated
+files, not in the builder or inside of the mnemocards package.  Of course, some
+default styles can be provided, but the user should have the possibility of
+reading files from any other location.
 
-Las utilidades se trata de algo fijo, común para todos los generadores, puesto
-que esa es su idea principal. Esas utilidades deben ser parte de mnemocards.
-Sin embargo, mnemocards no debe ser quien tenga el estilo de las tarjetas, o
-al menos no debe ser el único sitio que tenga el estilo, debería poder
-especificarse un estilo personalizado en la configuración que apunte quizás a
-ficheros externos a mnemocards.
+Part of the card generation code will only be useful for one type of card, but
+another part of the code can be reused for several different types of cards.
+For example, generating audio from text is common and very useful.  This is why
+we indicate that generators have access to a certain library of utilities
+provided by mnemocards that will facilitate the repetition of common and
+repetitive tasks.
 
-Lo mismo pasa con la lógica, mnemocards proporciona unos generadores, pero los
-usuarios deben ser capaces de añadir nuevos generadores de una forma fácil
-usando algo así como un sistema de plugins.
 
-Los ficheros de datos son obviamente ficheros externos a mnemocards, puesto que
-contienen la información concreta que le usuario quiere usar para generar sus tarjetas. Sin embargo hay algo que mnemocards contiene: parte del código de mnemocards es
-usado para leer esos ficheros. Eso da lugar a líneas horribles como:
+=== Reading data
+
+The source files are obviously external files to mnemocards, as they contain
+the specific information that the user wants to use to generate their cards.
+However, there is something that mnemocards contains that takes away a lot of
+flexibility: part of the mnemocards code is used to read these files and forces
+them to have a certain format.  In the VocabularyBuilder code, not only it is
+specified that TSV has to be the input format, but it also forces you to use
+the same column order as the specified in this nasty line:
 
 .vocabulary_builder.py
 [source,python]
@@ -84,15 +87,16 @@ usado para leer esos ficheros. Eso da lugar a líneas horribles como:
 note_id, ylw, yle, lylw, lylp, lyle, row_tags = row
 ----
 
-En el código de mnemocards no solo está especificado que TSV tiene que ser el
-formato de entrada, sino que también te fuerza a usar el mismo orden en las
-columnas que le especificado en esta horripilante línea.
+Se propone definir los 
+Se propone crear una función dentro de mnemocards con la siguiente firma:
+`any2dict(path, **options)`
 
-La lectura de los ficheros debe ser algo que se pueda extender, de forma que
-cualquiera pueda especificar un nuevo formato. Un generador puede especificar
-que quiere tener un campo de texto como parte frontal de la targeta y otro
-campo de texto como parte trasera, llamemos a esos campos front y back respectivamente.
-Mnemocards debe ser capaz de leer targetas desde este CSV:
+La lectura de los ficheros debe ser algo que se
+pueda extender, de forma que cualquiera pueda especificar un nuevo formato. Un
+generador puede especificar que quiere tener un campo de texto como parte
+frontal de la targeta y otro campo de texto como parte trasera, llamemos a esos
+campos front y back respectivamente.  Mnemocards debe ser capaz de leer
+targetas desde este CSV:
 
 .cards.csv
 [source,csv]
@@ -144,3 +148,18 @@ graph TD
     MORE --> OUT
     OUT --> APKG[Anki APKG File]
 ....
+
+Llamemos a los primeros ficheros los ficheros fuente. A el código con la lógica
+les llamaremos generadores. A los documentos relacionados con el estilo les
+llamaremos ficheros de estilo. Y por último, podemos llamar a las funciones comunes entre los generadores utilidades.
+
+Las utilidades se trata de algo fijo, común para todos los generadores, puesto
+que esa es su idea principal. Esas utilidades deben ser parte de mnemocards.
+Sin embargo, mnemocards no debe ser quien tenga el estilo de las tarjetas, o
+al menos no debe ser el único sitio que tenga el estilo, debería poder
+especificarse un estilo personalizado en la configuración que apunte quizás a
+ficheros externos a mnemocards.
+
+Lo mismo pasa con la lógica, mnemocards proporciona unos generadores, pero los
+usuarios deben ser capaces de añadir nuevos generadores de una forma fácil
+usando algo así como un sistema de plugins.
