@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "mnemocards"
+version = "0.1.5"
+description = "Flashcards generator. You won't forget anything..."
+license = "MIT"
+authors = [
+  "guiferviz <guiferviz@gmail.com>"
+]
+readme = "README.md"
+repository = "https://github.com/guiferviz/mnemocards"
+keywords = [
+  "anki",
+  "cards",
+  "flashcards",
+  "memorization",
+  "generator"
+]
+classifiers = [
+  "Programming Language :: Python :: 3.8",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+  "Topic :: Education"
+]
+
+
+[tool.poetry.scripts]
+mnemocards = 'mnemocards.__main__:main'
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+# Guiferviz's genanki with support to deck configurations.
+genanki-mnemocards = "^0.11.0"
+
+gTTS = "^2.2.3"
+iso-639 = "^0.4.5"
+PyGithub = "^1.55"
+markdown2 = "^2.4.1"
+Pygments = "^2.10.0"
+pykakasi = "^2.0.4"
+googletrans = "3.1.0a0"
+anki = "^2.1.33"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+pylint = "^2.6.0"
+sphinx = "^3.2.1"
+sphinx_rtd_theme = "^0.5.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,4 +1,3 @@
-
 import os
 import sys
 
@@ -21,4 +20,3 @@ def import_command(apkgs, collection_path=None, profile=None):
         AnkiPackageImporter(col, a).run()
     # Close collection.
     col.close()
-
