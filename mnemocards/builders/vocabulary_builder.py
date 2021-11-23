@@ -238,14 +238,14 @@ class VocabularyBuilder(object):
                         ylw, yle, lylw, lylp, lyle, color, show_p
                     ],
                     tags=note_tags
-                )
+                ) 
                 notes.append(note)
         # Remove unused audio files.
         # TODO: this should be optional. Add an argument to force clean.
         # FIXME: if you reuse the same media folder for another vocabulary
         # builder you are going to delete media files from the other cards...
         if generate_audio and clean_audio:
-            all_audio_files = os.path.join(f'{media_dir}', '*.mp3')
+            all_audio_files = glob.glob(os.path.join(f'{media_dir}', '*.mp3'))
             unused_audio_files = set(all_audio_files) - set(media)
             for i in unused_audio_files:
                 print(f"Removing unused audio file {i}")
