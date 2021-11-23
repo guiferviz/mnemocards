@@ -300,7 +300,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
                     # pronounced as `hito`.
                     clean_text = remove_spaces(clean_text)
                 hash_text = get_hash_id(clean_text, bytes=8)
-                sound_file = f'{settings["media_dir"]}/{hash_text}.mp3'
+                sound_file = os.path.join(f'{settings["media_dir"]}', f'{hash_text}.mp3')
                 if not os.path.exists(sound_file):
                     print(f"Creating audio file {sound_file}")
                     lang = settings["lang"]["original"]
