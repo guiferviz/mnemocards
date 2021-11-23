@@ -2,7 +2,7 @@
 import sys
 
 sys.path.append("/usr/share/anki")
-from anki import Collection
+from anki.collection import Collection
 
 from mnemocards.utils import create_check_collection_path
 

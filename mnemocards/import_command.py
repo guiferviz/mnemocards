@@ -2,7 +2,7 @@
 import os
 import sys
 
-from anki import Collection
+from anki.collection import Collection
 from anki.importing.apkg import AnkiPackageImporter
 
 from mnemocards.utils import create_check_collection_path
