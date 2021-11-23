@@ -200,7 +200,7 @@ class VocabularyBuilder(object):
             tags = card_properties.get("tags", [])
         # Read TSV file.
         filename = os.path.join(data_dir, src["file"])
-        with open(filename, "r") as csvfile:
+        with open(filename, "r", encoding="utf8") as csvfile:
             reader = csv.reader(csvfile, delimiter="\t", quotechar='"')
             iterator = iter(reader)
             # Skip header if header is true in the configuration file.

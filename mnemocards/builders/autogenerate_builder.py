@@ -263,7 +263,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
         return cards
 
     def build_cards_from_tsv(self, settings):
-        with open(settings["filename"], "r") as csvfile:
+        with open(settings["filename"], "r", encoding='utf8') as csvfile:
             reader = csv.reader(csvfile, delimiter="\t", quotechar='"')
             iterator = iter(reader)
             cards = []
