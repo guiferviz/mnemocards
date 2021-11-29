@@ -200,7 +200,7 @@ class VocabularyBuilder(object):
             tags = card_properties.get("tags", [])
         # Read TSV file.
         filename = os.path.join(data_dir, src["file"])
-        with open(filename, "r") as csvfile:
+        with open(filename, "r", encoding="utf8") as csvfile:
             reader = csv.reader(csvfile, delimiter="\t", quotechar='"')
             iterator = iter(reader)
             # Skip header if header is true in the configuration file.
@@ -222,7 +222,7 @@ class VocabularyBuilder(object):
                         # pronounced as `hito`.
                         clean_text = remove_spaces(clean_text)
                     hash_text = get_hash_id(clean_text, bytes=8)
-                    sound_file = f"{media_dir}/{hash_text}.mp3"
+                    sound_file = os.path.join(f'{media_dir}', f'{hash_text}.mp3')
                     if not os.path.exists(sound_file):
                         print(f"Creating audio file {sound_file}")
                         lang = generate_audio["lang"]
@@ -238,14 +238,14 @@ class VocabularyBuilder(object):
                         ylw, yle, lylw, lylp, lyle, color, show_p
                     ],
                     tags=note_tags
-                )
+                ) 
                 notes.append(note)
         # Remove unused audio files.
         # TODO: this should be optional. Add an argument to force clean.
         # FIXME: if you reuse the same media folder for another vocabulary
         # builder you are going to delete media files from the other cards...
         if generate_audio and clean_audio:
-            all_audio_files = glob.glob(f"{media_dir}/*.mp3")
+            all_audio_files = glob.glob(os.path.join(f'{media_dir}', '*.mp3'))
             unused_audio_files = set(all_audio_files) - set(media)
             for i in unused_audio_files:
                 print(f"Removing unused audio file {i}")

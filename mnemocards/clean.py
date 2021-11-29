@@ -2,7 +2,7 @@
 import sys
 
 sys.path.append("/usr/share/anki")
-from anki import collection
+from anki.collection import Collection
 
 from mnemocards.utils import create_check_collection_path
 
@@ -28,7 +28,7 @@ def clean(collection_path=None, profile=None):
     # Get an existing collection path. Error if not exists.
     collection_path = create_check_collection_path(collection_path, profile)
     # Create collection.
-    col = collection(collection_path)
+    col = Collection(collection_path)
     # Get notes to remove.
     notes = col.db.list(QUERY)
     # Remove non-updated notes.

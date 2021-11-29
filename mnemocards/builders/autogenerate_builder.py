@@ -263,7 +263,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
         return cards
 
     def build_cards_from_tsv(self, settings):
-        with open(settings["filename"], "r") as csvfile:
+        with open(settings["filename"], "r", encoding='utf8') as csvfile:
             reader = csv.reader(csvfile, delimiter="\t", quotechar='"')
             iterator = iter(reader)
             cards = []
@@ -300,7 +300,7 @@ class AutogenerateBuilder(VocabularyBuilder, object):
                     # pronounced as `hito`.
                     clean_text = remove_spaces(clean_text)
                 hash_text = get_hash_id(clean_text, bytes=8)
-                sound_file = f'{settings["media_dir"]}/{hash_text}.mp3'
+                sound_file = os.path.join(f'{settings["media_dir"]}', f'{hash_text}.mp3')
                 if not os.path.exists(sound_file):
                     print(f"Creating audio file {sound_file}")
                     lang = settings["lang"]["original"]

@@ -1,6 +1,6 @@
 from mnemocards import greet
 from mnemocards._argument_parser import parse_args
-from mnemocards.github import github
+from mnemocards.github_connector import github
 from mnemocards.generate import generate
 from mnemocards.pull import pull
 from mnemocards.push import push
