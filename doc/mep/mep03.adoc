@@ -195,3 +195,29 @@ modifying the Mnemocards source code.
 We can use the `any2dict` function to read configurations files.  This allows
 users to write their configurations files in the format that they prefer.  They
 can even create a new reader just for reading configuration files.
+
+
+=== Options in configuration files
+
+In MEP02 we defined the new configuration files. In the hiragana example we
+have:
+
+[source,json]
+----
+"path": "hiragana.tsv"
+----
+
+If no more options need to be passed to the reader, this is a common way of set
+the reader.  Imagine now that you have a SSV file (Semicolon Separated
+Values), how can you read that file using the CSV reader with a different
+delimiter?  This is the way of providing extra information to the readers in
+the configuration file:
+
+[source,json]
+----
+"path": {
+    "path": "hiragana.ssv",
+    "reader": "csv",
+    "delimiter": ","
+}
+----
