@@ -43,8 +43,8 @@ follows:
 * The new name _advertises_ Mnemocards :) For anyone who finds a directory with
 a file called mnemocards and doesn't know the library, a single Google search
 would be enough to find it and learn how to use it. On the other hand, a Google
-search for "cards_config" will give you results that are not related to
-the Mnemocards Python library.
+search for "cards_config" will give you results that are not related to the
+Mnemocards Python library.
 * To facilitate the development of v1.0 while preserving backwards
 compatibility. More information about this in the next section.
 
@@ -52,8 +52,8 @@ compatibility. More information about this in the next section.
 === Backwards compatibility
 
 Version 0.1 has been alive for a long time and some people have already created
-their card collection using Mnemocards. You should not break existing card
-repositories and you cannot force anyone to update all their
+their card collection using Mnemocards. We should not break existing card
+repositories and we cannot force anyone to update all their
 `cards_config.json`.
 
 The solution to this problem is simple if you rename the configuration file.
@@ -129,7 +129,7 @@ the dictionaries read by the reader into Anki cards.
 
 `media_output_dir` is a property common to all generators.  Mnemocards should
 facilitate the generation of audio and the inclusion of images on the cards.
-This is common to all generators, so this option is separate from the
+As this is common to all generators, this option is separate from the
 generator.
 
 You can assign any default property to the dictionaries returned by the reader.
@@ -137,4 +137,7 @@ Those default values are in `default_card_properties`.  All the cards inside
 `hiragana.tsv` will have `"furigana": false` if the furigana column does not
 exists in the TSV file.  If the furigana column exists in the TSV and some
 values different from NULL or empty string are provided, the default value
-won't be used.
+won't be used.  Properties like tags, i.e. properties with a list as value,
+will be appended to the existing value.  This means that if we have a tags
+column in the TSV file with a value `vowel`, the final tags property for that
+card will be `["japanese", "hiragana", "vowel"]`.
