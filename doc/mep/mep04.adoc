@@ -1,0 +1,6 @@
+:source-highlighter: rouge
+
+
+== MEP04: Generators
+
+En este MEP vamos a definir cual es la estructura de un generador.
