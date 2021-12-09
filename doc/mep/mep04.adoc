@@ -1,0 +1,48 @@
+:source-highlighter: rouge
+
+
+== MEP04: Generators
+
+In this MEP we define the structure of a generator.
+
+
+=== Generator class
+
+A generator is a class with two main methods: validate and generate.
+
+.generator.py
+[source,python]
+----
+class Generator:
+    def validate(card_properties):
+        return card_properties
+
+    def generate(card_properties):
+        return Note
+----
+
+The validate method receives a dictionary as input and applies a schema. The
+validate method shall return a dictionary with the card_properties correctly
+validated and with all default values populated.
+
+Alternatively, instead of a validate method, a schema could be defined and
+Mnemocards could be in charge of validating that the dictionary returned by the
+reader complies with the restrictions imposed by the schema.  To do this, we
+would have to look for a library to validate schemas on dictionaries.  The
+approach is not yet fully decided and will be refined in future editions of
+this MEP.
+
+The generate method receives a dictionary with the card properties already
+validated and creates the Notes, i.e. it creates the objects that are required
+by Genanki to generate the apkg.
+
+Instead of receiving a dictionary as input, validate could return a dataclass
+and use that object as input for this function.  This way the input object has
+a structure that even linter itself would be able to understand.
+
+Again, this is something yet to be defined.  For the moment this MEP is just an
+overview of the proposed approach.
+
+Although we could separate these methods into two distinct classes, making each
+class do only one thing, I don't think that would provide any advantage at this
+point. What's more, it would probably complicate the code unnecessarily.
