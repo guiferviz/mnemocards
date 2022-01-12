@@ -6,6 +6,8 @@ Mnemocards sort description.
 import os
 
 from mnemocards._version import __version__
+from mnemocards.any2dict import Reader
+from mnemocards.any2dict import add_reader
 
 
 __author__ = "guiferviz"
@@ -18,4 +20,3 @@ def greet():
 
     print("In addition to helping you memorize, this code helps you do other "
           "things that I don't remember")
-
