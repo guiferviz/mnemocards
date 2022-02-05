@@ -88,7 +88,9 @@ class AutoGenerateTsvUnitTestSuit(unittest.TestCase):
         self.assertTrue(correct_lines >= 2)
 
     @pytest.mark.slow
+    @pytest.mark.xfail
     def test_words_are_translated(self):
+        # TODO: we should no test Google translations, we assume they are OK.
         print("testing that words are translated")
         translations = tsv.get_translation(self.word_list, 'en', 'ru')
         expected_type = "<class 'googletrans.models.Translated'>"
