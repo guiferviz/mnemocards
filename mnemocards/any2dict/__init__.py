@@ -1,11 +1,5 @@
-from .reader import Reader
-from .register import add_reader
-from .register import get_reader_by_extension
+from . import (csv_reader, json_reader, toml_reader, tsv_reader, xml_reader,
+               yaml_reader)
 from .any2dict import any2dict
-
-from . import json_reader
-from . import csv_reader
-from . import tsv_reader
-from . import xml_reader
-from . import toml_reader
-from . import yaml_reader
+from .reader import Reader
+from .register import add_reader, get_reader_by_extension

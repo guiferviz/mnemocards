@@ -13,4 +13,5 @@ class CSV(Reader):
         reader = csv.DictReader(string, **options)
         return [i for i in reader]
 
+
 add_reader(CSV)

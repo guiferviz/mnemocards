@@ -22,8 +22,8 @@ def _any2dict(path: pathlib.Path, content: dict, level: int, options: dict):
     if path.is_dir():
         content_dir = {}
         for i in path.iterdir():
-            _any2dict(i, content_dir, level-1, options)
-        content[path.stem] =  content_dir
+            _any2dict(i, content_dir, level - 1, options)
+        content[path.stem] = content_dir
     elif path.is_file():
         task = file2dict(path, **options)
         content[str(path)] = task
