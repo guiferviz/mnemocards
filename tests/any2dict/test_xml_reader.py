@@ -1,3 +1,5 @@
+import pytest
+
 from mnemocards.any2dict.xml_reader import XML
 
 
@@ -26,3 +28,11 @@ def test_xml_reader():
         ),
     )
     assert actual_dict == expected_dict
+
+
+def test_fail_when_xmltodict_is_not_installed(mocker):
+    mocker.patch("mnemocards.any2dict.xml_reader.xmltodict_exists", False)
+    xml = XML()
+    with pytest.raises(ImportError) as excinfo:
+        xml.loads(XML_TXT)
+    assert "xmltodict" in str(excinfo.value)

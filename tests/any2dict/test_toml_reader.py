@@ -1,3 +1,5 @@
+import pytest
+
 from mnemocards.any2dict.toml_reader import TOML
 
 
@@ -21,3 +23,11 @@ def test_toml_reader():
         ],
     )
     assert actual_dict == expected_dict
+
+
+def test_fail_when_xmltodict_is_not_installed(mocker):
+    mocker.patch("mnemocards.any2dict.toml_reader.toml_exists", False)
+    xml = TOML()
+    with pytest.raises(ImportError) as excinfo:
+        xml.loads(TOML_TXT)
+    assert "toml" in str(excinfo.value)
