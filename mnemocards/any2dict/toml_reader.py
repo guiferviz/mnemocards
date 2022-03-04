@@ -1,5 +1,6 @@
 try:
     import toml
+
     toml_exists = True
 except ImportError:
     toml_exists = False

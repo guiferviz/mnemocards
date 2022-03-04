@@ -1,5 +1,6 @@
 try:
     import yaml
+
     pyyaml_exists = True
 except ImportError:
     pyyaml_exists = False

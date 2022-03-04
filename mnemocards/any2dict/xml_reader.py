@@ -1,5 +1,6 @@
 try:
     import xmltodict
+
     xmltodict_exists = True
 except ImportError:
     xmltodict_exists = False
