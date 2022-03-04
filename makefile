@@ -17,4 +17,4 @@ install:
 	$(POETRY) install -E all
 
 test:
-	$(PYTEST) --cov=$(PACKAGE) tests/
+	$(PYTEST) --cov=$(PACKAGE) --cov-report=term --cov-report=html tests/

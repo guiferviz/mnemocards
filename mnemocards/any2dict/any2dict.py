@@ -14,9 +14,14 @@ def file2dict(path, **options):
     return reader.load(path, **options)
 
 
-def _any2dict(path: pathlib.Path, content: dict, level: int, options: dict):
+def _any2dict(
+    path: pathlib.Path,
+    content: dict,
+    level: int,
+    options: dict,
+):
     if level == 0:
-        print("Max recursion level reached, stooping here")
+        print("Max recursion level reached, stopping here")
         return content
 
     if path.is_dir():
@@ -26,18 +31,17 @@ def _any2dict(path: pathlib.Path, content: dict, level: int, options: dict):
         content[path.stem] = content_dir
     elif path.is_file():
         task = file2dict(path, **options)
-        content[str(path)] = task
+        content[path.name] = task
     return content
 
 
-def _top_level_entry(dictionary):
-    return dictionary[next(iter(dictionary))]
-
-
-def any2dict(path, max_recursion_level=10, **options):
-    path = pathlib.Path(path)
+def any2dict(path: str, max_recursion_level: int = 10, **options):
+    root = pathlib.Path(path)
     content = {}
-    _any2dict(path, content, level=max_recursion_level, options=options)
-    if path.is_dir():
-        return _top_level_entry(content)
+    _any2dict(
+        root,
+        content,
+        level=max_recursion_level,
+        options=options,
+    )
     return content
