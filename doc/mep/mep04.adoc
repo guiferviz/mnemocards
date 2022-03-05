@@ -3,7 +3,56 @@
 
 == MEP04: Generators
 
-In this MEP we define the structure of a generator.
+In this MEP we define the structure of a generator. A generator has the task of
+creating notes from a data structure with all the necessary information about a
+card. The creation of a note involves the creation of an object that will later
+be handled by the packager and the preparation of any multimedia file
+associated with the card (images or sound generation).
+
+The terminology "card" and "note" are inherited from Anki. A card is basically
+a high-level structure containing data and information on how to create notes.
+Notes are what we finally see and study. For example, imagine you are learning
+Spanish, your card for "hello" would be represented by the top square in the
+following diagram. From that card two notes would be generated, one with
+English on the front and one with Spanish on the front. It is very common even
+in the documentation to find that we talk about cards when we should say notes.
+Although this nomenclature can be confusing, we hope that from the context it
+is clear what exactly is being referred to.
+
+// Edit this diagram in https://asciiflow.com/
+....
+    ┌───────────────────────────┐
+    │  your_language: Hello     │
+    │  language_you_learn: Hola │
+    └───┬────────────────────┬──┘
+        │                    │
+        ▼                    ▼
+ ┌───────────┐          ┌───────────┐
+ │   Hola    │          │   Hello   │
+ │ --------- │          │ --------- │
+ │   Hello   │          │   Hola    │
+ └───────────┘          └───────────┘
+....
+
+A generator needs two things to work: a correct definition of what input data
+is expected and the instructions for converting that input data into a note.
+
+
+=== Input data validation
+
+One design option would be to define generators as a class with a generate
+method that accepts a dictionary. That dictionary should contain everything
+necessary to generate a card from it, i.e. our class would be assuming that the
+dictionary passed to it would have all the required data and in the correct
+data type.
+
+.generator.py
+[source,python]
+----
+class Generator:
+    def generate(card_data: dict) -> Note:
+        pass
+----
 
 
 === Generator class
