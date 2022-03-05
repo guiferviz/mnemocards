@@ -16,7 +16,7 @@ defaults:
 jobs:
   ci:
     name: CI
-    runs-on: {{ matrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os:
@@ -32,7 +32,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.2
         with:
-          python-version: {{ matrix.python-version }}
+          python-version: ${{ matrix.python-version }}
       - name: Setup Node (for PyRight)
         uses: actions/setup-node@v1
         with:
