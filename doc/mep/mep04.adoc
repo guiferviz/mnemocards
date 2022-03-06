@@ -4,16 +4,16 @@
 == MEP04: Generators
 
 In this MEP we define the structure of a generator. A generator has the task of
-creating notes from a data structure with all the necessary information about a
-card. The creation of a note involves the creation of an object that will later
-be handled by the packager and the preparation of any multimedia file
+creating cards from a data structure with all the necessary information about
+it. The creation of a card involves the creation of an object that will later
+be handled by the genanki packager and the preparation of any multimedia file
 associated with the card (images or sound generation).
 
-The terminology "card" and "note" are inherited from Anki. A card is basically
-a high-level structure containing data and information on how to create notes.
-Notes are what we finally see and study. For example, imagine you are learning
-Spanish, your card for "hello" would be represented by the top square in the
-following diagram. From that card two notes would be generated, one with
+The terminology "card" and "note" are inherited from Anki. A note is basically
+a high-level structure containing data and information on how to create cards.
+Cards are what we finally see and study. For example, imagine you are learning
+Spanish, your note for "hello" would be represented by the top square in the
+following diagram. From that note two cards would be generated, one with
 English on the front and one with Spanish on the front. It is very common even
 in the documentation to find that we talk about cards when we should say notes.
 Although this nomenclature can be confusing, we hope that from the context it
@@ -34,6 +34,9 @@ is clear what exactly is being referred to.
  └───────────┘          └───────────┘
 ....
 
+You can read a better explanation about cards, notes and field in the
+https://docs.ankiweb.net/getting-started.html#notes--fields[Anki documentation].
+
 A generator needs two things to work: a correct definition of what input data
 is expected and the instructions for converting that input data into a note.
 
@@ -42,7 +45,7 @@ is expected and the instructions for converting that input data into a note.
 
 One design option would be to define generators as a class with a generate
 method that accepts a dictionary. That dictionary should contain everything
-necessary to generate a card from it, i.e. our class would be assuming that the
+necessary to generate notes from it, i.e. our class would be assuming that the
 dictionary passed to it would have all the required data and in the correct
 data type.
 
@@ -54,44 +57,89 @@ class Generator:
         pass
 ----
 
+The problem with this approach is that we cannot be sure what kind of data are
+we expecting without reading the full generate function. If any of the fields
+are not mandatory, to find out what the default value is, we have to read the
+whole function again to see where that value is used. Renaming fields is not so
+easy in dictionaries, refactor tools does not include renaming strings
+with dictionary keys and search and replace is error prone.
 
-=== Generator class
+For these reasons it is proposed to use a data structure similar to a Python
+dataclass that allows us to validate the input data before calling the generate
+function. This frees the generator from data validation and specifying default
+values. The https://pydantic-docs.helpmanual.io[pydantic] library is a good
+candidate for this, using the type annotation and validators is possible to
+clearly separate the definition of the expected data from the code that
+generates it. This new data structure is what we call a CardModel.
 
-A generator is a class with two main methods: validate and generate.
+
+=== Link a CardModel to a Generator
+
+So far we have clearly differentiated 2 parts of the generation process: the
+data model (validation and default values) and the generator. A generator will
+only work if it receives the correct data model. Somewhere in the mnemocards
+code we need to take a dictionary from the reader, create the data model and
+pass it to the generator. How do we know which model should we create for a
+given generator?
+
+A possible option is to specify the type as a property of the object:
+
+.generator.py
+[source,python]
+----
+class CardModel(BaseModel):
+    pass
+
+
+class Generator:
+    card_model = CardModel
+
+    def generate(card_model) -> Note:
+        pass
+----
+
+This way, knowing the generator you can get which CardModel to use. Although
+this is a valid option, the suggested way is more elegant. It is proposed that
+the type annotations of the data_model parameter tell mnemocards which
+DataModel to use. In this way, in addition to saving a line, the developer is
+forced to make use of the type annotations, with all the advantages that this
+implies.
+
+.generator.py
+[source,python]
+----
+class CardModel(BaseModel):
+    pass
+
+
+class Generator:
+    def generate(card_model: CardModel) -> Note:
+        pass
+----
+
+With a generator object and a the
+https://docs.python.org/3/library/inspect.html#inspect.signature[inspect.signature]
+Python method we can get that the class Generator need a card model of the
+CardModel class.
+
+
+=== Output of a generator
+
+A generator is a class with one main method: generate. The input of `generate`
+is a CardModel. What about the expected output? We need to return not just a
+note, but also the multimedia files associated to it.
 
 .generator.py
 [source,python]
 ----
 class Generator:
-    def validate(card_properties):
-        return card_properties
-
     def generate(card_properties):
-        return Note
+        return genanki.NoteID, multimedia
 ----
 
-The validate method receives a dictionary as input and applies a schema. The
-validate method shall return a dictionary with the card_properties correctly
-validated and with all default values populated.
+The multimedia files are expected as a list of paths.
 
-Alternatively, instead of a validate method, a schema could be defined and
-Mnemocards could be in charge of validating that the dictionary returned by the
-reader complies with the restrictions imposed by the schema.  To do this, we
-would have to look for a library to validate schemas on dictionaries.  The
-approach is not yet fully decided and will be refined in future editions of
-this MEP.
-
-The generate method receives a dictionary with the card properties already
-validated and creates the Notes, i.e. it creates the objects that are required
-by Genanki to generate the apkg.
-
-Instead of receiving a dictionary as input, validate could return a dataclass
-and use that object as input for this function.  This way the input object has
-a structure that even linter itself would be able to understand.
-
-Again, this is something yet to be defined.  For the moment this MEP is just an
-overview of the proposed approach.
-
-Although we could separate these methods into two distinct classes, making each
-class do only one thing, I don't think that would provide any advantage at this
-point. What's more, it would probably complicate the code unnecessarily.
+While having to return the media files is an extra task that Mnemocards could
+do to make it easier for the generators, for the time being we will opt for
+this design because it is quite similar to how the current (v0.1.5) Builder are
+implemented.
