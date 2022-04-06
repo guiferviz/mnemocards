@@ -35,6 +35,10 @@ def _any2dict(
     return content
 
 
+def _top_level_entry(dictionary):
+     return dictionary[next(iter(dictionary))]
+
+
 def any2dict(path: str, max_recursion_level: int = 10, **options):
     root = pathlib.Path(path)
     content = {}
@@ -44,4 +48,4 @@ def any2dict(path: str, max_recursion_level: int = 10, **options):
         level=max_recursion_level,
         options=options,
     )
-    return content
+    return _top_level_entry(content)
