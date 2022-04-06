@@ -36,7 +36,8 @@ def _any2dict(
 
 
 def _top_level_entry(dictionary):
-     return dictionary[next(iter(dictionary))]
+    assert len(dictionary) == 1
+    return dictionary[next(iter(dictionary))]
 
 
 def any2dict(path: str, max_recursion_level: int = 10, **options):
