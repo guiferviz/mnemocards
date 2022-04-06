@@ -3,10 +3,11 @@
 </p>
 
 <p align="center">
+    <img src="https://github.com/guiferviz/mnemocards/actions/workflows/ci.yaml/badge.svg" alt="Mnemocards CI pipeline status">
     <img src="https://img.shields.io/github/contributors/guiferviz/mnemocards" alt="Mnemocards contributors">
     <img src="https://pepy.tech/badge/mnemocards" alt="Mnemocards total downloads">
     <img src="https://pepy.tech/badge/mnemocards/month" alt="Mnemocards downloads per month">
-    <img src="https://img.shields.io/badge/License-MIT-pink.svg" alt="Mnemocards MIT License">
+    <img src="https://img.shields.io/badge/License-MIT-pink.svg" alt="Mnemocards MIT license">
     <br />
     Generate Anki cards from text files.
 </p>
