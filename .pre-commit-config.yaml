@@ -1,0 +1,39 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.2.0
+      hooks:
+        - id: end-of-file-fixer
+        - id: trailing-whitespace
+        - id: name-tests-test
+        - id: check-json
+        - id: check-toml
+        - id: check-yaml
+        - id: check-xml
+        - id: check-added-large-files
+
+    - repo: local
+      hooks:
+      - id: black
+        name: black
+        entry: black
+        language: python
+        pass_filenames: true
+        types: [python]
+      - id: isort
+        name: isort
+        entry: isort
+        language: python
+        pass_filenames: true
+        types: [python]
+      - id: flake8
+        name: flake8
+        entry: flake8
+        language: python
+        pass_filenames: true
+        types: [python]
+      - id: pyright
+        name: pyright
+        entry: pyright
+        language: node
+        pass_filenames: true
+        types: [python]
