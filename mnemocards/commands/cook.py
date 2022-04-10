@@ -1,12 +1,19 @@
+import textwrap
 from pathlib import Path
 from typing import Iterator, List
 
 import typer
+from emoji import emojize
 from loguru import logger
+from pydantic import ValidationError
 
 from mnemocards.any2dict.any2dict import any2dict
 from mnemocards.models import RecipeModel
 from mnemocards.settings import Settings
+
+
+def cli_print(message, *args, **kwargs):
+    typer.secho(emojize(message), *args, **kwargs)
 
 
 def search_and_cook_recipes(
@@ -14,12 +21,73 @@ def search_and_cook_recipes(
     recursive: bool,
     max_recursive_level: int,
 ):
-    recipe_paths = list(search_recipe_paths(cards_path, recursive, max_recursive_level))
-    logger.info(f"Recipes found: {[str(i) for i in recipe_paths]}")
-    with typer.progressbar(recipe_paths, label="Recipe") as progress_recipes:
-        for recipe_path in progress_recipes:
-            pass
-            # cook_recipe_from_path(recipes)
+    cli_print(
+        "Looking for recipes... :page_with_curl:",
+        fg=typer.colors.WHITE,
+        bold=True,
+    )
+    recipes = []
+    recipe_paths_generator = search_recipe_paths(
+        cards_path, recursive, max_recursive_level
+    )
+    for i, recipe_path in enumerate(recipe_paths_generator, 1):
+        try:
+            recipe = load_recipe(recipe_path)
+        except RecipeException as e:
+            error_message = e.__context__ or e
+            cli_print(
+                f"\t{i}. Invalid recipe found in `{recipe_path}` :cross_mark:\n"
+                + textwrap.indent(str(error_message), prefix="\t\t"),
+                fg=typer.colors.RED,
+            )
+        else:
+            recipes.append(recipe)
+            cli_print(
+                f"\t{i}. Valid recipe found in `{recipe_path}` :check_mark_button:",
+                fg=typer.colors.GREEN,
+            )
+    cli_print(
+        f":sparkles:  {len(recipes)} valid recipes found :sparkles:",
+        fg=typer.colors.WHITE,
+        bold=True,
+    )
+
+
+class RecipeException(Exception):
+    pass
+
+
+class IORecipeException(RecipeException):
+    pass
+
+
+class ValidationRecipeException(RecipeException):
+    pass
+
+
+class TypeErrorRecipeException(RecipeException):
+    pass
+
+
+def load_recipe(path: Path):
+    assert path.exists()
+    try:
+        recipe_data = any2dict(str(path))
+    except Exception as exception:
+        logger.opt(exception=True).error(exception)
+        raise IORecipeException("Error reading file") from exception
+    recipe_data_type = type(recipe_data)
+    if recipe_data_type != dict:
+        exception = TypeErrorRecipeException(
+            f"Expecting a dictionary, found `{recipe_data_type.__name__}`"
+        )
+        logger.opt(exception=True).error(exception)
+        raise exception
+    try:
+        return RecipeModel(**recipe_data)
+    except ValidationError as exception:
+        logger.opt(exception=True).error(exception)
+        raise ValidationRecipeException("Error validating data") from exception
 
 
 def search_recipe_paths(
@@ -70,8 +138,6 @@ def cook_recipes(recipes: List[Path]):
 
 def cook_recipe(recipe: Path):
     packages = []
-    recipe_data = any2dict(str(recipe))
-    print("Building:", RecipeModel(**recipe_data))
     # TODO: packages = build_packages(data_dir, config)
     return packages
 
@@ -113,11 +179,9 @@ def main(
 ):
     """Generate a package of Anki cards from text files."""
 
-    typer.secho("Hi!", fg=typer.colors.GREEN, bold=True)
-    packages = search_and_cook_recipes(cards_path, recursive, max_recursive_level)
-    print("Saving packages:", packages)
-    # save_packages(packages, args.output_dir)
-    typer.secho("See you soon!", fg=typer.colors.GREEN, bold=True)
+    cli_print("Hi! :waving_hand:", fg=typer.colors.GREEN, bold=True)
+    search_and_cook_recipes(cards_path, recursive, max_recursive_level)
+    cli_print("See you soon! :call_me_hand:", fg=typer.colors.GREEN, bold=True)
 
 
 """
