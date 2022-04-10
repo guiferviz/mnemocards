@@ -31,9 +31,9 @@ jobs:
           - 3.9
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Python
-        uses: actions/setup-python@v2.2.2
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
       - name: Setup Node (for PyRight)
@@ -83,9 +83,9 @@ jobs:
           - 3.9
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Python
-        uses: actions/setup-python@v2.2.2
+        uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry
@@ -105,3 +105,45 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: site/
+
+  deploy:
+    name: Deploy
+    needs:
+      - lint_and_test
+      - build_docs
+        #if: "success() && startsWith(github.ref, 'refs/tags/')"
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: set up python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.8
+      - name: Get Dist Artifact
+        uses: actions/download-artifact@v2
+        with:
+          path: dist
+      - name: Get Docs Artifact
+        uses: actions/download-artifact@v2
+        with:
+          path: site
+      - name: Install Poetry
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          else
+            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
+      - name: Install Python Requirements
+        run: poetry install -E all
+      - name: Publish Docs
+        run: poetry run mkdocs gh-deploy --force
+      - name: Publish PyPi
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
+        run: |
+          poetry config pypi-token.pypi $PYPI_TOKEN
+          poetry publish
