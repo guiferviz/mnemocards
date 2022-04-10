@@ -1,7 +1,4 @@
-:source-highlighter: rouge
-
-
-== Mnemocards Enhancement Proposals (MEP) 01
+# MEP01: Mnemocards Enhancement Proposals
 
 In version 0.1 there are several pitfalls.  The most important one is how the
 library is structured.  The initial design simply works, but it makes it very
@@ -26,17 +23,16 @@ fully implemented, Mnemocards will finally be able to move to the long-awaited
 *version 1.0*.
 
 
-=== Components
+## Components
 
 We should start by identifying each of the components that make it possible for
 Mnemocards to generate Anki APKG files.  Currently we have something like this:
 
-[mermaid]
-....
+```mermaid
 graph TD
     FILE[Source Files] --> GEN[Builder]
     GEN --> APKG[Anki APKG File]
-....
+```
 
 On the one hand we have the files with the content of the cards.  What we call
 *builders* are classes that read those files and generate the cards which are
@@ -46,15 +42,14 @@ then grouped into APKG files.  In 0.1.5 we have 4 builder classes:
 Breaking down the builders into smaller units will make things much easier.
 The proposed approach has these components easily differentiated:
 
-[mermaid]
-....
+```mermaid
 graph TD
     FILE[Source Files] --> READ[Readers]
     READ --> GEN[Generator]
     STYLE[Style] --> GEN
     UTIL[Utility code] --> GEN
     GEN --> APKG[Anki APKG File]
-....
+```
 
 Again, everything starts from the *source files*, with the content of the
 cards.  On the other hand, we have a piece of code that reads these files.
@@ -86,7 +81,7 @@ file... Mnemocards is just the director that makes these components to work in
 harmony.
 
 
-=== Version 1.0
+## Version 1.0
 
 Splitting the current code into the small independent modules outlined in the
 previous point will be a milestone for Mnemocards: version 1.0. This MEP01

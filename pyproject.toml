@@ -68,6 +68,7 @@ pyright = "^0.0.13"
 black = "^22.1.0"
 flake8-isort = "^4.1.1"
 pre-commit = "^2.18.1"
+mkdocs-material = "^8.2.9"
 
 
 [build-system]
