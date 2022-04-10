@@ -52,7 +52,7 @@ jobs:
           npm install -g pyright
           pyright || echo "::warning::Failure ignored!"
       - name: Run Tests
-        run: poetry run pytest --cov=mnemocards
+        run: poetry run pytest --cov=mnemocards --cov-report=xml
       - name: Build Wheel
         run: poetry build
       - name: Upload Wheel to GitHub Artifact
