@@ -52,10 +52,12 @@ jobs:
           npm install -g pyright
           pyright || echo "::warning::Failure ignored!"
       - name: Run Tests
-        run: poetry run pytest
+        run: poetry run pytest --cov=mnemocards
       - name: Build Wheel
         run: poetry build
       - name: Upload Wheel to GitHub Artifact
         uses: actions/upload-artifact@v2
         with:
           path: dist/
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
