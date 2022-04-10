@@ -1,17 +1,23 @@
+<p align="center">
+    <img src="doc/_static/images/logo.png" width="200">
+</p>
 
-<img src="doc/_static/images/logo.png" width="200">
-<br />
-<a href="https://mnemocards.readthedocs.io/en/latest/">
-    <img src="https://readthedocs.org/projects/mnemocards/badge"
-         alt="Read The Docs documentation">
-</a>
+<p align="center">
+    <img src="https://github.com/guiferviz/mnemocards/actions/workflows/ci.yaml/badge.svg" alt="Mnemocards CI pipeline status">
+    <img src="https://img.shields.io/github/contributors/guiferviz/mnemocards" alt="Mnemocards contributors">
+    <img src="https://pepy.tech/badge/mnemocards" alt="Mnemocards total downloads">
+    <img src="https://pepy.tech/badge/mnemocards/month" alt="Mnemocards downloads per month">
+    <img src="https://img.shields.io/badge/License-MIT-pink.svg" alt="Mnemocards MIT license">
+    <br />
+    Generate Anki cards from text files.
+</p>
+<hr>
 
-Generate Anki cards from text files (TSV and Markdown).
-Automatically create cards from list of words with Google Translate.
+<p align="center">
+    <img src="doc/_static/images/all_cards.png">
+</p>
 
-<center>
-<img src="doc/_static/images/all_cards.png">
-</center>
+# 🤔 What is this?
 
 Text files are easily maintainable, `apkg` files are not.
 You can easily store text files in a version control system like *git*, so you

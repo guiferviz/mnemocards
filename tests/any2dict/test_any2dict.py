@@ -27,20 +27,18 @@ def directory(tmp_path):
 def test_any2dict(directory):
     actual = any2dict(directory, max_recursion_level=3)
     expected = {
-        "cards": {
-            "top.csv": [
+        "top.csv": [
+            dict(a="1", b="2"),
+            dict(a="3", b="4"),
+        ],
+        "top.json": {
+            "a": 1,
+        },
+        "sub": {
+            "sub": {},
+            "sub.tsv": [
                 dict(a="1", b="2"),
-                dict(a="3", b="4"),
             ],
-            "top.json": {
-                "a": 1,
-            },
-            "sub": {
-                "sub": {},
-                "sub.tsv": [
-                    dict(a="1", b="2"),
-                ],
-            },
         },
     }
     assert actual == expected
