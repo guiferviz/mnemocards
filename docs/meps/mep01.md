@@ -89,6 +89,6 @@ represents the will to improve the framework with a more flexible and easily
 maintainable code, other MEPs will be created to deal with each of the
 following points separately:
 
-* *MEP02*: New configuration files. Backwards compatibility and migration plan.
-* *MEP03*: Source files and readers.
-* *MEP04*: Generators and Mnemocards utilities.
+* [MEP02](mep02.md): New configuration files. Backwards compatibility and migration plan.
+* [MEP03](mep03.md): Source files and readers.
+* [MEP04](mep04.md): Generators and Mnemocards utilities.

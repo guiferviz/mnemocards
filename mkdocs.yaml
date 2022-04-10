@@ -1,8 +1,10 @@
 site_name: Mnemocards Docs
+site_url: https://guiferviz.com/mnemocards
 site_author: guiferviz
 copyright: MIT license
 repo_url: https://github.com/guiferviz/mnemocards
 repo_name: Mnemocards
+strict: true
 theme:
     name: material
     palette: 

@@ -176,7 +176,7 @@ can even create a new reader just for reading configuration files.
 
 ## Options in configuration files
 
-In MEP02 we defined the new configuration files. In the hiragana example we
+In [MEP02](mep02.md) we defined the new configuration files. In the hiragana example we
 have:
 
 ```json
