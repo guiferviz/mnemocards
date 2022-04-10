@@ -23,7 +23,6 @@ def search_and_cook_recipes(
 ):
     cli_print(
         "Looking for recipes... :page_with_curl:",
-        fg=typer.colors.WHITE,
         bold=True,
     )
     recipes = []
@@ -48,7 +47,6 @@ def search_and_cook_recipes(
             )
     cli_print(
         f":sparkles:  {len(recipes)} valid recipes found :sparkles:",
-        fg=typer.colors.WHITE,
         bold=True,
     )
 
