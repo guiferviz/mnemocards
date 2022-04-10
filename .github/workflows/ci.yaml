@@ -2,9 +2,11 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches:
+      - master
   pull_request:
-    branches: [master]
+    branches:
+      - master
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron: "0 0 * * SUN"
@@ -14,10 +16,11 @@ defaults:
     shell: bash  # Avoid PowerShell on Windows
 
 jobs:
-  ci:
+  lint_and_test:
     name: CI
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os:
           - ubuntu-latest
@@ -37,12 +40,15 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-      - name: Install Poetry (Latest Version)
+      - name: Install Poetry
         run: |
-          curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-      - name: Add Poetry to PATH env var
-        run: |
-          echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          else
+            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
       - name: Install Python Requirements
         run: poetry install -E all
       - name: Run Linter
@@ -59,5 +65,43 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           path: dist/
-      - name: Upload coverage
-        uses: codecov/codecov-action@v1
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v2
+
+  build_docs:
+    name: Build Docs
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - macos-latest
+          - windows-latest
+        python-version:
+          - 3.8
+          - 3.9
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Poetry
+        run: |
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
+          else
+            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
+            echo "$HOME/.local/bin" >> $GITHUB_PATH
+          fi
+      - name: Install Python Requirements
+        run: poetry install -E all
+      - name: Build Docs
+        run: poetry run mkdocs build
+      - name: Upload Docs to GitHub Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          path: site/
