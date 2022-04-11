@@ -10,3 +10,4 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Extensible and decoupled file reading system.  Supported formats: `csv`,
 `tsv`, `json`, `toml`, `xml` and `yaml`.
 - CLI completely renewed.
+- Fully automated CI/CD pipeline.
