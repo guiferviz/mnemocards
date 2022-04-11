@@ -1,7 +1,4 @@
-:source-highlighter: rouge
-
-
-== MEP04: Generators
+# MEP04: Generators
 
 In this MEP we define the structure of a generator. A generator has the task of
 creating cards from a data structure with all the necessary information about
@@ -20,7 +17,7 @@ Although this nomenclature can be confusing, we hope that from the context it
 is clear what exactly is being referred to.
 
 // Edit this diagram in https://asciiflow.com/
-....
+```
     ┌───────────────────────────┐
     │  your_language: Hello     │
     │  language_you_learn: Hola │
@@ -32,7 +29,7 @@ is clear what exactly is being referred to.
  │ --------- │          │ --------- │
  │   Hello   │          │   Hola    │
  └───────────┘          └───────────┘
-....
+```
 
 You can read a better explanation about cards, notes and field in the
 https://docs.ankiweb.net/getting-started.html#notes--fields[Anki documentation].
@@ -41,7 +38,7 @@ A generator needs two things to work: a correct definition of what input data
 is expected and the instructions for converting that input data into a note.
 
 
-=== Input data validation
+## Input data validation
 
 One design option would be to define generators as a class with a generate
 method that accepts a dictionary. That dictionary should contain everything
@@ -49,13 +46,11 @@ necessary to generate notes from it, i.e. our class would be assuming that the
 dictionary passed to it would have all the required data and in the correct
 data type.
 
-.generator.py
-[source,python]
-----
+```python title="generator.py"
 class Generator:
     def generate(card_data: dict) -> Note:
         pass
-----
+```
 
 The problem with this approach is that we cannot be sure what kind of data are
 we expecting without reading the full generate function. If any of the fields
@@ -73,7 +68,7 @@ clearly separate the definition of the expected data from the code that
 generates it. This new data structure is what we call a CardModel.
 
 
-=== Link a CardModel to a Generator
+## Link a CardModel to a Generator
 
 So far we have clearly differentiated 2 parts of the generation process: the
 data model (validation and default values) and the generator. A generator will
@@ -84,9 +79,7 @@ given generator?
 
 A possible option is to specify the type as a property of the object:
 
-.generator.py
-[source,python]
-----
+```python title="generator.py"
 class CardModel(BaseModel):
     pass
 
@@ -96,7 +89,7 @@ class Generator:
 
     def generate(card_model) -> Note:
         pass
-----
+```
 
 This way, knowing the generator you can get which CardModel to use. Although
 this is a valid option, the suggested way is more elegant. It is proposed that
@@ -105,9 +98,7 @@ DataModel to use. In this way, in addition to saving a line, the developer is
 forced to make use of the type annotations, with all the advantages that this
 implies.
 
-.generator.py
-[source,python]
-----
+```python title="generator.py"
 class CardModel(BaseModel):
     pass
 
@@ -115,7 +106,7 @@ class CardModel(BaseModel):
 class Generator:
     def generate(card_model: CardModel) -> Note:
         pass
-----
+```
 
 With a generator object and a the
 https://docs.python.org/3/library/inspect.html#inspect.signature[inspect.signature]
@@ -123,19 +114,17 @@ Python method we can get that the class Generator need a card model of the
 CardModel class.
 
 
-=== Output of a generator
+## Output of a generator
 
 A generator is a class with one main method: generate. The input of `generate`
 is a CardModel. What about the expected output? We need to return not just a
 note, but also the multimedia files associated to it.
 
-.generator.py
-[source,python]
-----
+```python title="generator.py"
 class Generator:
     def generate(card_properties):
         return genanki.NoteID, multimedia
-----
+```
 
 The multimedia files are expected as a list of paths.
 
