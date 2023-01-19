@@ -1,0 +1,91 @@
+site_name: Mnemocards Docs
+site_url: https://guiferviz.github.io/mnemocards
+site_author: guiferviz
+repo_url: https://github.com/guiferviz/mnemocards
+repo_name: Mnemocards
+strict: true
+
+theme:
+    name: material
+    palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: amber
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+    - tags:
+        tags_file: tags.md
+    - search
+    - macros:
+        include_dir: docs/include
+        on_error_fail: true
+        module_name: docs/macros
+
+markdown_extensions:
+    - meta
+    # Code highlight.
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    # MathJax with some options in the extra_javascript.
+    - pymdownx.arithmatex:
+        generic: true
+    # Mermaid plots.
+    - pymdownx.superfences:
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+    # Emoji.
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
+    # Task lists with checkboxes.
+    - pymdownx.tasklist:
+        custom_checkbox: true
+    # Superfences admonition.
+    - admonition
+    - pymdownx.details
+    - md_in_html
+    # Cross out text using ~~text~~.
+    - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: G-NCB5QMMEKH
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/guiferviz
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/guiferviz
+    - icon: fontawesome/brands/github
+      link: https://github.com/guiferviz
+
+nav:
+    - Overview: index.md
+    - FAQ: faq.md
+    - Changes: changelog.md
+    - Contributing: contributing.md
+    - EP:
+      - eps/ep00.md
+    - Tags: tags.md
