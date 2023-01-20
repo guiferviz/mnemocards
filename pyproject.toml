@@ -43,6 +43,7 @@ pdbpp = "^0.10.3"
 mypy = "^0.991"
 flake8-pyproject = "^1.2.1"
 pydocstyle = "^6.1.1"
+pep8-naming = "^0.13.3"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs-material = "^8.4.0"
