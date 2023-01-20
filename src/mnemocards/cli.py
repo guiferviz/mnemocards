@@ -1,27 +1,69 @@
+import logging
+import random
+
+from rich.console import Console
+from rich.logging import RichHandler
+from rich.panel import Panel
+from rich.theme import Theme
+
 import mnemocards
+
+_LOGO = """
+╔╦╗╔╗╔╔═╗╔╦╗╔═╗┌─┐┌─┐┬─┐┌┬┐┌─┐
+║║║║║║║╣ ║║║║ ║│  ├─┤├┬┘ ││└─┐
+╩ ╩╝╚╝╚═╝╩ ╩╚═╝└─┘┴ ┴┴└──┴┘└─┘
+""".strip()
+# Some of this jokes have been taken from https://upjoke.com/memory-jokes.
+# Some others are made up by guiferviz.
+_JOKES = [
+    "In addition to helping you memorize, this code helps you do other things that I don't remember.",
+    "I have a photographic memory... I need to take a photograph to remember anything.",
+    "I used to have a photographic memory, but now I can't even remember where I put my camera.",
+    "I can't remember the last time I forgot something, but I'm sure it's not the only thing I've forgotten.",
+    "My memory is so bad, I could plan my own surprise birthday party and still be surprised.",
+    "My exceptional memory allows me to memorize a sequence of more than a million numbers: 1, 2, 3, 4, 5...",
+    "I have the memory of an elephant. I remember seeing an elephant a couple of years ago when I went to the zoo.",
+    "I can't remember the last time I forgot something, but I also forgot the last time I remembered something.",
+]
 
 
 class CLI:
-    def __init__(self, version: bool = False):
+    def __init__(self, version: bool = False, log_level: str = "DEBUG"):
+        self._init_console()
+        self._init_logging(log_level)
+        self._greet()
         if version:
-            self._greet()
             raise SystemExit()
 
+    def _init_console(self):
+        self._console = Console(
+            theme=Theme(
+                {
+                    "log.time": "yellow",
+                    "logging.level.info": "bold blue",
+                }
+            )
+        )
+
+    def _init_logging(self, log_level: str):
+        logging.basicConfig(
+            level=log_level,
+            format="%(message)s",
+            datefmt="%H:%M:%S",
+            handlers=[
+                RichHandler(
+                    show_level=True,
+                    show_time=True,
+                    rich_tracebacks=True,
+                    markup=True,
+                    console=self._console,
+                )
+            ],
+        )
+
     def _greet(self):
-        print(mnemocards.__version__)
-
-    def hi(self, name: str = "guiferviz"):
-        """Say hello.
-
-        Args:
-            name (str): Your name.
-        """
-        print(f"Hi {name}")
-
-    def bye(self, name: str = "guiferviz"):
-        """Say good bye.
-
-        Args:
-            name (str): Your name.
-        """
-        print(f"Bye {name}")
+        logo = f"[bold green]{_LOGO}"
+        version = f"[bold yellow]{mnemocards.__version__}"
+        self._console.print(f"{logo} {version}")
+        joke = random.choice(_JOKES)
+        self._console.print(Panel.fit(f"[bold blue]{joke}"))

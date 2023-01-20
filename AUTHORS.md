@@ -8,4 +8,4 @@
 
 # Contributors
 
-None yet. Why not be the first?
+* [otter-man](https://github.com/otter-man)

@@ -1,5 +1,5 @@
 site_name: Mnemocards Docs
-site_url: https://guiferviz.github.io/mnemocards
+site_url: https://guiferviz.com/mnemocards
 site_author: guiferviz
 repo_url: https://github.com/guiferviz/mnemocards
 repo_name: Mnemocards
@@ -86,6 +86,6 @@ nav:
     - FAQ: faq.md
     - Changes: changelog.md
     - Contributing: contributing.md
-    - EP:
-      - eps/ep00.md
+    - MEP:
+      - meps/mep00.md
     - Tags: tags.md

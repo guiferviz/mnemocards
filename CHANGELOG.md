@@ -7,4 +7,6 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
 ## 1.0.0a0 - Unreleased
+A complete rewrite of the mnemocards package.
+
 ### Added
