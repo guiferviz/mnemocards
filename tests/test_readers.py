@@ -16,6 +16,29 @@ class TestReader:
         reader.loads.assert_called_with(":-P")
 
 
+class TestInferReader:
+    def test_get_reader_known_extension(self):
+        reader = readers.InferReader()
+        actual = reader._get_reader("file.csv")
+        assert type(actual) == readers.CSV
+
+    def test_get_reader_unknown_extension(self):
+        reader = readers.InferReader()
+        with pytest.raises(
+            ValueError, match="I cannot infer reader for file `file.unknown`"
+        ):
+            reader._get_reader("file.unknown")
+
+    def test_load(self, mocker):
+        reader_mock = mocker.Mock()
+        mocker.patch.object(
+            readers.InferReader, "_get_reader", return_value=reader_mock
+        )
+        reader = readers.InferReader()
+        reader.load("file.unknown")
+        reader_mock.load.assert_called_with("file.unknown")
+
+
 class TestCSV:
     @pytest.fixture
     def input_text(self):

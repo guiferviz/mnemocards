@@ -2,6 +2,10 @@ import abc
 import csv
 import io
 import json
+import pathlib
+from typing import Any, List, Type
+
+from mnemocards.types import PathLike
 
 try:
     import toml
@@ -28,38 +32,68 @@ except ImportError:
 class Reader(abc.ABC):
     extensions = []
 
-    def load(self, path, **options):
-        with open(path, "r") as f:
-            string = f.read()
-            return self.loads(string, **options)
+    def load(self, path_like: PathLike, **options) -> Any:
+        with open(path_like, "r") as f:
+            content = f.read()
+            return self.loads(content, **options)
 
     @abc.abstractmethod
-    def loads(self, string, **options):
+    def loads(self, content: str, **options) -> Any:
         raise NotImplementedError()
+
+
+def get_reader_subclasses() -> List[Type]:
+    return Reader.__subclasses__()
+
+
+def get_reader_by_extension(extension: str) -> Type:
+    for i in get_reader_subclasses():
+        if extension in i.extensions:
+            return i
+
+
+class InferReader(Reader):
+    def _get_reader(self, path_like: PathLike) -> Reader:
+        path = pathlib.Path(str(path_like))
+        extension = path.suffix[1:]
+        reader = get_reader_by_extension(extension)
+        if reader is None:
+            raise ValueError(f"I cannot infer reader for file `{path}`")
+        return reader()
+
+    def load(self, path_like: PathLike, **options) -> Any:
+        reader = self._get_reader(path_like)
+        return reader.load(path_like, **options)
+
+    def loads(self, content: str, **options) -> Any:
+        raise NotImplementedError(
+            "I cannot infer the file type from the file content."
+            " Use `load` with a file name with a valid extension."
+        )
 
 
 class CSV(Reader):
     extensions = ["csv"]
 
-    def loads(self, string, **options):
-        string = io.StringIO(string)
-        reader = csv.DictReader(string, **options)
+    def loads(self, content: str, **options) -> Any:
+        string_io = io.StringIO(content)
+        reader = csv.DictReader(string_io, **options)
         return [i for i in reader]
 
 
 class TSV(CSV):
     extensions = ["tsv"]
 
-    def loads(self, string, **options):
+    def loads(self, content: str, **options) -> Any:
         options.setdefault("delimiter", "\t")
-        return super().loads(string, **options)
+        return super().loads(content, **options)
 
 
 class JSON(Reader):
     extensions = ["json"]
 
-    def loads(self, string, **options):
-        return json.loads(string, **options)
+    def loads(self, content: str, **options) -> Any:
+        return json.loads(content, **options)
 
 
 class TOML(Reader):
@@ -69,8 +103,8 @@ class TOML(Reader):
         if not toml_exists:
             raise ImportError("toml package is required to read toml files")
 
-    def loads(self, string, **options):
-        return toml.loads(string, **options)
+    def loads(self, content: str, **options) -> Any:
+        return toml.loads(content, **options)
 
 
 class YAML(Reader):
@@ -80,8 +114,8 @@ class YAML(Reader):
         if not pyyaml_exists:
             raise ImportError("pyyaml package is required to read yaml files")
 
-    def loads(self, string: str, **options):
-        return yaml.safe_load(string, **options)
+    def loads(self, content: str, **options) -> Any:
+        return yaml.safe_load(content, **options)
 
 
 class XML(Reader):
@@ -91,5 +125,5 @@ class XML(Reader):
         if not xmltodict_exists:
             raise ImportError("xmltodict package is required to read xml files")
 
-    def loads(self, string: str, **options):
-        return xmltodict.parse(string, **options)
+    def loads(self, content: str, **options) -> Any:
+        return xmltodict.parse(content, **options)
