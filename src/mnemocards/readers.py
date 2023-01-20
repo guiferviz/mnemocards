@@ -65,34 +65,31 @@ class JSON(Reader):
 class TOML(Reader):
     extensions = ["toml"]
 
-    def loads(self, string, **options):
-        if toml_exists:
-            return self._parse(string, **options)
-        raise ImportError("toml package is required to read toml files")
+    def __init__(self):
+        if not toml_exists:
+            raise ImportError("toml package is required to read toml files")
 
-    def _parse(self, string: str, **options):
+    def loads(self, string, **options):
         return toml.loads(string, **options)
 
 
 class YAML(Reader):
     extensions = ["yaml", "yml"]
 
-    def loads(self, string: str, **options):
-        if pyyaml_exists:
-            return self._parse(string, **options)
-        raise ImportError("pyyaml package is required to read yaml files")
+    def __init__(self):
+        if not pyyaml_exists:
+            raise ImportError("pyyaml package is required to read yaml files")
 
-    def _parse(self, string: str, **options):
+    def loads(self, string: str, **options):
         return yaml.safe_load(string, **options)
 
 
 class XML(Reader):
     extensions = ["xml"]
 
-    def loads(self, string: str, **options):
-        if xmltodict_exists:
-            return self._parse(string, **options)
-        raise ImportError("xmltodict package is required to read xml files")
+    def __init__(self):
+        if not xmltodict_exists:
+            raise ImportError("xmltodict package is required to read xml files")
 
-    def _parse(self, string: str, **options):
+    def loads(self, string: str, **options):
         return xmltodict.parse(string, **options)

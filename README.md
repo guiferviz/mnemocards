@@ -1,8 +1,8 @@
 <p align="center">
     <a href="https://guiferviz.github.io/mnemocards" target="_blank">
-        <img src="https://guiferviz.github.io/mnemocards/images/logo.jpg"
+        <img src="/mnemocards/images/logo.jpg"
              alt="Mnemocards logo"
-             width="800">
+             width="200">
     </a>
 </p>
 <p align="center">
@@ -37,8 +37,8 @@
 ---
 
 :books: **Documentation**:
-<a href="https://guiferviz.github.io/mnemocards" target="_blank">
-    https://guiferviz.github.io/mnemocards
+<a href="https://guiferviz.com/mnemocards" target="_blank">
+    https://guiferviz.com/mnemocards
 </a>
 
 :keyboard: **Source Code**:
