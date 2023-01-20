@@ -7,7 +7,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/guiferviz/mnemocards/actions/workflows/cicd.yaml" target="_blank">
-        <img src="https://github.com/aidictive/mnemocards/actions/workflows/cicd.yaml/badge.svg"
+        <img src="https://github.com/guiferviz/mnemocards/actions/workflows/cicd.yaml/badge.svg"
              alt="Mnemocards CI pipeline status">
     </a>
     <a href="https://app.codecov.io/gh/guiferviz/mnemocards/" target="_blank">
