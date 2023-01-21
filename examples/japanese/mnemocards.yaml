@@ -1,0 +1,17 @@
+name: japanese
+sources:
+  - type: mnemocards.sources.File
+    path: examples/japanese/hiragana.csv
+    transforms:
+      - type: mnemocards.transforms.AppendToProperty
+        tag: hiragana
+  - type: mnemocards.sources.File
+    path: examples/japanese/katakana.csv
+    transforms:
+      - type: mnemocards.transforms.AppendToProperty
+        tag: katakana
+transforms:
+  - type: mnemocards.transforms.AppendToProperty
+    tag: japanese
+sinks:
+  - type: mnemocards.sinks.Print

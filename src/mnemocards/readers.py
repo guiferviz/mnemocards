@@ -5,6 +5,7 @@ import json
 import pathlib
 from typing import Any, List, Type
 
+from mnemocards import utils
 from mnemocards.types import PathLike
 
 try:
@@ -29,7 +30,7 @@ except ImportError:
     pyyaml_exists = False
 
 
-class Reader(abc.ABC):
+class Reader(abc.ABC, utils.PydanticType):
     extensions = []
 
     def load(self, path_like: PathLike, **options) -> Any:
@@ -115,7 +116,7 @@ class YAML(Reader):
             raise ImportError("pyyaml package is required to read yaml files")
 
     def loads(self, content: str, **options) -> Any:
-        return yaml.safe_load(content, **options)
+        return yaml.full_load(content, **options)
 
 
 class XML(Reader):

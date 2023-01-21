@@ -7,6 +7,8 @@ from rich.panel import Panel
 from rich.theme import Theme
 
 import mnemocards
+from mnemocards.cook import create_and_cook_recipe
+from mnemocards.types import PathLike
 
 _LOGO = """
 ╔╦╗╔╗╔╔═╗╔╦╗╔═╗┌─┐┌─┐┬─┐┌┬┐┌─┐
@@ -28,7 +30,7 @@ _JOKES = [
 
 
 class CLI:
-    def __init__(self, version: bool = False, log_level: str = "DEBUG"):
+    def __init__(self, version: bool = False, log_level: str = "CRITICAL"):
         self._init_console()
         self._init_logging(log_level)
         self._greet()
@@ -46,6 +48,7 @@ class CLI:
         )
 
     def _init_logging(self, log_level: str):
+        self._log_level = log_level
         logging.basicConfig(
             level=log_level,
             format="%(message)s",
@@ -67,3 +70,24 @@ class CLI:
         self._console.print(f"{logo} {version}")
         joke = random.choice(_JOKES)
         self._console.print(Panel.fit(f"[bold blue]{joke}"))
+
+    def cook(self, directory: PathLike = ".", recipe: str = "mnemocards.yaml"):
+        """Cook a given recipe.
+
+        Args:
+            directory: Directory to search for a recipe.
+            recipe: Recipe filename.
+        """
+        self._console.print("Hi! :waving_hand:")
+        try:
+            create_and_cook_recipe(directory, recipe)
+        except Exception:
+            self._console.print_exception(
+                show_locals=self._log_level == "DEBUG"
+            )
+            self._console.print(
+                "Although things didn't go as well as we expected,"
+                " hope to see you soon! :call_me_hand:"
+            )
+        else:
+            self._console.print("See you soon! :call_me_hand:")
