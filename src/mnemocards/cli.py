@@ -7,7 +7,7 @@ from rich.panel import Panel
 from rich.theme import Theme
 
 import mnemocards
-from mnemocards.cook import create_and_cook_recipe
+from mnemocards.runner import create_and_run_task
 from mnemocards.types import PathLike
 
 _LOGO = """
@@ -71,16 +71,16 @@ class CLI:
         joke = random.choice(_JOKES)
         self._console.print(Panel.fit(f"[bold blue]{joke}"))
 
-    def cook(self, directory: PathLike = ".", recipe: str = "mnemocards.yaml"):
-        """Cook a given recipe.
+    def run(self, directory: PathLike = ".", filename: str = "mnemocards.yaml"):
+        """Run a given Mnemocard task.
 
         Args:
-            directory: Directory to search for a recipe.
-            recipe: Recipe filename.
+            directory: Directory to search for a Mnemocard Task definition.
+            filename: File name with the Mnemocard Task configuration.
         """
         self._console.print("Hi! :waving_hand:")
         try:
-            create_and_cook_recipe(directory, recipe)
+            create_and_run_task(directory, filename)
         except Exception:
             self._console.print_exception(
                 show_locals=self._log_level == "DEBUG"

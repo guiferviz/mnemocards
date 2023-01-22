@@ -2,7 +2,7 @@ import textwrap
 
 import pytest
 
-from mnemocards import readers
+from mnemocards_essentials import readers
 
 
 class TestReader:
@@ -200,10 +200,3 @@ class TestYAML:
             dict(front="front2", back="back2"),
         ]
         assert actual_dict == expected_dict
-
-    def test_fail_when_pyyaml_is_not_installed(self, mocker):
-        mocker.patch.object(readers, "pyyaml_exists", False)
-        with pytest.raises(
-            ImportError, match="pyyaml package is required to read yaml files"
-        ):
-            readers.YAML()

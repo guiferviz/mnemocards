@@ -37,6 +37,16 @@ class ClassModel(pydantic.BaseModel):
         values["params"] = params
         return values
 
+    @pydantic.validator("type_")
+    @classmethod
+    def validate_type_exists(cls, type_):
+        if type_ is not None:
+            try:
+                member_from_qualified_name(type_)
+            except (AttributeError, ImportError):
+                raise ValueError(f"`{type_}` not found")
+        return type_
+
     def to_object(self):
         member = member_from_qualified_name(self.type_)
         return member(**self.params)

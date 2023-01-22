@@ -5,6 +5,8 @@ import json
 import pathlib
 from typing import Any, List, Type
 
+import yaml
+
 from mnemocards import utils
 from mnemocards.types import PathLike
 
@@ -21,13 +23,6 @@ try:
     xmltodict_exists = True
 except ImportError:
     xmltodict_exists = False
-
-try:
-    import yaml
-
-    pyyaml_exists = True
-except ImportError:
-    pyyaml_exists = False
 
 
 class Reader(abc.ABC, utils.PydanticType):
@@ -66,7 +61,7 @@ class InferReader(Reader):
         reader = self._get_reader(path_like)
         return reader.load(path_like, **options)
 
-    def loads(self, content: str, **options) -> Any:
+    def loads(self, _: str, **__) -> Any:
         raise NotImplementedError(
             "I cannot infer the file type from the file content."
             " Use `load` with a file name with a valid extension."
@@ -82,12 +77,14 @@ class CSV(Reader):
         return [i for i in reader]
 
 
-class TSV(CSV):
+class TSV(Reader):
     extensions = ["tsv"]
 
     def loads(self, content: str, **options) -> Any:
         options.setdefault("delimiter", "\t")
-        return super().loads(content, **options)
+        string_io = io.StringIO(content)
+        reader = csv.DictReader(string_io, **options)
+        return [i for i in reader]
 
 
 class JSON(Reader):
@@ -111,12 +108,8 @@ class TOML(Reader):
 class YAML(Reader):
     extensions = ["yaml", "yml"]
 
-    def __init__(self):
-        if not pyyaml_exists:
-            raise ImportError("pyyaml package is required to read yaml files")
-
     def loads(self, content: str, **options) -> Any:
-        return yaml.full_load(content, **options)
+        return yaml.safe_load(content, **options)
 
 
 class XML(Reader):
