@@ -22,4 +22,5 @@ steps:
       type: mnemocards_anki.VocabularyNoteType
   - type: mnemocards_anki.Package
   - type: Print
+    ignore_regex: id|note_type|deck
   - type: Stats
