@@ -1,3 +1,6 @@
+# APKG generated files.
+*.apkg
+
 # Fire generated completion file.
 completion
 

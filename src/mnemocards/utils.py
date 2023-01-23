@@ -46,7 +46,7 @@ class ClassModel(pydantic.BaseModel):
                     type_, default_module="mnemocards_essentials"
                 )
             except (AttributeError, ImportError):
-                raise ValueError(f"`{type_}` not found")
+                raise ValueError(f"`{type_}` not found or errors during import")
         return type_
 
     def to_object(self):
@@ -56,7 +56,7 @@ class ClassModel(pydantic.BaseModel):
         return member(**self.params)
 
 
-def get_module_member(module_name, member_name):
+def get_module_member(module_name: str, member_name: str) -> Any:
     m = importlib.import_module(module_name)
     return getattr(m, member_name)
 

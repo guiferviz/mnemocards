@@ -1,6 +1,6 @@
 import os
 import pathlib
-from typing import Any, Dict, TypeVar
+from typing import Any, Dict, Union
 
-PathLike = TypeVar("PathLike", pathlib.Path, str, bytes, os.PathLike)
+PathLike = Union[pathlib.Path, str, bytes, os.PathLike]
 NoteDict = Dict[str, Any]
