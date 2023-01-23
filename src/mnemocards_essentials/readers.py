@@ -26,6 +26,8 @@ except ImportError:
 
 
 class Reader(abc.ABC, utils.PydanticType):
+    """Abstract class for reading methods."""
+
     extensions = []
 
     def load(self, path_like: PathLike, **options) -> Any:

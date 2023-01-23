@@ -6,6 +6,13 @@ from mnemocards_essentials import readers
 
 
 class File(PydanticTask):
+    """Read a file.
+
+    Attributes:
+        path: Path (directory and filename) of the file to read.
+        reader: Class used to read the given file.
+    """
+
     path: str
     reader: readers.Reader = readers.InferReader()
 
