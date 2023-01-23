@@ -86,6 +86,7 @@ nav:
     - FAQ: faq.md
     - Changes: changelog.md
     - Contributing: contributing.md
+    - API: api.md
     - MEP:
       - meps/mep00.md
     - Tags: tags.md

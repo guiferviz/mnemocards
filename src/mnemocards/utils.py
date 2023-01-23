@@ -1,5 +1,5 @@
 import importlib
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 import pydantic
 
@@ -42,13 +42,17 @@ class ClassModel(pydantic.BaseModel):
     def validate_type_exists(cls, type_):
         if type_ is not None:
             try:
-                member_from_qualified_name(type_)
+                member_from_qualified_name(
+                    type_, default_module="mnemocards_essentials"
+                )
             except (AttributeError, ImportError):
                 raise ValueError(f"`{type_}` not found")
         return type_
 
     def to_object(self):
-        member = member_from_qualified_name(self.type_)
+        member = member_from_qualified_name(
+            self.type_, default_module="mnemocards_essentials"
+        )
         return member(**self.params)
 
 
@@ -57,6 +61,13 @@ def get_module_member(module_name, member_name):
     return getattr(m, member_name)
 
 
-def member_from_qualified_name(name: str):
+def member_from_qualified_name(name: str, default_module: Optional[str] = None):
+    if "." not in name:
+        if default_module:
+            name = f"{default_module}.{name}"
+        else:
+            raise ImportError(
+                f"`{name}` is not a qualified name: module missing."
+            )
     module_name, member_name = name.rsplit(".", 1)
     return get_module_member(module_name, member_name)

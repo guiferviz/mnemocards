@@ -1,27 +1,27 @@
 #steps:
-#  - type: mnemocards.sources.File
+#  - type: File
 #    path: examples/japanese/katakana.csv
-#  - type: mnemocards.transforms.AppendToProperty
+#  - type: AppendToProperty
 #    property_value_map:
 #      tag: katakana
-#  - type: mnemocards.sinks.Print
-#  - type: mnemocards.sinks.Stats
+#  - type: Print
+#  - type: Stats
 steps:
-  - type: mnemocards_core.UnionPipeline
+  - type: UnionPipeline
     steps:
-      - type: mnemocards_core.Pipeline
+      - type: Pipeline
         steps:
-          - type: mnemocards_core.File
+          - type: File
             path: examples/japanese/hiragana.csv
-          - type: mnemocards_core.AppendToProperty
+          - type: AppendToProperty
             property_value_map:
               tag: hiragana
-      - type: mnemocards_core.Pipeline
+      - type: Pipeline
         steps:
-          - type: mnemocards_core.File
+          - type: File
             path: examples/japanese/katakana.csv
-          - type: mnemocards_core.AppendToProperty
+          - type: AppendToProperty
             property_value_map:
               tag: katakana
-  - type: mnemocards_core.Print
-  - type: mnemocards_core.Stats
+  - type: Print
+  - type: Stats
