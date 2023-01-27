@@ -1,5 +1,5 @@
 import importlib
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import pydantic
 
@@ -10,8 +10,10 @@ class PydanticType:
         yield cls.validate
 
     @classmethod
-    def validate(cls, value):
+    def validate(cls, value: Union[str, Dict[str, Any]]):
         if not isinstance(value, cls):
+            if isinstance(value, str):
+                value = {"type": value}
             value = ClassModel(**value).to_object()
         return value
 

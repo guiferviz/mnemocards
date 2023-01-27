@@ -1,3 +1,4 @@
+import logging
 from collections import defaultdict
 from typing import Dict, List
 
@@ -8,6 +9,8 @@ from mnemocards import NoteDict, PydanticTask
 from mnemocards_anki import models
 from mnemocards_anki.models import Deck, NoteType
 from mnemocards_anki.utils import get_hash_id
+
+logger = logging.getLogger(__name__)
 
 
 class NoteID(genanki.Note):
@@ -27,25 +30,25 @@ class Package(PydanticTask):
     )
 
     def start(self):
-        print("Starting Anki packaging")
+        logger.debug("Anki packaging `start` method.")
 
     def process_one(self, note: NoteDict) -> NoteDict:
-        print("Processing Anki note", note)
+        logger.debug(f"Processing Anki note {note}")
         deck = note["deck"]
         note_type = note["note_type"]
         self._notes[deck][note_type] += [note]
         return note
 
     def end(self):
-        print("Finishing Anki packaging")
+        logger.debug("Anki packaging `end` method.")
         genanki_decks: List[genanki.Deck] = []
         for deck, types2notes in self._notes.items():
-            genanki_deck = genanki.Deck(deck.id, deck.name, conf=deck.config)
+            genanki_deck = genanki.Deck(deck.id, deck.name)
             for note_type, notes in types2notes.items():
                 fields = [
                     i
                     for i in note_type.model.__fields__
-                    if i not in models.NoteModel.__fields__
+                    if i not in models.Note.__fields__
                 ]
                 genanki_note_type = genanki.Model(
                     get_hash_id(note_type.id, 7),

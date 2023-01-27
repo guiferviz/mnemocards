@@ -1,0 +1,6 @@
+type: UnionPipeline
+steps:
+  - type: Directory
+    path: examples/spanish/
+  - type: Directory
+    path: examples/japanese/

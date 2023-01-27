@@ -117,6 +117,7 @@ nav:
     - API:
       - mnemocards: apis/mnemocards.md
       - mnemocards_essentials: apis/mnemocards_essentials.md
+      - mnemocards_anki: apis/mnemocards_anki.md
     - MEP:
       - meps/mep00.md
     - Tags: tags.md

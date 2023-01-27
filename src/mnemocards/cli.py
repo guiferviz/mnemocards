@@ -41,6 +41,11 @@ class CLI:
         self._console = Console(
             theme=Theme(
                 {
+                    "logo": "bold green",
+                    "version": "bold yellow",
+                    "info": "green",
+                    "warning": "bold yellow",
+                    "joke": "bold italic blue",
                     "log.time": "yellow",
                     "logging.level.info": "bold blue",
                 }
@@ -65,11 +70,11 @@ class CLI:
         )
 
     def _greet(self):
-        logo = f"[bold green]{_LOGO}"
-        version = f"[bold yellow]{mnemocards.__version__}"
+        logo = f"[logo]{_LOGO}"
+        version = f"[version]{mnemocards.__version__}"
         self._console.print(f"{logo} {version}")
         joke = random.choice(_JOKES)
-        self._console.print(Panel.fit(f"[bold blue]{joke}"))
+        self._console.print(Panel.fit(f"[joke]{joke}"))
 
     def run(self, directory: PathLike = ".", filename: str = "mnemocards.yaml"):
         """Run a given Mnemocard task.
@@ -78,16 +83,16 @@ class CLI:
             directory: Directory to search for a Mnemocard Task definition.
             filename: File name with the Mnemocard Task configuration.
         """
-        self._console.print("Hi! :waving_hand:")
+        self._console.print("[info]Hi! :waving_hand:")
         try:
             create_and_run_task(directory, filename)
         except Exception:
+            self._console.print(
+                "[warning]Although things didn't go as well as we expected,"
+                " hope to see you soon! :call_me_hand:"
+            )
             self._console.print_exception(
                 show_locals=self._log_level == "DEBUG"
-            )
-            self._console.print(
-                "Although things didn't go as well as we expected,"
-                " hope to see you soon! :call_me_hand:"
             )
         else:
             self._console.print("See you soon! :call_me_hand:")

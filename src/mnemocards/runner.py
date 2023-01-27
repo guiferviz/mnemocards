@@ -1,7 +1,7 @@
 import logging
 import pathlib
 import textwrap
-from typing import Iterator, Optional
+from typing import Any, Iterator, Tuple
 
 import pydantic
 from rich.console import Console
@@ -15,12 +15,13 @@ logger = logging.getLogger(__name__)
 
 def create_and_run_task(directory: types.PathLike, filename: str):
     task_config = create_task(directory, filename)
-    if task_config:
-        run_task(task_config)
+    run_task(task_config)
 
 
-def read_task_config(directory: types.PathLike, filename: str):
-    Console().print("[bold white]Looking for config files... :page_with_curl:")
+def read_task_config(
+    directory: types.PathLike, filename: str
+) -> Tuple[pathlib.Path, Any]:
+    Console().print("[info]Looking for config files... :page_with_curl:")
     full_path = pathlib.Path(str(directory))
     if full_path.is_dir():
         full_path /= filename
@@ -34,7 +35,7 @@ def create_task(
     directory: types.PathLike,
     filename: str,
     default_task: str = "mnemocards_essentials.Pipeline",
-) -> Optional[Task]:
+) -> Task:
     full_path, data = read_task_config(directory, filename)
     data.setdefault("type", default_task)
     task = None
@@ -43,14 +44,17 @@ def create_task(
     except pydantic.ValidationError as e:
         error_message = e.__context__ or e
         Console().print(
-            f"[bold red]Invalid task found in `{full_path}` :cross_mark:\n"
+            f"[error]Invalid task found in `{full_path}` :cross_mark:\n"
             + textwrap.indent(str(error_message), prefix="\t"),
         )
-        logger.exception(error_message)
+        raise
     else:
         Console().print(
             f"[bold green]:sparkles:  Valid task found in `{full_path}` :sparkles:",
         )
+    logger.debug(
+        f"Task of type `{type(task)}` created successfully from `{full_path}`."
+    )
     return task
 
 

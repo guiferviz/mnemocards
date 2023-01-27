@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Type, Union
 
 import pydantic
 
@@ -8,7 +8,11 @@ from mnemocards_anki import models
 
 
 class NoteType(PydanticType):
-    pass
+    id: str
+    name: str
+    model: Type[models.Note]
+    css: str = ""
+    card_sides: List[models.CardSides]
 
 
 class Configure(PydanticTask):
@@ -27,4 +31,7 @@ class Configure(PydanticTask):
         note["tags"] = note.get("tags", []) + self.tags
         note["deck"] = self.deck
         note["note_type"] = self.note_type
+        note_model = self.note_type.model(**note)
+        for k, v in note_model:
+            note[k] = v
         return note
