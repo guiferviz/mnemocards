@@ -58,6 +58,7 @@ plugins:
               docstring_style: google
 
 markdown_extensions:
+    - mnemocards_essentials.markdown_card_extension
     - meta
     # Code highlight.
     - pymdownx.highlight:
@@ -95,6 +96,7 @@ extra_javascript:
 
 extra_css:
   - css/mkdocstrings.css
+  - css/mnemocards.css
 
 extra:
   generator: false
@@ -114,6 +116,8 @@ nav:
     - FAQ: faq.md
     - Changes: changelog.md
     - Contributing: contributing.md
+    - Examples:
+      - Markdown: examples/cards.md
     - API:
       - mnemocards: apis/mnemocards.md
       - mnemocards_essentials: apis/mnemocards_essentials.md
