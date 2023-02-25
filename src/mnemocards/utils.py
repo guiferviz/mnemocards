@@ -1,4 +1,5 @@
 import importlib
+import sys
 from typing import Any, Dict, Optional, Union
 
 import pydantic
@@ -59,6 +60,8 @@ class ClassModel(pydantic.BaseModel):
 
 
 def get_module_member(module_name: str, member_name: str) -> Any:
+    if "" not in sys.path:
+        sys.path.insert(0, "")
     m = importlib.import_module(module_name)
     return getattr(m, member_name)
 

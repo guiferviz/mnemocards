@@ -1,0 +1,4 @@
+steps:
+  - type: plugin.NumberGenerator
+    numbers_to_generate: 3
+  - type: plugin.Print
