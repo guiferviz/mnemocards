@@ -52,7 +52,6 @@ class Package(PydanticTask):
                 ]
                 genanki_note_type = genanki.Model(
                     get_hash_id(note_type.id, 7),
-                    # note_type.id,
                     note_type.name,
                     [{"name": i} for i in fields],
                     templates=[
