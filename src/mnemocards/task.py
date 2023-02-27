@@ -7,12 +7,16 @@ from mnemocards.types import NoteDict
 
 
 class Task(utils.PydanticType):
+    """Basic unit of work."""
+
     def start(self):
         pass
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:
         for i in notes:
-            yield self.process_one(i)
+            note = self.process_one(i)
+            if note:
+                yield note
 
     def process_one(self, note: NoteDict) -> NoteDict:
         return note

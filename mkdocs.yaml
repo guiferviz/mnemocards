@@ -74,6 +74,9 @@ markdown_extensions:
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_code_format
+    # Tabs.
+    - pymdownx.tabbed:
+        alternate_style: true
     # Emoji.
     - attr_list
     - pymdownx.emoji:
@@ -117,7 +120,8 @@ nav:
     - Changes: changelog.md
     - Contributing: contributing.md
     - Examples:
-      - Markdown: examples/cards.md
+      - examples/markdown_card_fence.md
+      - examples/plugins.md
     - API:
       - mnemocards: apis/mnemocards.md
       - mnemocards_essentials: apis/mnemocards_essentials.md
