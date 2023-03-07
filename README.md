@@ -65,9 +65,10 @@ use version control systems like **Git to track changes and collaborate** with
 others.
 
 
-## Features
+## 🏷️ Features
 
 * Generates Anki APKG packages that you can later import into the Anki app.
+* Auto generate pronunciations from the words that you are learning.
 * Generates flashcards from text files that can be stored in Git repositories.
 This brings several positive things:
     * Keep track of changes.
@@ -76,9 +77,9 @@ This brings several positive things:
       Git you can create forks and pull requests to existing repositories.
 * Fully extensible architecture that allows you to define tasks that perform
 custom transformations on a list of notes.
-* Auto generate pronunciations from the words that you are learning.
-Possibility to export flashcards to other existing flashcards apps like Quizlet.
-Create indexes or analyze your collection of cards, create visualizations, clustering, analyze how the cards relate to each other...
+    * Possibility to export flashcards to other existing flashcards apps.
+    * Create indexes or analyze your collection of cards, create
+      visualizations, clustering, analyze how the cards relate to each other...
 
 
 ## 🤓 How it works?
@@ -97,7 +98,7 @@ command:
 $ mnemocards --version
 ╔╦╗╔╗╔╔═╗╔╦╗╔═╗┌─┐┌─┐┬─┐┌┬┐┌─┐
 ║║║║║║║╣ ║║║║ ║│  ├─┤├┬┘ ││└─┐
-╩ ╩╝╚╝╚═╝╩ ╩╚═╝└─┘┴ ┴┴└──┴┘└─┘ 1.0.0
+╩ ╩╝╚╝╚═╝╩ ╩╚═╝└─┘┴ ┴┴└──┴┘└─┘ X.Y.Z
 ╭────────────────────────────────╮
 │ <A super mega funny joke here> │
 ╰────────────────────────────────╯
@@ -109,9 +110,11 @@ program is not for you and you should consider other alternatives.
 Once you have Mnemocards installed, you can start creating your own flashcards.
 Let's start creating our own vocabulary file.
 
-
 You can use the provided sample files as a starting point, or create your own.
-Mnemocards uses a configuration file to define the steps that will be used to process the flashcards. In this file, you can specify the tasks that you want to use, the order in which they will be executed, and any necessary parameters or settings.
+Mnemocards uses a configuration file to define the steps that will be used to
+process the flashcards. In this file, you can specify the tasks that you want
+to use, the order in which they will be executed, and any necessary parameters
+or settings.
 
 Here's an example of a simple configuration file that reads in a CSV file containing flashcard data, and then generates an Anki APKG package:
 
@@ -143,7 +146,7 @@ With Mnemocards, you can customize the flashcard generation process to suit your
 TODO
 
 
-## Examples
+## 🧪 Examples
 
 <details markdown>
 <summary markdown>Japanese Flashcards :jp:</summary>
