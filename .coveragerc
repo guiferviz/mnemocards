@@ -1,6 +1,0 @@
-[report]
-# Regexes for lines to exclude from coverage
-exclude_lines =
-    pragma: no cover
-    raise NotImplementedError
-    except ImportError

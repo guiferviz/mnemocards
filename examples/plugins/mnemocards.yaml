@@ -1,0 +1,5 @@
+steps:
+  - type: plugins.NumberGenerator
+    numbers_to_generate: 3
+  - type: plugins.NumberDouble
+  - type: plugins.NumberPrint

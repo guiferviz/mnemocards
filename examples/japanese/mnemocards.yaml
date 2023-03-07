@@ -1,0 +1,25 @@
+steps:
+  - type: UnionPipeline
+    steps:
+      - type: Pipeline
+        steps:
+          - type: File
+            path: examples/japanese/hiragana.csv
+          - type: AppendToProperty
+            tags: hiragana
+      - type: Pipeline
+        steps:
+          - type: File
+            path: examples/japanese/katakana.csv
+          - type: AppendToProperty
+            tags: katakana
+  - type: mnemocards_anki.Configure
+    tags: japanese, languages
+    deck:
+      name: Japanese
+      id: b45f6d48-d1ab-4d0e-80a9-08a2ab473a41
+    note_type: mnemocards_anki.VocabularyNoteType
+  - type: mnemocards_anki.Package
+  - type: Print
+    ignore_regex: id|note_type|deck
+  - type: Stats

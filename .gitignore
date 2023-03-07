@@ -1,19 +1,14 @@
-# Auto generated file.
-requirements.txt
-
-# Environment vars.
-.envrc
-
-# Anki card packages.
+# APKG generated files.
 *.apkg
 
-##########################################
-# Generic .gitignore for Python projects #
-##########################################
+# Fire generated completion file.
+completion
 
-# Visual studio code files
-.vscode/
-*.code-workspace
+# Auto-generated requirements.txt file.
+requirements.txt
+
+# Ignore local env vars (direnv)
+.envrc
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -37,6 +32,8 @@ parts/
 sdist/
 var/
 wheels/
+pip-wheel-metadata/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -55,12 +52,14 @@ pip-delete-this-directory.txt
 # Unit test / coverage reports
 htmlcov/
 .tox/
+.nox/
 .coverage
 .coverage.*
 .cache
 nosetests.xml
 coverage.xml
 *.cover
+*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -68,16 +67,17 @@ coverage.xml
 *.mo
 *.pot
 
-# Django stuff
+# Django stuff:
 *.log
 local_settings.py
 db.sqlite3
+db.sqlite3-journal
 
-# Flask stuff
+# Flask stuff:
 instance/
 .webassets-cache
 
-# Scrapy stuff
+# Scrapy stuff:
 .scrapy
 
 # Sphinx documentation
@@ -96,8 +96,19 @@ ipython_config.py
 # pyenv
 .python-version
 
-# celery beat schedule file
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
 celerybeat-schedule
+celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
@@ -110,7 +121,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-venv*/
 
 # Spyder project settings
 .spyderproject
@@ -126,7 +136,6 @@ venv*/
 .mypy_cache/
 .dmypy.json
 dmypy.json
-mnemocards/test_utils.py
 
-# Pycharm
-.idea
+# Pyre type checker
+.pyre/

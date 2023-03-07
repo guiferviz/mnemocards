@@ -1,6 +1,6 @@
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v4.2.0
+      rev: v4.4.0
       hooks:
         - id: end-of-file-fixer
         - id: name-tests-test
@@ -11,6 +11,8 @@ repos:
           args: [--unsafe]
         - id: check-xml
         - id: check-added-large-files
+        - id: pretty-format-json
+          args: ["--autofix", "--no-ensure-ascii", "--no-sort-keys", "--indent", "4"]
 
     - repo: local
       hooks:
@@ -26,6 +28,12 @@ repos:
         language: system
         pass_filenames: true
         types: [python]
+      - id: pydocstyle
+        name: pydocstyle
+        entry: pydocstyle
+        language: system
+        pass_filenames: true
+        types: [python]
       - id: flake8
         name: flake8
         entry: flake8
@@ -36,5 +44,5 @@ repos:
         name: pyright
         entry: pyright
         language: system
-        pass_filenames: true
+        pass_filenames: false
         types: [python]

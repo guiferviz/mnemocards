@@ -1,13 +1,30 @@
 site_name: Mnemocards Docs
 site_url: https://guiferviz.com/mnemocards
 site_author: guiferviz
-copyright: MIT license
 repo_url: https://github.com/guiferviz/mnemocards
 repo_name: Mnemocards
 strict: true
+
 theme:
     name: material
-    palette: 
+    language: en
+    features:
+      # - navigation.indexes  # Use index.md as section page.
+      # - navigation.tabs
+      # - navigation.tabs.sticky  # Always show tabs.
+      # - header.autohide
+      # - navigation.sections  # Expand sections 1 level.
+      # - content.code.annotate
+      # - content.tabs.link
+      # - navigation.expand  # Expand sections automatically.
+      # - navigation.instant
+      # - navigation.top
+      # - navigation.tracking
+      # - search.highlight
+      # - search.share
+      # - search.suggest
+      # - toc.follow
+    palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: amber
@@ -16,17 +33,32 @@ theme:
         icon: material/weather-night
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
-      scheme: slate 
+      scheme: slate
       primary: amber
       accent: amber
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
+
 plugins:
     - tags:
         tags_file: tags.md
     - search
+    - macros:
+        include_dir: docs/include
+        on_error_fail: true
+        module_name: docs/macros
+    - mkdocstrings:
+        default_handler: python
+        handlers:
+          python:
+            options:
+              show_source: true
+              show_if_no_docstring: true
+              docstring_style: google
+
 markdown_extensions:
+    - mnemocards_essentials.markdown_card_extension
     - meta
     # Code highlight.
     - pymdownx.highlight:
@@ -42,6 +74,9 @@ markdown_extensions:
             - name: mermaid
               class: mermaid
               format: !!python/name:pymdownx.superfences.fence_code_format
+    # Tabs.
+    - pymdownx.tabbed:
+        alternate_style: true
     # Emoji.
     - attr_list
     - pymdownx.emoji:
@@ -53,28 +88,44 @@ markdown_extensions:
     # Superfences admonition.
     - admonition
     - pymdownx.details
+    - md_in_html
+    # Cross out text using ~~text~~.
+    - pymdownx.tilde
 
 extra_javascript:
-    - javascripts/mathjax.js
-    - https://polyfill.io/v3/polyfill.min.js?features=es6
-    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - css/mkdocstrings.css
+  - css/mnemocards.css
 
 extra:
-    generator: false
-    social:
-        - icon: fontawesome/brands/twitter 
-          link: https://twitter.com/guiferviz
-        - icon: fontawesome/brands/linkedin
-          link: https://linkedin.com/in/guiferviz
-        - icon: fontawesome/brands/github
-          link: https://github.com/guiferviz
+  generator: false
+  analytics:
+    provider: google
+    property: G-NCB5QMMEKH
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/guiferviz
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/guiferviz
+    - icon: fontawesome/brands/github
+      link: https://github.com/guiferviz
 
-# Page tree
 nav:
-    - Home: index.md
-    - MEPs:
-      - meps/mep01.md
-      - meps/mep02.md
-      - meps/mep03.md
-      - meps/mep04.md
+    - Overview: index.md
+    - FAQ: faq.md
+    - Changes: changelog.md
+    - Contributing: contributing.md
+    - Examples:
+      - examples/markdown_card_fence.md
+      - examples/plugins.md
+    - API:
+      - mnemocards: apis/mnemocards.md
+      - mnemocards_essentials: apis/mnemocards_essentials.md
+      - mnemocards_anki: apis/mnemocards_anki.md
+    - MEP:
+      - meps/mep00.md
     - Tags: tags.md

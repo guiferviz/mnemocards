@@ -1,0 +1,13 @@
+steps:
+  - type: File
+    path: aditivos.xml
+  - type: mnemocards_anki.Configure
+    tags: additives
+    deck:
+      name: Additives
+      id: b7c118ae-4b2a-4694-978f-d94061f74505
+    note_type: plugin.AdditiveNoteType
+  - type: mnemocards_anki.Package
+  - type: Print
+    ignore_regex: id|note_type|deck
+  - type: Stats

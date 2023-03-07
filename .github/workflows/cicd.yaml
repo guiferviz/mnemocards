@@ -3,12 +3,15 @@ name: CI/CD
 on:
   push:
     branches:
-      - master
+      - main
+    tags:
+      # * is a special character in YAML so we need to quote this string
+      - "*"
   pull_request:
     branches:
-      - master
+      - main
   schedule:
-    # * is a special character in YAML so you have to quote this string
+    # * is a special character in YAML so we need to quote this string
     - cron: "0 0 * * SUN"
 
 defaults:
@@ -24,10 +27,9 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
-          - windows-latest
+          #- windows-latest  # Windows not working yet
         python-version:
-          - 3.8
-          - 3.9
+          - "3.10"  # quotes are needed here or the last 0 will be ignored
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -35,35 +37,22 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Setup Node (for PyRight)
+      - name: Setup Node (for Pyright)
         uses: actions/setup-node@v1
         with:
           node-version: 12
       - name: Install Poetry
         run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-          else
-            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
-            echo "$HOME/.local/bin" >> $GITHUB_PATH
-          fi
+          curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Install Python Requirements
-        run: poetry install -E all
-      - name: Run Formatter
-        run: poetry run black || echo "::warning::Failure ignored!"
-      - name: Run Sort Imports
-        run: poetry run isort || echo "::warning::Failure ignored!"
-      - name: Run Linter
-        run: poetry run flake8 || echo "::warning::Failure ignored!"
-      - name: Run Type Checks
-        run: |
-          npm install -g pyright
-          pyright || echo "::warning::Failure ignored!"
+        run: make install
+      - name: Run Formatters and Linters
+        run: make format_and_lint
       - name: Run Tests
-        run: poetry run pytest --cov=mnemocards --cov-report=xml
+        run: make test
       - name: Build Wheel
-        run: poetry build
+        run: make build
       - name: Upload Wheel to GitHub Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -80,10 +69,9 @@ jobs:
         os:
           - ubuntu-latest
           - macos-latest
-          - windows-latest
+          #- windows-latest  # Windows not working yet
         python-version:
-          - 3.8
-          - 3.9
+          - "3.10"  # quotes are needed here or the last 0 will be ignored
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -93,17 +81,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install Poetry
         run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-          else
-            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
-            echo "$HOME/.local/bin" >> $GITHUB_PATH
-          fi
+          curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Install Python Requirements
-        run: poetry install -E all
+        run: make install
       - name: Build Docs
-        run: poetry run mkdocs build
+        run: make doc
       - name: Upload Docs to GitHub Artifact
         uses: actions/upload-artifact@v3
         with:
@@ -119,27 +102,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: set up python
+      - name: Setup Python
         uses: actions/setup-python@v3
         with:
-          python-version: 3.8
+          python-version: "3.10"  # quotes are needed here or the last 0 will be ignored
       - name: Get All Artifacts
         uses: actions/download-artifact@v3
       - name: Install Poetry
         run: |
-          if [ "$RUNNER_OS" == "Windows" ]; then
-            curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-            echo "$HOME/.poetry/bin" >> $GITHUB_PATH
-          else
-            curl -sSL https://install.python-poetry.org | python3 - --version 1.1.11
-            echo "$HOME/.local/bin" >> $GITHUB_PATH
-          fi
+          curl -sSL https://install.python-poetry.org | python3 - --version 1.2.0
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
       - name: Install Python Requirements
-        run: poetry install -E all
+        run: make install
       - name: Publish Docs
-        run: poetry run mkdocs gh-deploy --force
+        run: make doc-publish
       - name: Publish PyPi
         env:
           PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
         run: |
-          poetry publish -u __token__ -p $PYPI_TOKEN
+          make publish

@@ -1,0 +1,3757 @@
+<additives>
+    <additive>
+        <code>E100</code>
+        <name>Curcuminas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E100i</code>
+        <name>Curcumina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E100ii</code>
+        <name>Cúrcuma</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E101</code>
+        <name>Riboflavinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E101i</code>
+        <name>Riboflavina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E101ii</code>
+        <name>Fosfato de Riboflavina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E101iii</code>
+        <name>Riboflavina de Bacillus Subtilis</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E101iv</code>
+        <name>Riboflavina de Ashbya Gossypii</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E102</code>
+        <name>Taradditiveacina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E103</code>
+        <name>Crisoína</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E104</code>
+        <name>Amarillo de Quinoleína</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E105</code>
+        <name>Amarillo Sólido</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E107</code>
+        <name>Amarillo 2G</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E110</code>
+        <name>Amarillo Ocaso FCF</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E111</code>
+        <name>Naranja GGN</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E120</code>
+        <name>Ácido Carmínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E120i</code>
+        <name>Rojo Carmín</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E120ii</code>
+        <name>Exadditiveacto de Cochinilla</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E121</code>
+        <name>Rojo Cíadditiveico 2</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E122</code>
+        <name>Azorrubina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E123</code>
+        <name>Amaranto</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E124</code>
+        <name>Ponceau 4R</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E125</code>
+        <name>Ponceau SX</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E126</code>
+        <name>Ponceau 6R</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E127</code>
+        <name>Eriadditiveosina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E128</code>
+        <name>Rojo 2G</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E129</code>
+        <name>Rojo Allura AC</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E130</code>
+        <name>Azul de Anadditiveaquinona</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E131</code>
+        <name>Azul Patente V</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E132</code>
+        <name>Indigotina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E133</code>
+        <name>Azul Brillante FCF</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E134</code>
+        <name>Exadditiveacto de Espirulina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E140</code>
+        <name>Clorofilas y Clorofilinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E140i</code>
+        <name>Clorofila</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E140ii</code>
+        <name>Clorofilina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E141</code>
+        <name>Complejos Cúpricos de Clorofilas y Clorofilinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E141i</code>
+        <name>Complejo Cúprico de Clorofila</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E141ii</code>
+        <name>Complejo Cúprico de Clorofilina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E142</code>
+        <name>Verde S</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E143</code>
+        <name>Verde Sólido FCF</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E150</code>
+        <name>Caramelos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E150a</code>
+        <name>Caramelo Cáustico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E150b</code>
+        <name>Caramelo Caústico de Sulfito</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E150c</code>
+        <name>Caramelo Amónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E150d</code>
+        <name>Caramelo Amónico de Sulfito</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E151</code>
+        <name>Negro Brillante BN</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E152</code>
+        <name>Negro 7984</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E153</code>
+        <name>Carbón Vegetal</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E154</code>
+        <name>Marrón FK</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E155</code>
+        <name>Marrón HT</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E160</code>
+        <name>Carotenos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160a</code>
+        <name>Betacarotenos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160a(i)</code>
+        <name>Betacaroteno Sintético</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160a(ii)</code>
+        <name>Betacaroteno Vegetal</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160a(iii)</code>
+        <name>Betacaroteno de Blakeslea Trispora</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160a(iv)</code>
+        <name>Betacaroteno de Algas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160b</code>
+        <name>Exadditiveactos de Annato</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160b(i)</code>
+        <name>Exadditiveacto de Annato con Disolventes</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160b(ii)</code>
+        <name>Exadditiveacto de Annato con Álcalis</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160b(iii)</code>
+        <name>Exadditiveacto de Annato con Aceite</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160c</code>
+        <name>Exadditiveactos de Pimentón</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160c(i)</code>
+        <name>Oleorresina de Pimentón</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160c(ii)</code>
+        <name>Exadditiveacto de Pimentón</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160d</code>
+        <name>Licopenos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160d(i)</code>
+        <name>Licopeno Sintético</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160d(ii)</code>
+        <name>Licopeno de Tomate</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160d(iii)</code>
+        <name>Licopeno de Blakeslea Trispora</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E160e</code>
+        <name>Beta-Apo-8'-Carotenal (C30)</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E160f</code>
+        <name>Éster Etílico del Ácido Beta-Apo-8'-Carotenoico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E161</code>
+        <name>Xantófilas</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161a</code>
+        <name>Flavoxantina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161b</code>
+        <name>Luteínas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E161b(i)</code>
+        <name>Luteína de Tagetes Erecta</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161b(ii)</code>
+        <name>Exadditiveacto de Tagetes</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161b(iii)</code>
+        <name>Ésteres de Luteínas de Tagetes Erecta</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161c</code>
+        <name>Criptoxantina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161d</code>
+        <name>Rubixantina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161e</code>
+        <name>Violaxantina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161f</code>
+        <name>Rodoxantina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E161g</code>
+        <name>Cantaxantina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E161h</code>
+        <name>Zeaxantinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E161h(i)</code>
+        <name>Zeaxantina Sintética</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161h(ii)</code>
+        <name>Zeaxantina Rica en Exadditiveacto de Tagetes Erecta</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161i</code>
+        <name>Ciadditiveanaxantina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E161j</code>
+        <name>Astaxantina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E162</code>
+        <name>Rojo de Remolacha</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163</code>
+        <name>Antocianinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163i</code>
+        <name>Exadditiveacto de Rábano</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163ii</code>
+        <name>Exadditiveacto de Piel de Uva</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163iii</code>
+        <name>Exadditiveacto de Grosella Negra</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163iv</code>
+        <name>Colorante de Maíz morado</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163v</code>
+        <name>Colorante de Col Lombarda</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163vi</code>
+        <name>Exadditiveacto de Zanahoria Negra</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163vii</code>
+        <name>Colorante de Batata Morada</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163viii</code>
+        <name>Colorante de Rábano Rojo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163ix</code>
+        <name>Colorante de Saúco</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163x</code>
+        <name>Colorante de Hibisco</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163xi</code>
+        <name>Exadditiveacto de Campanilla Azul</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E163a</code>
+        <name>Cianidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163b</code>
+        <name>Delfinidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163c</code>
+        <name>Malvidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163d</code>
+        <name>Pelargonidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163e</code>
+        <name>Peonidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E163f</code>
+        <name>Petunidina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E164</code>
+        <name>Amarillo de Gardenia</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E165</code>
+        <name>Azul de Gardenia</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E166</code>
+        <name>Madera de Sándalo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E170</code>
+        <name>Carbonatos Cálcicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E170i</code>
+        <name>Carbonato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E170ii</code>
+        <name>Bicarbonato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E171</code>
+        <name>Dióxido de Titanio</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E172</code>
+        <name>Óxidos e Hidróxidos Férricos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E172i</code>
+        <name>Óxido Férrico Negro</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E172ii</code>
+        <name>Óxido Férrico Rojo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E172iii</code>
+        <name>Óxido Férrico Amarillo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E173</code>
+        <name>Aluminio Comestible</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E174</code>
+        <name>Plata Comestible</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E175</code>
+        <name>Oro Comestible</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E176</code>
+        <name>Pigmentos Nacarados de Aluminosilicato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E176i</code>
+        <name>Pigmentos Nacarados de Aluminosilicato Potásico Recubiertos de Dióxido de Titanio</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E176ii</code>
+        <name>Pigmentos Nacarados de Aluminosilicato Potásico Recubiertos de Óxido de Hierro</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E176iii</code>
+        <name>Pigmentos Nacarados de Aluminosilicato Potásico Recubiertos de Dióxido de Titanio y Óxido de Hierro</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E180</code>
+        <name>Litolrubina BK</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E181</code>
+        <name>Ácido Tánico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E182</code>
+        <name>Orceína</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E183</code>
+        <name>Azul de Jagua</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E200</code>
+        <name>Ácido Sórbico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E201</code>
+        <name>Sorbato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E202</code>
+        <name>Sorbato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E203</code>
+        <name>Sorbato Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E209</code>
+        <name>Para-Hidroxibenzoato de Heptilo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E210</code>
+        <name>Ácido Benzoico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E211</code>
+        <name>Benzoato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E212</code>
+        <name>Benzoato Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E213</code>
+        <name>Benzoato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E214</code>
+        <name>Para-Hidroxibenzoato de Etilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E215</code>
+        <name>Para-Hidroxibenzoato Sódico de Etilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E216</code>
+        <name>Para-Hidroxibenzoato de Propilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E217</code>
+        <name>Para-Hidroxibenzoato Sódico de Propilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E218</code>
+        <name>Para-Hidroxibenzoato de Metilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E219</code>
+        <name>Para-Hidroxibenzoato Sódico de Metilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E220</code>
+        <name>Dióxido de Azufre</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E221</code>
+        <name>Sulfito Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E222</code>
+        <name>Bisulfito Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E223</code>
+        <name>Metabisulfito Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E224</code>
+        <name>Metabisulfito Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E225</code>
+        <name>Sulfito Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E226</code>
+        <name>Sulfito Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E227</code>
+        <name>Bisulfito Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E228</code>
+        <name>Bisulfito Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E230</code>
+        <name>Bifenilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E231</code>
+        <name>Ortofenilfenol</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E232</code>
+        <name>Ortofenilfenol Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E233</code>
+        <name>Tiabendazol</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E234</code>
+        <name>Nisina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E235</code>
+        <name>Natamicina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E236</code>
+        <name>Ácido Fórmico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E237</code>
+        <name>Formiato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E238</code>
+        <name>Formiato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E239</code>
+        <name>Hexametilenteadditiveamina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E240</code>
+        <name>Formaldehído</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E241</code>
+        <name>Goma de Guayaco</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E242</code>
+        <name>Dimetil Dicarbonato</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E243</code>
+        <name>Etil-Lauroil Arginato</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E249</code>
+        <name>Niadditiveito Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E250</code>
+        <name>Niadditiveito Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E251</code>
+        <name>Niadditiveato Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E251i</code>
+        <name>Niadditiveato Sódico Sólido</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E251ii</code>
+        <name>Niadditiveato Sódico Líquido</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E252</code>
+        <name>Niadditiveato Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E260</code>
+        <name>Ácido Acético</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E261</code>
+        <name>Acetatos Potásicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E261i</code>
+        <name>Acetato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E261ii</code>
+        <name>Diacetato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E262</code>
+        <name>Acetatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E262i</code>
+        <name>Acetato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E262ii</code>
+        <name>Diacetato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E263</code>
+        <name>Acetato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E264</code>
+        <name>Acetato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E265</code>
+        <name>Ácido Dehidroacético</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E266</code>
+        <name>Dehidroacetato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E270</code>
+        <name>Ácido Láctico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E280</code>
+        <name>Ácido Propiónico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E281</code>
+        <name>Propionato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E282</code>
+        <name>Propionato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E283</code>
+        <name>Propionato Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E284</code>
+        <name>Ácido Bórico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E285</code>
+        <name>Teadditiveaborato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E290</code>
+        <name>Dióxido de Carbono (CO2)</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E296</code>
+        <name>Ácido Málico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E297</code>
+        <name>Ácido Fumárico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E300</code>
+        <name>Ácido Ascórbico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E301</code>
+        <name>Ascorbato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E302</code>
+        <name>Ascorbato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E303</code>
+        <name>Ascorbato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E304</code>
+        <name>Ésteres de Ácidos Grasos del Ácido Ascórbico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E304i</code>
+        <name>Palmitato de Ascorbilo</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E304ii</code>
+        <name>Estearato de Ascorbilo</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E306</code>
+        <name>Exadditiveactos Naturales Ricos en Tocoferoles</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E307</code>
+        <name>Alfa-Tocoferol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E307a</code>
+        <name>D-Alfa-Tocoferol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E307b</code>
+        <name>L-Alfa-Tocoferol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E307c</code>
+        <name>DL-Alfa-Tocoferol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E308</code>
+        <name>Gamma-Tocoferol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E309</code>
+        <name>Delta-Tocoferol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E310</code>
+        <name>Galato de Propilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E311</code>
+        <name>Galato de Octilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E312</code>
+        <name>Galato de Dodecilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E313</code>
+        <name>Galato de Etilo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E314</code>
+        <name>Resina de Guayaco</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E315</code>
+        <name>Ácido Eritórbico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E316</code>
+        <name>Eritorbato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E317</code>
+        <name>Eritorbato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E318</code>
+        <name>Eritorbato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E319</code>
+        <name>Terbutilhidroquinona (TBHQ)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E320</code>
+        <name>Butilhidroxianisol (BHA)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E321</code>
+        <name>Butilhidroxitolueno (BHT)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E322</code>
+        <name>Lecitinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E322i</code>
+        <name>Lecitina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E322ii</code>
+        <name>Lecitina Parcialmente Hidrolizada</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E322iii</code>
+        <name>Lecitina Hidroxilada</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E323</code>
+        <name>Anoxómero</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E324</code>
+        <name>Etoxiquina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E325</code>
+        <name>Lactato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E326</code>
+        <name>Lactato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E327</code>
+        <name>Lactato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E328</code>
+        <name>Lactato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E329</code>
+        <name>Lactato Magnésico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E330</code>
+        <name>Ácido Cíadditiveico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E331</code>
+        <name>Ciadditiveatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E331i</code>
+        <name>Ciadditiveato Monosódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E331ii</code>
+        <name>Ciadditiveato Disódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E331iii</code>
+        <name>Ciadditiveato Trisódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E332</code>
+        <name>Ciadditiveatos Potásicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E332i</code>
+        <name>Ciadditiveato Monopotásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E332ii</code>
+        <name>Ciadditiveato Dipotásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E332iii</code>
+        <name>Ciadditiveato Tripotásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E333</code>
+        <name>Ciadditiveatos Cálcicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E333i</code>
+        <name>Ciadditiveato Monocálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E333ii</code>
+        <name>Ciadditiveato Dicálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E333iii</code>
+        <name>Ciadditiveato Tricálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E334</code>
+        <name>Ácido Tartárico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E335</code>
+        <name>Taradditiveatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E335i</code>
+        <name>Taradditiveato Monosódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E335ii</code>
+        <name>Taradditiveato Disódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E336</code>
+        <name>Taradditiveatos Potásicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E336i</code>
+        <name>Taradditiveato Monopotásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E336ii</code>
+        <name>Taradditiveato Dipotásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E337</code>
+        <name>Taradditiveato Sódico-Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E338</code>
+        <name>Ácido Fosfórico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E339</code>
+        <name>Fosfatos Sódicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E339i</code>
+        <name>Fosfato Monosódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E339ii</code>
+        <name>Fosfato Disódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E339iii</code>
+        <name>Fosfato Trisódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E340</code>
+        <name>Fosfatos Potásicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E340i</code>
+        <name>Fosfato Monopotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E340ii</code>
+        <name>Fosfato Dipotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E340iii</code>
+        <name>Fosfato Tripotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E341</code>
+        <name>Fosfatos Cálcicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E341i</code>
+        <name>Fosfato Monocálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E341ii</code>
+        <name>Fosfato Dicálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E341iii</code>
+        <name>Fosfato Tricálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E342</code>
+        <name>Fosfatos Amónicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E342i</code>
+        <name>Fosfato Monoamónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E342ii</code>
+        <name>Fosfato Diamónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E342iii</code>
+        <name>Fosfato Triamónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E343</code>
+        <name>Fosfatos Magnésicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E343i</code>
+        <name>Fosfato Monomagnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E343ii</code>
+        <name>Fosfato Dimagnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E343iii</code>
+        <name>Fosfato Trimagnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E344</code>
+        <name>Ciadditiveato Lecitínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E345</code>
+        <name>Ciadditiveato Magnésico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E349</code>
+        <name>Malatos Amónicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E349i</code>
+        <name>Malato de Amonio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E349ii</code>
+        <name>Malato Ácido de Amonio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E350</code>
+        <name>Malatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E350i</code>
+        <name>Malato de Sodio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E350ii</code>
+        <name>Malato Ácido de Sodio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E351</code>
+        <name>Malatos Potásicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E351i</code>
+        <name>Malato de Potasio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E351ii</code>
+        <name>Malato Ácido de Potasio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E352</code>
+        <name>Malatos Cálcicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E352i</code>
+        <name>Malato de Calcio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E352ii</code>
+        <name>Malato Ácido de Calcio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E353</code>
+        <name>Ácido Metatartárico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E354</code>
+        <name>Taradditiveatos Cálcicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E354i</code>
+        <name>Taradditiveato Monocálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E354ii</code>
+        <name>Taradditiveato Dicálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E355</code>
+        <name>Ácido Adípico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E356</code>
+        <name>Adipato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E357</code>
+        <name>Adipato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E358</code>
+        <name>Adipato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E359</code>
+        <name>Adipato Amónico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E360</code>
+        <name>Adipato Magnésico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E363</code>
+        <name>Ácido Succínico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E364</code>
+        <name>Succinatos Sódicos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E364i</code>
+        <name>Succinato Monosódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E364ii</code>
+        <name>Succinato Disódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E365</code>
+        <name>Fumarato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E366</code>
+        <name>Fumarato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E367</code>
+        <name>Fumarato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E368</code>
+        <name>Fumarato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E369</code>
+        <name>Fumarato Magnésico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E370</code>
+        <name>Heptonolactona</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E375</code>
+        <name>Ácido Nicotínico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E380</code>
+        <name>Ciadditiveato Triamónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E381</code>
+        <name>Ciadditiveato Amónico-Férrico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E383</code>
+        <name>Glicerofosfato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E384</code>
+        <name>Ciadditiveato Isopropílico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E385</code>
+        <name>Etileno Diamina Teadditivea Acetato (EDTA)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E386</code>
+        <name>Ácido Etileno Diamino Teadditiveaacético (AEDT)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E387</code>
+        <name>Oxiestearina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E388</code>
+        <name>Ácido Tiodipropiónico (TDPA)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E389</code>
+        <name>Tiodipropionato de Dilaurilo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E390</code>
+        <name>Tiodipropionato de Distearilo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E391</code>
+        <name>Ácido Fítico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E392</code>
+        <name>Exadditiveactos de Romero</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E392i</code>
+        <name>Exadditiveacto de Romero con Acetona</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E392ii</code>
+        <name>Exadditiveacto de Romero con Dióxido de Carbono Supercrítico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E392iii</code>
+        <name>Exadditiveacto de Romero con Etanol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E392iv</code>
+        <name>Exadditiveacto de Romero con Hexano y Etanol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E399</code>
+        <name>Lactobionato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E400</code>
+        <name>Ácido Algínico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E401</code>
+        <name>Alginato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E402</code>
+        <name>Alginato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E403</code>
+        <name>Alginato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E404</code>
+        <name>Alginato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E405</code>
+        <name>Alginato Propilenglicólico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E406</code>
+        <name>Agar-Agar</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E407</code>
+        <name>Carragenanos</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E407a</code>
+        <name>Algas Euchema Transformadas</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E408</code>
+        <name>Glicano de Levadura Panaria</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E409</code>
+        <name>Arabinogalactano</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E410</code>
+        <name>Goma Garrofín</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E411</code>
+        <name>Goma de Avena</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E412</code>
+        <name>Goma Guar</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E413</code>
+        <name>Goma Tragacanto</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E414</code>
+        <name>Goma Arábiga</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E415</code>
+        <name>Goma Xantana</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E416</code>
+        <name>Goma Karaya</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E417</code>
+        <name>Goma Tara</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E418</code>
+        <name>Goma Gellan</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E419</code>
+        <name>Goma Ghatti</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E420</code>
+        <name>Sorbitoles</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E420i</code>
+        <name>Sorbitol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E420ii</code>
+        <name>Jarabe de Sorbitol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E421</code>
+        <name>Manitoles</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E421i</code>
+        <name>Manitol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E421ii</code>
+        <name>Manitol Fermentado</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E422</code>
+        <name>Glicerol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E423</code>
+        <name>Ácido Octenil-Succínico (OSA)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E424</code>
+        <name>Curdlan</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E425</code>
+        <name>Konjac</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E425i</code>
+        <name>Goma de Konjac</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E425ii</code>
+        <name>Glucomanano de Konjac</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E426</code>
+        <name>Hemicelulosa de Soja</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E427</code>
+        <name>Goma Casia</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E428</code>
+        <name>Gelatina Neutra</name>
+    <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E429</code>
+        <name>Peptonas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E429i</code>
+        <name>Peptona Pépsica</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E429ii</code>
+        <name>Peptona Pancreática</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E430</code>
+        <name>Estearato de Polioxietileno 8</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E431</code>
+        <name>Estearato de Polioxietileno 40</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E432</code>
+        <name>Monolaurato de Sorbitán Polioxietinelado (Polisorbato 20)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E433</code>
+        <name>Monooleato de Sorbitán Polioxietinelado (Polisorbato 80)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E434</code>
+        <name>Monopalmitato de Sorbitán Polioxietinelado (Polisorbato 40)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E435</code>
+        <name>Monoestearato de Sorbitán Polioxietinelado (Polisorbato 60)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E436</code>
+        <name>Triestearato de Sorbitán Polioxietinelado (Polisorbato 65)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E440</code>
+        <name>Pectinas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E440i</code>
+        <name>Pectina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E440ii</code>
+        <name>Pectina Amidada</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E441</code>
+        <name>Aceite de Semilla de Colza Superglicerinado Hidrogenado</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E442</code>
+        <name>Fosfátidos Amónicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E443</code>
+        <name>Aceite Vegetal Bromado</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E444</code>
+        <name>Acetato Isobutírico de Sacarosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E445</code>
+        <name>Ésteres Glicéridos de Colofonia</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E445i</code>
+        <name>Ésteres Glicéridos de Colofonia de Goma</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E445ii</code>
+        <name>Ésteres Glicéridos de Colofonia de Aceite de Resina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E445iii</code>
+        <name>Ésteres Glicéridos de Colofonia de Madera</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E446</code>
+        <name>Succistearina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E450</code>
+        <name>Difosfatos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450i</code>
+        <name>Difosfato Disódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450ii</code>
+        <name>Difosfato Trisódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450iii</code>
+        <name>Difosfato Teadditiveasódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450iv</code>
+        <name>Difosfato Dipotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450v</code>
+        <name>Difosfato Teadditiveapotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450vi</code>
+        <name>Difosfato Dicálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450vii</code>
+        <name>Difosfato Cálcico de Dihidrógeno</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450viii</code>
+        <name>Difosfato Dimagnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E450ix</code>
+        <name>Difosfato Magnésico de Dihidrógeno</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E451</code>
+        <name>Trifosfatos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E451i</code>
+        <name>Trifosfato Pentasódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E451ii</code>
+        <name>Trifosfato Pentapotásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E451iii</code>
+        <name>Trifosfato Sódico-Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452</code>
+        <name>Polifosfatos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452i</code>
+        <name>Polifosfato Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452ii</code>
+        <name>Polifosfato Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452iii</code>
+        <name>Polifosfato Sódico-Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452iv</code>
+        <name>Polifosfato Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452v</code>
+        <name>Polifosfato Amónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E452vi</code>
+        <name>Hexametafosfato Sódico-Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E453</code>
+        <name>Ortofosfato Ferroso</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E454</code>
+        <name>Pirofosfato Ferroso</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E455</code>
+        <name>Mannoproteínas de Levadura</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E456</code>
+        <name>Poliaspartato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E457</code>
+        <name>Alfa-Ciclodexadditiveina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E458</code>
+        <name>Gamma-Ciclodexadditiveina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E459</code>
+        <name>Beta-Ciclodexadditiveina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E460</code>
+        <name>Celulosas</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E460i</code>
+        <name>Celulosa Microcristalina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E460ii</code>
+        <name>Celulosa en Polvo</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E461</code>
+        <name>Metil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E462</code>
+        <name>Etil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E463</code>
+        <name>Hidroxipropil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E464</code>
+        <name>Hidroxipropilmetil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E465</code>
+        <name>Metiletil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E466</code>
+        <name>Carboximetil-Celulosa Sódica</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E467</code>
+        <name>Etilhidroxietil-Celulosa</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E468</code>
+        <name>Carboximetil-Celulosa Sódica Enadditiveelazada</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E469</code>
+        <name>Carboximetil-Celulosa Sódica Hidrolizada Enzimáticamente</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E470</code>
+        <name>Sales de Ácidos Grasos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E470i</code>
+        <name>Sales de Ácidos Mirísticos, Palmíticos y Esteáricos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E470ii</code>
+        <name>Sales de Ácidos Oleicos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E470iii</code>
+        <name>Sales de Ácidos Esteáricos Magnésicos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E470a</code>
+        <name>Estearato de Sodio, Potasio y Calcio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E470b</code>
+        <name>Estearato de Magnesio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E471</code>
+        <name>Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472</code>
+        <name>Ésteres de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472a</code>
+        <name>Ésteres Acéticos de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472b</code>
+        <name>Ésteres Lácticos de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472c</code>
+        <name>Ésteres Cíadditiveicos de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472d</code>
+        <name>Ésteres Tartáricos de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472e</code>
+        <name>Ésteres Monoacetiltartárico y Diacetiltartárico de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472f</code>
+        <name>Ésteres Mixtos Acéticos y Tartáricos de Monoglicéridos y Diglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E472g</code>
+        <name>Monoglicéridos Succinilados</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E473</code>
+        <name>Sucroésteres de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E473a</code>
+        <name>Oligoésteres de Sacarosa</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E474</code>
+        <name>Sucroglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E475</code>
+        <name>Ésteres Poliglicéridos de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E476</code>
+        <name>Polirricinoleato de Poliglicerol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E477</code>
+        <name>Ésteres de Propilenglicol de Ácidos Grasos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E478</code>
+        <name>Ésteres de Glicerol y Propilenglicol de Ácidos Grasos Lactilados</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E479</code>
+        <name>Aceites de Soja Oxidados</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E479a</code>
+        <name>Aceite de Soja Oxidado Térmicamente</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E479b</code>
+        <name>Aceite de Soja Oxidado Térmicamente en Interacción con Monoglicéridos y Diglicéridos de Ácidos Grasos (TOSOM)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E480</code>
+        <name>Dioctil Sulfosuccinato Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E481</code>
+        <name>Lactilatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E481i</code>
+        <name>Estearoil Lactilato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E481ii</code>
+        <name>Lactilato Oleico Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E482</code>
+        <name>Lactilatos Cálcicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E482i</code>
+        <name>Estearoil Lactilato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E482ii</code>
+        <name>Lactilato Oleico Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E483</code>
+        <name>Taradditiveato Estearílico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E484</code>
+        <name>Ciadditiveato Estearílico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E485</code>
+        <name>Estearoil Fumarato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E486</code>
+        <name>Estearoil Fumarato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E487</code>
+        <name>Lauril-Sulfato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E488</code>
+        <name>Monoglicéridos y Diglicéridos Etoxilados</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E489</code>
+        <name>Éster Metilglucósido del Aceite de Coco</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E491</code>
+        <name>Monoestearato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E492</code>
+        <name>Triestearato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E493</code>
+        <name>Monolaurato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E494</code>
+        <name>Monooleato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E495</code>
+        <name>Monopalmitato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E496</code>
+        <name>Trioleato de Sorbitano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E499</code>
+        <name>Fitoesteroles Ricos en Estigmasterol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E500</code>
+        <name>Carbonatos Sódicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E500i</code>
+        <name>Carbonato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E500ii</code>
+        <name>Bicarbonato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E500iii</code>
+        <name>Sesquicarbonato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E501</code>
+        <name>Carbonatos Potásicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E501i</code>
+        <name>Carbonato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E501ii</code>
+        <name>Bicarbonato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E503</code>
+        <name>Carbonatos Amónicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E503i</code>
+        <name>Carbonato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E503ii</code>
+        <name>Bicarbonato Amónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E504</code>
+        <name>Carbonatos Magnésicos</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E504i</code>
+        <name>Carbonato Magnésico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E504ii</code>
+        <name>Bicarbonato Magnésico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E505</code>
+        <name>Carbonato Ferroso</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E507</code>
+        <name>Ácido Clorhídrico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E508</code>
+        <name>Cloruro Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E509</code>
+        <name>Cloruro Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E510</code>
+        <name>Cloruro Amónico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E511</code>
+        <name>Cloruro Magnésico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E512</code>
+        <name>Cloruro Estañoso</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E513</code>
+        <name>Ácido Sulfúrico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E514</code>
+        <name>Sulfatos Sódicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E514i</code>
+        <name>Sulfato Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E514ii</code>
+        <name>Bisulfato Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E515</code>
+        <name>Sulfatos Potásicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E515i</code>
+        <name>Sulfato Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E515ii</code>
+        <name>Bisulfato Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E516</code>
+        <name>Sulfatos Cálcicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E516i</code>
+        <name>Sulfato Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E516ii</code>
+        <name>Bisulfato Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E517</code>
+        <name>Sulfatos Amónicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E517i</code>
+        <name>Sulfato Amónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E517ii</code>
+        <name>Bisulfato Amónico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E518</code>
+        <name>Sulfatos Magnésicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E518i</code>
+        <name>Sulfato Magnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E518ii</code>
+        <name>Bisulfato Magnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E519</code>
+        <name>Sulfatos Cúpricos</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E519i</code>
+        <name>Sulfato Cúprico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E519ii</code>
+        <name>Bisulfato Cúprico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E520</code>
+        <name>Sulfato Alumínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E521</code>
+        <name>Sulfato Alumínico-Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E522</code>
+        <name>Sulfato Alumínico-Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E523</code>
+        <name>Sulfato Alumínico-Amónico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E524</code>
+        <name>Hidróxido Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E525</code>
+        <name>Hidróxido Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E526</code>
+        <name>Hidróxido Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E527</code>
+        <name>Hidróxido Amónico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E528</code>
+        <name>Hidróxido Magnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E529</code>
+        <name>Óxido Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E530</code>
+        <name>Óxido Magnésico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E534</code>
+        <name>Taradditiveato Ferroso</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E535</code>
+        <name>Ferrocianuro Sódico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E536</code>
+        <name>Ferrocianuro Potásico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E537</code>
+        <name>Hexacianomanganato Férrico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E538</code>
+        <name>Ferrocianuro Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E539</code>
+        <name>Tiosulfato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E540</code>
+        <name>Fosfato Ácido Cálcico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E541</code>
+        <name>Fosfatos Alumínicos-Sódicos</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E541i</code>
+        <name>Fosfato Ácido Alumínico-Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E541ii</code>
+        <name>Fosfato Básico Alumínico-Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E542</code>
+        <name>Fosfato Tribásico Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E543</code>
+        <name>Polifosfatos Sódicos-Cálcicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E544</code>
+        <name>Polifosfatos Cálcicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E545</code>
+        <name>Polifosfatos Amónicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E546</code>
+        <name>Polifosfatos Magnésicos</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E550</code>
+        <name>Silicatos Sódicos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E550i</code>
+        <name>Silicato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E550ii</code>
+        <name>Metasilicato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E551</code>
+        <name>Dióxido de Silicio</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E552</code>
+        <name>Silicato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E553</code>
+        <name>Silicatos Magnésicos</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E553a</code>
+        <name>Silicato Magnésico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E553a(i)</code>
+        <name>Silicato Magnésico Sintético</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E553a(ii)</code>
+        <name>Trisilicato Magnésico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E553b</code>
+        <name>Talco Magnésico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E554</code>
+        <name>Silicato Sódico-Alumínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E555</code>
+        <name>Silicato Potásico-Alumínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E556</code>
+        <name>Silicato Cálcico-Alumínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E557</code>
+        <name>Silicato Zíncico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E558</code>
+        <name>Bentonita</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E559</code>
+        <name>Silicato Alumínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E560</code>
+        <name>Silicato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E570</code>
+        <name>Ácido Esteárico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E574</code>
+        <name>Ácido Glucónico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E575</code>
+        <name>Glucono-Delta-Lactona </name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E576</code>
+        <name>Gluconato Sódico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E577</code>
+        <name>Gluconato Potásico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E578</code>
+        <name>Gluconato Cálcico</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E579</code>
+        <name>Gluconato Ferroso</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E585</code>
+        <name>Lactato Ferroso</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E586</code>
+        <name>Hexilresorcinol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E620</code>
+        <name>Ácido Glutámico </name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E621</code>
+        <name>Glutamato Monosódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E622</code>
+        <name>Glutamato Monopotásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E623</code>
+        <name>Glutamato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E624</code>
+        <name>Glutamato Monoamónico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E625</code>
+        <name>Glutamato Magnésico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E626</code>
+        <name>Ácido Guanílico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E627</code>
+        <name>Guanilato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E628</code>
+        <name>Guanilato Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E629</code>
+        <name>Guanilato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E630</code>
+        <name>Ácido Inosínico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E631</code>
+        <name>Inosinato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E632</code>
+        <name>Inosinato Potásico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E633</code>
+        <name>Inosinato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E634</code>
+        <name>Ribonucleótido Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E635</code>
+        <name>Ribonucleótido Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E636</code>
+        <name>Maltol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E637</code>
+        <name>Etilmaltol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E638</code>
+        <name>Aspartato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E639</code>
+        <name>Alanina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E640</code>
+        <name>Glicina y sus Sales Sódicas</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E640i</code>
+        <name>Glicina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E640ii</code>
+        <name>Glicinato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E641</code>
+        <name>Leucina</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E642</code>
+        <name>Cloruro Lisínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E650</code>
+        <name>Acetato Zíncico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E900</code>
+        <name>Dimetilsiloxano, DMS</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E900a</code>
+        <name>Polidimetilsiloxano, PDMS</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E900b</code>
+        <name>Polimetilfenilsiloxano, PMFS</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E901</code>
+        <name>Ceras de Abejas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E901i</code>
+        <name>Cera de Abejas Blanca</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E901ii</code>
+        <name>Cera de Abejas Amarilla</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E902</code>
+        <name>Cera Candelilla</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E903</code>
+        <name>Cera Carnaúba</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E904</code>
+        <name>Goma Laca</name>
+    <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E904i</code>
+        <name>Goma Laca Blanca</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E904ii</code>
+        <name>Goma Laca Naranja</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905</code>
+        <name>Cera Microcristalina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E905a</code>
+        <name>Aceite Mineral de Calidad Alimentaria</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905b</code>
+        <name>Vaselina de Calidad Alimentaria</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905c</code>
+        <name>Cera de Parafina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905d</code>
+        <name>Parafina Líquida de Viscosidad Alta</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905e</code>
+        <name>Parafina Líquida de Viscosidad Media y Baja (Clase 1)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905f</code>
+        <name>Parafina Líquida de Viscosidad Media y Baja (Clase 2)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E905g</code>
+        <name>Parafina Líquida de Viscosidad Media y Baja (Clase 3)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E906</code>
+        <name>Goma de Benzoína</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E907</code>
+        <name>Poli-1-Deceno Hidrogenado</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E908</code>
+        <name>Cera de Salvado de Arroz</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E909</code>
+        <name>Cera de Esperma de Ballena</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E910</code>
+        <name>Ésteres de Cera</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E911</code>
+        <name>Ésteres Metílicos de Ácidos Grasos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E912</code>
+        <name>Ésteres de Ácido Montánico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E913</code>
+        <name>Cera de Lana (Lanolina)</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E914</code>
+        <name>Cera de Polietileno Oxidada</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E915</code>
+        <name>Ésteres Glicerílicos, Metílicos o Pentaeriadditiveíticos de Colofonia Parcialmente Hidrogenada o Polimerizada</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E916</code>
+        <name>Yodato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E917</code>
+        <name>Yodato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E918</code>
+        <name>Óxidos de Niadditiveógeno</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E919</code>
+        <name>Cloruro Niadditiveosílico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E920</code>
+        <name>L-Cisteína y Clorhidratos de Cisteína</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E921</code>
+        <name>L-Cistina y Clorhidratos de Cistina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E922</code>
+        <name>Persulfato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E923</code>
+        <name>Persulfato Amónico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E924</code>
+        <name>Bromatos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E924a</code>
+        <name>Bromato Potásico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E924b</code>
+        <name>Bromato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E925</code>
+        <name>Cloro</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E926</code>
+        <name>Dióxido de Cloro</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E927</code>
+        <name>Derivados del Ácido Carbámico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E927a</code>
+        <name>Azodicarbonamida</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E927b</code>
+        <name>Carbamida (Urea)</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E928</code>
+        <name>Peróxido Benzoílico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E929</code>
+        <name>Peróxido Acetónico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E930</code>
+        <name>Peróxido Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E938</code>
+        <name>Argón</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E939</code>
+        <name>Helio</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E940</code>
+        <name>Diclorodifluorometano</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E941</code>
+        <name>Niadditiveógeno</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E942</code>
+        <name>Óxido Niadditiveoso</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E943</code>
+        <name>Butanos</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E943a</code>
+        <name>Butano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E943b</code>
+        <name>Isobutano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E944</code>
+        <name>Propano</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E945</code>
+        <name>Cloropentafluoroetano</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E946</code>
+        <name>Octafluorociclobutano</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E948</code>
+        <name>Oxígeno</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E949</code>
+        <name>Hidrógeno</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E950</code>
+        <name>Acesulfamo K</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E951</code>
+        <name>Aspartamo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E952</code>
+        <name>Ácido Ciclámico y sus Sales Sódicas y Cálcicas</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E952i</code>
+        <name>Ácido Ciclámico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E952ii</code>
+        <name>Ciclamato Sódico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E952iii</code>
+        <name>Ciclamato Cálcico</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E953</code>
+        <name>Isomaltosa</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E954</code>
+        <name>Sacarina y sus Sales Sódicas, Cálcicas y Potásicas</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E954i</code>
+        <name>Sacarina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E954ii</code>
+        <name>Sacarina Sódica</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E954iii</code>
+        <name>Sacarina Cálcica</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E954iv</code>
+        <name>Sacarina Potásica</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E955</code>
+        <name>Sucralosa</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E956</code>
+        <name>Alitame</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E957</code>
+        <name>Taumatina</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E958</code>
+        <name>Glicirricina</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E959</code>
+        <name>Neohesperidina Dihidrocalcona (NHDC)</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E960</code>
+        <name>Glicósidos de Esteviol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E960a</code>
+        <name>Glicósidos de Esteviol de Stevia Rebaudiana Bertoni</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E960b</code>
+        <name>Glicósidos de Esteviol de Fermentación</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E960b(i)</code>
+        <name>Glicósidos de Esteviol de Yarrowia Lipolytica (Rebaudiósido A)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E960c</code>
+        <name>Glicósidos de Esteviol de Enzimas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E960d</code>
+        <name>Glicósidos de Esteviol Glicosilados</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E961</code>
+        <name>Neotamo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E962</code>
+        <name>Sal de Aspartamo y Acesulfamo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E963</code>
+        <name>Tagatosa</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E964</code>
+        <name>Jarabe de Poliglicitol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E965</code>
+        <name>Maltitoles</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E965i</code>
+        <name>Maltitol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E965ii</code>
+        <name>Jarabe de Maltitol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E966</code>
+        <name>Lactitol</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E967</code>
+        <name>Xilitol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E968</code>
+        <name>Eriadditiveitol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E969</code>
+        <name>Advantame</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E999</code>
+        <name>Exadditiveacto de Quilaya</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E999i</code>
+        <name>Exadditiveacto de Quilaya (Clase 1)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E999ii</code>
+        <name>Exadditiveacto de Quilaya (Clase 2)</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1000</code>
+        <name>Ácido Cólico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001</code>
+        <name>Sales y Ésteres Colínicos</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001i</code>
+        <name>Acetato Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001ii</code>
+        <name>Carbonato Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001iii</code>
+        <name>Cloruro Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001iv</code>
+        <name>Ciadditiveato Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001v</code>
+        <name>Taradditiveato Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1001vi</code>
+        <name>Lactato Colínico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100</code>
+        <name>Amilasas</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1100i</code>
+        <name>Alfa-Amilasa de Aspergillus Oryzae</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100ii</code>
+        <name>Alfa-Amilasa de Bacillus Stearothermophilus</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100iii</code>
+        <name>Alfa-Amilasa de Bacillus Subtilis</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100iv</code>
+        <name>Alfa-Amilasa de Bacillus Megaterium</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100v</code>
+        <name>Alfa-Amilasa de Geobacillus Stearothermophilus</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1100vi</code>
+        <name>Carbohidrasa de Bacillus Licheniformis</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101</code>
+        <name>Proteasas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101i</code>
+        <name>Proteasa de Aspergillus Oryzae</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101ii</code>
+        <name>Papaína</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101iii</code>
+        <name>Bromelaína</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101iv</code>
+        <name>Ficina</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101v</code>
+        <name>Proteasa de Sadditiveeptomyces Fradiae</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1101vi</code>
+        <name>Proteasa de Bacillus Subtilis</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1102</code>
+        <name>Glucosa Oxidasa</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1103</code>
+        <name>Invertasas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1104</code>
+        <name>Lipasas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1105</code>
+        <name>Lisozima</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1200</code>
+        <name>Polidexadditiveosas</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1201</code>
+        <name>Polivinilpirrolidona (PVP)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E1202</code>
+        <name>Polivinilpolipirrolidona (PVPP)</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E1203</code>
+        <name>Alcohol Polivinílico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1204</code>
+        <name>Pululano</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1205</code>
+        <name>Copolímero de Metacrilato Básico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1206</code>
+        <name>Copolímero de Metacrilato Neuadditiveo</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1207</code>
+        <name>Copolímero de Metacrilato Aniónico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1208</code>
+        <name>Copolímero de Acetato de Vinilo</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E1209</code>
+        <name>Copolímero de Injerto de Polivinialcohol (PVA) y Polietilenglicol (PVE)</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1210</code>
+        <name>Poliacrilato Sódico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1400</code>
+        <name>Dexadditiveinas</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1401</code>
+        <name>Almidón Ácido</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1402</code>
+        <name>Almidón Alcalino</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1403</code>
+        <name>Almidón Blanqueado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1404</code>
+        <name>Almidón Oxidado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1405</code>
+        <name>Almidón Enzimático</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1410</code>
+        <name>Fosfato de Monoalmidón</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1412</code>
+        <name>Fosfato de Dialmidón</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1413</code>
+        <name>Fosfato de Dialmidón Fosfatado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1414</code>
+        <name>Fosfato de Dialmidón Acetilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1420</code>
+        <name>Almidón Acetilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1422</code>
+        <name>Adipato de Dialmidón Acetilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1440</code>
+        <name>Hidroxipropil-Almidón</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1441</code>
+        <name>Glicerona de Dialmidón Hidroxipropilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1442</code>
+        <name>Fosfato de Dialmidón Hidroxipropilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1450</code>
+        <name>Octenil-Succinato Sódico de Almidón</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1451</code>
+        <name>Almidón Oxidado Acetilado</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1452</code>
+        <name>Octenil-Succinato Alumínico de Almidón</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1501</code>
+        <name>Hidrocarbonos Bencilados</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1502</code>
+        <name>Butanodiol</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1503</code>
+        <name>Aceite de Ricino</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1504</code>
+        <name>Cicloteadditiveaglucosas</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1504i</code>
+        <name>Cicloteadditiveaglucosa</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1504ii</code>
+        <name>Jarabe de Cicloteadditiveaglucosa</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1505</code>
+        <name>Ciadditiveato Trietílico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1510</code>
+        <name>Alcohol Etílico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+    <additive>
+        <code>E1516</code>
+        <name>Monoacetato de Glicerilo</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1517</code>
+        <name>Diacetato de Glicerilo</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1518</code>
+        <name>Triacetato de Glicerilo</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1519</code>
+        <name>Alcohol Bencílico</name>
+        <toxicity>Media</toxicity>
+    </additive>
+    <additive>
+        <code>E1520</code>
+        <name>Propilenglicol</name>
+        <toxicity>Baja</toxicity>
+    </additive>
+    <additive>
+        <code>E1521</code>
+        <name>Polietilenglicol</name>
+        <toxicity>Alta</toxicity>
+    </additive>
+    <additive>
+        <code>E1522</code>
+        <name>Lignosulfonato Cálcico</name>
+        <toxicity>En revisión</toxicity>
+    </additive>
+</additives>

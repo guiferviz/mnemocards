@@ -1,0 +1,10 @@
+.mnemocards-card {
+    border: .05rem solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    /*width: fit-content;*/
+}
+.mnemocards-card:hover {
+    box-shadow: 0 0 15px var(--md-default-fg-color--lightest);
+}

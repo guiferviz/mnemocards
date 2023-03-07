@@ -1,85 +1,149 @@
 [tool.poetry]
 name = "mnemocards"
-version = "0.1.5"
-description = "Flashcards generator. You won't forget anything..."
+version = "1.0.0a0"
+description = "In addition to helping you memorise, this code helps you do other things that I don't remember..."
+packages = [
+    { include = "mnemocards", from = "src" },
+    { include = "mnemocards_essentials", from = "src" },
+    { include = "mnemocards_anki", from = "src" },
+]
+authors = ["guiferviz <guiferviz@gmail.com>"]
 license = "MIT"
-authors = [
-  "guiferviz <guiferviz@gmail.com>"
-]
 readme = "README.md"
+keywords = ["mnemocards"]
 repository = "https://github.com/guiferviz/mnemocards"
-documentation = "https://guiferviz.com/mnemocards"
-keywords = [
-  "anki",
-  "cards",
-  "flashcards",
-  "memorization",
-  "generator"
-]
 classifiers = [
-  "Programming Language :: Python :: 3.8",
-  "Topic :: Software Development :: Libraries :: Python Modules",
-  "Topic :: Education"
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
 ]
 
-
-[tool.poetry.scripts]
-mnemocards = 'mnemocards.__main__:main'
-
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/guiferviz/mnemocards/issues"
+"Source" = "https://github.com/guiferviz/mnemocards"
+"Documentation" = "https://guiferviz.github.io/mnemocards"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-# Guiferviz's genanki with support to deck configurations.
-genanki-mnemocards = "^0.11.0"
-# Required dependencies.
-gTTS = "^2.2.3"
-iso-639 = "^0.4.5"
-PyGithub = "^1.55"
-markdown2 = "^2.4.1"
-Pygments = "^2.10.0"
-pykakasi = "^2.0.4"
-googletrans = "3.1.0a0"
-anki = "^2.1.33"
-typer = "^0.4.0"
-loguru = "^0.6.0"
-pydantic = "^1.9.0"
-emoji = "^1.7.0"
-# Extra dependencies.
-xmltodict = {version = "^0.12.0", optional = true}
-toml = {version = "^0.10.2", optional = true}
-PyYAML = {version = "^6.0", optional = true}
+python = "^3.10"
+fire = "^0.5.0"
+rich = "^13.2.0"
+pydantic = "^1.10.4"
+pyyaml = "^6.0"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+pytest-html = "^3.1.1"
 
-[tool.poetry.extras]
-all = ["toml", "xmltodict", "PyYAML"]
-toml = ["toml"]
-xml = ["xmltodict"]
-yaml = ["PyYAML"]
-
-
-[tool.poetry.dev-dependencies]
-# Testing.
-pytest = "^6.2.4"
-pytest-mock = "^3.6.1"
-pytest-cov = "^3.0.0"
-# Static analyzers / formatters.
-flake8 = "^4.0.1"
-pyright = "^0.0.13"
-black = "^22.1.0"
+[tool.poetry.group.lint.dependencies]
 pre-commit = "^2.18.1"
+black = "^22.3.0"
 isort = "^5.10.1"
-# Docs.
-mkdocs-material = "^8.2.9"
+flake8 = "^6.0.0"
+pyright = "^1.1.284"
+pdbpp = "^0.10.3"
+mypy = "^0.991"
+flake8-pyproject = "^1.2.1"
+pydocstyle = "^6.1.1"
+pep8-naming = "^0.13.3"
 
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^8.4.0"
+mkdocstrings = {extras = ["python"], version = "^0.19.0"}
+mkdocs-charts-plugin = "^0.0.8"
+mkdocs-macros-plugin = "^0.7.0"
+
+[tool.poetry.group.readers.dependencies]
+toml = "^0.10.2"
+xmltodict = "^0.13.0"
+
+[tool.poetry.group.anki.dependencies]
+anki = "^2.1.56"
+genanki-mnemocards = "^0.13.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.poetry.scripts]
+"mnemocards" = "mnemocards.__main__:main"
+
+[tool.black]
+line-length = 80
 
 [tool.isort]
 profile = "black"
 line_length = 80
 
-[tool.black]
-line-length = 80
+[tool.pyright]
+include = ["src"]
+exclude = []
+
+[tool.mypy]
+exclude = []
+plugins = [
+    "pydantic.mypy"
+]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = false
+
+[tool.coverage.report]
+# Regexes for lines to exclude from coverage
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "except ImportError",
+]
+
+[tool.flake8]
+per-file-ignores = [
+    # Imported but unused.
+    "__init__.py:F401",
+]
+exclude = [
+    ".git",
+    "__pycache__",
+]
+extend-ignore = [
+    # Indentation — black handles
+    "E1",
+    "W1",
+    # Whitespace — black handles
+    "E2",
+    "W2",
+    # Blank lines — black handles
+    "E3",
+    "W3",
+    # Imports — isort handles
+    "E4",
+    "W4",
+    # Line length — black handles
+    "E5",
+    "W5",
+]
+max-line-length = 100
+# Print the total number of errors.
+count = true
+# Print the source code generating the error/warning in question.
+show-source = true
+# Count the number of occurrences of each error/warning code and print a report.
+statistics = true
+
+[tool.pydocstyle]
+convention = "google"
+add_ignore = [
+    "D100",  # Missing docstring in public module
+    "D101",  # Missing docstring in public class
+    "D102",  # Missing docstring in public method
+    "D103",  # Missing docstring in public function
+    "D104",  # Missing docstring in public package
+    "D105",  # Missing docstring in magic method (Python dunder method)
+    "D106",  # Missing docstring in public nested class
+    "D107",  # Missing docstring in __init__
+]

@@ -1,0 +1,25 @@
+{
+    "template": "https://github.com/guiferviz/template-python/",
+    "commit": "55310dcea78af1d03f407914e270352d3fa81949",
+    "checkout": null,
+    "context": {
+        "cookiecutter": {
+            "project_name": "Mnemocards",
+            "project_slug": "mnemocards",
+            "module_name": "mnemocards",
+            "project_short_description": "In addition to helping you memorise, this code helps you do other things that I don't remember...",
+            "version": "1.0.0a0",
+            "full_name": "guiferviz",
+            "email": "guiferviz@gmail.com",
+            "github_username": "guiferviz",
+            "twitter_username": "guiferviz",
+            "linkedin_username": "guiferviz",
+            "pypi_username": "guiferviz",
+            "docker_namespace": "guiferviz",
+            "google_analytics_id": "G-NCB5QMMEKH",
+            "open_source_license": "MIT License",
+            "_template": "https://github.com/guiferviz/template-python/"
+        }
+    },
+    "directory": null
+}
