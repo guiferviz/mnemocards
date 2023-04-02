@@ -1,6 +1,6 @@
 steps:
   - type: File
-    path: examples/spanish/vocabulario.csv
+    path: vocabulary.csv
   - type: mnemocards_anki.Configure
     tags: spanish, languages
     deck:

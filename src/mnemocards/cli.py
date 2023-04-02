@@ -1,5 +1,6 @@
 import logging
 import random
+import uuid
 
 from rich.console import Console
 from rich.logging import RichHandler
@@ -96,3 +97,7 @@ class CLI:
             )
         else:
             self._console.print("See you soon! :call_me_hand:")
+
+    def id(self):
+        id_ = str(uuid.uuid4())
+        self._console.print(id_)

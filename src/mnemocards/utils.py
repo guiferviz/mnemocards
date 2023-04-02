@@ -1,8 +1,12 @@
+import contextlib
 import importlib
+import os
 import sys
 from typing import Any, Dict, Optional, Union
 
 import pydantic
+
+from mnemocards.types import PathLike
 
 
 class PydanticType:
@@ -76,3 +80,14 @@ def member_from_qualified_name(name: str, default_module: Optional[str] = None):
             )
     module_name, member_name = name.rsplit(".", 1)
     return get_module_member(module_name, member_name)
+
+
+@contextlib.contextmanager
+def use_cwd(new_wd: PathLike):
+    new_wd_str = str(new_wd)
+    old_path = os.getcwd()
+    try:
+        os.chdir(new_wd_str)
+        yield
+    finally:
+        os.chdir(old_path)
