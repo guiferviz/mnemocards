@@ -81,19 +81,19 @@ class CLI:
         """Run a given Mnemocard task.
 
         Args:
-            directory: Directory to search for a Mnemocard Task definition.
-            filename: File name with the Mnemocard Task configuration.
+            directory: Directory to search for a Mnemocards Task definition.
+            filename: File name with the Mnemocards Task configuration.
         """
         self._console.print("[info]Hi! :waving_hand:")
         try:
             create_and_run_task(directory, filename)
         except Exception:
+            self._console.print_exception(
+                show_locals=self._log_level == "DEBUG"
+            )
             self._console.print(
                 "[warning]Although things didn't go as well as we expected,"
                 " hope to see you soon! :call_me_hand:"
-            )
-            self._console.print_exception(
-                show_locals=self._log_level == "DEBUG"
             )
         else:
             self._console.print("See you soon! :call_me_hand:")

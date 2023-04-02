@@ -27,9 +27,10 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.10"
 fire = "^0.5.0"
-rich = "^13.2.0"
+rich = "^13.3.3"
 pydantic = "^1.10.4"
 pyyaml = "^6.0"
+gtts = "^2.3.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
@@ -134,6 +135,13 @@ count = true
 show-source = true
 # Count the number of occurrences of each error/warning code and print a report.
 statistics = true
+# Consider pydantic validator as a classmethod decorator to avoid this error:
+# N805 first argument of a method should be named 'self'
+classmethod-decorators = [
+    "classmethod",
+    "validator",
+    "root_validator",
+]
 
 [tool.pydocstyle]
 convention = "google"

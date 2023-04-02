@@ -7,6 +7,9 @@ steps:
       name: Spanish
       id: 429d2604-ca8a-4c0a-9b03-38d1df5b9af7
     note_type: mnemocards_anki.VocabularyNoteType
+  - type: mnemocards_anki.Pronounce
+    language: es
+    attribute_to_pronounce: language_you_learn_word
   - type: mnemocards_anki.Package
   - type: Print
     ignore_regex: id|note_type|deck

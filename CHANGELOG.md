@@ -7,6 +7,11 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
 ## Unreleased
+### Added
+- Loading files relative to the configuration file.
+- Adding `mnemocards_anki.Pronounce`: task for pronouncing text using Google
+Translator.
+- Adding more docs.
 
 
 ## 1.0.0a0 - 06-03-2022

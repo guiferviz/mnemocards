@@ -81,4 +81,30 @@ class VocabularyNoteType(models.NoteType):
                 <div class="destination comment">{{language_you_learn_description}}</div>
             """,
         ),
+        models.CardSides(
+            name="Language you learn --> Your language",
+            front="""
+                <style>
+                    .card {
+                        background: {{color}};
+                    }
+                </style>
+                <div class="destination word">{{language_you_learn_word}}</div>
+                <div class="destination fonetic">{{language_you_learn_pronunciation}}</div>
+                <div class="destination comment">{{language_you_learn_description}}</div>
+            """,
+            back="""
+                <style>
+                    .card {
+                        background: {{color}};
+                    }
+                </style>
+                <div class="destination word">{{language_you_learn_word}}</div>
+                <div class="destination fonetic">{{language_you_learn_pronunciation}}</div>
+                <div class="destination comment">{{language_you_learn_description}}</div>
+                <hr>
+                <div class="origin word">{{your_language_word}}</div>
+                <div class="origin comment">{{your_language_description}}</div>
+            """,
+        ),
     ]

@@ -4,13 +4,13 @@ steps:
       - type: Pipeline
         steps:
           - type: File
-            path: examples/japanese/hiragana.csv
+            path: hiragana.csv
           - type: AppendToProperty
             tags: hiragana
       - type: Pipeline
         steps:
           - type: File
-            path: examples/japanese/katakana.csv
+            path: katakana.csv
           - type: AppendToProperty
             tags: katakana
   - type: mnemocards_anki.Configure

@@ -42,6 +42,7 @@ class Package(PydanticTask):
     def end(self):
         logger.debug("Anki packaging `end` method.")
         genanki_decks: List[genanki.Deck] = []
+        media_files: list[str] = []
         for deck, types2notes in self._notes.items():
             genanki_deck = genanki.Deck(deck.id, deck.name)
             for note_type, notes in types2notes.items():
@@ -69,6 +70,7 @@ class Package(PydanticTask):
                         tags=i["tags"],
                     )
                     genanki_deck.add_note(genanki_note)
+                    media_files.extend(i["media_files"])
             genanki_decks.append(genanki_deck)
-        package = genanki.Package(genanki_decks)
+        package = genanki.Package(genanki_decks, media_files)
         package.write_to_file(self.path)

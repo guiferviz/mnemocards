@@ -77,9 +77,11 @@ This brings several positive things:
       Git you can create forks and pull requests to existing repositories.
 * Fully extensible architecture that allows you to define tasks that perform
 custom transformations on a list of notes.
-    * Possibility to export flashcards to other existing flashcards apps.
-    * Create indexes or analyze your collection of cards, create
-      visualizations, clustering, analyze how the cards relate to each other...
+    * Possibility to implement another way of exporting flashcards to other
+      existing flashcards apps.
+    * Possibility to create search indexes, analyze your collection of cards,
+      create visualizations, clustering, analyze how the cards relate to each
+      other...
 
 
 ## 🤓 How it works?
