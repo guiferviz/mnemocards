@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mnemocards"
-version = "1.0.0a0"
+version = "1.0.0a1"
 description = "In addition to helping you memorise, this code helps you do other things that I don't remember..."
 packages = [
     { include = "mnemocards", from = "src" },
