@@ -36,7 +36,7 @@
         <td>{{ created }}</td>
     </tr>
     <tr>
-        <td><strong>Tuberia version:</strong></td>
+        <td><strong>Version:</strong></td>
         <td>{{ version }}</td>
     </tr>
 </table>

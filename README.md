@@ -1,6 +1,6 @@
 <p align="center">
     <a href="https://guiferviz.github.io/mnemocards" target="_blank">
-        <img src="/mnemocards/images/logo.jpg"
+        <img src="https://guiferviz.com/mnemocards/images/logo.jpg"
              alt="Mnemocards logo"
              width="200">
     </a>

@@ -1,17 +1,22 @@
 # Plugins
 
-In this example, we will demonstrate how to create custom Mnemocards tasks to
-process your flashcards in any way you desire.
+This example will demonstrate how to create custom Mnemocards tasks to process
+your flashcards in any way you desire.
 
-!!! note
+!!! warning
 
     This example assumes a basic knowledge of Python. If you are not familiar
     with Python, it is recommended that you first learn the basics of the
     language before attempting to create custom Mnemocards tasks.
 
-In this example, will be generating a sequence of numbers using a for loop,
-multiplying each number by a factor of 2, and then printing the resulting
-numbers. All that using custom Mnemocards tasks.
+We will be generating a sequence of numbers using a for loop, multiplying each
+number by a factor of 2, and then printing the resulting numbers. All that
+using custom Mnemocards tasks.
+
+!!! example
+
+    You can find the final source code for this example [in the repo]({{
+    config.repo_url }}/tree/main/examples/plugins).
 
 
 ## Setup
@@ -334,7 +339,8 @@ Number 2, double 4
 
 ## Complete code
 
-See the [complete code in the repo]({{ config.repo_url }}/examples/plugins).
+See the [complete code in the repo]({{ config.repo_url
+}}/tree/main/examples/plugins).
 
 
 ## Conclusion

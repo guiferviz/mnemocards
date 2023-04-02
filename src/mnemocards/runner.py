@@ -15,7 +15,8 @@ logger = logging.getLogger(__name__)
 
 def create_and_run_task(directory: types.PathLike, filename: str):
     task_config = create_task(directory, filename)
-    run_task(task_config)
+    with utils.use_cwd(directory):
+        run_task(task_config)
 
 
 def read_task_config(
