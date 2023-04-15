@@ -136,9 +136,9 @@ steps:
 In this example, the first step reads in a CSV file called "flashcards.csv", the second step generates an Anki package with a deck named "My Flashcards" and a specific id, and the last step creates the APKG package.
 
 You can run the configuration file using the mnemocards command:
-
-Copy code
-mnemocards run my_config.yml
+```cmd
+$ mnemocards run my_config.yml
+```
 This will execute the steps in the configuration file, and create the Anki APKG package.
 
 You can also use the package to export your flashcards to other flashcard apps like Quizlet by adding a Quizlet task to the configuration file and providing the necessary credentials.
