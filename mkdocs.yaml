@@ -117,8 +117,6 @@ extra:
 nav:
     - Overview: index.md
     - FAQ: faq.md
-    - Changes: changelog.md
-    - Contributing: contributing.md
     - Examples:
       - examples/markdown_card_fence.md
       - examples/plugins.md
@@ -126,6 +124,5 @@ nav:
       - mnemocards: apis/mnemocards.md
       - mnemocards_essentials: apis/mnemocards_essentials.md
       - mnemocards_anki: apis/mnemocards_anki.md
-    - MEP:
-      - meps/mep00.md
-    - Tags: tags.md
+    - Changes: changelog.md
+    - Contributing: contributing.md

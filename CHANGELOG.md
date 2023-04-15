@@ -6,6 +6,13 @@ The format is inspired on [Keep a Changelog](https://keepachangelog.com/en/1.0.0
 This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## Unreleased
+### Changed
+- Readers are now independent tasks. Instead of having a File task that uses
+readers we have a ReadCsv task, a ReadJson task... One per each format. This
+removes a lot of complexity.
+
+
 ## 1.0.0a1 - 02-03-2023
 ### Added
 - Loading files relative to the configuration file.
