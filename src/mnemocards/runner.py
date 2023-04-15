@@ -4,9 +4,9 @@ import textwrap
 from typing import Any, Iterator, Tuple
 
 import pydantic
+import yaml
 from rich.console import Console
 
-import mnemocards_essentials as essentials
 from mnemocards import types, utils
 from mnemocards.task import Task
 
@@ -28,8 +28,7 @@ def read_task_config(
         full_path /= filename
     if not full_path.exists():
         raise FileNotFoundError(full_path)
-    reader = essentials.readers.InferReader()
-    return full_path, reader.load(full_path)
+    return full_path, yaml.safe_load(open(full_path, "r"))
 
 
 def create_task(

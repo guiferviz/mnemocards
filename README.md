@@ -53,44 +53,41 @@
 **Mnemocards** is a Python package originally intended for creating Anki
 flashcards from text files. It allows users to define a series of steps to read
 flashcards from any source, transform them and export them to different formats
-such as Anki APKG packages. Mnemocards is designed to be fully extensible,
-which means that users can create their own tasks and customize the card
-generation process to their specific needs.
+such as Anki APKG packages.
 
-Reading **flashcards from text files** has several **advantages** over binary
-formats or manually creating cards in the Anki app. Text files are easily
-readable and editable by humans. This means that users can easily understand
-and modify the flashcard content **using common text editors**, and also can
-use version control systems like **Git to track changes and collaborate** with
-others.
+Mnemocards is designed to be fully extensible, which means that users can
+create their own tasks and customize the card generation process to their
+specific needs. Indeed, Mnemocards has the versatility to be used for purposes
+beyond generating Anki decks.
 
 
 ## 🏷️ Features
 
-* Generates Anki APKG packages that you can later import into the Anki app.
-* Auto generate pronunciations from the words that you are learning.
-* Generates flashcards from text files that can be stored in Git repositories.
-This brings several positive things:
-    * Keep track of changes.
-    * Maintain different versions of flashcards using Git branches.
-    * Easily share and collaborate with others. If you know how to work with
-      Git you can create forks and pull requests to existing repositories.
-* Fully extensible architecture that allows you to define tasks that perform
-custom transformations on a list of notes.
+* **Generate Anki APKG packages** that you can later import into the Anki app.
+* Auto **generate pronunciations** from the words that you are learning in any
+language supported by Google Translator.
+* Generate **flashcards from text files** that can be stored in Git
+repositories. This brings several positive things:
+    * Keep **track of changes**.
+    * Edit cards using your **favourite text editor**. I :heart: VIM.
+    * Easily **share and collaborate with others**. If you know how to work
+    with Git you can create forks and pull requests to existing repositories.
+* **Fully extensible architecture** that allows you to define custom
+transformations on a list of notes.
     * Possibility to implement another way of exporting flashcards to other
-      existing flashcards apps.
+      existing flashcards apps. Contributions are welcome.
     * Possibility to create search indexes, analyze your collection of cards,
       create visualizations, clustering, analyze how the cards relate to each
-      other...
+      other... Contributions are welcome.
 
 
-## 🤓 How it works?
+## ⚙️ Installation
 
 To get started with Mnemocards, you'll need to have Python >= 3.10 installed on
 your computer. Then, you can install Mnemocards using `pip`:
 
 ```cmd
-$ pip install mnemocards
+$ pip install --pre mnemocards
 ```
 
 You can check that the installation went well by executing the following
@@ -109,16 +106,19 @@ $ mnemocards --version
 If the joke made you laugh you can continue with this tutorial, otherwise this
 program is not for you and you should consider other alternatives.
 
+
+## 🤓 How it works?
+
 Once you have Mnemocards installed, you can start creating your own flashcards.
-Let's start creating our own vocabulary file.
+Let's start creating our own vocabulary Anki cards.
 
-You can use the provided sample files as a starting point, or create your own.
-Mnemocards uses a configuration file to define the steps that will be used to
-process the flashcards. In this file, you can specify the tasks that you want
-to use, the order in which they will be executed, and any necessary parameters
-or settings.
+Mnemocards uses a configuration file named `mnemocards.yaml` to define the
+steps that will be used to process the flashcards. In this file, you can
+specify the tasks that you want to use, the order in which they will be
+executed, and any necessary parameters.
 
-Here's an example of a simple configuration file that reads in a CSV file containing flashcard data, and then generates an Anki APKG package:
+Here's an example of a simple configuration file that reads in a CSV file
+containing flashcard data, and then generates an Anki APKG package:
 
 ```yaml
 steps:
@@ -136,36 +136,13 @@ steps:
 In this example, the first step reads in a CSV file called "flashcards.csv", the second step generates an Anki package with a deck named "My Flashcards" and a specific id, and the last step creates the APKG package.
 
 You can run the configuration file using the mnemocards command:
+
 ```cmd
-$ mnemocards run my_config.yml
+$ mnemocards run mnemocards.yml
 ```
+
 This will execute the steps in the configuration file, and create the Anki APKG package.
 
 You can also use the package to export your flashcards to other flashcard apps like Quizlet by adding a Quizlet task to the configuration file and providing the necessary credentials.
 
 With Mnemocards, you can customize the flashcard generation process to suit your needs and easily collaborate with others. Give it a try and see how it can help you learn more efficiently!
-
-TODO
-
-
-## 🧪 Examples
-
-<details markdown>
-<summary markdown>Japanese Flashcards :jp:</summary>
-Thinks you will learn:
-
-* UnionPipeline task.
-* Audio generation.
-</details>
-
-
-## DELETEME: Fast ideas
-
-Mnemocards is a tool for processing your flashcards.
-Mnemocards first appeared with the objective of generating Anki APKG packages that you can later import into the Anki app.
-Mnemocards allow us to generate our cards from text files that we can store in repositories.
-Having text files in repos allow us to keep track of the changes, maintain different versions of our flashcards and easily collaborate with others (creating forks of existing projects or creating pull requests, for example).
-It is fully extensible, you can define tasks that perform transformations on a list of notes.
-You can also auto generate pronunciations from the words that you are learning.
-You may even export your flashcards to other existing flashcards apps.
-The possibilities are endless, you can create an index or somehow analyze your collection of cards, create visualizations, clustering, analyze how the cards relate to each other...
