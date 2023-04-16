@@ -3,7 +3,7 @@ from typing import Iterable
 
 import pydantic
 
-from mnemocards import NoteDict, PydanticTask, Task, runner
+from mnemocards import NoteDict, Path, PydanticTask, Task, runner
 
 logger = logging.getLogger(__name__)
 
@@ -16,13 +16,12 @@ class Directory(PydanticTask):
             You can also specify a different configuration name.
     """
 
-    path: str
-    filename: str = "mnemocards.yaml"
+    path: Path
     _task: Task = pydantic.PrivateAttr()
 
     def start(self):
         logger.debug("Directory `start` method.")
-        self._task = runner.create_task(self.path, self.filename)
+        self._task = runner.create_task(self.path)
         self._task.start()
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:

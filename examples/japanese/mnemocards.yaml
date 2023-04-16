@@ -3,13 +3,13 @@ steps:
     steps:
       - type: Pipeline
         steps:
-          - type: File
+          - type: ReadCsv
             path: hiragana.csv
           - type: AppendToProperty
             tags: hiragana
       - type: Pipeline
         steps:
-          - type: File
+          - type: ReadCsv
             path: katakana.csv
           - type: AppendToProperty
             tags: katakana

@@ -3,7 +3,7 @@ from typing import Any, Iterable
 
 import xmltodict
 
-from mnemocards import NoteDict, PydanticTask
+from mnemocards import NoteDict, Path, PydanticTask
 
 
 def _get_first_list_property(value) -> list:
@@ -19,7 +19,7 @@ class ReadXml(PydanticTask):
         path: Path (directory + filename) of the XML file to read.
     """
 
-    path: str
+    path: Path
     options: dict[str, Any] = {}
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:

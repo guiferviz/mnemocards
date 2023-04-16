@@ -8,3 +8,9 @@ readable and editable by humans. This means that users can easily understand
 and modify the flashcard content **using common text editors**, and also can
 use version control systems like **Git to track changes and collaborate** with
 others.
+
+
+## How can I create custom Mnemocards tasks?
+
+The [plugins](examples/plugins.md) example contains a lot of information about
+this.

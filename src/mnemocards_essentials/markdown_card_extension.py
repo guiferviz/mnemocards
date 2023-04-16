@@ -96,6 +96,6 @@ class MnemocardsCardExtension(Extension):
         )
 
 
+# Method needed to convert this module in a markdown extension.
 def makeExtension(*args, **kwargs):  # noqa: N802
-    """Method needed to convert this module in a markdown extension."""
     return MnemocardsCardExtension(*args, **kwargs)

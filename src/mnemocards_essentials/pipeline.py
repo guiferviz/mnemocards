@@ -6,6 +6,13 @@ from mnemocards import NoteDict, PydanticTask, Task
 
 
 class Pipeline(PydanticTask):
+    """Basic Mnemocards tasks that represents a sequence of tasks.
+
+    Attributes:
+        name: Optional pipeline name.
+        steps: List of Mnemocards tasks included in this pipelines.
+    """
+
     name: Optional[str] = None
     steps: List[Task]
 

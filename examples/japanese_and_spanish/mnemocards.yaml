@@ -1,6 +1,6 @@
 type: UnionPipeline
 steps:
   - type: Directory
-    path: examples/spanish/
+    path: ../spanish/
   - type: Directory
-    path: examples/japanese/
+    path: ../japanese/

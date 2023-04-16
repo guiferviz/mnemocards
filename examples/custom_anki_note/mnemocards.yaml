@@ -1,6 +1,6 @@
 steps:
-  - type: File
-    path: aditivos.xml
+  - type: ReadXml
+    path: additives.xml
   - type: mnemocards_anki.Configure
     tags: additives
     deck:

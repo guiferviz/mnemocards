@@ -1,7 +1,7 @@
 from mnemocards import PydanticTask
 
 
-class GitRepo(PydanticTask):
+class _GitRepo(PydanticTask):
     """Retrieve a Mnemocards project from an external Git repository.
 
     Attributes:

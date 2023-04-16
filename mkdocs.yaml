@@ -54,7 +54,7 @@ plugins:
           python:
             options:
               show_source: true
-              show_if_no_docstring: true
+              show_if_no_docstring: false
               docstring_style: google
 
 markdown_extensions:
@@ -122,7 +122,7 @@ nav:
       - examples/plugins.md
     - API:
       - mnemocards: apis/mnemocards.md
-      - mnemocards_essentials: apis/mnemocards_essentials.md
       - mnemocards_anki: apis/mnemocards_anki.md
+      - mnemocards_essentials: apis/mnemocards_essentials.md
     - Changes: changelog.md
     - Contributing: contributing.md

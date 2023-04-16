@@ -77,7 +77,9 @@ class CLI:
         joke = random.choice(_JOKES)
         self._console.print(Panel.fit(f"[joke]{joke}"))
 
-    def run(self, directory: PathLike = ".", filename: str = "mnemocards.yaml"):
+    def run(
+        self, directory: PathLike = ".", filename: str = "mnemocards.yaml"
+    ) -> int:
         """Run a given Mnemocard task.
 
         Args:
@@ -95,8 +97,9 @@ class CLI:
                 "[warning]Although things didn't go as well as we expected,"
                 " hope to see you soon! :call_me_hand:"
             )
-        else:
-            self._console.print("See you soon! :call_me_hand:")
+            return -1
+        self._console.print("See you soon! :call_me_hand:")
+        return 0
 
     def id(self):
         id_ = str(uuid.uuid4())

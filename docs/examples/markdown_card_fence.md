@@ -40,6 +40,8 @@
 ## Features
 
 * Build several cards inside the same Markdown file.
-* Visualize your cards outside Anki.
-* Search your cards database using Mkdocs search tool.
+* Include extra content in the markdown file that will not be included in a
+card.
+* Visualize your cards outside Anki using Mkdocs.
+* Search your cards database using the build-in Mkdocs search tool.
 * Cards database easy to publish thanks to Mkdocs.

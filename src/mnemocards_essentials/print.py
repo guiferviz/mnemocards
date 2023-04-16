@@ -14,11 +14,22 @@ from mnemocards.types import NoteDict
 
 
 class PrintFormat(str, Enum):
+    """Possible formats that can be used in [`Print`][mnemocards_essentials.print.Print]."""
+
     YAML = "yaml"
     JSON = "json"
 
 
 class Print(task.Task, pydantic.BaseModel):
+    """Print every processed note in the terminal.
+
+    Attributes:
+        format_: Format to use when printing the notes.
+        sort_keys: Show note properties sorted alphabetically.
+        ignore_regex: If any note property match this regex it will not be
+            included in the printed note.
+    """
+
     format_: PrintFormat = pydantic.Field(PrintFormat.YAML, alias="format")
     sort_keys: bool = False
     ignore_regex: Optional[Pattern] = None
