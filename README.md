@@ -48,6 +48,14 @@
 
 ---
 
+<p align="center">
+    <a href="https://guiferviz.github.io/mnemocards" target="_blank">
+        <img src="https://guiferviz.com/mnemocards/images/hello_hola_note.png"
+             alt="Mnemocards generated vocabulary card"
+             width="500">
+    </a>
+</p>
+
 ## 🤔 What is this?
 
 **Mnemocards** is a Python package originally intended for creating Anki
@@ -107,42 +115,110 @@ If the joke made you laugh you can continue with this tutorial, otherwise this
 program is not for you and you should consider other alternatives.
 
 
-## 🤓 How it works?
+## ❓How it works?
 
 Once you have Mnemocards installed, you can start creating your own flashcards.
 Let's start creating our own vocabulary Anki cards.
 
+Imagine you are learning Spanish and you have a list of vocabulary like this:
+
+English | Spanish |
+--------|---------|
+Hello   | Hola    |
+Bye     | Adiós   |
+
+If you want to use Mnemocards to generate Anki cards for those words the first
+thing you need to do is to create a CSV file like the following:
+
+```csv title="vocabulary.csv"
+your_language_word,language_you_learn_word,id
+Hello,Hola,9a6c9728-7f86-4e3f-9dec-a2f804bd0a76
+Bye,Adiós,e600a85a-8a6b-4449-a188-f7401dc69d6b
+```
+
+A CSV file is a text file that represents a table. The first line is the header
+of the table, after that header line we have one line per row. Each column is
+separated from the other with a column. CSV stands for Comma-Separated Values.
+
+The first column contains the word in your native language, in this case
+English. The second row is the word in the language you are learning, Spanish.
+The last column is a randomly generated ID.
+
+!!! question "Why do we need an ID?"
+
+    IDs are used to uniquely identify a note in Anki. We can use the Spanish
+    word as an ID, but if you start studing a card and you want to make an edit
+    later the card will be considered as a complete new one, loosing your
+    progress.
+
+    For example, imagine you write *Adios* and after several days of study you
+    realise that your miss the accent. If you chage *Adios* to *Adiós* the
+    ID of that note will be different. To avoid this kind of problems I decided
+    to include an ID column.
+
 Mnemocards uses a configuration file named `mnemocards.yaml` to define the
-steps that will be used to process the flashcards. In this file, you can
+steps that will be used to process our flashcards. In this file, you can
 specify the tasks that you want to use, the order in which they will be
 executed, and any necessary parameters.
 
-Here's an example of a simple configuration file that reads in a CSV file
-containing flashcard data, and then generates an Anki APKG package:
+Here is an example of a simple configuration file that reads in a CSV file
+containing vocabulary data, and then generates an Anki APKG package:
 
-```yaml
+```yaml title="mnemocards.yaml"
 steps:
-  - type: ReadFile
-    path: flashcards.csv
-  - type: Anki
+  # Read a CSV file with our spanish vocabulary.
+  - type: ReadCsv
+    path: vocabulary.csv
+  # Tag the generated notes and assign them to an Anki deck.
+  - type: mnemocards_anki.Configure
+    tags: spanish, languages
     deck:
-      name: My Flashcards
-      id: b45f6d48-d1ab-4d0e-80a9-08a2ab473a41
-    note_type:
-      type: BasicNoteType
-  - type: Package
+      name: Spanish
+      id: 429d2604-ca8a-4c0a-9b03-38d1df5b9af7
+    note_type: mnemocards_anki.VocabularyNoteType
+  # Pronounce the spanish words using Google Translator.
+  - type: mnemocards_anki.Pronounce
+    language: es
+    attribute_to_pronounce: language_you_learn_word
+  # Save the Anki package.
+  - type: mnemocards_anki.Package
+  # Show the generated tasks in the terminal.
+  # Do not print the note id, the note_type and the deck to avoid cluttering the terminal.
+  - type: Print
+    ignore_regex: id|note_type|deck
+  # Show some stats of the generation process.
+  - type: Stats
 ```
 
-In this example, the first step reads in a CSV file called "flashcards.csv", the second step generates an Anki package with a deck named "My Flashcards" and a specific id, and the last step creates the APKG package.
-
-You can run the configuration file using the mnemocards command:
+You can run the configuration file using the following command:
 
 ```cmd
 $ mnemocards run mnemocards.yml
 ```
 
-This will execute the steps in the configuration file, and create the Anki APKG package.
+This will execute the steps in the configuration file, and will generate an
+Anki package named `out.apkg` by default. The generated file is in the same
+directory as your `mnemocards.yaml`.
 
-You can also use the package to export your flashcards to other flashcard apps like Quizlet by adding a Quizlet task to the configuration file and providing the necessary credentials.
+If you import the `apkg` file to Anki you can start studying Spanish:
 
-With Mnemocards, you can customize the flashcard generation process to suit your needs and easily collaborate with others. Give it a try and see how it can help you learn more efficiently!
+<img src="https://guiferviz.com/mnemocards/images/hello_hola_note.png"
+     alt="Mnemocards generated vocabulary card"
+     width="400">
+
+
+## 🤓 What is next?
+
+If you have come this far, it is because you may have found this project
+interesting. Consider visiting the
+[documentation](https://guiferviz.com/mnemocards), in particular the
+[examples](https://guiferviz.com/mnemocards/examples) section to learn more.
+
+As mentioned above, Mnemocards is fully extensible, so any data source you miss
+or any processing or analysis you want to do on your cards is more than
+welcome. Feel free to [post your
+idea](https://github.com/guiferviz/mnemocards/discussions/categories/ideas) to
+start a discussion. Do not worry if you do not know how to program, there may
+be someone who can do it for you.
+
+Enjoy learning!!!

@@ -16,9 +16,9 @@ theme:
       # - navigation.sections  # Expand sections 1 level.
       # - content.code.annotate
       # - content.tabs.link
-      # - navigation.expand  # Expand sections automatically.
-      # - navigation.instant
-      # - navigation.top
+      - navigation.expand  # Expand sections automatically.
+      - navigation.instant  # Load content without fully reloading the page.
+      - navigation.top  # Back to top bottom
       # - navigation.tracking
       # - search.highlight
       # - search.share
@@ -41,6 +41,7 @@ theme:
         name: Switch to light mode
 
 plugins:
+    - section-index  # index.md in subfolders.
     - tags:
         tags_file: tags.md
     - search
@@ -118,8 +119,11 @@ nav:
     - Overview: index.md
     - FAQ: faq.md
     - Examples:
+      - 'examples/index.md'
+      - examples/custom_anki_note.md
       - examples/markdown_card_fence.md
       - examples/plugins.md
+      - examples/pronunciation.md
     - API:
       - mnemocards: apis/mnemocards.md
       - mnemocards_anki: apis/mnemocards_anki.md
