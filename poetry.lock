@@ -901,6 +901,21 @@ files = [
 ]
 
 [[package]]
+name = "mkdocs-section-index"
+version = "0.3.5"
+description = "MkDocs plugin to allow clickable sections that lead to an index page"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "mkdocs_section_index-0.3.5-py3-none-any.whl", hash = "sha256:1f6359287b0a823d6297cf1cb6c0a49ed75851d0d1cea8b425b207a45ce10141"},
+    {file = "mkdocs_section_index-0.3.5.tar.gz", hash = "sha256:fa8b1ce0649326b1873c6460c1df2bb0c4825fd21e3dd416f13ec212d31edf12"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.0.3"
+
+[[package]]
 name = "mkdocstrings"
 version = "0.21.2"
 description = "Automatic documentation from sources, for MkDocs."
@@ -1927,4 +1942,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7f3e1acda0571c468ea4f419e525e97620d638d36aebfc08494c2b1bbe792c53"
+content-hash = "3b917654bc773ff293f1eff6c16355f403223edd52be8a1814b40923fffb5fc4"

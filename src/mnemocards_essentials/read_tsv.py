@@ -2,7 +2,7 @@ import csv
 import itertools
 from typing import Any, Iterable
 
-from mnemocards import NoteDict, PydanticTask
+from mnemocards import NoteDict, Path, PydanticTask
 
 
 class ReadTsv(PydanticTask):
@@ -17,7 +17,7 @@ class ReadTsv(PydanticTask):
         options: Extra parameters to pass to the python `csv.DictReader`.
     """
 
-    path: str
+    path: Path
     options: dict[str, Any] = {}
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:

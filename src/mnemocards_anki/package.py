@@ -5,7 +5,7 @@ from typing import Dict, List
 import genanki
 import pydantic
 
-from mnemocards import NoteDict, PydanticTask
+from mnemocards import NoteDict, Path, PydanticTask
 from mnemocards_anki import models
 from mnemocards_anki.models import Deck, NoteType
 from mnemocards_anki.utils import get_hash_id
@@ -24,7 +24,13 @@ class NoteID(genanki.Note):
 
 
 class Package(PydanticTask):
-    path: str = "out.apkg"
+    """Create an Anki package.
+
+    Attributes:
+        path: Path (directory + filename) of the output `*.apkg` file.
+    """
+
+    path: Path = Path("out.apkg")
     _notes: Dict[Deck, Dict[NoteType, List[NoteDict]]] = pydantic.PrivateAttr(
         defaultdict(lambda: defaultdict(lambda: []))
     )
@@ -73,4 +79,4 @@ class Package(PydanticTask):
                     media_files.extend(i["media_files"])
             genanki_decks.append(genanki_deck)
         package = genanki.Package(genanki_decks, media_files)
-        package.write_to_file(self.path)
+        package.write_to_file(str(self.path))

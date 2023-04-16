@@ -16,9 +16,9 @@ theme:
       # - navigation.sections  # Expand sections 1 level.
       # - content.code.annotate
       # - content.tabs.link
-      # - navigation.expand  # Expand sections automatically.
-      # - navigation.instant
-      # - navigation.top
+      - navigation.expand  # Expand sections automatically.
+      - navigation.instant  # Load content without fully reloading the page.
+      - navigation.top  # Back to top bottom
       # - navigation.tracking
       # - search.highlight
       # - search.share
@@ -41,6 +41,7 @@ theme:
         name: Switch to light mode
 
 plugins:
+    - section-index  # index.md in subfolders.
     - tags:
         tags_file: tags.md
     - search
@@ -54,7 +55,7 @@ plugins:
           python:
             options:
               show_source: true
-              show_if_no_docstring: true
+              show_if_no_docstring: false
               docstring_style: google
 
 markdown_extensions:
@@ -118,11 +119,14 @@ nav:
     - Overview: index.md
     - FAQ: faq.md
     - Examples:
+      - 'examples/index.md'
+      - examples/custom_anki_note.md
       - examples/markdown_card_fence.md
       - examples/plugins.md
+      - examples/pronunciation.md
     - API:
       - mnemocards: apis/mnemocards.md
-      - mnemocards_essentials: apis/mnemocards_essentials.md
       - mnemocards_anki: apis/mnemocards_anki.md
+      - mnemocards_essentials: apis/mnemocards_essentials.md
     - Changes: changelog.md
     - Contributing: contributing.md

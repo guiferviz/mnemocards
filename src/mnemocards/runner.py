@@ -14,8 +14,9 @@ logger = logging.getLogger(__name__)
 
 
 def create_and_run_task(directory: types.PathLike, filename: str):
-    task_config = create_task(directory, filename)
+    directory = pathlib.Path(str(directory)).absolute()
     with utils.use_cwd(directory):
+        task_config = create_task(directory, filename)
         run_task(task_config)
 
 
@@ -33,14 +34,15 @@ def read_task_config(
 
 def create_task(
     directory: types.PathLike,
-    filename: str,
+    filename: str = "mnemocards.yaml",
     default_task: str = "mnemocards_essentials.Pipeline",
 ) -> Task:
     full_path, data = read_task_config(directory, filename)
     data.setdefault("type", default_task)
     task = None
     try:
-        task = utils.ClassModel(**data).to_object()
+        with utils.use_cwd(full_path.parent):
+            task = utils.ClassModel(**data).to_object()
     except pydantic.ValidationError as e:
         error_message = e.__context__ or e
         Console().print(

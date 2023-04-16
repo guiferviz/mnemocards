@@ -3,7 +3,7 @@ from typing import Iterable
 
 import yaml
 
-from mnemocards import NoteDict, PydanticTask
+from mnemocards import NoteDict, Path, PydanticTask
 
 
 class ReadYaml(PydanticTask):
@@ -13,7 +13,7 @@ class ReadYaml(PydanticTask):
         path: Path (directory + filename) of the YAML file to read.
     """
 
-    path: str
+    path: Path
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:
         content = open(self.path, "r").read()

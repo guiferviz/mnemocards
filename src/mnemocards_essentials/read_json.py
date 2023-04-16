@@ -2,7 +2,7 @@ import itertools
 import json
 from typing import Iterable
 
-from mnemocards import NoteDict, PydanticTask
+from mnemocards import NoteDict, Path, PydanticTask
 
 
 class ReadJson(PydanticTask):
@@ -12,7 +12,7 @@ class ReadJson(PydanticTask):
         path: Path (directory + filename) of the JSON file to read.
     """
 
-    path: str
+    path: Path
 
     def process(self, notes: Iterable[NoteDict]) -> Iterable[NoteDict]:
         file = open(self.path, "r")
